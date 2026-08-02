@@ -533,7 +533,7 @@
       (IN ROOMS)
       (DESC "Mort Fin")
       (LDESC
-"Vous êtes arrivés au bout de deux passages adjacents à l'ouest et au nord-ouest.")
+"Vous êtes arrivé au bout de deux passages contigus, à l'ouest et au nord-ouest.")
       (WEST TO DAMP-PASSAGE)
       (NW TO MSTAIRS)
       (FLAGS RLANDBIT)>
@@ -703,7 +703,7 @@ le Frobozz Magic Boat Co., etc.|
 
 <OBJECT BLACK-PANEL
 	(IN IN-MIRROR)
-	(DESC "noir panneau")
+	(DESC "panneau noir")
 	(SYNONYM WALL PANEL)
 	(ADJECTIVE BLACK)
 	(FLAGS NDESCBIT)
@@ -845,7 +845,7 @@ le Frobozz Magic Boat Co., etc.|
 
 <OBJECT WHITE-PANEL
 	(IN IN-MIRROR)
-	(DESC "blanc panneau")
+	(DESC "panneau blanc")
 	(SYNONYM PANEL WALL)
 	(ADJECTIVE WHITE)
 	(FLAGS NDESCBIT)
@@ -918,7 +918,7 @@ le Frobozz Magic Boat Co., etc.|
 	 <SETG P-IT-OBJECT <>>
 	 <COND (<NOT <FSET? ,HERE ,TOUCHBIT>>
 		<TELL
-"Comme dans un rêve, vous vous voyez dévaler un immense escalier obscur. Autour de vous défilent les ombres de combats contre des adversaires féroces et de pièges diaboliques. Puis viennent d'autres images : d'imposantes statues de pierre, un lac limpide et frais, et enfin un homme âgé, pourtant étrangement jeune. Il se tourne lentement vers vous, ses longs cheveux argentés dansant dans une brise légère. \"Vous avez atteint l'épreuve finale, mon ami ! Vous avez fait preuve d'intelligence et de puissance, mais cela ne suffit pas encore ! Cherchez-moi lorsque vous vous en sentirez digne !\" Le rêve se dissipe tandis que ses derniers mots résonnent dans le vide...." CR>
+"Comme dans un rêve, vous vous voyez dévaler un immense escalier obscur. Autour de vous défilent les ombres de combats contre des adversaires féroces et de pièges diaboliques. Puis viennent d'autres images : d'imposantes statues de pierre, un lac limpide et frais, et enfin un homme âgé, pourtant étrangement jeune. Il se tourne lentement vers vous, ses longs cheveux argentés dansant dans une brise légère. \"Vous avez atteint l'épreuve finale, mon ami ! Vous avez fait preuve d'intelligence et de puissance, mais cela ne suffit pas encore ! Cherchez-moi lorsque vous vous en sentirez digne !\" Le rêve se dissipe tandis que ses derniers mots résonnent dans le vide..." CR>
 		<CRLF>
 		<V-VERSION>
 		<CRLF>)>

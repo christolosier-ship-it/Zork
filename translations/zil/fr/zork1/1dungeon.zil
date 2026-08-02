@@ -11,7 +11,7 @@
 <OBJECT BOARD
 	(IN LOCAL-GLOBALS)
 	(SYNONYM BOARDS BOARD)
-	(DESC "carte")
+	(DESC "planche")
 	(FLAGS NDESCBIT)
 	(ACTION BOARD-F)>
 
@@ -47,7 +47,7 @@
 	(IN LOCAL-GLOBALS)
 	(SYNONYM HOUSE)
 	(ADJECTIVE WHITE BEAUTI COLONI)
-	(DESC "blanc maison")
+	(DESC "maison blanche")
 	(FLAGS NDESCBIT)
 	(ACTION WHITE-HOUSE-F)>
 
@@ -127,7 +127,7 @@
 	(IN LOWER-SHAFT)
 	(SYNONYM CAGE DUMBWAITER BASKET)
 	(ADJECTIVE LOWERED)
-	(LDESC "A la chaîne est suspendu un panier.")
+	(LDESC "Un panier est suspendu à la chaîne.")
 	(DESC "panier")
 	(FLAGS TRYTAKEBIT)
 	(ACTION BASKET-F)>
@@ -557,7 +557,9 @@
 	(FLAGS READBIT TAKEBIT BURNBIT)
 	(LDESC "Un petit dépliant est posé au sol.")
 	(TEXT
-"\"WELCOME TO ZORK!| | ZORK est un jeu d'aventure, de danger, et de basse ruse. En elle vous explorerez certains des territoires les plus étonnants jamais vus par les mortels. Aucun ordinateur ne devrait être sans un!\"")
+"\"BIENVENUE DANS ZORK !|
+|
+ZORK est un jeu d'aventure, de danger et de ruse. Vous y explorerez certains des territoires les plus étonnants jamais contemplés par des mortels. Aucun ordinateur ne devrait s'en passer !\"")
 	(SIZE 2)>
 
 <OBJECT LEAK
@@ -602,24 +604,19 @@
 	(FLAGS READBIT TAKEBIT)
 	(ACTION MATCH-FUNCTION)
 	(LDESC
-"Il y a une boîte d'allumettes dont la couverture dit \"Visit Beautiful FCD#3\" ici.")
+"Une boîte d'allumettes dont la couverture indique \"Visitez le magnifique FCD no 3\" se trouve ici.")
 	(SIZE 2)
 	(TEXT
 "|
-(Fermer le couvercle avant de frapper)|
+(Refermez le couvercle avant de gratter l'allumette)|
 |
-VOUS aussi pouvez gagner BEAUCOUP D'ARGENT dans le domaine passionnant du PAPER SHUFFLING !|
+VOUS aussi, gagnez BEAUCOUP D'ARGENT dans le domaine passionnant de la PAPERASSERIE !|
 |
-M. Anderson de Muddle, Massachusetts dit : « Avant de suivre ce cours, je
-C'était un humble petit fouineur. Maintenant avec ce que j'ai appris à GUE Tech
-Je me sens vraiment important et je peux obscurcir et confondre avec les meilleurs. \"|
+M. Anderson, de Muddle (Massachusetts), témoigne : \"Avant cette formation, je n'étais qu'un humble tripatouilleur de bits. Grâce à ce que j'ai appris à GUE Tech, je me sens désormais important et je peux embrouiller les choses comme les meilleurs.\"|
 |
-Le Dr Blank a déclaré ceci : « Il y a dix jours à peine, tout ce que je pouvais regarder
-j'attendais avec impatience un travail sans issue en tant que médecin. Maintenant j'ai une promesse
-l'avenir et faire de très gros zorkmids.\"|
+Le docteur Blank déclare : \"Il y a dix jours à peine, je n'avais pour seul avenir qu'un emploi sans perspective comme médecin. À présent, mon avenir est prometteur et je gagne énormément de zorkmids.\"|
 |
-GUE Tech ne peut pas promettre ces résultats fantastiques à tout le monde. Mais quand
-vous obtenez votre diplôme de GUE Tech, votre avenir sera meilleur." )>
+GUE Tech ne peut garantir à tous des résultats aussi fabuleux. Mais avec un diplôme de GUE Tech, votre avenir sera plus radieux." )>
 
 <OBJECT MIRROR-2
 	(IN MIRROR-ROOM-2)
@@ -718,7 +715,7 @@ vous obtenez votre diplôme de GUE Tech, votre avenir sera meilleur." )>
 	(IN END-OF-RAINBOW)
 	(SYNONYM POT GOLD TREASURE)
 	(ADJECTIVE GOLD)
-	(DESC "pot de or")
+	(DESC "pot d'or")
 	(FLAGS TAKEBIT INVISIBLE)
 	(FDESC "Au bout de l'arc-en-ciel se trouve un pot d'or.")
 	(SIZE 15)
@@ -760,7 +757,7 @@ vous obtenez votre diplôme de GUE Tech, votre avenir sera meilleur." )>
 	(IN RIVER-4)
 	(SYNONYM BUOY)
 	(ADJECTIVE RED)
-	(DESC "rouge bouée")
+	(DESC "bouée rouge")
 	(FLAGS TAKEBIT CONTBIT)
 	(FDESC "Il y a une bouée rouge ici (probablement un avertissement).")
 	(CAPACITY 20)
@@ -921,7 +918,22 @@ vous obtenez votre diplôme de GUE Tech, votre avenir sera meilleur." )>
 	(FLAGS READBIT TAKEBIT BURNBIT)
 	(SIZE 2)
 	(TEXT
-"!!!!FROBAZZ MAGIC BOAT COMPANY!!!!| | Bonjour, Sailor!| | Instructions pour l'utilisation:| | Pour entrer dans un plan d'eau, dites \"Launch\".| Pour accéder au rivage, dites \"Land\" ou dans la direction dans laquelle vous voulez manœuvrer le bateau.| | Garantie:| | Ce bateau est garanti contre tous les défauts pour une période de 76 millisecondes à partir de la date d'achat ou jusqu'à la première utilisation, selon le cas.| | Avertissement:| Ce bateau est en plastique fin.| Bonne chance!" )>
+" !!!! COMPAGNIE DES BATEAUX MAGIQUES FROBOZZ !!!!|
+|
+Bonjour, marin !|
+|
+Mode d'emploi :|
+|
+   Pour mettre le bateau à l'eau, tapez \"METTRE LE BATEAU À L'EAU\".|
+   Pour rejoindre la rive, tapez \"ACCOSTER\" ou indiquez la direction dans laquelle vous souhaitez manœuvrer le bateau.|
+|
+Garantie :|
+|
+  Ce bateau est garanti contre tout défaut pendant 76 millisecondes à compter de la date d'achat, ou jusqu'à sa première utilisation si celle-ci survient avant.|
+|
+Avertissement :|
+   Ce bateau est fabriqué en plastique mince.|
+   Bonne chance !" )>
 
 <OBJECT THIEF
 	(IN ROUND-ROOM)
@@ -1025,7 +1037,8 @@ sur votre droite que...." )>
 	(CAPACITY 7)
 	(SIZE 5)
 	(TEXT
-"---> Frobozz Magic Gunk Company <----| Gunk tout-terrain")>
+"---> Compagnie de pâte magique Frobozz <---|
+	  Pâte à tout faire")>
 
 <OBJECT PUTTY
 	(IN TUBE)
@@ -1040,7 +1053,7 @@ sur votre droite que...." )>
 	(IN ENGRAVINGS-CAVE)
 	(SYNONYM WALL ENGRAVINGS INSCRIPTION)
 	(ADJECTIVE OLD ANCIENT)
-	(DESC "mur avec gravures")
+	(DESC "mur couvert de gravures")
 	(FLAGS READBIT SACREDBIT)
 	(LDESC "Il y a de vieilles gravures sur les murs ici.")
 	(TEXT
@@ -1068,14 +1081,14 @@ sur votre droite que...." )>
 	(IN LOCAL-GLOBALS)
 	(SYNONYM CLIFF CLIFFS)
 	(ADJECTIVE WHITE)
-	(DESC "blanc falaises")
+	(DESC "falaises blanches")
 	(FLAGS NDESCBIT CLIMBBIT)
 	(ACTION WCLIF-OBJECT)>
 
 <OBJECT WRENCH
 	(IN MAINTENANCE-ROOM)
 	(SYNONYM WRENCH TOOL TOOLS)
-	(DESC "clé")
+	(DESC "clé à molette")
 	(FLAGS TAKEBIT TOOLBIT)
 	(SIZE 10)>
 
@@ -1376,7 +1389,7 @@ sur votre droite que...." )>
       (IN ROOMS)
       (DESC "Salon")
       (EAST TO KITCHEN)
-      (WEST TO STRANGE-PASSAGE IF MAGIC-FLAG ELSE "La porte est clouée fermé.")
+      (WEST TO STRANGE-PASSAGE IF MAGIC-FLAG ELSE "La porte est condamnée par des clous.")
       (DOWN PER TRAP-DOOR-EXIT)
       (ACTION LIVING-ROOM-FCN)
       (FLAGS RLANDBIT ONBIT SACREDBIT)
@@ -2031,7 +2044,7 @@ sur votre droite que...." )>
 <ROOM DAM-LOBBY	;"was LOBBY"
       (IN ROOMS)
       (LDESC
-"Cette salle semble avoir été la salle d'attente pour les groupes qui visitent le barrage. Il y a des portes ouvertes ici au nord et à l'est marqués \"Privé\", et il y a un sentier menant au sud au-dessus du sommet du barrage.")
+"Cette salle semble avoir servi de salle d'attente aux groupes visitant le barrage. Des portes ouvertes au nord et à l'est portent la mention \"Privé\" ; un chemin part vers le sud en passant sur le sommet du barrage.")
       (DESC "Hall du barrage")
       (SOUTH TO DAM-ROOM)
       (NORTH TO MAINTENANCE-ROOM)
@@ -2287,7 +2300,7 @@ sur votre droite que...." )>
       (LDESC
 "Il s'agit d'une grande pièce, au milieu de laquelle se trouve un petit arbre descendant à travers le sol dans l'obscurité en dessous. A l'ouest et au nord sont des sorties de cette pièce. Construit au-dessus du sommet de l'arbre est un cadre métallique auquel est attachée une chaîne de fer lourde.")
       (DESC "Salle de l'arbre")
-      (DOWN "Vous ne rentreriez pas et mourriez si vous pourrait.")
+      (DOWN "Vous ne pourriez pas y passer ; même si vous le pouviez, vous mourriez.")
       (WEST TO BAT-ROOM)
       (NORTH TO SMELLY-ROOM)
       (FLAGS RLANDBIT)

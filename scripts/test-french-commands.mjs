@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { translateFrenchCommand } from '../src/french-commands.js';
 
-const CASES = new Map([
+const CASES = [
   ['observer', 'look'],
   ['prendre la lampe', 'take lamp'],
   ['ouvrir la boîte aux lettres', 'open mailbox'],
@@ -18,10 +18,19 @@ const CASES = new Map([
   ['ouvrir le coffre à bijoux', 'open trunk'],
   ['examiner le cadran solaire', 'examine dial'],
   ['prendre la couronne voyante', 'take crown'],
-]);
+  ['prendre la planche', 'take board', 'zork1'],
+  ['examiner le miroir', 'examine mirror', 'zork1'],
+  ['tourner la clé à molette', 'turn wrench', 'zork1'],
+  ['prendre la carte', 'take card', 'zork2'],
+  ['examiner les gravures', 'examine etchings', 'zork2'],
+  ['lire la brochure bancaire', 'read brochure', 'zork2'],
+  ['ouvrir le coffre', 'open chest', 'zork3'],
+  ['examiner le panneau', 'examine panel', 'zork3'],
+  ['mettre le bateau à l’eau', 'launch boat'],
+];
 
-for (const [french, english] of CASES) {
-  assert.equal(translateFrenchCommand(french), english, french);
+for (const [french, english, gameId] of CASES) {
+  assert.equal(translateFrenchCommand(french, gameId), english, french);
 }
 
-console.log(`✓ Commandes françaises : ${CASES.size} formulations vérifiées.`);
+console.log(`✓ Commandes françaises : ${CASES.length} formulations vérifiées.`);

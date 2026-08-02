@@ -352,7 +352,7 @@
 		       <TELL "La chaleur de la cloche est trop intense." CR>)>)
 	       (<VERB? POUR-ON>
 		<REMOVE-CAREFULLY ,PRSO>
-		<TELL "L'eau refroidit la cloche et est évaporé." CR>
+		<TELL "L'eau refroidit la cloche et s'évapore." CR>
 		<QUEUE I-XBH 0>
 		<I-XBH>)
 	       (<VERB? RING>
@@ -512,9 +512,9 @@
 	 <COND (<VERB? EXAMINE>
 		<TELL "La cheminée mène ">
 		<COND (<==? ,HERE ,KITCHEN>
-		       <TELL "bas">)
-		      (T <TELL "haut">)>
-		<TELL "vers, et semble grimpable." CR>)>>
+		       <TELL "vers le bas">)
+		      (T <TELL "vers le haut">)>
+		<TELL ", et paraît praticable." CR>)>>
 
 <ROUTINE UP-CHIMNEY-FUNCTION ("AUX" F)
   <COND (<NOT <SET F <FIRST? ,WINNER>>>
@@ -728,7 +728,7 @@
 		      <TELL
 "En dérangeant le tas de feuilles, une grille se révèle." CR>)
 		     (T <TELL
-"Avec les feuilles déplacées, une grille est révélé." CR>)>
+"Une fois les feuilles écartées, une grille apparaît." CR>)>
 	       <FCLEAR ,GRATE ,INVISIBLE>
 	       <SETG GRATE-REVEALED T>)>
 	<>>
@@ -962,7 +962,7 @@
 <ROUTINE DOME-ROOM-FCN (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Vous êtes à la périphérie d'un grand dôme, qui forme le plafond d'une autre pièce ci-dessous. Vous protéger d'une goutte précipitée est une rampe en bois qui entoure le dôme." CR>
+"Vous vous trouvez au bord d'un grand dôme qui forme le plafond d'une autre salle, en contrebas. Une balustrade en bois entourant le dôme vous protège d'une chute vertigineuse." CR>
 		<COND (,DOME-FLAG
 		       <TELL
 "Suspendre de la rampe est une corde qui se termine à environ dix pieds du plancher en dessous." CR>)>)
@@ -1684,7 +1684,7 @@ destin hideux, peut être entendu." CR>
 		       <RTRUE>)
 		      (T
 		       <TELL
-"Un gentleman \"lean et affamé\" vient de s'égarer, portant un grand sac. Ne trouvant rien de valeur, il a laissé mécontent." CR>
+"Un individu \"maigre et affamé\" vient de passer, chargé d'un grand sac. N'ayant rien trouvé de valeur, il est reparti dépité." CR>
 		       <RTRUE>)>)>)
 	(T
 	 <COND (.HERE?			;"Here, already announced."
@@ -2205,7 +2205,7 @@ destin hideux, peut être entendu." CR>
 				     <TELL " Il fait vraiment noir ici....">)>
 			      <CRLF>
 			      <RTRUE>)
-			     (T <TELL "Les bougies ne sont pas éclairés." CR>)>)
+			     (T <TELL "Les bougies ne sont pas allumées." CR>)>)
 		      (<AND <VERB? PUT> <FSET? ,PRSI ,BURNBIT>>
 		       <TELL "Ce ne serait pas intelligent." CR>)
 		      (<VERB? EXAMINE>
@@ -2426,7 +2426,7 @@ destin hideux, peut être entendu." CR>
 "Un arc-en-ciel solide enjambe les chutes.">)
 		 (T
 		  <TELL
-"Un magnifique arc-en-ciel peut être vu au-dessus des chutes et jusqu'au ouest.">)>
+"Un magnifique arc-en-ciel est visible au-dessus des chutes, vers l'ouest.">)>
 	   <CRLF>)>>
 
 <ROUTINE RAINBOW-FCN ()
@@ -3610,7 +3610,7 @@ destin hideux, peut être entendu." CR>
 						    <RETURN>)>)>)>>)>
 		<COND (<EQUAL? .NG .G> <RFALSE>)
 		      (<EQUAL? .NG 2>
-		       <TELL "Votre épée a commencé à briller très fort." CR>)
+		       <TELL "Votre épée s'est mise à briller d'un éclat intense." CR>)
 		      (<1? .NG>
 		       <TELL "Votre épée brille d'un bleu pâle brille."
 			     CR>)
@@ -3897,7 +3897,7 @@ destin hideux, peut être entendu." CR>
 	       (<VERB? RAISE LOWER>
 		<TELL "Peut-être devriez-vous faire cela avec le panier." CR>)
 	       (<VERB? EXAMINE>
-		<TELL "La chaîne sécurise un panier dans le arbre." CR>)>> 
+		<TELL "La chaîne retient un panier à l'intérieur du puits." CR>)>>
 
 <ROUTINE TROLL-ROOM-F (RARG)
 	 <COND (<AND <EQUAL? .RARG ,M-ENTER>

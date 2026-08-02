@@ -1,0 +1,24 @@
+{
+  "gverbs.zil": [
+    {
+      "source": "<TELL \"The \" D ,PRSO \" is now on.\" CR>",
+      "replacement": "<TELL \"Source lumineuse allumée.\" CR>"
+    },
+    {
+      "source": "<TELL \"The \" D ,PRSO \" is now off.\" CR>",
+      "replacement": "<TELL \"Source lumineuse éteinte.\" CR>"
+    },
+    {
+      "source": "<TELL \"The \" D ,PRSO \" is now closed.\" CR>",
+      "replacement": "<TELL \"Fermeture effectuée.\" CR>"
+    },
+    {
+      "source": "<TELL \"The \" D ,PRSO \" opens.\" CR>",
+      "replacement": "<TELL \"Ouverture effectuée.\" CR>"
+    },
+    {
+      "source": "<TELL \"Opening the \" D ,PRSO \" reveals \">",
+      "replacement": "<TELL \"En l'ouvrant, vous découvrez \">"
+    }
+  ]
+}

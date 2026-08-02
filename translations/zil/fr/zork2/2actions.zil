@@ -28,7 +28,7 @@
 						    <RETURN>)>)>)>>)>
 		<COND (<EQUAL? .NG .G> <RFALSE>)
 		      (<EQUAL? .NG 2>
-		       <TELL "Votre épée a commencé à briller très fort." CR>)
+		       <TELL "Votre épée s'est mise à briller d'un éclat intense." CR>)
 		      (<1? .NG>
 		       <TELL "Votre épée brille d'un bleu pâle brille."
 			     CR>)
@@ -481,7 +481,7 @@
 "Vous êtes sur un large rebord haut dans le volcan. La bordure du volcan est à environ 200 pieds au-dessus et il ya une goutte précipitée au fond.">
 	   <COND (<FSET? ,SAFE-ROOM ,RMUNGBIT>
 		  <TELL " Le chemin vers le sud est bloqué par des décombres." CR>)
-		 (T <TELL " Il y a une petite porte donnant sur le au sud." CR>)>)>>
+		 (T <TELL " Une petite porte s'ouvre au sud." CR>)>)>>
 
 ;<ROUTINE BLAST () ;"APPARENTLY UNUSED?"
     <COND (<EQUAL? ,HERE ,SAFE-ROOM>)
@@ -580,7 +580,7 @@
 		       <TELL "ouvert.">)
 		      (T <TELL "fermé.">)>
 		<TELL
-" Au-dessus de la porte se trouve l'inscription énigmatique : \"Feel Free\"." CR>)>>
+" Au-dessus de la porte figure cette inscription énigmatique : \"N'hésitez pas à toucher\"." CR>)>>
 
 <ROUTINE CRYPT-ROOM-FCN (RARG "AUX" CLIT?)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
@@ -947,7 +947,13 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	 <COND (<VERB? EXAMINE READ>
 		<FIXED-FONT-ON>
 		<TELL
-"Frobozz Magic Candy Company| >> Assortiment spécial<<| Candied Grasshoppers| Chocolated Ants| Worms Glacee| (En nomination à Sa Majesté, Dimwit I)|">
+"       Compagnie des confiseries magiques Frobozz|
+         >> Assortiment spécial <<|
+          Sauterelles confites|
+          Fourmis au chocolat|
+              Vers glacés|
+(Fournisseur attitré de Sa Majesté Nigaud Ier)|
+">
 		<FIXED-FONT-OFF>
 		<RTRUE>)
 	       (<VERB? EAT OPEN>
@@ -1325,7 +1331,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
     <SETG SCOL-ACTIVE <>>
     <COND (<EQUAL? ,HERE ,VAULT>
 	   <JIGS-UP
-"Une voix métallique dit \"Bonjour, Intrus ! Votre présence non autorisée dans le coffre de la Banque de Zork a déclenché toutes sortes de mauvaises surprises, dont la plupart sont fatales. Ce message vous a été transmis par la Frobozz Magic Vault Company.\"">)
+"Une voix métallique annonce : \"Bonjour, intrus ! Votre présence non autorisée dans la chambre forte de la Banque de Zork a déclenché toutes sortes de mauvaises surprises, dont la plupart sont mortelles. Ce message vous est offert par la Compagnie des chambres fortes magiques Frobozz.\"">)
 	  (<EQUAL? ,HERE ,VIEWING-EAST ,VIEWING-WEST ,SMALL-ROOM>
 	   <TELL "Vous entendez une voix faible dire \"Porte du rideau fermée.\"" CR>
 	   <COND (<EQUAL? ,HERE ,SMALL-ROOM>
@@ -2525,7 +2531,7 @@ D .V " à la place." CR>
 	<TABLE "sud" DRAGON-ROOM "nord" P?SOUTH
 	       "est" LEDGE-TUNNEL "ouest" P?EAST
 	       "est" RAVINE-LEDGE "ouest" P?EAST
-	       "bas" DEEP-FORD "haut" P?DOWN
+	       "vers le bas" DEEP-FORD "vers le haut" P?DOWN
 	       "sud" MARBLE-HALL "nord" P?SOUTH
 	       "est" STREAM-PATH "ouest" P?EAST
 	       "est" FORMAL-GARDEN "ouest" P?EAST
@@ -2723,7 +2729,7 @@ D .V " à la place." CR>
 		<COND (<NOT ,WIZ-DOOR-FLAG>
 		       <TELL "Elle est déjà verrouillée." CR>)
 		      (<EQUAL? ,PRSI ,GOLD-KEY>
-		       <TELL "La porte est maintenant verrouillé." CR>
+		       <TELL "La porte est désormais verrouillée." CR>
 		       <SETG WIZ-DOOR-FLAG <>>
 		       <RTRUE>)
 		      (T <TELL "Cela ne le verrouillera pas." CR>)>)
@@ -3158,7 +3164,7 @@ D .V " à la place." CR>
 "Le Magicien apparaît, flottant inconsidérément dans l'air à côté de vous." CR>)
 		      (T
 		       <TELL
-"Un étrange petit homme dans un long manteau apparaît soudainement dans la pièce. Il porte un chapeau pointu haut brodé de signes astrologiques. Il a une longue barbe à cordes et non kempt." CR>)>
+"Un étrange petit homme vêtu d'une longue cape apparaît soudain dans la pièce. Il porte un haut chapeau pointu brodé de signes astrologiques. Sa barbe est longue, filasse et négligée." CR>)>
 		<COND (<IN? ,PALANTIR-4 ,ADVENTURER>
 		       <COND (,LIT
 			      <TELL
@@ -3186,7 +3192,7 @@ D .V " à la place." CR>
 		<SET CAST-PROB <- 80 <* .PCNT 20>>>
 		<COND (,LIT
 		       <TELL
-"Le Magicien tire sa baguette et l'onde dans votre direction. Il commence à briller avec une lueur bleu pâle." CR>)
+"Le Magicien sort sa baguette et la brandit dans votre direction. Elle se met à émettre une faible lueur bleue." CR>)
 		      (ELSE
 		       <TELL
 "Soudain, illuminé par la lueur bleu pâle d'une baguette magique pointée dans votre direction, vous voyez le Magicien !" CR>)>
@@ -3268,7 +3274,7 @@ D .V " à la place." CR>
 		      (T
 		       <MOVE ,WIZARD ,HERE>
 		       <TELL
-"Le Magicien semble sur le point de dire quelque chose, mais il y pense mieux, et s'approche de vous sous ses sourcils touffus." CR>)>)>>
+"Le Magicien semble sur le point de parler, puis se ravise et vous observe sous ses sourcils broussailleux." CR>)>)>>
 
 <GLOBAL SPELL? <>>
 
@@ -3509,7 +3515,7 @@ D .V " à la place." CR>
 
 <GLOBAL FANTASIES
 	<LTABLE "tas de bijoux" "or lingot" "basilic"
-		"poitrine bombée" "jaune sphère" "grue"
+		"poitrine bombée" "sphère jaune" "grue"
 		"convention des sorciers" "copie de ZORK Je">>
 
 ^/L

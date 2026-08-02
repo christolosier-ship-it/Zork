@@ -305,12 +305,12 @@ Version ">
 				       <NOT <GLOBAL-IN? ,PRSO <GETB .TX 0>>>>>
 			      <TELL "Le " D .OBJ " ne">
 			      <COND (<NOT <EQUAL? .OBJ ,STAIRS>>
-				     <TELL "es">)>
-			      <TELL "ne mène pas ">
+				     <TELL "">)>
+			      <TELL " mène pas ">
 			      <COND (<==? .DIR ,P?UP>
-				     <TELL "haut">)
-				    (T <TELL "bas">)>
-			      <TELL "ward." CR>
+				     <TELL "vers le haut">)
+				    (T <TELL "vers le bas">)>
+			      <TELL "." CR>
 			      <RTRUE>)>)>
 		<DO-WALK .DIR>
 		<RTRUE>)
@@ -347,7 +347,7 @@ Version ">
 	       (<FSET? ,PRSO ,DOORBIT>
 		<COND (<FSET? ,PRSO ,OPENBIT>
 		       <FCLEAR ,PRSO ,OPENBIT>
-		       <TELL "Le " D ,PRSO " est maintenant fermé." CR>)
+		       <TELL "Fermeture effectuée." CR>)
 		      (T
 	 	       <TELL "Il est déjà fermé." CR>)>)
 	       (T
@@ -771,7 +771,7 @@ D ,PRSO "." CR>)>)
 		       <FCLEAR ,PRSO ,ONBIT>
 		       <COND (,LIT
 			      <SETG LIT <LIT? ,HERE>>)>
-		       <TELL "Le " D ,PRSO " est maintenant éteint." CR>
+		       <TELL "Source lumineuse éteinte." CR>
 		       <COND (<NOT ,LIT>
 			      <TELL "C'est maintenant le pitch noir." CR>)>)>)
 	       (T
@@ -784,7 +784,7 @@ D ,PRSO "." CR>)>)
 		       <TELL "Il est déjà allumé." CR>)
 		      (T
 		       <FSET ,PRSO ,ONBIT>
-		       <TELL "Le " D ,PRSO " est maintenant allumé." CR>
+		       <TELL "Source lumineuse allumée." CR>
 		       <COND (<NOT ,LIT>
 			      <SETG LIT <LIT? ,HERE>>
 			      <CRLF>
@@ -970,17 +970,17 @@ D ,PRSO "." CR>)>)
 				   <NOT <NEXT? .F>>
 				   <NOT <FSET? .F ,TOUCHBIT>>
 				   <SET STR <GETP .F ,P?FDESC>>>
-			      <TELL "Le " D ,PRSO " s'ouvre." CR>
+			      <TELL "Ouverture effectuée." CR>
 			      <TELL .STR CR>)
 			     (T
-			      <TELL "L'ouverture du " D ,PRSO " révèle ">
+			      <TELL "En l'ouvrant, vous découvrez ">
 			      <PRINT-CONTENTS ,PRSO>
 			      <TELL "." CR>)>)>)
 	       (<FSET? ,PRSO ,DOORBIT>
 		<COND (<FSET? ,PRSO ,OPENBIT>
 		       <TELL "Il est déjà ouvert." CR>)
 		      (T
-		       <TELL "Le " D ,PRSO " s'ouvre." CR>
+		       <TELL "Ouverture effectuée." CR>
 		       <FSET ,PRSO ,OPENBIT>)>)
 	       (T
 		<TELL
@@ -1376,7 +1376,7 @@ D ,PRSO " avec une arme." CR>)
 		<COND (<FSET? ,PRSO ,WEARBIT>
 		       <TELL "Vous portez maintenant le " D ,PRSO "." CR>)
 		      (T
-		       <TELL "Pris." CR>)>)>>
+		       <TELL "Objet pris." CR>)>)>>
 
 <ROUTINE V-TELL ()
 	 <COND (<FSET? ,PRSO ,ACTORBIT>
@@ -1442,7 +1442,7 @@ D ,PRSO " avec une arme." CR>)
 		       <JIGS-UP "Normalement, cela ne ferait pas beaucoup de dégâts, mais par d'incroyables malchance, vous tombez à l'envers en essayant de vous évacuer et de vous briser le cou, la justice étant rapide et miséricordieux dans le Grand Empire Souterrain.">)
 		      (<AND ,PRSI <FSET? ,PRSI ,ACTORBIT>>
 		       <TELL
-"Le " D ,PRSI " se penche alors que le " D ,PRSO " passe et s'écrase sur le au sol."
+"Le " D ,PRSI " se penche alors que le " D ,PRSO " passe en volant et s'écrase au sol."
 CR>)
 		      (T <TELL "Lancé." CR>)>)
 	       (ELSE <TELL "Hein ?" CR>)>>
@@ -1808,7 +1808,7 @@ CR>)
 		      (T
 		       '(<NULL-F> <RTRUE>))>
 	       (<EQUAL? .OBJ ,WINNER>
-		<TELL "Vous êtes portant :" CR>)
+		<TELL "Vous avez sur vous :" CR>)
 	       (<NOT <IN? .OBJ ,ROOMS>>
 		<COND (<G? .LEVEL 0>
 		       <TELL <GET ,INDENTS .LEVEL>>)>

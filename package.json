@@ -11,7 +11,7 @@
     "localize": "node scripts/localize-zil.mjs",
     "localize:vocabulary": "node scripts/generate-french-vocabulary.mjs",
     "build:stories": "node scripts/build-stories.mjs",
-    "check": "node scripts/verify.mjs && node scripts/test-french-commands.mjs && node scripts/smoke-games.mjs && node scripts/smoke-french-scenarios.mjs",
+    "check": "node scripts/verify.mjs && node scripts/audit-french-catalog.mjs && node scripts/test-french-commands.mjs && node scripts/test-french-object-vocabulary.mjs && node scripts/smoke-games.mjs && node scripts/smoke-french-scenarios.mjs",
     "test": "npm run check"
   },
   "dependencies": {

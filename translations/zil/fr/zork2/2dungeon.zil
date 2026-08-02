@@ -186,7 +186,7 @@
 <ROOM NARROW-TUNNEL
       (IN ROOMS)
       (LDESC
-"Vous êtes debout à l'extrémité sud d'un tunnel étroit où il s'ouvre dans une grande caverne. La caverne est faiblement illuminée par des mousses phosphorescentes accrochées à son haut plafond. Un ravin profond souffle à travers la caverne, avec un petit ruisseau au fond. Les murs du ravin sont raides et émiettés. Un pont de pied traverse le ravin au sud.")
+"Vous vous tenez à l'extrémité sud d'un étroit tunnel, à l'endroit où celui-ci débouche dans une vaste caverne. Des mousses phosphorescentes accrochées au plafond élevé diffusent une faible lumière. Un profond ravin serpente à travers la caverne ; un petit ruisseau coule au fond. Ses parois sont abruptes et friables. Une passerelle franchit le ravin vers le sud.")
       (DESC "Tunnel étroit")
       (FLAGS RLANDBIT ONBIT)
       (NORTH TO INSIDE-BARROW)
@@ -426,7 +426,7 @@
 	(IN DRAGON-ROOM)
 	(SYNONYM DRAGON SMAUG WORM)
 	(ADJECTIVE RED HUGE)
-	(DESC "énorme rouge dragon")
+	(DESC "énorme dragon rouge")
 	(LDESC
 "Un énorme dragon rouge est allongé ici sur les rochers, observant.")
 	(FDESC
@@ -1315,7 +1315,13 @@
 <ROOM CAGE-ROOM
        (IN ROOMS)
        (LDESC
-"C'est un placard dingy adjacent à une plus grande pièce au nord. Ciselé dans un mur sont ces mots:| | Protégé par| FROBOZ| Magic Alarm Company| (Bonjour, pied!)|| Il ne semble pas y avoir de pied de pavé ici, cependant.")
+"Ce débarras sordide jouxte une pièce plus grande au nord. Ces mots sont gravés dans un mur :|
+|
+     Protégé par la|
+       Société d'alarmes|
+     magiques FROBOZZ|
+  (Bonjour, voleur !)||
+Pourtant, aucun voleur ne semble se trouver ici.")
        (DESC "Débarras sordide")
        (OUT TO MACHINE-ROOM)
        (NORTH TO MACHINE-ROOM)
@@ -1499,7 +1505,9 @@ La sortie, ornée avec goût, se trouve à l'est.")
 	(LDESC
 "Il y a une boîte d'allumettes disant \"Visitez ZORK I\" ici.")
 	(TEXT
-"\">> Visitez Exotic ZORK I <<| | Consultez la Frobozz Magic Travel Agency, ou visitez votre magasin d'ordinateurs local pour plus de détails.\"")
+"\">> Visitez l'exotique ZORK I <<|
+|
+Consultez l'Agence de voyages magiques Frobozz ou votre revendeur informatique pour en savoir plus.\"")
 	(SIZE 2)>
 
 
@@ -1560,7 +1568,14 @@ La sortie, ornée avec goût, se trouve à l'est.")
 	(LDESC "Il y a une étiquette bleue ici.")
 	(SIZE 1)
 	(TEXT
-"!! FROBEZZ MAGIC BALLOON COMPANY !!| | Bonjour, Aviateur !| | Pour atterrir votre ballon, disons LAND| Sinon, vous êtes seul !| | Aucune garantie exprimée ou implicite.")>
+" !! COMPAGNIE DES BALLONS MAGIQUES FROBOZZ !!|
+|
+Bonjour, aéronaute !|
+|
+Pour poser votre ballon, tapez ATTERRIR.|
+Pour le reste, débrouillez-vous !|
+|
+Aucune garantie, expresse ou implicite.")>
 
 <OBJECT SAFE
 	(IN SAFE-ROOM)
@@ -1636,7 +1651,12 @@ La sortie, ornée avec goût, se trouve à l'est.")
 	(LDESC "Il y a une carte avec une écriture dessus ici.")
 	(SIZE 1)
 	(TEXT
-"Attention :| Cette pièce a été construite sur des strates rocheuses très faibles. La détonation des explosifs dans cette pièce est strictement interdite !| Frobozz Magic Cave Company| per M. Agrippa, foreman|") >
+"
+Avertissement :|
+    Cette pièce a été construite au-dessus de couches rocheuses très fragiles. Il est formellement interdit d'y faire exploser des charges !|
+         Compagnie des cavernes magiques Frobozz|
+         M. Agrippa, contremaître|
+") >
 
 <OBJECT CLOTH-BAG
 	(IN BALLOON)
@@ -1799,7 +1819,7 @@ A votre service !") >
 	(IN ALICE-TABLE)
 	(SYNONYM CAKE ICING CAKES LETTER)
 	(ADJECTIVE GREEN FROSTED)
-	(DESC "gâteau givré de vert lettres")
+	(DESC "gâteau glacé portant des lettres vertes")
 	(FLAGS READBIT TAKEBIT FOODBIT)
 	(ACTION EATME-FCN)
 	(TEXT "Le glaçage indique \"Mange-moi\".")
@@ -1861,7 +1881,7 @@ A votre service !") >
 	(SIZE 10)
 	(VALUE 20)
 	(TEXT
-"C'est une belle pièce octogonale portant les légendes \"Ten Thousand zorkmids\" et \"In Frobs We Trust\".")>
+"Cette magnifique pièce octogonale porte les inscriptions \"Dix mille zorkmids\" et \"Nous croyons en Frobs\".")>
 
 ;"      -------------------------|
       /      Gold Zorkmid        \\|
@@ -2025,14 +2045,14 @@ A votre service !") >
 <OBJECT TOP-ETCHINGS
 	(IN WELL-TOP)
 	(SYNONYM ETCHINGS WALL)
-	(DESC "mur avec gravures")
+	(DESC "mur couvert de gravures")
 	(FLAGS READBIT NDESCBIT)
 	(ACTION TOP-ETCHINGS-F)>
 
 <OBJECT BOTTOM-ETCHINGS
 	(IN WELL-BOTTOM)
 	(SYNONYM ETCHINGS WALL)
-	(DESC "mur avec gravures")
+	(DESC "mur couvert de gravures")
 	(FLAGS READBIT NDESCBIT)
 	(ACTION BOTTOM-ETCHINGS-F)>
 
@@ -2082,7 +2102,7 @@ A votre service !") >
 	 "Sur le sol se trouvent 200 billets de zorkmid soigneusement empilés.")
 	(SIZE 10)
 	(VALUE 25)
-	(TEXT "Chaque facture vaut 100 zorkmids, et porte la légende \"In Frobs We Trust\".")>
+	(TEXT "Chaque billet vaut 100 zorkmids et porte l'inscription \"Nous croyons en Frobs\".")>
 
 ;"
 ______________________________________________________________
@@ -2297,7 +2317,7 @@ ______________________________________________________________
 |
 UN CÉLÈBRE AVENTURIER PART À LA DÉCOUVERTE DU GRAND EMPIRE SOUTERRAIN|
 |
-Nos correspondants signalent qu'un aventurier mondialement connu et aguerri a été aperçu aux abords du Grand Empire Souterrain. Les grues locales auraient commencé à aiguiser leurs crocs dégoulinants....|
+Nos correspondants signalent qu'un aventurier mondialement connu et aguerri a été aperçu aux abords du Grand Empire Souterrain. Les grues locales auraient commencé à aiguiser leurs crocs dégoulinants...|
 |
 \"Zork II : Le Magicien de Frobozz\" a été écrit par Dave Lebling et Marc Blank. Copyright (c) 1981, 1982, 1983 Infocom, Inc.")>
 
@@ -2385,7 +2405,7 @@ Nos correspondants signalent qu'un aventurier mondialement connu et aguerri a é
 	(ADJECTIVE STRANGE LITTLE FROBOZZ OLD)
 	(DESC "Magicien de Frobozz")
 	(LDESC
-"Le Magicien de Frobozz est là, vous regardant avec méfiance.")
+"Le Magicien de Frobozz se trouve ici et vous examine d'un air méfiant.")
 	(FLAGS ACTORBIT CONTBIT OPENBIT)
 	(ACTION WIZARD-FCN)>
 
@@ -2413,13 +2433,17 @@ Nos correspondants signalent qu'un aventurier mondialement connu et aguerri a é
 	(IN ROOM-8)
 	(SYNONYM REPELLENT CAN)
 	(ADJECTIVE GRUE MAGIC)
-	(DESC "Frobozz Magic Grue Répulsif")
+	(DESC "Répulsif magique Frobozz contre les grues")
 	(FLAGS TAKEBIT READBIT)
 	(ACTION REPELLENT-FCN)
 	(FDESC
-"Une boîte de pulvérisation est dans le coin. Dans le grand type est la légende \"Frobozz Magic Grue Reperlent\".")
+"Une bombe aérosol se trouve dans un coin. Elle porte en gros caractères l'inscription \"Répulsif magique Frobozz contre les grues\".")
 	(TEXT
-"!!! FROBAZZ MAGIC GRUE REPELLENT !!!| | Instructions d'utilisation: Appliquer libéralement à la créature pour être protégée. La durée de l'effet est imprévisible. Utiliser seulement au lieu de la mort!| | (Aucune garantie exprimée ou implicite)")>
+"!!! RÉPULSIF MAGIQUE FROBOZZ CONTRE LES GRUES !!!|
+|
+Mode d'emploi : appliquez généreusement sur la créature à protéger. La durée de l'effet est imprévisible. À n'utiliser qu'en cas de danger mortel !|
+|
+(Aucune garantie, expresse ou implicite)")>
 
 <ROOM DEAD-PALANTIR-1
 	(IN ROOMS)

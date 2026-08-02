@@ -48,6 +48,7 @@ class ZorkApp {
       quickCommands: document.querySelector('#quick-commands'),
       compass: document.querySelector('#compass'),
       playAssist: document.querySelector('#play-assist'),
+      fieldGuide: document.querySelector('.field-guide'),
       networkStatus: document.querySelector('#network-status'),
       settingsDialog: document.querySelector('#settings-dialog'),
       settingsForm: document.querySelector('#settings-form'),
@@ -204,6 +205,9 @@ class ZorkApp {
       case 'transcript':
         this.downloadTranscript();
         break;
+      case 'help':
+        this.showGameHelp();
+        break;
       default:
         break;
     }
@@ -258,9 +262,9 @@ class ZorkApp {
       <div class="quick-command-grid">
         ${QUICK_COMMANDS.map(
           (item) => `
-            <button type="button" data-command="${item.command}" disabled>
-              <span class="quick-command-code">${item.command.slice(0, 2).toUpperCase()}</span>
-              <span>${item.label}<small>${item.command.toUpperCase()}</small></span>
+            <button type="button" ${item.action ? `data-action="${item.action}"` : `data-command="${item.command}" disabled`}>
+              <span class="quick-command-code">${item.shortLabel.slice(0, 2).toUpperCase()}</span>
+              <span>${item.label}<small>${(item.command ?? 'guide').toUpperCase()}</small></span>
             </button>
           `,
         ).join('')}
@@ -615,6 +619,13 @@ class ZorkApp {
     link.click();
     URL.revokeObjectURL(link.href);
     this.showToast('Récit exporté.');
+  }
+
+  showGameHelp() {
+    if (!this.elements.fieldGuide) return;
+    this.elements.fieldGuide.open = true;
+    this.elements.fieldGuide.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    this.showToast('Le guide de terrain est ouvert.');
   }
 
   applySettings() {
