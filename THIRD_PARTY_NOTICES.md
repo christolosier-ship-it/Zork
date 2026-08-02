@@ -1,16 +1,16 @@
 # Crédits et licences tierces
 
-Cette application réunit une interface originale, un interpréteur Z‑Machine et les programmes historiques de la trilogie Zork.
+Cette application réunit une interface originale, un interpréteur Z‑Machine et des versions françaises dérivées des programmes historiques de la trilogie Zork.
 
 ## Zork I, Zork II et Zork III
 
-Les trois programmes présents dans `public/games/` proviennent des dépôts de préservation suivants :
+Les sources anglaises proviennent des dépôts de préservation suivants :
 
 - [historicalsource/zork1](https://github.com/historicalsource/zork1) — Release 119 / Serial 880429
 - [historicalsource/zork2](https://github.com/historicalsource/zork2) — Release 63 / Serial 860811
 - [historicalsource/zork3](https://github.com/historicalsource/zork3) — Release 25 / Serial 860811
 
-Ils sont distribués sous les termes suivants :
+Les fichiers de `public/games/` ont été localisés puis recompilés depuis ces sources. Les sources anglaises et françaises correspondantes sont conservées dans `translations/zil/`. L’ensemble est distribué sous les termes suivants :
 
 > MIT License  
 > Copyright (c) 2025 Microsoft
@@ -64,6 +64,6 @@ Le moteur d’exécution est [zmachine](https://www.npmjs.com/package/zmachine),
 
 | Fichier | SHA-256 |
 |---|---|
-| `zork1.z3` | `37084966477dff679282de42974b2077156b1bd68fad92a65d4ea94d8eb64d79` |
-| `zork2.z3` | `3ae7d5558943e9721f3e4b273c8a7faec1a03a604e1ae4ee1cde472c21cb24ac` |
-| `zork3.z3` | `b637a242865d059890184164ce8dec28554cc80901dcbf26c740b2d1ed0d4eb8` |
+| `zork1.z3` | `359966f4a444ca49aa79fef3b1fb678feb0fd91f307e867094a84a7032a13394` |
+| `zork2.z3` | `bd8e28d704f9943ddd0ee78048453b85a2b73e1666fff0ebd64f440637cbebae` |
+| `zork3.z3` | `c8e50ac806165952a769d583d04a9111590ecee09b6d8fe425dde94031e18c58` |

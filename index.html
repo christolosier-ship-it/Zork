@@ -68,7 +68,7 @@
           <span class="brand-mark"><svg aria-hidden="true"><use href="#icon-arch"></use></svg></span>
           <span class="brand-copy">
             <strong>Zork</strong>
-            <small>Interactive archive</small>
+            <small>Archives interactives</small>
           </span>
         </button>
 
@@ -124,7 +124,7 @@
               <p class="kicker"><span></span> La trilogie</p>
               <h2>Choisissez votre descente</h2>
             </div>
-            <p>Interface en français · aventure originale en anglais</p>
+            <p>Interface, récit et commandes en français</p>
           </div>
 
           <div class="game-grid" id="game-grid"></div>
@@ -136,12 +136,12 @@
               <h2 id="first-steps-title">Parlez au monde, simplement.</h2>
             </div>
             <div class="command-examples" aria-label="Exemples de commandes">
-              <code><span>&gt;</span> look</code>
-              <code><span>&gt;</span> open mailbox</code>
-              <code><span>&gt;</span> take lamp</code>
+              <code><span>&gt;</span> observer</code>
+              <code><span>&gt;</span> ouvrir boîte aux lettres</code>
+              <code><span>&gt;</span> prendre lanterne</code>
             </div>
             <p>
-              Zork comprend des ordres en anglais sous la forme <strong>verbe + objet</strong>. Des raccourcis tactiles restent disponibles pendant toute la partie.
+              Zork comprend des ordres en français sous la forme <strong>verbe + objet</strong>. Des raccourcis tactiles restent disponibles pendant toute la partie.
             </p>
           </section>
 
@@ -162,7 +162,7 @@
               <span class="volume-number" id="dossier-number">I</span>
               <p class="kicker"><span></span> Volume en cours</p>
               <h1 id="dossier-title">Zork I</h1>
-              <p class="dossier-subtitle" id="dossier-subtitle">The Great Underground Empire</p>
+              <p class="dossier-subtitle" id="dossier-subtitle">Le Grand Empire Souterrain</p>
               <p class="dossier-description" id="dossier-description"></p>
             </div>
 
@@ -175,11 +175,11 @@
             </div>
 
             <div class="dossier-actions">
-              <button type="button" data-command="save">
+              <button type="button" data-command="sauvegarder">
                 <svg aria-hidden="true"><use href="#icon-save"></use></svg>
                 Sauvegarder
               </button>
-              <button type="button" data-command="restore" id="restore-button">
+              <button type="button" data-command="reprendre" id="restore-button">
                 <svg aria-hidden="true"><use href="#icon-restore"></use></svg>
                 Reprendre
               </button>
@@ -197,9 +197,9 @@
               <summary>Guide de terrain</summary>
               <ul>
                 <li><kbd>↑</kbd><kbd>↓</kbd> rappellent vos commandes.</li>
-                <li><strong>LOOK</strong> décrit à nouveau le lieu.</li>
-                <li><strong>INVENTORY</strong> liste vos objets.</li>
-                <li><strong>SAVE</strong> conserve cette partie sur l’appareil.</li>
+                <li><strong>OBSERVER</strong> décrit à nouveau le lieu.</li>
+                <li><strong>INVENTAIRE</strong> liste vos objets.</li>
+                <li><strong>SAUVEGARDER</strong> conserve cette partie sur l’appareil.</li>
               </ul>
             </details>
 
@@ -222,7 +222,7 @@
 
               <div class="status-line" id="status-line" aria-live="polite">
                 <span class="location">Grand Empire souterrain</span>
-                <span class="score">Score: — &nbsp; Moves: —</span>
+                <span class="score">Score : — &nbsp; Coups : —</span>
               </div>
 
               <div
@@ -237,7 +237,7 @@
               </div>
 
               <form class="command-form" id="command-form" autocomplete="off">
-                <label class="sr-only" for="command-input">Votre commande en anglais</label>
+                <label class="sr-only" for="command-input">Votre commande en français</label>
                 <span class="prompt" aria-hidden="true">›</span>
                 <input
                   id="command-input"
@@ -343,7 +343,7 @@
       </div>
       <div class="about-copy">
         <p>
-          Cette application non officielle restitue <strong>Zork I, II et III</strong> au moyen de leurs programmes Z‑Machine historiques. L’interface est nouvelle ; le texte, les énigmes et le comportement des jeux restent ceux d’Infocom.
+          Cette application non officielle restitue <strong>Zork I, II et III</strong> à partir de leurs sources historiques. Le récit et l’interface sont traduits en français ; les énigmes et le comportement des jeux sont préservés.
         </p>
         <p>
           Les sources des trois jeux ont été publiées sous licence MIT par Microsoft en 2025. Les marques Zork et Infocom demeurent la propriété de leurs ayants droit. L’interpréteur <strong>zmachine</strong> de Daniel Lockard est également distribué sous licence MIT.
