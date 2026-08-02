@@ -76,7 +76,7 @@
 
 ^L
 
-"Réel Verbes"
+"Verbes réels"
 
 <SYNTAX ACTIVATE OBJECT (FIND LIGHTBIT)
 	(HELD CARRIED ON-GROUND IN-ROOM) = V-LAMP-ON>

@@ -6,7 +6,12 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ZILF = process.env.ZILF_BIN ?? 'zilf';
-const GAMES = ['zork1', 'zork2', 'zork3'];
+const ALL_GAMES = ['zork1', 'zork2', 'zork3'];
+const requestedGames = process.argv.slice(2);
+const GAMES = requestedGames.length ? requestedGames : ALL_GAMES;
+for (const game of GAMES) {
+  if (!ALL_GAMES.includes(game)) throw new Error(`Volume inconnu : ${game}`);
+}
 
 function run(command, args, cwd) {
   return new Promise((resolve, reject) => {
@@ -31,4 +36,4 @@ for (const game of GAMES) {
   );
 }
 
-console.log('✓ Trois programmes Z-Machine français compilés.');
+console.log(`✓ ${GAMES.length} programme(s) Z-Machine français compilé(s).`);

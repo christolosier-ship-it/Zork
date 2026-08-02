@@ -18,7 +18,7 @@
 <OBJECT TEETH
 	(IN GLOBAL-OBJECTS)
 	(SYNONYM OVERBOARD TEETH)
-	(DESC "jeu de dents")
+	(DESC "dents")
 	(FLAGS NDESCBIT)
 	(ACTION TEETH-F)>
 
@@ -32,7 +32,7 @@
 	(IN GLOBAL-OBJECTS)
 	(SYNONYM WALL)
 	(ADJECTIVE GRANITE)
-	(DESC "granit mural")
+	(DESC "mur de granit")
 	(ACTION GRANITE-WALL-F)>
 
 <OBJECT SONGBIRD
@@ -67,7 +67,7 @@
 
 <OBJECT MOUNTAIN-RANGE
 	(IN MOUNTAINS)
-	(DESC "montagne plage")
+	(DESC "chaîne de montagnes")
 	(SYNONYM MOUNTAIN RANGE)
 	(ADJECTIVE IMPASSABLE FLATHEAD)
 	(FLAGS NDESCBIT CLIMBBIT)
@@ -83,7 +83,7 @@
 <OBJECT WATER
 	(IN BOTTLE)
 	(SYNONYM WATER QUANTITY LIQUID H2O)
-	(DESC "quantité d'eau")
+	(DESC "eau")
 	(FLAGS TRYTAKEBIT TAKEBIT DRINKBIT)
 	(ACTION WATER-F)
 	(SIZE 4)>
@@ -92,7 +92,7 @@
 	(IN LOCAL-GLOBALS)
 	(SYNONYM WINDOW)
 	(ADJECTIVE KITCHEN SMALL)
-	(DESC "cuisine fenêtre")
+	(DESC "fenêtre de la cuisine")
 	(FLAGS DOORBIT NDESCBIT)
 	(ACTION KITCHEN-WINDOW-F)>
 
@@ -108,7 +108,7 @@
 	(IN ENTRANCE-TO-HADES)
 	(SYNONYM GHOSTS SPIRITS FIENDS FORCE)
 	(ADJECTIVE INVISIBLE EVIL)
-	(DESC "nombre de fantômes")
+	(DESC "groupe de fantômes")
 	(FLAGS ACTORBIT NDESCBIT)
 	(ACTION GHOSTS-F)>
 
@@ -116,9 +116,9 @@
 	(IN LAND-OF-LIVING-DEAD)
 	(SYNONYM SKULL HEAD TREASURE)
 	(ADJECTIVE CRYSTAL)
-	(DESC "cristal crâne")
+	(DESC "crâne de cristal")
 	(FDESC
-"Allonger dans un coin de la pièce est un crâne de cristal magnifiquement sculpté. Il semble être sourire à vous plutôt nastily.")
+"Dans un coin de la pièce repose un crâne de cristal magnifiquement sculpté. Son rictus semble vous être destiné, et il n'a rien d'amical.")
 	(FLAGS TAKEBIT)
 	(VALUE 10)
 	(TVALUE 10)>
@@ -169,7 +169,7 @@
 <OBJECT HOT-BELL
 	(SYNONYM BELL)
 	(ADJECTIVE BRASS HOT RED SMALL)
-	(DESC "laiton chaud rouge cloche")
+	(DESC "cloche en laiton chauffée au rouge")
 	(FLAGS TRYTAKEBIT)
 	(ACTION HOT-BELL-F)
 	(LDESC "Au sol se trouve une cloche rougeoyante.")>
@@ -178,7 +178,7 @@
 	(IN TROLL)
 	(SYNONYM AXE AX)
 	(ADJECTIVE BLOODY)
-	(DESC "hache sanglante")
+	(DESC "hache ensanglantée")
 	(FLAGS WEAPONBIT TRYTAKEBIT TAKEBIT NDESCBIT)
 	(ACTION AXE-F)
 	(SIZE 25)>
@@ -216,7 +216,7 @@
 	(FDESC "Sur l'autel se trouve un grand livre noir, ouvert à la page 569.")
 	(SIZE 10)
 	(TEXT
-"Commandement #12592| | Oh, vous qui allez dire à chacun: \"Salut marin\":| Connaissez-vous l'ampleur de votre péché devant les dieux?| Oui, en vérité, vous serez terre entre deux pierres.| Les dieux en colère jetteront-ils votre corps dans le tourbillon?| Certainement, votre œil sera mis dehors avec un bâton tranchant!| Jusqu'aux extrémités de la terre vous errerez et| Vous serez enfin envoyés au pays des morts.| Vous vous repentirez certainement de votre ruse." )>
+"Commandement no 12592| |Ô vous qui saluez chacun d'un « Bonjour, marin ! » :|Mesurez-vous l'immensité de votre péché devant les dieux ?|Oui, en vérité, vous serez broyé entre deux pierres.|Les dieux courroucés jetteront-ils votre corps dans le tourbillon ?|À coup sûr, un bâton pointu vous crèvera l'oeil !|Jusqu'aux confins de la terre vous errerez, et|Au Royaume des Morts, enfin, vous serez envoyé.|Alors, à coup sûr, vous regretterez votre malice." )>
 
 <OBJECT BROKEN-LAMP
 	(SYNONYM LAMP LANTERN)
@@ -234,7 +234,7 @@
 	(LDESC
 "Sceptre orné, effilé vers une pointe acérée se trouve ici.")
 	(FDESC
-"Un sceptre, peut-être celui de l'Égypte antique elle-même, se trouve dans le cercueil. Le sceptre est orné d'émail coloré, et touche à un point aigu.")
+"Un sceptre, peut-être originaire de l'Égypte antique elle-même, repose dans le cercueil. Orné d'émaux colorés, il s'effile jusqu'à former une pointe acérée.")
 	(SIZE 3)
 	(VALUE 4)
 	(TVALUE 6)>
@@ -243,7 +243,7 @@
 	(IN TIMBER-ROOM)
 	(SYNONYM TIMBERS PILE)
 	(ADJECTIVE WOODEN BROKEN)
-	(DESC "bois brisé")
+	(DESC "poutre brisée")
 	(FLAGS TAKEBIT)
 	(SIZE 50)>
 
@@ -251,7 +251,7 @@
 	(IN LOCAL-GLOBALS)
 	(SYNONYM CHUTE RAMP SLIDE)
 	(ADJECTIVE STEEP METAL TWISTING)
-	(DESC "goulotte")
+	(DESC "conduit")
 	(FLAGS CLIMBBIT)
 	(ACTION SLIDE-FUNCTION)>
 
@@ -259,7 +259,7 @@
 	(IN KITCHEN)
 	(SYNONYM TABLE)
 	(ADJECTIVE KITCHEN)
-	(DESC "cuisine table")
+	(DESC "table de la cuisine")
 	(FLAGS NDESCBIT CONTBIT OPENBIT SURFACEBIT)
 	(CAPACITY 50)>
 
@@ -274,10 +274,10 @@
 	(IN KITCHEN-TABLE)
 	(SYNONYM BAG SACK)
 	(ADJECTIVE BROWN ELONGATED SMELLY)
-	(DESC "sac marron")
+	(DESC "sac brun")
 	(FLAGS TAKEBIT CONTBIT BURNBIT)
 	(FDESC
-"Sur la table se trouve un sac marron allongé, sentant le chaud poivrons.")
+"Sur la table repose un long sac brun qui sent le piment.")
 	(CAPACITY 9)
 	(SIZE 9)
 	(ACTION SANDWICH-BAG-FCN)>
@@ -286,7 +286,7 @@
 	(IN MAINTENANCE-ROOM)
 	(SYNONYM CHEST CHESTS GROUP TOOLCHESTS)
 	(ADJECTIVE TOOL)
-	(DESC "groupe de coffres à outils")
+	(DESC "coffres à outils")
 	(FLAGS CONTBIT OPENBIT TRYTAKEBIT SACREDBIT)
 	(ACTION TOOL-CHEST-FCN)>
 
@@ -302,7 +302,7 @@
 	(IN MAINTENANCE-ROOM)
 	(SYNONYM BUTTON SWITCH)
 	(ADJECTIVE BROWN)
-	(DESC "marron bouton")
+	(DESC "bouton brun")
 	(FLAGS NDESCBIT)
 	(ACTION BUTTON-F)>
 
@@ -326,7 +326,7 @@
 	(IN LIVING-ROOM)
 	(SYNONYM CASE)
 	(ADJECTIVE TROPHY)
-	(DESC "trophée étui")
+	(DESC "vitrine à trophées")
 	(FLAGS TRANSBIT CONTBIT NDESCBIT TRYTAKEBIT SEARCHBIT)
 	(ACTION TROPHY-CASE-FCN)
 	(CAPACITY 10000)>
@@ -391,7 +391,7 @@
 	(IN LIVING-ROOM)
 	(SYNONYM DOOR TRAPDOOR TRAP-DOOR COVER)
 	(ADJECTIVE TRAP DUSTY)
-	(DESC "piège porte")
+	(DESC "trappe")
 	(FLAGS DOORBIT NDESCBIT INVISIBLE)
 	(ACTION TRAP-DOOR-FCN)>
 
@@ -399,7 +399,7 @@
 	(IN LOCAL-GLOBALS)
         (SYNONYM WINDOW)
 	(ADJECTIVE BOARDED)
-	(DESC "fenêtre à panneaux")
+	(DESC "fenêtre condamnée")
 	(FLAGS NDESCBIT)
 	(ACTION BOARDED-WINDOW-FCN)>
 
@@ -415,7 +415,7 @@
 	(IN STONE-BARROW)
 	(SYNONYM DOOR)
 	(ADJECTIVE HUGE STONE)
-	(DESC "pierre porte")
+	(DESC "porte de pierre")
 	(FLAGS DOORBIT NDESCBIT OPENBIT)
 	(ACTION BARROW-DOOR-FCN)>
 
@@ -423,7 +423,7 @@
 	(IN STONE-BARROW)
 	(SYNONYM BARROW TOMB)
 	(ADJECTIVE MASSIVE STONE)
-	(DESC "brouette en pierre")
+	(DESC "tumulus de pierre")
 	(FLAGS NDESCBIT)
 	(ACTION BARROW-FCN)>
 
@@ -434,7 +434,7 @@
 	(DESC "bouteille en verre")
 	(FLAGS TAKEBIT TRANSBIT CONTBIT)
 	(ACTION BOTTLE-FUNCTION)
-	(FDESC "Une bouteille est posée sur le table.")
+	(FDESC "Une bouteille est posée sur la table.")
 	(CAPACITY 4)>
 
 <OBJECT CRACK
@@ -449,7 +449,7 @@
 	(IN EGYPT-ROOM)
 	(SYNONYM COFFIN CASKET TREASURE)
 	(ADJECTIVE SOLID GOLD)
-	(DESC "cercueil en or")
+	(DESC "cercueil d'or")
 	(FLAGS TAKEBIT CONTBIT SACREDBIT SEARCHBIT)
 	(LDESC
 "Le cercueil en or massif utilisé pour l'enterrement de Ramsès II est ici.")
@@ -496,7 +496,7 @@
 	(IN ATTIC-TABLE)
 	(SYNONYM KNIVES KNIFE BLADE)
 	(ADJECTIVE NASTY UNRUSTY)
-	(DESC "un méchant couteau")
+	(DESC "couteau menaçant")
 	(FLAGS TAKEBIT WEAPONBIT TRYTAKEBIT)
 	(FDESC "Sur une table se trouve un méchant couteau.")
 	(ACTION KNIFE-F)>
@@ -512,7 +512,7 @@
 	(IN MAZE-5)
 	(SYNONYM LANTERN LAMP)
 	(ADJECTIVE RUSTY BURNED DEAD USELESS)
-	(DESC "lanterne grillée")
+	(DESC "lanterne hors d'usage")
 	(FLAGS TAKEBIT)
 	(FDESC "La lanterne inutile de l'aventurier décédé est ici.")
 	(SIZE 20)>
@@ -521,7 +521,7 @@
 	(IN MAZE-5)
 	(SYNONYM BAG COINS TREASURE)
 	(ADJECTIVE OLD LEATHER)
-	(DESC "sac en cuir contenant des pièces de monnaie")
+	(DESC "sac de cuir rempli de pièces")
 	(FLAGS TAKEBIT)
 	(LDESC "Un vieux sac en cuir, bombé de pièces de monnaie, se trouve ici.")
 	(ACTION BAG-OF-COINS-F)
@@ -533,10 +533,10 @@
 	(IN LIVING-ROOM)
 	(SYNONYM LAMP LANTERN LIGHT)
 	(ADJECTIVE BRASS)
-	(DESC "laiton lanterne")
+	(DESC "lanterne en laiton")
 	(FLAGS TAKEBIT LIGHTBIT)
 	(ACTION LANTERN)
-	(FDESC "Une lanterne en laiton alimentée par batterie se trouve sur la vitrine du trophée.")
+	(FDESC "Une lanterne en laiton alimentée par des piles est posée sur la vitrine à trophées.")
 	(LDESC "Il y a ici une lanterne en laiton (alimentée par batterie).")
 	(SIZE 15)>
 
@@ -600,7 +600,7 @@ ZORK est un jeu d'aventure, de danger et de ruse. Vous y explorerez certains des
 	(IN DAM-LOBBY)
 	(SYNONYM MATCH MATCHES MATCHBOOK)
 	(ADJECTIVE MATCH)
-	(DESC "boîte d'allumettes")
+	(DESC "carnet d'allumettes")
 	(FLAGS READBIT TAKEBIT)
 	(ACTION MATCH-FUNCTION)
 	(LDESC
@@ -636,11 +636,11 @@ GUE Tech ne peut garantir à tous des résultats aussi fabuleux. Mais avec un di
 	(IN GALLERY)
 	(SYNONYM PAINTING ART CANVAS TREASURE)
 	(ADJECTIVE BEAUTI)
-	(DESC "peinture")
+	(DESC "tableau")
 	(FLAGS TAKEBIT BURNBIT)
 	(ACTION PAINTING-FCN)
 	(FDESC
-"Heureusement, il y a encore une chance pour vous d'être un vandal, car sur le mur lointain est une peinture d'une beauté inégalée.")
+"Heureusement, il vous reste une occasion de jouer les vandales : sur le mur du fond est accroché un tableau d'une beauté sans égale.")
 	(LDESC "Un tableau d'un génie négligé se trouve ici.")
 	(SIZE 15)
 	(VALUE 4)
@@ -659,7 +659,7 @@ GUE Tech ne peut garantir à tous des résultats aussi fabuleux. Mais avec un di
 <OBJECT GUNK
 	(SYNONYM GUNK PIECE SLAG)
 	(ADJECTIVE SMALL VITREOUS)
-	(DESC "petit morceau de scories vitreuses")
+	(DESC "petit morceau de scorie vitrifiée")
 	(FLAGS TAKEBIT TRYTAKEBIT)
 	(ACTION GUNK-FUNCTION)
 	(SIZE 10)>
@@ -668,7 +668,7 @@ GUE Tech ne peut garantir à tous des résultats aussi fabuleux. Mais avec un di
 	(IN LOCAL-GLOBALS)
 	(SYNONYM BODIES BODY REMAINS PILE)
 	(ADJECTIVE MANGLED)
-	(DESC "tas de cadavres")
+	(DESC "amas de cadavres")
 	(FLAGS NDESCBIT TRYTAKEBIT)
 	(ACTION BODY-FUNCTION)>
 
@@ -693,7 +693,7 @@ GUE Tech ne peut garantir à tous des résultats aussi fabuleux. Mais avec un di
 	(IN DAM-BASE)
 	(SYNONYM BOAT PILE PLASTIC VALVE)
 	(ADJECTIVE PLASTIC INFLAT)
-	(DESC "tas de feuilles plastique")
+	(DESC "tas de plastique")
 	(FLAGS TAKEBIT BURNBIT)
 	(ACTION IBOAT-FUNCTION)
 	(LDESC
@@ -704,7 +704,7 @@ GUE Tech ne peut garantir à tous des résultats aussi fabuleux. Mais avec un di
 	(IN LOUD-ROOM)
 	(SYNONYM BAR PLATINUM TREASURE)
 	(ADJECTIVE PLATINUM LARGE)
-	(DESC "barre de platine")
+	(DESC "lingot de platine")
 	(FLAGS TAKEBIT SACREDBIT)
 	(LDESC "Au sol se trouve une grande barre de platine.")
 	(SIZE 20)
@@ -729,13 +729,13 @@ GUE Tech ne peut garantir à tous des résultats aussi fabuleux. Mais avec un di
 	(DESC "prière")
 	(FLAGS READBIT SACREDBIT NDESCBIT)
 	(TEXT
-"La prière est inscrite dans un ancien script, rarement utilisé aujourd'hui. Il semble être un philippe contre les petits insectes, l'absence d'esprit, et la cueillette et la chute de petits objets. Le verset final consigne des intrus sur la terre des morts." )>
+"La prière est gravée dans une écriture ancienne, rarement employée de nos jours. Elle semble être une violente diatribe contre les petits insectes, les étourderies et la manie de ramasser puis de laisser tomber de menus objets. Le dernier vers voue les intrus au Royaume des Morts. Tout porte à croire que les croyances des anciens Zorkiens étaient pour le moins obscures." )>
 
 <OBJECT RAILING
 	(IN DOME-ROOM)
 	(SYNONYM RAILING RAIL)
 	(ADJECTIVE WOODEN)
-	(DESC "en bois garde-corps")
+	(DESC "balustrade en bois")
 	(FLAGS NDESCBIT)>
 
 <OBJECT RAINBOW
@@ -799,7 +799,7 @@ GUE Tech ne peut garantir à tous des résultats aussi fabuleux. Mais avec un di
 	(IN GAS-ROOM)
 	(SYNONYM BRACELET JEWEL SAPPHIRE TREASURE)
 	(ADJECTIVE SAPPHIRE)
-	(DESC "saphir incrusté bracelet")
+	(DESC "bracelet serti de saphirs")
 	(FLAGS TAKEBIT)
 	(SIZE 10)
 	(VALUE 5)
@@ -816,7 +816,7 @@ GUE Tech ne peut garantir à tous des résultats aussi fabuleux. Mais avec un di
 	(IN MAZE-5)
 	(SYNONYM KEY)
 	(ADJECTIVE SKELETON)
-	(DESC "squelette clé")
+	(DESC "passe-partout")
 	(FLAGS TAKEBIT TOOLBIT)
 	(SIZE 10)>
 
@@ -839,14 +839,14 @@ GUE Tech ne peut garantir à tous des résultats aussi fabuleux. Mais avec un di
 	(IN LOCAL-GLOBALS)
 	(SYNONYM LADDER)
 	(ADJECTIVE WOODEN RICKETY NARROW)
-	(DESC "en bois échelle")
+	(DESC "échelle en bois")
 	(FLAGS NDESCBIT CLIMBBIT)>
 
 <OBJECT SCARAB
 	(IN SANDY-CAVE)
 	(SYNONYM SCARAB BUG BEETLE TREASURE)
 	(ADJECTIVE BEAUTI CARVED JEWELED)
-	(DESC "magnifique scarabée bijou")
+	(DESC "magnifique scarabée orné de joyaux")
 	(FLAGS TAKEBIT INVISIBLE)
 	(SIZE 8)
 	(VALUE 5)
@@ -880,7 +880,7 @@ GUE Tech ne peut garantir à tous des résultats aussi fabuleux. Mais avec un di
 	(IN LIVING-ROOM)
 	(SYNONYM DOOR LETTERING WRITING)
 	(ADJECTIVE WOODEN GOTHIC STRANGE WEST)
-	(DESC "en bois porte")
+	(DESC "porte en bois")
 	(FLAGS READBIT DOORBIT NDESCBIT TRANSBIT)
 	(ACTION FRONT-DOOR-FCN)
 	(TEXT
@@ -894,7 +894,7 @@ GUE Tech ne peut garantir à tous des résultats aussi fabuleux. Mais avec un di
 	(FLAGS TAKEBIT WEAPONBIT TRYTAKEBIT)
 	(ACTION SWORD-FCN)
 	(FDESC
-"Au-dessus de la boîte à trophées est suspendue une épée elfique de grande antiquité.")
+"Une très ancienne épée elfique est suspendue au-dessus de la vitrine à trophées.")
 	(SIZE 30)
 	(TVALUE 0)>
 
@@ -908,7 +908,7 @@ GUE Tech ne peut garantir à tous des résultats aussi fabuleux. Mais avec un di
 "Dans l'écrin du trophée se trouve un parchemin ancien qui semble être une carte.")
 	(SIZE 2)
 	(TEXT
-"La carte montre une forêt avec trois clairières. La plus grande clairière contient une maison. Trois chemins quittent la grande clairière. L'un de ces chemins, menant au sud-ouest, est marqué « To Stone Barrow ».")>
+"La carte représente une forêt percée de trois clairières. La plus grande abrite une maison, d'où partent trois sentiers. Celui qui mène au sud-ouest porte la mention « Vers le tumulus de pierre ».")>
 
 <OBJECT BOAT-LABEL
 	(IN INFLATED-BOAT)
@@ -925,7 +925,7 @@ Bonjour, marin !|
 Mode d'emploi :|
 |
    Pour mettre le bateau à l'eau, tapez \"METTRE LE BATEAU À L'EAU\".|
-   Pour rejoindre la rive, tapez \"ACCOSTER\" ou indiquez la direction dans laquelle vous souhaitez manœuvrer le bateau.|
+   Pour rejoindre la rive, tapez \"ACCOSTER\" ou indiquez la direction dans laquelle vous souhaitez manoeuvrer le bateau.|
 |
 Garantie :|
 |
@@ -943,7 +943,7 @@ Avertissement :|
 	(FLAGS ACTORBIT INVISIBLE CONTBIT OPENBIT TRYTAKEBIT)
 	(ACTION ROBBER-FUNCTION)
 	(LDESC
-"Il y a une personne suspecte, tenant un grand sac, penché contre un mur. Il est armé d'un stiletto mortel.")
+"Un individu a l'air louche, un grand sac à la main, est adossé au mur. Il est armé d'un stylet mortel.")
 	(STRENGTH 5)>
 
 <OBJECT PEDESTAL
@@ -976,30 +976,7 @@ Avertissement :|
 	(FDESC
 "Certains guides intitulés \"Flood Control Dam #3\" sont sur la réception.")
 	(TEXT
-"\" Barrage de contrôle des inondations #3|
-|
-Le FCD#3 a été construit en l'an 783 du Grand Empire Souterrain pour
-exploitez la puissante rivière Frigid. Ce travail a été soutenu par une subvention de
-37 millions de zorkmids de votre tyran local tout-puissant Lord Dimwit
-Tête-Plate l'Excessif. Cette structure impressionnante est composée de
-370 000 pieds cubes de béton, mesure 256 pieds de hauteur au centre et 193
-pieds larges en haut. Le lac créé derrière le barrage a un volume
-de 1,7 milliard de pieds cubes, une superficie de 12 millions de pieds carrés et un
-ligne côtière de 36 mille pieds.|
-|
-La construction du FCD#3 a duré 112 jours, depuis le début des travaux jusqu'à
-la dédicace. Cela nécessitait une main d'œuvre de 384 esclaves, 34 esclaves
-des chauffeurs, 12 ingénieurs, 2 tourterelles et une perdrix dans une poire
-arbre. Les travaux ont été dirigés par une équipe de commandement composée de 2345
-bureaucrates, 2347 secrétaires (dont au moins deux savaient taper à la machine),
-12 256 mélangeurs de papier, 52 469 tampons en caoutchouc, 245 193 formalités administratives
-transformateurs et près d'un million d'arbres morts.|
-|
-Nous allons maintenant souligner quelques-unes des fonctionnalités les plus intéressantes
-du FCD#3 pendant que nous vous emmenons faire une visite guidée des installations :|
-|
-        1) Vous commencez votre visite ici, dans le hall du barrage. Vous remarquerez
-sur votre droite que...." )>
+"\"	Barrage de régulation des crues no 3| |Le BRC no 3 fut construit en l'an 783 du Grand Empire Souterrain afin de dompter la puissante Rivière Glaciale. Les travaux bénéficièrent d'une subvention de 37 millions de zorkmids accordée par votre tyran local omnipotent, le seigneur Nigaud Tête-Plate l'Excessif. Cet impressionnant ouvrage est composé de 370 000 pieds cubes de béton ; il mesure 256 pieds de haut en son centre et 193 pieds de large à son sommet. Le lac formé derrière le barrage contient 1,7 milliard de pieds cubes d'eau, couvre 12 millions de pieds carrés et possède 36 000 pieds de rivage.| |La construction du BRC no 3, du premier coup de pioche à l'inauguration, dura 112 jours. Elle mobilisa 384 esclaves, 34 contremaîtres d'esclaves, 12 ingénieurs, deux tourterelles et une perdrix dans un poirier. Les travaux furent dirigés par une équipe de commandement réunissant 2 345 bureaucrates, 2 347 secrétaires -- dont au moins deux savaient taper à la machine --, 12 256 brasseurs de paperasse, 52 469 préposés aux tampons, 245 193 spécialistes des tracasseries administratives et près d'un million d'arbres morts.| |Nous allons maintenant attirer votre attention sur quelques-uns des aspects les plus intéressants du BRC no 3 au cours de cette visite guidée :| |        1) Votre visite commence ici, dans le hall du barrage. Vous remarquerez sur votre droite que..." )>
 
 <OBJECT TROLL
 	(IN TROLL-ROOM)
@@ -1016,11 +993,11 @@ sur votre droite que...." )>
 	(IN RESERVOIR)
 	(SYNONYM TRUNK CHEST JEWELS TREASURE)
 	(ADJECTIVE OLD)
-	(DESC "coffre à bijoux")
+	(DESC "coffre rempli de joyaux")
 	(FLAGS TAKEBIT INVISIBLE)
 	(FDESC
 "À moitié enfoui dans la boue se trouve un vieux coffre bombé de bijoux.")
-	(LDESC "Là Il y a ici une vieille malle remplie de bijoux assortis.")
+	(LDESC "Un vieux coffre rempli de joyaux de toutes sortes se trouve ici.")
 	(ACTION TRUNK-F)
 	(SIZE 35)
 	(VALUE 15)
@@ -1044,7 +1021,7 @@ sur votre droite que...." )>
 	(IN TUBE)
 	(SYNONYM MATERIAL GUNK)
 	(ADJECTIVE VISCOUS)
-	(DESC "matériau visqueux")
+	(DESC "matière visqueuse")
 	(FLAGS TAKEBIT TOOLBIT)
 	(SIZE 6)
 	(ACTION PUTTY-FCN)>
@@ -1057,17 +1034,17 @@ sur votre droite que...." )>
 	(FLAGS READBIT SACREDBIT)
 	(LDESC "Il y a de vieilles gravures sur les murs ici.")
 	(TEXT
-"Les gravures ont été incisée dans le rocher vivant du mur de la grotte par une main inconnue. Elles dépeignent, sous forme symbolique, les croyances des anciens Zorkers. habilement entrelacés avec les bas reliefs sont des extraits illustrant les principaux principes religieux de cette époque. Malheureusement, un âge plus tard semble les avoir considérés blasphématoires et tout aussi habilement excisés.")>
+"Une main inconnue a taillé ces gravures à même la roche de la paroi. Elles représentent, sous une forme symbolique, les croyances des anciens Zorkiens. Des extraits illustrant les grands préceptes religieux de l'époque s'entrelacent habilement aux bas-reliefs. Hélas, une génération ultérieure semble les avoir jugés blasphématoires et les a supprimés avec tout autant d'adresse.")>
 
 <OBJECT OWNERS-MANUAL
 	(IN STUDIO)
 	(SYNONYM MANUAL PIECE PAPER)
 	(ADJECTIVE ZORK OWNERS SMALL)
-	(DESC "Manuel du propriétaire ZORK")
+	(DESC "manuel de ZORK")
 	(FLAGS READBIT TAKEBIT)
 	(FDESC "Un petit morceau de papier est vaguement fixé à un mur.")
 	(TEXT
-"Félicitations!| | Vous êtes le propriétaire privilégié de ZORK I: Le Grand Empire Souterrain, un univers autonome et autonome. Si utilisé et entretenu conformément aux pratiques d'exploitation normales pour les petits univers, ZORK fournira de nombreux mois de fonctionnement sans problème.")>
+"Félicitations !| |Vous êtes l'heureux propriétaire de ZORK I : Le Grand Empire Souterrain, un univers autonome qui assure lui-même son entretien. Utilisé et entretenu conformément aux pratiques normales d'exploitation des univers de petite taille, ZORK vous offrira de nombreux mois de fonctionnement sans incident.")>
 
 <OBJECT CLIMBABLE-CLIFF
 	(IN LOCAL-GLOBALS)
@@ -1103,7 +1080,7 @@ sur votre droite que...." )>
 	(IN UP-A-TREE)
 	(SYNONYM NEST)
 	(ADJECTIVE BIRDS)
-	(DESC "oiseau nid")
+	(DESC "nid d'oiseau")
 	(FLAGS TAKEBIT BURNBIT CONTBIT OPENBIT SEARCHBIT)
 	(FDESC "À côté de vous, sur la branche, se trouve un petit nid d'oiseau.")
 	(CAPACITY 20)>
@@ -1112,28 +1089,28 @@ sur votre droite que...." )>
 	(IN NEST)
 	(SYNONYM EGG TREASURE)
 	(ADJECTIVE BIRDS ENCRUSTED JEWELED)
-	(DESC "œuf incrusté de bijoux")
+	(DESC "oeuf serti de joyaux")
 	(FLAGS TAKEBIT CONTBIT SEARCHBIT)
 	(ACTION EGG-OBJECT)
 	(VALUE 5)
 	(TVALUE 5)
 	(CAPACITY 6)
 	(FDESC
-"Dans le nid de l'oiseau est un grand œuf incrusté de bijoux précieux, apparemment récupéré par un oiseau chanteur sans enfant. L'oeuf est couvert d'or fin incrusté, et orné de lapis lazuli et de nacre. Contrairement à la plupart des œufs, celui-ci est articulé et fermé avec un fermoir délicat. L'oeuf semble extrêmement fragile.")>
+"Dans le nid repose un gros oeuf serti de pierres précieuses, apparemment chapardé par un oiseau chanteur sans progéniture. Il est couvert de fines incrustations d'or et orné de lapis-lazuli et de nacre. Contrairement à la plupart des oeufs, celui-ci est monté sur charnière et fermé par un fermoir d'apparence délicate. Il semble extrêmement fragile.")>
 
 <OBJECT BROKEN-EGG
 	(SYNONYM EGG TREASURE)
 	(ADJECTIVE BROKEN BIRDS ENCRUSTED JEWEL)
-	(DESC "œuf cassé incrusté de bijoux")
+	(DESC "oeuf brisé serti de joyaux")
 	(FLAGS TAKEBIT CONTBIT OPENBIT)
 	(CAPACITY 6)
 	(TVALUE 2)
-	(LDESC "Il y a ici un œuf quelque peu en ruine.")>
+	(LDESC "Un oeuf passablement endommagé se trouve ici.")>
 
 <OBJECT BAUBLE
 	(SYNONYM BAUBLE TREASURE)
 	(ADJECTIVE BRASS BEAUTI)
-	(DESC "magnifique laiton boule")
+	(DESC "belle babiole en laiton")
 	(FLAGS TAKEBIT)
 	(VALUE 1)
 	(TVALUE 1)>
@@ -1148,18 +1125,18 @@ sur votre droite que...." )>
 	(VALUE 6)
 	(TVALUE 4)
 	(FDESC
-"Il y a un canari d'horloge doré niché dans l'œuf. Il a des yeux rubis et un bec d'argent. Par une fenêtre en cristal au-dessous de son aile gauche, vous pouvez voir des machines complexes à l'intérieur.")>
+"Un canari mécanique doré est niché dans l'oeuf. Il a des yeux de rubis et un bec d'argent. Une fenêtre de cristal, sous son aile gauche, laisse entrevoir un mécanisme d'une grande complexité. Son ressort semble être arrivé au bout de sa course.")>
 
 <OBJECT BROKEN-CANARY
 	(IN BROKEN-EGG)
 	(SYNONYM CANARY TREASURE)
 	(ADJECTIVE BROKEN CLOCKWORK GOLD GOLDEN)
-	(DESC "canari mécanique cassé")
+	(DESC "canari mécanique brisé")
 	(FLAGS TAKEBIT)
 	(ACTION CANARY-OBJECT)
 	(TVALUE 1)
 	(FDESC
-"Il y a un canari d'horloge doré niché dans l'œuf. Il semble avoir eu récemment une mauvaise expérience. Les fixations pour ses yeux comme des bijoux sont vides, et son bec d'argent est fracassé. Par une fenêtre en cristal fissuré sous son aile gauche, vous pouvez voir les restes de machines complexes. Il n'est pas clair quel résultat l'enrouler, comme le ressort principal semble jaillir.")>
+"Un canari mécanique doré est niché dans l'oeuf. Il semble avoir récemment connu une fort mauvaise aventure. Les montures de ses yeux précieux sont vides et son bec d'argent est écrasé. À travers une fenêtre de cristal fêlée sous son aile gauche, on distingue les vestiges d'un mécanisme complexe. Difficile de savoir ce qui arriverait si on le remontait : le ressort moteur paraît détendu.")>
 
 \
 
@@ -1189,7 +1166,7 @@ sur votre droite que...." )>
       (NE TO NORTH-OF-HOUSE)
       (SE TO SOUTH-OF-HOUSE)
       (WEST TO FOREST-1)
-      (EAST "La porte est barricadée et vous ne pouvez pas l'enlever les planches.")
+      (EAST "La porte est condamnée par des planches que vous ne pouvez pas retirer.")
       (SW TO STONE-BARROW IF WON-FLAG)
       (IN TO STONE-BARROW IF WON-FLAG)
       (ACTION WEST-HOUSE)
@@ -1199,8 +1176,8 @@ sur votre droite que...." )>
 <ROOM STONE-BARROW
       (IN ROOMS)
       (LDESC
-"Vous êtes debout devant un front massif de pierre. Dans la face est est est une énorme porte de pierre qui est ouverte. Vous ne pouvez pas voir dans l'obscurité du tombeau.")
-      (DESC "Barrow de pierre")
+"Vous vous tenez devant un imposant tumulus de pierre. Sur sa face orientale, une énorme porte de pierre est ouverte. Les ténèbres du tombeau vous empêchent de voir à l'intérieur.")
+      (DESC "Tumulus de pierre")
       (NE TO WEST-OF-HOUSE)
       (ACTION STONE-BARROW-FCN)
       (FLAGS RLANDBIT ONBIT SACREDBIT)>
@@ -1208,28 +1185,28 @@ sur votre droite que...." )>
 <ROOM NORTH-OF-HOUSE
       (IN ROOMS)
       (LDESC
-"Vous êtes face au côté nord d'une maison blanche. Il n'y a pas de porte ici, et toutes les fenêtres sont montées.")
+"Vous faites face au côté nord d'une maison blanche. Il n'y a pas de porte ici et toutes les fenêtres sont condamnées. Au nord, un étroit sentier serpente entre les arbres.")
       (DESC "Au nord de la maison")
       (SW TO WEST-OF-HOUSE)
       (SE TO EAST-OF-HOUSE)
       (WEST TO WEST-OF-HOUSE)
       (EAST TO EAST-OF-HOUSE)
       (NORTH TO PATH)
-      (SOUTH "Les fenêtres sont toutes barricadées.")
+      (SOUTH "Toutes les fenêtres sont condamnées par des planches.")
       (FLAGS RLANDBIT ONBIT SACREDBIT)
       (GLOBAL BOARDED-WINDOW BOARD WHITE-HOUSE FOREST)>
 
 <ROOM SOUTH-OF-HOUSE
       (IN ROOMS)
       (LDESC
-"Vous êtes face au côté sud d'une maison blanche. Il n'y a pas de porte ici, et toutes les fenêtres sont à bord.")
-      (DESC "Sud de la maison")
+"Vous faites face au côté sud d'une maison blanche. Il n'y a pas de porte ici et toutes les fenêtres sont condamnées.")
+      (DESC "Au sud de la maison")
       (WEST TO WEST-OF-HOUSE)
       (EAST TO EAST-OF-HOUSE)
       (NE TO EAST-OF-HOUSE)
       (NW TO WEST-OF-HOUSE)
       (SOUTH TO FOREST-3)
-      (NORTH "Les fenêtres sont toutes barricadées.")
+      (NORTH "Toutes les fenêtres sont condamnées par des planches.")
       (FLAGS RLANDBIT ONBIT SACREDBIT)
       (GLOBAL BOARDED-WINDOW BOARD WHITE-HOUSE FOREST)>
 
@@ -1292,7 +1269,7 @@ sur votre droite que...." )>
       (DESC "Forêt")
       (UP "Il n'y a pas d'arbre ici propice à l'escalade.")
       (NORTH TO CLEARING)
-      (EAST "Les sous-bois raides empêchent de se diriger vers l'est. mouvement.")
+      (EAST "L'épais sous-bois vous empêche d'aller vers l'est.")
       (SOUTH "Des arbres secoués par la tempête bloquent votre chemin.")
       (WEST TO FOREST-1)
       (NW TO SOUTH-OF-HOUSE)
@@ -1303,8 +1280,8 @@ sur votre droite que...." )>
 <ROOM PATH
       (IN ROOMS)
       (LDESC
-"Il s'agit d'un sentier qui serpente à travers une forêt faiblement éclairée. Le sentier se dirige vers le nord-sud ici. Un arbre particulièrement grand avec quelques branches basses se dresse au bord du sentier.")
-      (DESC "Chemin forestier")
+"Ce sentier serpente dans une forêt plongée dans la pénombre. Il s'étend ici du nord au sud. Un arbre particulièrement grand, aux branches basses, se dresse au bord du chemin.")
+      (DESC "Sentier forestier")
       (UP TO UP-A-TREE)
       (NORTH TO GRATING-CLEARING)
       (EAST TO FOREST-2)
@@ -1316,7 +1293,7 @@ sur votre droite que...." )>
 
 <ROOM UP-A-TREE
       (IN ROOMS)
-      (DESC "Sur un arbre")
+      (DESC "Dans l'arbre")
       (DOWN TO PATH)
       (UP "Vous ne pouvez escalader aucun plus haut.")
       (ACTION TREE-ROOM)
@@ -1325,7 +1302,7 @@ sur votre droite que...." )>
 
 <ROOM GRATING-CLEARING
       (IN ROOMS)
-      (DESC "Dégagement")
+      (DESC "Clairière")
       (NORTH "La forêt devient impénétrable au nord.")
       (EAST TO FOREST-2)
       (WEST TO FOREST-1)
@@ -1343,13 +1320,13 @@ sur votre droite que...." )>
 		       <TELL "La grille est fermée !" CR>
 		       <THIS-IS-IT ,GRATE>
 		       <RFALSE>)>)
-	       (T <TELL "Vous ne pouvez pas aller jusque là. chemin." CR> <RFALSE>)>>
+	       (T <TELL "Vous ne pouvez pas aller par là." CR> <RFALSE>)>>
 
 <ROOM CLEARING
       (IN ROOMS)
       (LDESC
-"Vous êtes dans une petite clairière dans un sentier forestier bien marqué qui s'étend à l'est et à l'ouest.")
-      (DESC "Dégagement")
+"Vous êtes dans une petite clairière traversée d'est en ouest par un sentier forestier bien marqué.")
+      (DESC "Clairière")
       (UP "Il n'y a pas d'arbre ici propice à l'escalade.")
       (EAST TO CANYON-VIEW)
       (NORTH TO FOREST-2)
@@ -1371,7 +1348,7 @@ sur votre droite que...." )>
       (OUT TO EAST-OF-HOUSE IF KITCHEN-WINDOW IS OPEN)
       (UP TO ATTIC)
       (DOWN TO STUDIO IF FALSE-FLAG ELSE
-	 "Seul le Père Noël descend cheminées.")
+	 "Seul le Père Noël descend par les cheminées.")
       (ACTION KITCHEN-FCN)
       (FLAGS RLANDBIT ONBIT SACREDBIT)
       (VALUE 10)
@@ -1394,7 +1371,7 @@ sur votre droite que...." )>
       (ACTION LIVING-ROOM-FCN)
       (FLAGS RLANDBIT ONBIT SACREDBIT)
       (GLOBAL STAIRS)
-      (PSEUDO "CLOUS" NAILS-PSEUDO "CLOUS" NAILS-PSEUDO)>
+      (PSEUDO "NAILS" NAILS-PSEUDO "NAIL" NAILS-PSEUDO)>
 
 \
 
@@ -1416,31 +1393,31 @@ sur votre droite que...." )>
 <ROOM TROLL-ROOM
       (IN ROOMS)
       (LDESC
-"Il s'agit d'une petite pièce avec des passages à l'est et au sud et un trou d'interdiction menant à l'ouest.")
-      (DESC "La salle des trolls")
+"C'est une petite salle d'où partent des passages vers l'est et le sud, ainsi qu'un trou peu engageant à l'ouest. Des taches de sang et de profondes entailles -- peut-être laissées par une hache -- défigurent les murs.")
+      (DESC "Salle du troll")
       (SOUTH TO CELLAR)
       (EAST TO EW-PASSAGE
-       IF TROLL-FLAG ELSE "Le troll vous repousse avec un geste.")
+       IF TROLL-FLAG ELSE "Le troll vous barre le passage d'un geste menaçant.")
       (WEST TO MAZE-1
-       IF TROLL-FLAG ELSE "Le troll vous repousse avec un geste.")
+       IF TROLL-FLAG ELSE "Le troll vous barre le passage d'un geste menaçant.")
       (FLAGS RLANDBIT)
       (ACTION TROLL-ROOM-F)>
 
 <ROOM EAST-OF-CHASM
       (IN ROOMS)
       (LDESC
-"Nous sommes sur le bord est d' un chasme, dont le bas ne peut pas être vu. Un passage étroit va au nord, et le chemin que nous sommes continue à l' est.")
-      (DESC "Est du gouffre")
+"Vous êtes au bord oriental d'un gouffre dont le fond demeure invisible. Un passage étroit part vers le nord, tandis que le chemin se poursuit vers l'est.")
+      (DESC "À l'est du gouffre")
       (NORTH TO CELLAR)
       (EAST TO GALLERY)
-      (DOWN "Le gouffre mène probablement tout droit à l'enfer régions.")
+      (DOWN "Ce gouffre mène probablement tout droit aux régions infernales.")
       (FLAGS RLANDBIT)
       (PSEUDO "CHASM" CHASM-PSEUDO)>
 
 <ROOM GALLERY
       (IN ROOMS)
       (LDESC
-"C'est une galerie d'art. La plupart des peintures ont été volées par des vandales avec un goût exceptionnel.")
+"C'est une galerie d'art. La plupart des tableaux ont été dérobés par des vandales au goût exceptionnel, qui sont repartis par l'une des sorties au nord ou à l'ouest.")
       (DESC "Galerie")
       (WEST TO EAST-OF-CHASM)
       (NORTH TO STUDIO)
@@ -1449,13 +1426,13 @@ sur votre droite que...." )>
 <ROOM STUDIO
       (IN ROOMS)
       (LDESC
-"Cela semble avoir été un studio d'artiste. Les murs et les planchers sont éclaboussés de peintures de 69 couleurs différentes. Étrangement, rien de précieux ne s'accroche ici. A l'extrémité sud de la pièce est une porte ouverte (également couverte de peinture). Une cheminée sombre et étroite conduit d'une cheminée; bien que vous pourriez être en mesure de la monter, il semble peu probable que vous puissiez descendre.")
-      (DESC "Studio")
+"Cet endroit semble avoir été l'atelier d'un artiste. Les murs et le sol sont éclaboussés de peinture de soixante-neuf couleurs différentes. Curieusement, rien de précieux n'est accroché ici. À l'extrémité sud se trouve une porte ouverte, elle aussi couverte de peinture. Une cheminée sombre et étroite s'élève au-dessus de l'âtre ; vous pourriez sans doute y grimper, mais il paraît peu probable que vous puissiez ensuite redescendre.")
+      (DESC "Atelier")
       (SOUTH TO GALLERY)
       (UP PER UP-CHIMNEY-FUNCTION)
       (FLAGS RLANDBIT)
       (GLOBAL CHIMNEY)
-      (PSEUDO "DOO R" DOOR-PSEUDO "PEINTURE" PAINT-PSEUDO)>
+      (PSEUDO "DOOR" DOOR-PSEUDO "PAINT" PAINT-PSEUDO)>
 
 \
 
@@ -1500,14 +1477,14 @@ sur votre droite que...." )>
 
 <ROOM DEAD-END-1
       (IN ROOMS)
-      (DESC "Mort Fin")
+      (DESC "Impasse")
       (LDESC "Vous êtes dans une impasse dans le labyrinthe.")
       (SOUTH TO MAZE-4)
       (FLAGS RLANDBIT MAZEBIT)>
 
 <ROOM MAZE-5
       (IN ROOMS)
-      (LDESC "Ceci fait partie d'un labyrinthe de petits passages tordus, tout comme. Un squelette, probablement les restes d'un aventurier sans chance, se trouve ici.")
+      (LDESC "Vous êtes dans une partie d'un labyrinthe de petits passages tortueux, tous semblables. Le squelette d'un aventurier malchanceux, sans doute, gît ici.")
       (DESC "Labyrinthe")
       (EAST TO DEAD-END-2)
       (NORTH TO MAZE-3)
@@ -1516,7 +1493,7 @@ sur votre droite que...." )>
 
 <ROOM DEAD-END-2
       (IN ROOMS)
-      (DESC "Mort Fin")
+      (DESC "Impasse")
       (LDESC "Vous êtes dans une impasse dans le labyrinthe.")
       (WEST TO MAZE-5)
       (FLAGS RLANDBIT MAZEBIT)>
@@ -1553,7 +1530,7 @@ sur votre droite que...." )>
 
 <ROOM DEAD-END-3
       (IN ROOMS)
-      (DESC "Mort Fin")
+      (DESC "Impasse")
       (LDESC "Vous êtes dans une impasse dans le labyrinthe.")
       (NORTH TO MAZE-8)
       (FLAGS RLANDBIT MAZEBIT)>
@@ -1612,7 +1589,7 @@ sur votre droite que...." )>
 
 <ROOM DEAD-END-4
       (IN ROOMS)
-      (DESC "Mort Fin")
+      (DESC "Impasse")
       (LDESC "Vous êtes dans une impasse dans le labyrinthe.")
       (SOUTH TO MAZE-12)
       (FLAGS RLANDBIT MAZEBIT)>
@@ -1652,12 +1629,12 @@ sur votre droite que...." )>
 
 <ROOM CYCLOPS-ROOM
       (IN ROOMS)
-      (DESC "Salle du Cyclope")
+      (DESC "Salle du cyclope")
       (NW TO MAZE-15)
       (EAST TO STRANGE-PASSAGE
-       IF MAGIC-FLAG ELSE "Le mur est est en roche solide.")
+       IF MAGIC-FLAG ELSE "Le mur oriental est fait de roche massive.")
       (UP TO TREASURE-ROOM IF CYCLOPS-FLAG
-        ELSE "Le cyclope ne ressemble pas à il vous laissera passer.")
+        ELSE "Le cyclope n'a pas l'air disposé à vous laisser passer.")
       (ACTION CYCLOPS-ROOM-FCN)
       (FLAGS RLANDBIT)
       (GLOBAL STAIRS)>
@@ -1665,7 +1642,7 @@ sur votre droite que...." )>
 <ROOM STRANGE-PASSAGE
       (IN ROOMS)
       (LDESC
-"C'est un long passage. A l'ouest est une entrée. À l'est il y a une vieille porte en bois, avec une grande ouverture en elle (environ cyclopes de taille).")
+"C'est un long passage. Une entrée se trouve à l'ouest. À l'est, une vieille porte en bois est percée d'une vaste ouverture, à peu près de la taille d'un cyclope.")
       (DESC "Passage étrange")
       (WEST TO CYCLOPS-ROOM)
       (IN TO CYCLOPS-ROOM)
@@ -1675,7 +1652,7 @@ sur votre droite que...." )>
 <ROOM TREASURE-ROOM
       (IN ROOMS)
       (LDESC
-"Il s'agit d'une grande pièce, dont le mur est en granit massif. Un certain nombre de sacs jetés, qui s'écroulent à votre toucher, sont dispersés autour du sol. Il y a une sortie en bas d'un escalier.")
+"C'est une vaste salle dont le mur oriental est en granit massif. Des sacs abandonnés, qui tombent en poussière au moindre contact, jonchent le sol. Un escalier permet de descendre.")
       (DESC "Salle du trésor")
       (DOWN TO CYCLOPS-ROOM)
       (ACTION TREASURE-ROOM-FCN)
@@ -1689,17 +1666,17 @@ sur votre droite que...." )>
 
 <ROOM RESERVOIR-SOUTH
       (IN ROOMS)
-      (DESC "Réservoir Sud")
+      (DESC "Sud du réservoir")
       (SE TO DEEP-CANYON)
       (SW TO CHASM-ROOM)
       (EAST TO DAM-ROOM)
       (WEST TO STREAM-VIEW)
       (NORTH TO RESERVOIR
-       IF LOW-TIDE ELSE "Vous auriez se noyer.")
+       IF LOW-TIDE ELSE "Vous vous noieriez.")
       (ACTION RESERVOIR-SOUTH-FCN)
       (FLAGS RLANDBIT)
       (GLOBAL GLOBAL-WATER)
-      (PSEUDO "LAC" LAKE-PSEUDO "CHASM" CHASM-PSEUDO)>
+      (PSEUDO "LAKE" LAKE-PSEUDO "CHASM" CHASM-PSEUDO)>
 
 <ROOM RESERVOIR
       (IN ROOMS)
@@ -1711,35 +1688,35 @@ sur votre droite que...." )>
       (DOWN "Le barrage bloque votre ")
       (ACTION RESERVOIR-FCN)
       (FLAGS NONLANDBIT )
-      (PSEUDO "RUISSEAU" STREAM-PSEUDO)
+      (PSEUDO "STREAM" STREAM-PSEUDO)
       (GLOBAL GLOBAL-WATER)>
 
 <ROOM RESERVOIR-NORTH
       (IN ROOMS)
-      (DESC "Réservoir Nord")
+      (DESC "Nord du réservoir")
       (NORTH TO ATLANTIS-ROOM)
       (SOUTH TO RESERVOIR
-       IF LOW-TIDE ELSE "Vous auriez se noyer.")
+       IF LOW-TIDE ELSE "Vous vous noieriez.")
       (ACTION RESERVOIR-NORTH-FCN)
       (FLAGS RLANDBIT)
       (GLOBAL GLOBAL-WATER STAIRS)
-      (PSEUDO "LAC" LAKE-PSEUDO)>
+      (PSEUDO "LAKE" LAKE-PSEUDO)>
 
 <ROOM STREAM-VIEW
       (IN ROOMS)
       (LDESC
-"Vous êtes debout sur un sentier à côté d'un ruisseau qui coule doucement. Le sentier suit le ruisseau, qui coule d'ouest en est.")
-      (DESC "Vue du ruisseau")
+"Vous vous tenez sur un sentier qui longe un ruisseau paisible. Le chemin suit le cours d'eau, qui s'écoule d'ouest en est.")
+      (DESC "Vue sur le ruisseau")
       (EAST TO RESERVOIR-SOUTH)
       (WEST "Le ruisseau émerge d'un endroit trop petit pour que vous puissiez y entrer.")
       (FLAGS RLANDBIT)
       (GLOBAL GLOBAL-WATER)
-      (PSEUDO "RUISSEAU" STREAM-PSEUDO)>
+      (PSEUDO "STREAM" STREAM-PSEUDO)>
 
 <ROOM IN-STREAM
       (IN ROOMS)
       (LDESC
-"Vous êtes sur le ruisseau qui coule doucement. La route en amont est trop étroite pour naviguer, et la route en aval est invisible en raison de murs tordus. Il ya une plage étroite pour atterrir sur.")
+"Vous naviguez sur un ruisseau au courant paisible. En amont, le passage est trop étroit ; en aval, les méandres des parois masquent la suite du cours d'eau. Une étroite plage permet d'accoster.")
       (DESC "Ruisseau")
       (UP "Le canal est trop étroit.")
       (WEST "Le canal est trop étroit.")
@@ -1748,7 +1725,7 @@ sur votre droite que...." )>
       (EAST TO RESERVOIR)
       (FLAGS NONLANDBIT )
       (GLOBAL GLOBAL-WATER)
-      (PSEUDO "RUISSEAU" STREAM-PSEUDO)>
+      (PSEUDO "STREAM" STREAM-PSEUDO)>
 
 \
 
@@ -1756,7 +1733,7 @@ sur votre droite que...." )>
 
 <ROOM MIRROR-ROOM-1
       (IN ROOMS)
-      (DESC "Salle miroir")
+      (DESC "Salle aux miroirs")
       (NORTH TO COLD-PASSAGE)
       (WEST TO TWISTING-PASSAGE)
       (EAST TO SMALL-CAVE)
@@ -1765,7 +1742,7 @@ sur votre droite que...." )>
 
 <ROOM MIRROR-ROOM-2
       (IN ROOMS)
-      (DESC "Salle miroir")
+      (DESC "Salle aux miroirs")
       (WEST TO WINDING-PASSAGE)
       (NORTH TO NARROW-PASSAGE)
       (EAST TO TINY-CAVE)
@@ -1808,7 +1785,7 @@ sur votre droite que...." )>
 <ROOM NARROW-PASSAGE
       (IN ROOMS)
       (LDESC
-"C'est un long et étroit couloir où un long passage nord-sud rétrécit brièvement encore plus.")
+"Ce long couloir étroit constitue le bref étranglement d'un passage orienté nord-sud.")
       (DESC "Passage étroit")
       (NORTH TO ROUND-ROOM)
       (SOUTH TO MIRROR-ROOM-2)
@@ -1818,7 +1795,7 @@ sur votre droite que...." )>
       (IN ROOMS)
       (LDESC
 "Il semble qu'il n'y ait que des sorties à l'est et au nord.")
-      (DESC "Passage sinueux")
+      (DESC "Passage tortueux")
       (NORTH TO MIRROR-ROOM-2)
       (EAST TO TINY-CAVE)
       (FLAGS RLANDBIT)>
@@ -1835,8 +1812,8 @@ sur votre droite que...." )>
 <ROOM ATLANTIS-ROOM
       (IN ROOMS)
       (LDESC
-"Il s'agit d'une pièce ancienne, longue sous l'eau. Il y a une sortie vers le sud et un escalier menant vers le haut.")
-      (DESC "Salle Atlantis")
+"Cette salle antique est restée longtemps engloutie. Une sortie mène au sud et un escalier permet de monter.")
+      (DESC "Salle d'Atlantide")
       (UP TO SMALL-CAVE)
       (SOUTH TO RESERVOIR-NORTH)
       (FLAGS RLANDBIT)
@@ -1849,8 +1826,8 @@ sur votre droite que...." )>
 <ROOM EW-PASSAGE
       (IN ROOMS)
       (LDESC
-"Il s'agit d'un étroit passage est-ouest. Il y a un étroit escalier qui descend à l'extrémité nord de la pièce.")
-      (DESC "Passage Est-Ouest")
+"C'est un étroit passage orienté d'est en ouest. À son extrémité nord, un escalier resserré descend dans les profondeurs.")
+      (DESC "Passage est-ouest")
       (EAST TO ROUND-ROOM)
       (WEST TO TROLL-ROOM)
       (DOWN TO CHASM-ROOM)
@@ -1862,7 +1839,7 @@ sur votre droite que...." )>
 <ROOM ROUND-ROOM
       (IN ROOMS)
       (LDESC
-"Il s'agit d'une salle circulaire en pierre avec des passages dans toutes les directions. Plusieurs d'entre eux ont malheureusement été bloqués par des grottes.")
+"C'est une salle circulaire en pierre, percée de passages dans toutes les directions. Plusieurs sont malheureusement obstrués par des éboulements.")
       (DESC "Salle ronde")
       (EAST TO LOUD-ROOM)
       (WEST TO EW-PASSAGE)
@@ -1885,7 +1862,7 @@ sur votre droite que...." )>
 <ROOM DAMP-CAVE
       (IN ROOMS)
       (LDESC
-"Cette grotte a des sorties à l'ouest et à l'est, et se rétrécit à une fissure vers le sud. La terre est particulièrement humide ici.")
+"Cette grotte possède des sorties à l'ouest et à l'est ; vers le sud, elle se resserre jusqu'à ne plus former qu'une fissure. La terre y est particulièrement humide.")
       (DESC "Grotte humide")
       (WEST TO LOUD-ROOM)
       (EAST TO WHITE-CLIFFS-NORTH)
@@ -1895,7 +1872,7 @@ sur votre droite que...." )>
 
 <ROOM LOUD-ROOM
       (IN ROOMS)
-      (DESC "Fort Salle")
+      (DESC "Salle assourdissante")
       (EAST TO DAMP-CAVE)
       (WEST TO ROUND-ROOM)
       (UP TO DEEP-CANYON)
@@ -1916,13 +1893,13 @@ sur votre droite que...." )>
 <ROOM CHASM-ROOM
       (IN ROOMS)
       (LDESC
-"Un chasme court du sud-ouest au nord-est et le sentier le suit. Nous sommes du côté sud du chasme, où une fissure s'ouvre dans un passage.")
+"Un gouffre s'étend du sud-ouest au nord-est, longé par le sentier. Vous vous trouvez sur sa rive sud, où une fissure s'élargit en passage.")
       (DESC "Gouffre")
       (NE TO RESERVOIR-SOUTH)
       (SW TO EW-PASSAGE)
       (UP TO EW-PASSAGE)
       (SOUTH TO NS-PASSAGE)
-      (DOWN "Êtes-vous hors de votre esprit ?")
+      (DOWN "Avez-vous perdu la tête ?")
       (FLAGS RLANDBIT)
       (GLOBAL CRACK STAIRS)
       (PSEUDO "CHASM" CHASM-PSEUDO)>
@@ -1933,7 +1910,7 @@ sur votre droite que...." )>
 
 <ROOM ENTRANCE-TO-HADES
       (IN ROOMS)
-      (DESC "Entrée d'Hadès")
+      (DESC "Entrée des Enfers")
       (UP TO TINY-CAVE)
       (IN TO LAND-OF-LIVING-DEAD IF LLD-FLAG
        ELSE "Une force invisible vous empêche de passer par le porte.")
@@ -1942,13 +1919,13 @@ sur votre droite que...." )>
       (ACTION LLD-ROOM)
       (FLAGS RLANDBIT ONBIT)
       (GLOBAL BODIES)
-      (PSEUDO "PORTE" GATE-PSEUDO "PORTES" GATE-PSEUDO)>
+      (PSEUDO "GATE" GATE-PSEUDO "GATES" GATE-PSEUDO)>
 
 <ROOM LAND-OF-LIVING-DEAD
       (IN ROOMS)
       (LDESC
-"Vous êtes entrés dans la Terre des morts vivants. Des milliers d'âmes perdues peuvent être entendues pleurer et gémir. Dans le coin sont empilés les restes de dizaines d'aventuriers précédents moins chanceux que vous. Un passage sort au nord.")
-      (DESC "Terre des Morts")
+"Vous avez pénétré dans le Royaume des Morts-Vivants. Des milliers d'âmes perdues pleurent et gémissent dans l'obscurité. Dans un coin sont entassés les restes de dizaines d'aventuriers qui eurent moins de chance que vous. Un passage mène au nord.")
+      (DESC "Royaume des Morts")
       (OUT TO ENTRANCE-TO-HADES)
       (NORTH TO ENTRANCE-TO-HADES)
       (FLAGS RLANDBIT ONBIT)
@@ -1961,8 +1938,8 @@ sur votre droite que...." )>
 <ROOM ENGRAVINGS-CAVE	;"was CAVE4"
       (IN ROOMS)
       (LDESC
-"Vous êtes entré une grotte basse avec des passages menant au nord-ouest et à l'est.")
-      (DESC "Grotte des gravures")
+"Vous êtes entré dans une grotte basse, d'où partent des passages vers le nord-ouest et l'est.")
+      (DESC "Grotte aux gravures")
       (NW TO ROUND-ROOM)
       (EAST TO DOME-ROOM)
       (FLAGS RLANDBIT)>
@@ -1979,29 +1956,29 @@ sur votre droite que...." )>
 
 <ROOM DOME-ROOM	;"was DOME"
       (IN ROOMS)
-      (DESC "Salle du Dôme")
+      (DESC "Salle du dôme")
       (WEST TO ENGRAVINGS-CAVE)
       (DOWN TO TORCH-ROOM
-       IF DOME-FLAG ELSE "Vous ne pouvez pas descendre sans en fracturer plusieurs os.")
+       IF DOME-FLAG ELSE "Vous ne pourriez descendre sans vous briser quantité d'os.")
       (ACTION DOME-ROOM-FCN)
       (FLAGS RLANDBIT)
-      (PSEUDO "DÔME" DOME-PSEUDO)>
+      (PSEUDO "DOME" DOME-PSEUDO)>
 
 <ROOM TORCH-ROOM
       (IN ROOMS)
-      (DESC "Salle de la Torche")
-      (UP "Vous ne pouvez pas atteindre le corde.")
+      (DESC "Salle de la torche")
+      (UP "Vous ne pouvez pas atteindre la corde.")
       (SOUTH TO NORTH-TEMPLE)
       (DOWN TO NORTH-TEMPLE)
       (ACTION TORCH-ROOM-FCN)
       (FLAGS RLANDBIT)
       (GLOBAL STAIRS)
-      (PSEUDO "DÔME" DOME-PSEUDO)>
+      (PSEUDO "DOME" DOME-PSEUDO)>
 
 <ROOM NORTH-TEMPLE	;"was TEMP1"
       (IN ROOMS)
       (LDESC
-"C'est l'extrémité nord d'un grand temple. Sur le mur est est une inscription ancienne, probablement une prière dans une langue longtemps oubliée. Au-dessous de la prière est un escalier menant vers le bas. Le mur ouest est en granit solide. La sortie à l'extrémité nord de la pièce est par d'énormes piliers en marbre.")
+"Vous êtes à l'extrémité nord d'un vaste temple. Sur le mur oriental se trouve une inscription ancienne, sans doute une prière rédigée dans une langue oubliée depuis longtemps. Un escalier descend sous la prière. Le mur occidental est en granit massif. Au nord, la sortie passe entre d'immenses colonnes de marbre.")
       (DESC "Temple")
       (DOWN TO EGYPT-ROOM)
       (EAST TO EGYPT-ROOM)
@@ -2016,12 +1993,12 @@ sur votre droite que...." )>
       (IN ROOMS)
       (LDESC
 
-"C'est l'extrémité sud d'un grand temple. Devant vous se trouve ce qui semble être un autel. Dans un coin se trouve un petit trou dans le sol qui mène à l'obscurité.")
+"Vous êtes à l'extrémité sud d'un vaste temple. Devant vous se dresse ce qui paraît être un autel. Dans un coin, une petite ouverture ménagée dans le sol plonge dans les ténèbres. Vous ne pourriez probablement pas remonter par là.")
       (DESC "Autel")
       (NORTH TO NORTH-TEMPLE)
       (DOWN TO TINY-CAVE
        IF COFFIN-CURE
-       ELSE "Vous n'avez pas une prière pour y amener le cercueil.")
+       ELSE "Vous n'avez aucune chance de faire descendre le cercueil par là.")
       (FLAGS RLANDBIT ONBIT SACREDBIT)
       (ACTION SOUTH-TEMPLE-FCN)>
 
@@ -2054,7 +2031,7 @@ sur votre droite que...." )>
 <ROOM MAINTENANCE-ROOM	;"was MAINT"
       (IN ROOMS)
       (LDESC
-"C'est ce qui semble avoir été la salle d'entretien du barrage de contrôle des inondations #3. Apparemment, cette salle a été saccagé récemment, car la plupart de l'équipement précieux est parti. Sur le mur en face de vous est un groupe de boutons colorés bleu, jaune, brun, et rouge. Il ya des portes à l'ouest et au sud.")
+"Cette pièce semble avoir servi à l'entretien du Barrage de régulation des crues no 3. Elle a visiblement été pillée récemment : presque tout le matériel de valeur a disparu. Sur le mur devant vous sont disposés quatre boutons, bleu, jaune, brun et rouge. Des portes mènent à l'ouest et au sud.")
       (DESC "Salle de maintenance")
       (SOUTH TO DAM-LOBBY)
       (WEST TO DAM-LOBBY)
@@ -2067,8 +2044,8 @@ sur votre droite que...." )>
 <ROOM DAM-BASE	;"was DOCK"
       (IN ROOMS)
       (LDESC
-"Vous êtes à la base du barrage de contrôle des inondations #3, qui se profile au-dessus de vous et au nord. La rivière Frigid coule ici. Le long de la rivière sont les falaises blanches qui semblent former des murs géants s'étendant du nord au sud le long des rives de la rivière pendant qu'il serpente son chemin en aval.")
-      (DESC "Base du barrage")
+"Vous êtes au pied du Barrage de régulation des crues no 3, dont la masse imposante se dresse au-dessus de vous, vers le nord. La Rivière Glaciale coule à proximité. Sur ses rives, les Falaises Blanches forment d'immenses murailles qui s'étendent du nord au sud en suivant les méandres du fleuve.")
+      (DESC "Pied du barrage")
       (NORTH TO DAM-ROOM)
       (UP TO DAM-ROOM)
       (FLAGS RLANDBIT ONBIT SACREDBIT)
@@ -2077,25 +2054,25 @@ sur votre droite que...." )>
 <ROOM RIVER-1	;"was RIVR1"
       (IN ROOMS)
       (LDESC
-"Vous êtes sur la rivière Frigid à proximité du barrage. La rivière coule tranquillement ici. Il y a un débarquement sur la rive ouest.")
-      (DESC "Rivière glaciale")
-      (UP "Vous ne pouvez pas remonter en amont en raison de forts courants.")
+"Vous naviguez sur la Rivière Glaciale, à proximité du barrage. Le courant est calme ici. Un débarcadère se trouve sur la rive ouest.")
+      (DESC "Rivière Glaciale")
+      (UP "La violence du courant vous empêche de remonter la rivière.")
       (WEST TO DAM-BASE)
       (LAND TO DAM-BASE)
       (DOWN TO RIVER-2)
-      (EAST "Les falaises blanches empêchent votre débarquement. ici.")
+      (EAST "Les Falaises Blanches vous empêchent d'accoster ici.")
       (FLAGS NONLANDBIT SACREDBIT ONBIT)
       (GLOBAL GLOBAL-WATER RIVER)>
 
 <ROOM RIVER-2	;"was RIVR2"
       (IN ROOMS)
       (LDESC
-"La rivière tourne un coin ici ce qui rend impossible de voir le barrage. Les falaises blanches sur la rive est et de grands rochers empêchent l'atterrissage sur l'ouest.")
-      (DESC "Rivière glaciale")
-      (UP "Vous ne pouvez pas remonter en amont en raison de forts courants.")
+"La rivière décrit ici un coude qui masque le barrage. Les Falaises Blanches dominent la rive est, tandis que de gros rochers empêchent d'accoster à l'ouest.")
+      (DESC "Rivière Glaciale")
+      (UP "La violence du courant vous empêche de remonter la rivière.")
       (DOWN TO RIVER-3)
       (LAND "Il n'y a pas de point d'atterrissage sûr ici.")
-      (EAST "Les falaises blanches empêchent votre débarquement. ici.")
+      (EAST "Les Falaises Blanches vous empêchent d'accoster ici.")
       (WEST "Juste à temps, vous vous éloignez des rochers.")
       (FLAGS NONLANDBIT SACREDBIT)
       (GLOBAL GLOBAL-WATER RIVER)>
@@ -2103,9 +2080,9 @@ sur votre droite que...." )>
 <ROOM RIVER-3	;"was RIVR3"
       (IN ROOMS)
       (LDESC
-"La rivière descend ici dans une vallée. Il y a une plage étroite sur la rive ouest sous les falaises. Au loin un léger grondement peut être entendu.")
-      (DESC "Rivière glaciale")
-      (UP "Vous ne pouvez pas remonter en amont en raison de forts courants.")
+"La rivière descend ici dans une vallée. Une étroite plage s'étend sur la rive ouest, au pied des falaises. Au loin, on perçoit un faible grondement.")
+      (DESC "Rivière Glaciale")
+      (UP "La violence du courant vous empêche de remonter la rivière.")
       (DOWN TO RIVER-4)
       (LAND TO WHITE-CLIFFS-NORTH)
       (WEST TO WHITE-CLIFFS-NORTH)
@@ -2115,8 +2092,8 @@ sur votre droite que...." )>
 <ROOM WHITE-CLIFFS-NORTH	;"was WCLF1"
       (IN ROOMS)
       (LDESC
-"Vous êtes sur une bande étroite de plage qui longe la base des falaises blanches. Il y a un sentier étroit se dirigeant vers le sud le long des falaises et un passage étroit menant à l'ouest dans les falaises elles-mêmes.")
-      (DESC "Plage de White Cliffs")
+"Vous êtes sur une étroite bande de plage au pied des Falaises Blanches. Un sentier resserré longe les falaises vers le sud ; un passage exigu s'enfonce vers l'ouest dans la roche.")
+      (DESC "Plage des Falaises Blanches")
       (SOUTH TO WHITE-CLIFFS-SOUTH IF DEFLATE ELSE "Le chemin est trop étroit.")
       (WEST TO DAMP-CAVE IF DEFLATE ELSE "Le chemin est trop étroit.")
       (ACTION WHITE-CLIFFS-FUNCTION)
@@ -2126,8 +2103,8 @@ sur votre droite que...." )>
 <ROOM WHITE-CLIFFS-SOUTH	;"was WCLF2"
       (IN ROOMS)
       (LDESC
-"Vous êtes sur une plage rocheuse et étroite à côté des Cliffs. Un sentier étroit mène au nord le long du rivage.")
-      (DESC "Plage de White Cliffs")
+"Vous êtes sur une étroite plage rocheuse, au pied des falaises. Un sentier suit la rive vers le nord.")
+      (DESC "Plage des Falaises Blanches")
       (NORTH TO WHITE-CLIFFS-NORTH
        IF DEFLATE ELSE "Le chemin est trop étroit.")
       (ACTION WHITE-CLIFFS-FUNCTION)
@@ -2137,9 +2114,9 @@ sur votre droite que...." )>
 <ROOM RIVER-4	;"was RIVR4"
       (IN ROOMS)
       (LDESC
-"Sur la rive est est est une plage de sable. Une petite zone de plage peut également être vue sous les falaises sur la rive ouest.")
-      (DESC "Rivière glaciale")
-      (UP "Vous ne pouvez pas remonter en amont en raison de forts courants.")
+"Le courant s'accélère et, devant vous, le fracas de l'eau se fait entendre. Une plage de sable borde la rive est. On distingue également une petite grève sous les falaises de la rive ouest.")
+      (DESC "Rivière Glaciale")
+      (UP "La violence du courant vous empêche de remonter la rivière.")
       (DOWN TO RIVER-5)
       (LAND "Vous pouvez atterrir soit à l'est, soit à l'ouest.")
       (WEST TO WHITE-CLIFFS-SOUTH)
@@ -2151,9 +2128,9 @@ sur votre droite que...." )>
 <ROOM RIVER-5	;"was RIVR5"
       (IN ROOMS)
       (LDESC
-"Sur la rive est est est une grande zone d'atterrissage.")
-      (DESC "Rivière glaciale")
-      (UP "Vous ne pouvez pas remonter en amont en raison de forts courants.")
+"Le fracas de l'eau est presque insupportable. Une vaste zone d'accostage s'étend sur la rive est.")
+      (DESC "Rivière Glaciale")
+      (UP "La violence du courant vous empêche de remonter la rivière.")
       (EAST TO SHORE)
       (LAND TO SHORE)
       (FLAGS NONLANDBIT SACREDBIT ONBIT)
@@ -2162,7 +2139,7 @@ sur votre droite que...." )>
 <ROOM SHORE	;"was FANTE"
       (IN ROOMS)
       (LDESC
-"Vous êtes sur la rive est de la rivière. L'eau ici semble un peu perfide. Un sentier se déplace du nord au sud ici, l'extrémité sud tourne rapidement autour d'un angle tranchant.")
+"Vous êtes sur la rive est de la rivière. L'eau paraît traîtresse à cet endroit. Un sentier suit un axe nord-sud ; vers le sud, il disparaît rapidement derrière un virage serré.")
       (DESC "Rive")
       (NORTH TO SANDY-BEACH)
       (SOUTH TO ARAGAIN-FALLS)
@@ -2173,7 +2150,7 @@ sur votre droite que...." )>
       (IN ROOMS)
       (LDESC
 
-"Vous êtes sur une grande plage de sable sur la rive est de la rivière, qui coule rapidement. Un sentier longe la rivière au sud ici, et un passage est partiellement enterré dans le sable au nord-est.")
+"Vous êtes sur une vaste plage de sable, sur la rive est d'une rivière au courant rapide. Un sentier longe l'eau vers le sud et, au nord-est, un passage est en partie enseveli sous le sable.")
       (DESC "Plage de sable")
       (NE TO SANDY-CAVE)
       (SOUTH TO SHORE)
@@ -2184,15 +2161,15 @@ sur votre droite que...." )>
       (IN ROOMS)
       (LDESC
 "Il s'agit d'une grotte remplie de sable dont la sortie est au sud-ouest.")
-      (DESC "Sandy Grotte")
+      (DESC "Grotte sablonneuse")
       (SW TO SANDY-BEACH)
       (FLAGS RLANDBIT)>
 
 <ROOM ARAGAIN-FALLS	;"was FALLS"
       (IN ROOMS)
-      (DESC "Aragain Chutes")
+      (DESC "Chutes d'Aragain")
       (WEST TO ON-RAINBOW IF RAINBOW-FLAG)
-      (DOWN "C'est un long chemin...")
+      (DOWN "La chute serait longue...")
       (NORTH TO SHORE)
       (UP TO ON-RAINBOW IF RAINBOW-FLAG)
       (ACTION FALLS-ROOM)
@@ -2202,8 +2179,8 @@ sur votre droite que...." )>
 <ROOM ON-RAINBOW	;"was RAINB"
       (IN ROOMS)
       (LDESC
-"Vous êtes au sommet d'un arc-en-ciel (je parie que vous ne pensiez jamais marcher sur un arc-en-ciel), avec une vue magnifique sur les chutes.")
-      (DESC "Sur l'Arc-en-ciel")
+"Vous marchez au sommet d'un arc-en-ciel -- avouez que vous ne vous y attendiez pas -- et profitez d'une vue magnifique sur les chutes. L'arc-en-ciel s'étend ici d'est en ouest.")
+      (DESC "Sur l'arc-en-ciel")
       (WEST TO END-OF-RAINBOW)
       (EAST TO ARAGAIN-FALLS)
       (FLAGS RLANDBIT ONBIT SACREDBIT)
@@ -2212,8 +2189,8 @@ sur votre droite que...." )>
 <ROOM END-OF-RAINBOW	;"was POG"
       (IN ROOMS)
       (LDESC
-"Vous êtes sur une petite plage rocheuse sur la suite de la rivière Frigid après les chutes. La plage est étroite en raison de la présence des falaises blanches. Le canyon de la rivière s'ouvre ici et le soleil brille en haut. Un arc-en-ciel traverse les chutes à l'est et un sentier étroit continue au sud-ouest.")
-      (DESC "Fin de Rainbow")
+"Vous êtes sur une petite plage rocheuse, au bord de la Rivière Glaciale en aval des chutes. Les Falaises Blanches ne lui laissent qu'une étroite bande de terrain. Le canyon s'ouvre ici et la lumière du jour descend d'en haut. À l'est, un arc-en-ciel enjambe les chutes ; un sentier étroit se poursuit vers le sud-ouest.")
+      (DESC "Pied de l'arc-en-ciel")
       (UP TO ON-RAINBOW IF RAINBOW-FLAG)
       (NE TO ON-RAINBOW IF RAINBOW-FLAG)
       (EAST TO ON-RAINBOW IF RAINBOW-FLAG)
@@ -2224,7 +2201,7 @@ sur votre droite que...." )>
 <ROOM CANYON-BOTTOM	;"was CLBOT"
       (IN ROOMS)
       (LDESC
-"Vous êtes sous les murs du canyon de la rivière qui peut être grimpable ici. La partie inférieure du ruissellement de Aragain Falls coule en dessous. Au nord est un sentier étroit.")
+"Vous êtes au pied des parois du canyon, qui semblent pouvoir être escaladées ici. En contrebas coule le bras secondaire des Chutes d'Aragain. Un sentier étroit mène au nord.")
       (DESC "Fond du canyon")
       (UP TO CLIFF-MIDDLE)
       (NORTH TO END-OF-RAINBOW)
@@ -2234,7 +2211,7 @@ sur votre droite que...." )>
 <ROOM CLIFF-MIDDLE	;"was CLMID"
       (IN ROOMS)
       (LDESC
-"Vous êtes sur un rebord environ à mi-haut du mur du canyon de rivière. Vous pouvez voir d'ici que le courant principal de Aragain Falls tourne le long d'un passage qu'il est impossible pour vous d'entrer.")
+"Vous êtes sur une corniche, à mi-hauteur de la paroi du canyon. D'ici, vous voyez le cours principal des Chutes d'Aragain s'engouffrer dans un passage inaccessible. Le fond du canyon est en dessous de vous ; au-dessus, la falaise paraît encore praticable.")
       (DESC "Corniche rocheuse")
       (UP TO CANYON-VIEW)
       (DOWN TO CANYON-BOTTOM)
@@ -2244,8 +2221,8 @@ sur votre droite que...." )>
 <ROOM CANYON-VIEW	;"was CLTOP"
       (IN ROOMS)
       (LDESC
-"Vous êtes au sommet du Grand Canyon sur son mur ouest. De là, il y a une vue magnifique du canyon et des parties de la rivière Frigid en amont. De l'autre côté du canyon, les murs des Cliffs blancs rejoignent les puissants remparts des monts Tête-Plate à l'est. Après le canyon en amont au nord, les chutes Aragain peuvent être vues, avec arc-en-ciel. La rivière Frigid s'écoule d'une grande caverne sombre.")
-      (DESC "Vue du canyon")
+"Vous êtes au sommet de la paroi ouest du Grand Canyon. La vue embrasse le canyon et une partie de la Rivière Glaciale en amont. En face, les Falaises Blanches rejoignent à l'est les puissants remparts des montagnes Tête-Plate. Vers le nord, en remontant le canyon, on aperçoit les Chutes d'Aragain et leur arc-en-ciel. La puissante Rivière Glaciale jaillit d'une immense caverne obscure. À l'ouest et au sud s'étend à perte de vue une forêt gigantesque. Un sentier part au nord-ouest. Il est possible de descendre dans le canyon depuis cet endroit.")
+      (DESC "Belvédère du canyon")
       (EAST TO CLIFF-MIDDLE)
       (DOWN TO CLIFF-MIDDLE)
       (NW TO CLEARING)
@@ -2259,7 +2236,7 @@ sur votre droite que...." )>
 	 <COND (<AND <==? .RARG ,M-BEG>
 		     <VERB? LEAP>
 		     <NOT ,PRSO>>
-		<JIGS-UP "Belle vue, endroit moche pour sauter.">
+		<JIGS-UP "Jolie vue, mais très mauvais endroit pour sauter.">
 		<RTRUE>)>>
 	       
 
@@ -2271,7 +2248,7 @@ sur votre droite que...." )>
       (IN ROOMS)
       (LDESC
 
-"Vous êtes debout à l'entrée de ce qui aurait pu être une mine de charbon. Le puits entre dans le mur ouest, et il y a une autre sortie au sud de la pièce.")
+"Vous vous tenez à l'entrée de ce qui fut peut-être une mine de charbon. Le puits s'enfonce dans le mur ouest ; une autre sortie se trouve au sud.")
       (DESC "Entrée de la mine")
       (SOUTH TO SLIDE-ROOM)
       (IN TO SQUEEKY-ROOM)
@@ -2281,8 +2258,8 @@ sur votre droite que...." )>
 <ROOM SQUEEKY-ROOM	;"was SQUEE"
       (IN ROOMS)
       (LDESC
-"Vous êtes dans une petite pièce. D'étranges bruits de coulis peuvent être entendus venant du passage à l'extrémité nord.")
-      (DESC "Salle qui grince")
+"Vous êtes dans une petite salle. D'étranges grincements proviennent du passage au nord. Vous pouvez également sortir par l'est.")
+      (DESC "Salle grinçante")
       (NORTH TO BAT-ROOM)
       (EAST TO MINE-ENTRANCE)
       (FLAGS RLANDBIT)>
@@ -2298,8 +2275,8 @@ sur votre droite que...." )>
 <ROOM SHAFT-ROOM	;"was TSHAF"
       (IN ROOMS)
       (LDESC
-"Il s'agit d'une grande pièce, au milieu de laquelle se trouve un petit arbre descendant à travers le sol dans l'obscurité en dessous. A l'ouest et au nord sont des sorties de cette pièce. Construit au-dessus du sommet de l'arbre est un cadre métallique auquel est attachée une chaîne de fer lourde.")
-      (DESC "Salle de l'arbre")
+"C'est une vaste salle. En son centre, un puits étroit s'enfonce à travers le sol dans les ténèbres. Des sorties mènent à l'ouest et au nord. Au-dessus du puits se dresse une armature métallique à laquelle est fixée une lourde chaîne de fer.")
+      (DESC "Salle du puits")
       (DOWN "Vous ne pourriez pas y passer ; même si vous le pouviez, vous mourriez.")
       (WEST TO BAT-ROOM)
       (NORTH TO SMELLY-ROOM)
@@ -2309,30 +2286,30 @@ sur votre droite que...." )>
 <ROOM SMELLY-ROOM	;"was SMELL"
       (IN ROOMS)
       (LDESC
-"Il s'agit d'une petite pièce non-descriptible. Cependant, depuis la direction d'un petit escalier descendant, on peut détecter une odeur obscène.")
-      (DESC "Smelly Pièce")
+"C'est une petite pièce quelconque. Une odeur pestilentielle monte toutefois d'un petit escalier descendant. Un étroit tunnel mène au sud.")
+      (DESC "Salle malodorante")
       (DOWN TO GAS-ROOM)
       (SOUTH TO SHAFT-ROOM)
       (FLAGS RLANDBIT)
       (GLOBAL STAIRS)
-      (PSEUDO "ODEUR" GAS-PSEUDO "GAZ" GAS-PSEUDO)>
+      (PSEUDO "ODOR" GAS-PSEUDO "GAS" GAS-PSEUDO)>
 
 <ROOM GAS-ROOM	;"was BOOM"
       (IN ROOMS)
       (LDESC
-"Il s'agit d'une petite pièce qui sent fortement le gaz de charbon. Il y a une petite montée sur quelques escaliers et un tunnel étroit menant à l'est.")
-      (DESC "Salle à gaz")
+"Cette petite salle empeste le grisou. Quelques marches permettent de monter ; un étroit tunnel mène à l'est.")
+      (DESC "Salle du gaz")
       (UP TO SMELLY-ROOM)
       (EAST TO MINE-1)
       (ACTION BOOM-ROOM)
       (FLAGS RLANDBIT SACREDBIT)
       (GLOBAL STAIRS)
-      (PSEUDO "GAZ" GAS-PSEUDO "ODEUR" GAS-PSEUDO)>
+      (PSEUDO "GAS" GAS-PSEUDO "ODOR" GAS-PSEUDO)>
 
 <ROOM LADDER-TOP	;"was TLADD"
       (IN ROOMS)
       (LDESC
-"C'est une très petite pièce. Dans le coin est une échelle en bois ricket, menant vers le bas. Il pourrait être sûr de descendre. Il y a aussi un escalier menant vers le haut.")
+"C'est une minuscule pièce. Dans un coin, une échelle de bois branlante descend vers le niveau inférieur. Elle devrait pouvoir supporter votre poids. Un escalier monte également d'ici.")
       (DESC "Haut de l'échelle")
       (DOWN TO LADDER-BOTTOM)
       (UP TO MINE-4)
@@ -2342,7 +2319,7 @@ sur votre droite que...." )>
 <ROOM LADDER-BOTTOM	;"was BLADD"
       (IN ROOMS)
       (LDESC
-"C'est une pièce assez large. D'un côté est le fond d'une étroite échelle en bois. À l'ouest et au sud sont des passages qui quittent la pièce.")
+"C'est une salle assez large. D'un côté se trouve le pied d'une étroite échelle en bois. Des passages quittent la pièce vers l'ouest et le sud.")
       (DESC "Bas de l'échelle")
       (SOUTH TO DEAD-END-5)
       (WEST TO TIMBER-ROOM)
@@ -2352,7 +2329,7 @@ sur votre droite que...." )>
 
 <ROOM DEAD-END-5	;"was DEAD7"
       (IN ROOMS)
-      (DESC "Mort Fin")
+      (DESC "Impasse")
       (LDESC "Vous êtes arrivé dans une impasse dans la mine.")
       (NORTH TO LADDER-BOTTOM)
       (FLAGS RLANDBIT)>
@@ -2360,8 +2337,8 @@ sur votre droite que...." )>
 <ROOM TIMBER-ROOM	;"was TIMBE"
       (IN ROOMS)
       (LDESC
-"C'est un long et étroit passage, qui est encombré de bois cassés. Un large passage vient de l'est et se transforme à l'extrémité ouest de la pièce en un passage très étroit. De l'ouest vient un fort tirant d'eau.")
-      (DESC "Chambre à bois")
+"Ce long passage étroit est encombré de poutres brisées. Un large couloir arrive de l'est puis, à l'extrémité ouest, tourne pour se rétrécir fortement. Un puissant courant d'air vient de l'ouest.")
+      (DESC "Salle des poutres")
       (EAST TO LADDER-BOTTOM)
       (WEST TO LOWER-SHAFT
        IF EMPTY-HANDED
@@ -2372,7 +2349,7 @@ sur votre droite que...." )>
 <ROOM LOWER-SHAFT	;"was BSHAF"
       (IN ROOMS)
       (LDESC
-"Il s'agit d'une petite salle de tirant d'eau dans laquelle se trouve le fond d'un long puits. Au sud se trouve un passage et à l'est un passage très étroit.")
+"C'est une petite salle balayée par les courants d'air, au fond d'un long puits. Un passage mène au sud et un autre, très étroit, à l'est. Une lourde chaîne de fer est visible dans le puits.")
       (DESC "Salle des courants d'air")
       (SOUTH TO MACHINE-ROOM)
       (OUT TO TIMBER-ROOM
@@ -2398,7 +2375,7 @@ sur votre droite que...." )>
 
 <ROOM MINE-1	;"was MINE1"
       (IN ROOMS)
-      (LDESC "Il s'agit d'une partie quelconque d'une mine de charbon.")
+      (LDESC "Vous êtes dans une partie sans caractère particulier d'une mine de charbon.")
       (DESC "Mine de charbon")
       (NORTH TO GAS-ROOM)
       (EAST TO MINE-1)
@@ -2407,7 +2384,7 @@ sur votre droite que...." )>
 
 <ROOM MINE-2	;"was MINE2"
       (IN ROOMS)
-      (LDESC "Il s'agit d'une partie quelconque d'une mine de charbon.")
+      (LDESC "Vous êtes dans une partie sans caractère particulier d'une mine de charbon.")
       (DESC "Mine de charbon")
       (NORTH TO MINE-2)
       (SOUTH TO MINE-1)
@@ -2416,7 +2393,7 @@ sur votre droite que...." )>
 
 <ROOM MINE-3	;"was MINE3"
       (IN ROOMS)
-      (LDESC "Il s'agit d'une partie quelconque d'une mine de charbon.")
+      (LDESC "Vous êtes dans une partie sans caractère particulier d'une mine de charbon.")
       (DESC "Mine de charbon")
       (SOUTH TO MINE-3)
       (SW TO MINE-4)
@@ -2425,7 +2402,7 @@ sur votre droite que...." )>
 
 <ROOM MINE-4	;"was MINE4"
       (IN ROOMS)
-      (LDESC "Il s'agit d'une partie quelconque d'une mine de charbon.")
+      (LDESC "Vous êtes dans une partie sans caractère particulier d'une mine de charbon.")
       (DESC "Mine de charbon")
       (NORTH TO MINE-3)
       (WEST TO MINE-4)
@@ -2435,8 +2412,8 @@ sur votre droite que...." )>
 <ROOM SLIDE-ROOM	;"was SLIDE"
       (IN ROOMS)
       (LDESC
-"Il s'agit d'une petite chambre, qui semble avoir fait partie d'une mine de charbon. Sur le mur sud de la chambre, les lettres \"Granite Wall\" sont gravées dans la roche. À l'est est un long passage, et il y a un glissement en métal raide vers le bas. Au nord est une petite ouverture.")
-      (DESC "Salle des diapositives")
+"Cette petite chambre semble avoir fait partie d'une mine de charbon. Sur son mur sud, les mots « Mur de granit » sont gravés dans la roche. Un long passage mène à l'est ; une glissière métallique très inclinée s'enroule vers le bas. Une petite ouverture se trouve au nord.")
+      (DESC "Salle de la glissière")
       (EAST TO COLD-PASSAGE)
       (NORTH TO MINE-ENTRANCE)
       (DOWN TO CELLAR)

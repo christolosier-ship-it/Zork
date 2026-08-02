@@ -56,6 +56,8 @@ src/
 └── zork-io.js        Adaptateur navigateur de la Z‑Machine
 translations/
 ├── catalog.fr.json   Catalogue anglais → français
+├── game-reviews/     Relectures exhaustives et figées par volume
+├── glossaries/       Glossaires canoniques propres à chaque volume
 ├── manual-overrides.fr.json Corrections éditoriales prioritaires
 ├── structural-overrides.fr.json Reformulations des messages ZIL dynamiques
 └── zil/              Sources ZIL anglaises et françaises
@@ -72,6 +74,26 @@ Les corrections vérifiées sont conservées dans `manual-overrides.fr.json`. Le
 ```bash
 npm run localize
 ```
+
+### Relecture du volume I
+
+Zork I dispose en plus d'une revue isolée dans `translations/game-reviews/zork1.fr.json`. Elle suit les **1 701 chaînes uniques** des dix fichiers ZIL du jeu, impose les **219 entrées** de `translations/glossaries/zork1.fr.json` et applique une seconde passe de **330 corrections littéraires** conservée dans `zork1-literary-pass.fr.mjs`. Le vocabulaire interne des objets `PSEUDO` reste en anglais pour que la traduction des commandes françaises continue de communiquer correctement avec le parseur historique.
+
+Les étapes reproductibles de cette relecture sont :
+
+```bash
+node scripts/apply-zork1-glossary.mjs
+node scripts/apply-zork1-literary-pass.mjs
+node scripts/build-zork1-structural-review.mjs
+npm run localize
+node scripts/audit-zork1-review.mjs
+node scripts/audit-zork1-parser-vocabulary.mjs
+node scripts/audit-zork1-languagetool.mjs --reviewed-only
+npm run build:story:zork1
+npm test
+```
+
+L'audit LanguageTool interroge son API publique et n'est donc pas exécuté dans l'intégration continue. La compilation Z‑Machine v3 remplace seulement dans le programme final les ligatures `œ` par `oe`, car cet ancien format les restitue incorrectement ; les sources de traduction conservent la typographie française normale.
 
 Le script optionnel `scripts/translate-catalog-offline.py` permet de refaire la passe hors ligne après installation d’Argos Translate et de son modèle anglais → français. Le modèle n’est pas inclus dans ce dépôt. `npm test` contrôle également l’application des surcharges, les résidus anglais déjà corrigés, 423 descriptions d’objets et des scénarios joués dans chacun des trois volumes.
 

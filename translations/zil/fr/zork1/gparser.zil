@@ -189,7 +189,7 @@
 		      <TELL "Il est difficile de répéter des fragments." CR>
 		      <RFALSE>)
 		     (<NOT ,P-WON>
-		      <TELL "Cela reviendrait simplement à répéter un erreur." CR>
+		      <TELL "Cela ne ferait que répéter une erreur." CR>
 		      <RFALSE>)
 		     (<G? ,P-LEN 1>
 		      <COND (<OR <EQUAL? <GET ,P-LEXV <+ .PTR ,P-LEXELEN>>
@@ -672,7 +672,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 	<TELL "Vous avez utilisé le mot \"">
 	<WORD-PRINT <GETB <REST ,P-LEXV <SET BUF <* .PTR 2>>> 2>
 		    <GETB <REST ,P-LEXV .BUF> 3>>
-	<TELL "\" d'une manière que je ne comprends pas." CR>
+	<TELL "\" dans un emploi que je ne comprends pas." CR>
 	<SETG QUOTE-FLAG <>>
 	<SETG P-OFLAG <>>>
 
@@ -722,7 +722,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 		       <COND (<OR .DRIVE1 .DRIVE2> <RETURN>)
 			     (T
 			      <TELL
-"Cette phrase n'en est pas une. reconnaître." CR>
+"Je ne reconnais pas cette phrase." CR>
 			      <RFALSE>)>)
 		      (T <SET SYN <REST .SYN ,P-SYNLEN>>)>>
 	<COND (<AND .DRIVE1
@@ -1054,7 +1054,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 		     <ZERO? ,P-GWIMBIT>>
 		<COND (.VRB
 		       <TELL
-"Il semble y avoir un nom manquant dans cela phrase !" CR>)>
+"Il semble manquer un nom dans cette phrase !" CR>)>
 		<RFALSE>)>
 	 <COND (<OR <NOT <EQUAL? ,P-GETFLAGS ,P-ALL>> <ZERO? ,P-SLOCBITS>>
 		<SETG P-SLOCBITS -1>)>
@@ -1102,7 +1102,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 				    <SETG P-OFLAG T>)
 				   (.VRB
 				    <TELL
-"Il semble y avoir un nom manquant dans cela phrase !" CR>)>
+"Il semble manquer un nom dans cette phrase !" CR>)>
 			     <SETG P-NAM <>>
 			     <SETG P-ADJ <>>
 			     <RFALSE>)>)>
@@ -1249,7 +1249,7 @@ OOPS-INBUF, leaving the appropriate pointers in AGAIN-LEXV"
 			       <COND (<EQUAL? .OBJ ,IT>
 				      <COND (<NOT <ACCESSIBLE? ,P-IT-OBJECT>>
 					     <TELL
-"Je ne vois pas à quoi vous faites référence à." CR>
+"Je ne vois pas à quoi vous faites référence." CR>
 					     <RFALSE>)
 					    (T
 					     <SET OBJ ,P-IT-OBJECT>)>)>

@@ -27,6 +27,9 @@ const CASES = [
   ['ouvrir le coffre', 'open chest', 'zork3'],
   ['examiner le panneau', 'examine panel', 'zork3'],
   ['mettre le bateau à l’eau', 'launch boat'],
+  ['prendre l’œuf', 'take egg', 'zork1'],
+  ['grimper à l’arbre', 'climb tree', 'zork1'],
+  ['prendre la lanterne et l’épée', 'take lantern and sword', 'zork1'],
 ];
 
 for (const [french, english, gameId] of CASES) {
