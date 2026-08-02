@@ -14,7 +14,12 @@ const SCENARIOS = {
       'quitter',
       'oui',
     ],
-    expected: [/Grand Empire Souterrain/i, /boîte aux lettres/i, /dépliant/i],
+    expected: [
+      /Grand Empire Souterrain/i,
+      /boîte aux lettres/i,
+      /BIENVENUE DANS ZORK/i,
+      /Vous avez sur vous/i,
+    ],
   },
   zork2: {
     commands: [
@@ -27,7 +32,12 @@ const SCENARIOS = {
       'quitter',
       'oui',
     ],
-    expected: [/Magicien de Frobozz/i, /tumulus/i, /lanterne/i],
+    expected: [
+      /Magicien de Frobozz/i,
+      /tumulus/i,
+      /Source lumineuse allumée/i,
+      /Un profond ravin serpente à travers la caverne/i,
+    ],
   },
   zork3: {
     commands: [
@@ -39,7 +49,13 @@ const SCENARIOS = {
       'quitter',
       'oui',
     ],
-    expected: [/Maître du Donjon/i, /Escalier sans fin/i, /lanterne/i],
+    expected: [
+      /Maître du Donjon/i,
+      /Escalier sans fin/i,
+      /Source lumineuse allumée/i,
+      /Vous êtes à la jonction/i,
+      /Une épée elfique y est enchâssée/i,
+    ],
   },
 };
 
@@ -48,7 +64,7 @@ for (const [gameId, scenario] of Object.entries(SCENARIOS)) {
   const io = new TestIOAdapter();
   io.initialize(3);
   for (const command of scenario.commands) {
-    io.queueLineInput(translateFrenchCommand(command));
+    io.queueLineInput(translateFrenchCommand(command, gameId));
   }
   io.queueCharInput('y'.charCodeAt(0));
 
@@ -63,6 +79,13 @@ for (const [gameId, scenario] of Object.entries(SCENARIOS)) {
   }
   if (/Je ne connais pas le mot|d'une manière que je ne comprends pas/i.test(output)) {
     throw new Error(`${gameId} : une commande française du scénario n'est pas comprise.`);
+  }
+  if (
+    /WELCOME TO ZORK|Vous êtes portant|Le lampe|Nous sommes à la jonction|elfe\. épée|non kempt|\bward\./i.test(
+      output,
+    )
+  ) {
+    throw new Error(`${gameId} : un défaut linguistique corrigé est réapparu.`);
   }
   if (!io.hasQuit) throw new Error(`${gameId} : le scénario français ne se termine pas.`);
 

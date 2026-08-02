@@ -54,7 +54,7 @@ export const QUICK_COMMANDS = [
   { command: 'observer', label: 'Observer', shortLabel: 'Voir', icon: 'eye' },
   { command: 'inventaire', label: 'Inventaire', shortLabel: 'Objets', icon: 'bag' },
   { command: 'attendre', label: 'Attendre', shortLabel: 'Attendre', icon: 'hourglass' },
-  { command: 'aide', label: 'Aide du jeu', shortLabel: 'Aide', icon: 'spark' },
+  { action: 'help', label: 'Aide du jeu', shortLabel: 'Aide', icon: 'spark' },
 ];
 
 export const DIRECTIONS = [

@@ -57,6 +57,7 @@ src/
 translations/
 ├── catalog.fr.json   Catalogue anglais → français
 ├── manual-overrides.fr.json Corrections éditoriales prioritaires
+├── structural-overrides.fr.json Reformulations des messages ZIL dynamiques
 └── zil/              Sources ZIL anglaises et françaises
 ```
 
@@ -64,13 +65,15 @@ translations/
 
 La recherche menée dans les archives de fiction interactive, IFDB et les dépôts publics n’a pas permis d’identifier une trilogie Zork complète déjà disponible en français. Cette édition part donc des [sources ouvertes officielles](https://github.com/historicalsource) publiées sous licence MIT.
 
-Le catalogue couvre les **3 651 chaînes anglaises uniques** des trois jeux. Les longues descriptions ont reçu une passe hors ligne avec Argos Translate, puis les ouvertures, la terminologie de l’univers et les invites essentielles ont été corrigées manuellement. Pour réappliquer le catalogue aux sources ZIL :
+Le catalogue couvre les **3 651 chaînes anglaises uniques** des trois jeux. Les longues descriptions ont reçu une passe hors ligne avec [Argos Translate](https://github.com/argosopentech/argos-translate) et son modèle anglais → français 1.9. La passe éditoriale s’appuie ensuite sur [LanguageTool](https://languagetool.org/fr/proofreading-api) pour la grammaire, l’orthographe et le style, ainsi que sur le dictionnaire anglais-français [WordReference / Collins](https://www.wordreference.com/enfr/) pour les choix lexicaux ambigus.
+
+Les corrections vérifiées sont conservées dans `manual-overrides.fr.json`. Les rares phrases construites dynamiquement par ZIL, pour lesquelles un simple remplacement mot à mot produirait un mauvais accord, sont reformulées de façon reproductible dans `structural-overrides.fr.json`. Pour réappliquer le catalogue aux sources ZIL :
 
 ```bash
 npm run localize
 ```
 
-Le script optionnel `scripts/translate-catalog-offline.py` permet de refaire la passe hors ligne après installation d’Argos Translate et de son modèle anglais → français. Le modèle n’est pas inclus dans ce dépôt.
+Le script optionnel `scripts/translate-catalog-offline.py` permet de refaire la passe hors ligne après installation d’Argos Translate et de son modèle anglais → français. Le modèle n’est pas inclus dans ce dépôt. `npm test` contrôle également l’application des surcharges, les résidus anglais déjà corrigés, 423 descriptions d’objets et des scénarios joués dans chacun des trois volumes.
 
 ## Déploiement
 

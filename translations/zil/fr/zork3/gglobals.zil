@@ -229,7 +229,7 @@
 <OBJECT LUNGS
 	(IN GLOBAL-OBJECTS)
 	(SYNONYM LUNGS AIR MOUTH BREATH)
-	(DESC "explosion de air")
+	(DESC "souffle d'air")
 	(FLAGS NDESCBIT)>
 
 <OBJECT ME
@@ -283,7 +283,7 @@
 "Ce que vous pouvez voir ressemble à peu près à d'habitude, désolé de le dire." CR>)
 			      (ELSE
 			       '<TELL
-"C'est difficile à moins que vos yeux ne soient préhensile." CR>)>)>)>>
+"Ce serait difficile, à moins que vos yeux ne soient préhensiles." CR>)>)>)>>
 
 <OBJECT ADVENTURER
 	(SYNONYM ADVENTURER)
@@ -302,7 +302,7 @@
 
 <ROUTINE PATH-OBJECT ()
 	 <COND (<VERB? TAKE FOLLOW>
-		<TELL "Vous devez spécifier une direction pour allez-y." CR>)
+		<TELL "Vous devez indiquer une direction." CR>)
 	       (<VERB? FIND>
 		<TELL "Je ne peux pas vous aider...." CR>)
 	       (<VERB? DIG>

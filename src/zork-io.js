@@ -39,7 +39,7 @@ export class ZorkIOAdapter extends WebIOAdapter {
 
     this.onReady?.(false);
     this.onCommand?.(result.text);
-    return { ...result, text: translateFrenchCommand(result.text) };
+    return { ...result, text: translateFrenchCommand(result.text, this.gameId) };
   }
 
   showStatusLine(location, scoreOrHours, turnsOrMinutes, isTime) {

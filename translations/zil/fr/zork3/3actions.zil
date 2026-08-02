@@ -24,7 +24,7 @@
 						    <RETURN>)>)>)>>)>
 		<COND (<==? .NG ,SWORD-STATE> <RFALSE>)
 		      (<==? .NG 2>
-		       <TELL "Votre épée a commencé à briller très fort." CR>)
+		       <TELL "Votre épée s'est mise à briller d'un éclat intense." CR>)
 		      (<1? .NG>
 		       <TELL "Votre épée brille d'un bleu pâle brille."
 			     CR>)
@@ -163,7 +163,7 @@
 
 \
 
-"SOUS-TITRE SECTION PUZZLE CHINOIS (avec l'aimable autorisation de WILL WENG)"
+"SOUS-TITRE DE LA SECTION DE L'ÉNIGME CHINOISE (AVEC L'AIMABLE AUTORISATION DE WILL WENG)"
 
 <GLOBAL CPHERE 1>
 
@@ -554,12 +554,14 @@
 	       <COND (<==? ,PRSO ,LORE-BOOK>
 	       	      <SETG CP-FLAG T>
 	              <TELL
-"Le livre tombe dans la fente et disparaît. La porte en métal s'ouvre, révélant un passage à l'ouest, et un panneau clignote:| \"Royal Puzzle Exit Fee Paid| Article Confisqué\"" CR>)
+"Le livre tombe dans la fente et disparaît. La porte métallique coulisse, dévoilant un passage vers l'ouest, tandis qu'un panneau lumineux affiche :|
+    \"Droit de sortie de l'Énigme royale acquitté|
+          Objet confisqué\"" CR>)
 		     (<FSET? ,PRSO ,ACTORBIT>
 		      <TELL <PICK-ONE ,YUKS> CR>)
 		     (T
 		      <TELL
-"L'article disparaît dans la fente. Un moment plus tard, un signe précédemment invisible clignote \"Garbage In, Garbage Out\" et éjecte le" D ,PRSO " (maintenant atomisé)." CR>)>)>>
+"L'objet disparaît dans la fente. Un instant plus tard, un panneau jusqu'alors invisible affiche \"Déchets à l'entrée, déchets à la sortie\" et éjecte " D ,PRSO " (maintenant atomisé)." CR>)>)>>
 	     
 <ROUTINE CPOUT-ROOM (RARG)
 	<COND (<==? .RARG ,M-LOOK>
@@ -762,7 +764,7 @@
 		      (T
 		       <EWTELL ,HERE>
 		       <TELL
-"A l'est et à l'ouest sont les Gardiens de Zork, en parfaite symétrie. D'ici, il est difficile de dire lequel des deux est une réflexion!" CR>)>)
+"À l'est et à l'ouest se tiennent les Gardiens de Zork, parfaitement symétriques. D'ici, impossible de savoir lequel des deux n'est qu'un reflet !" CR>)>)
 	       (<AND <==? .RARG ,M-ENTER> <NOT ,INVIS>>
 	        <JIGS-UP
 "Les Gardiens se réveillent, et à l'unisson parfait, vous pulvérisent avec leurs rouages. Satisfaits, ils reprennent leurs postes.">)
@@ -1173,7 +1175,7 @@ au-dessus de la barre et se termine par une poignée. Le poteau ">
 "La porte en pin s'ouvre sur le champ de vision des Gardiens." CR>)
 				    (T
 				     <TELL
-"La porte en pin s'ouvre dans le champ de vue des Gardiens de Zork, représentés par deux statues de pierre identiques portant des bludges." CR>)>
+"La porte en pin s'ouvre dans le champ de vision des Gardiens de Zork, représentés par deux statues de pierre identiques armées de massues." CR>)>
 			      <JIGS-UP
 "Les Gardiens se réveillent, et à l'unisson parfait, vous détruisent complètement avec leurs rouages de pierre. Satisfaits, ils reprennent leurs postes.">
 			      <RTRUE>)>
@@ -1292,7 +1294,7 @@ au-dessus de la barre et se termine par une poignée. Le poteau ">
 "\"Ne soyez pas stupide ! Considérez la fin de votre quête!\"" CR>)>)
 	       (<VERB? EXAMINE>
 		<TELL
-"Il est simplement vêtu d'une capuche et d'un manteau, portant une amulette et une bague, portant un vieux livre sous un bras, et reposant sur un bâton en bois. Une seule clé, comme dans une cellule de prison, pend de sa ceinture." CR>)
+"Il est simplement vêtu d'une capuche et d'une cape. Il porte une amulette et une bague, tient un vieux livre sous un bras et s'appuie sur un bâton de bois. Une unique clé, qui semble ouvrir une cellule, pend à sa ceinture." CR>)
 	       (<VERB? ATTACK MUNG>
 		<REALLY-DEAD
 "Le maître du donjon est pris par surprise. Il esquive votre coup, et avec une expression déçue sur son visage, trace un motif compliqué dans l'air avec son bâton.">)
@@ -1369,19 +1371,8 @@ au-dessus de la barre et se termine par une poignée. Le poteau ">
 		<COND (,INVIS
 		       <TELL "Il ne semble pas vous remarquer un instant, puis se rétablit.">)>
 		<COND (<LOOK-LIKE-DM?>
-		       <TELL " Il commence à sourire largement et ouvre le
-porte massive sans bruit. Le vieil homme fait un mouvement et tu te sens
-attiré vers lui.|
-\"Je suis le Maître du Donjon !\" il boum. \"J'ai regardé
-vous de près pendant votre voyage à travers le Grand Empire Souterrain.
-Oui !,\" dit-il, comme s'il se rappelait une époque presque oubliée, \"nous avons
-rencontré auparavant, même si je n'ai peut-être pas l'air tel que je le faisais à l'époque. Tu regardes
-de près son visage profondément ridé et j'aperçois les visages du vieil homme près du
-porte secrète, votre \"ami\" à la falaise et la silhouette encapuchonnée. \"Vous avez
-il fit preuve de bonté envers le vieil homme et de compassion envers celui qui était encapuchonné. Vous
-fait preuve de patience dans le puzzle et de confiance face à la falaise. Vous avez
-fait preuve de force, d'ingéniosité et de courage. Cependant, un dernier test attend
-vous. Maintenant ! Commandez-moi comme bon vous semble et terminez votre quête !\"|" CR>
+		       <TELL " Il sourit largement et ouvre sans bruit la porte massive. Le vieil homme vous fait signe, et vous vous sentez attiré vers lui.|
+\"Je suis le Maître du Donjon !\" tonne-t-il. \"Je vous ai observé attentivement tout au long de votre voyage dans le Grand Empire Souterrain. Oui !\" reprend-il, comme s'il se remémorait une époque presque oubliée, \"nous nous sommes déjà rencontrés, même si mon apparence était alors différente.\" Vous scrutez son visage profondément ridé et y reconnaissez les traits du vieil homme près de la porte secrète, de votre \"ami\" de la falaise et de la silhouette encapuchonnée. \"Vous avez témoigné de la bonté au vieil homme et de la compassion envers l'homme encapuchonné. Vous avez fait preuve de patience dans l'énigme et de confiance à la falaise. Vous avez démontré votre force, votre ingéniosité et votre courage. Une ultime épreuve vous attend toutefois. À présent ! Donnez-moi vos ordres et achevez votre quête !\"|" CR>
 		       <GOTO ,BEHIND-DOOR>
 		       <SETG IN-DUNGEON T>)
 		      (T
@@ -1424,7 +1415,7 @@ vous. Maintenant ! Commandez-moi comme bon vous semble et terminez votre quête 
 	       (<EQUAL? <LOC ,PLAYER> ,PRISON-CELL ,CELL> <RFALSE>)
 	       (<NOT ,FOLFLAG>
 		<SETG FOLFLAG T>
-		<TELL "Le maître du donjon rejoint vous." CR>
+		<TELL "Le Maître du Donjon vous rejoint." CR>
 		<MOVE ,DUNGEON-MASTER ,HERE>
 		<RTRUE>)
 	       (T
@@ -1604,19 +1595,9 @@ N ,PNUMB "." CR>
 <ROUTINE NIRVANA-F (RARG)
 	 <COND (<==? .RARG ,M-END>
 	        <TELL
-"Alors que vous examinez vos nouvelles richesses, le Maître du Donjon
-se matérialise à côté de vous et dit : « Maintenant que vous avez résolu tous les problèmes,
-mystères du Donjon, il est temps pour vous d'assumer votre juste valeur
-place dans l'ordre des choses. J'ai longtemps attendu quelqu'un capable de
-libérez-moi de mon fardeau ! » Il vous tape légèrement sur la tête avec son
-personnel, marmonnant quelques sorts bien choisis, et vous vous sentez changer,
-vieillissant et de plus en plus voûté. Pendant un instant il y a deux mages identiques
-debout parmi le trésor, alors votre homologue se dissout dans un
-brume et disparaît, un sourire sardonique sur son visage.|
+"Alors que vous contemplez les richesses nouvellement acquises, le Maître du Donjon se matérialise à vos côtés et déclare : \"Maintenant que vous avez percé tous les mystères du Donjon, le moment est venu de prendre la place qui vous revient de droit dans l'ordre des choses. J'ai longtemps attendu un être capable de me libérer de mon fardeau !\" Il vous touche doucement la tête de son bâton en murmurant quelques incantations soigneusement choisies ; vous vous sentez changer, vieillir et vous voûter. Pendant un instant, deux mages identiques se tiennent parmi les trésors, puis votre double se dissout en brume et disparaît, un sourire sardonique aux lèvres.|
 |
-Pendant un instant, vous êtes soulagé, en sécurité sachant que vous avez
-Vous avez enfin terminé votre quête dans ZORK. Vous commencez à ressentir les vastes pouvoirs
-et des connaissances à votre disposition et une soif d'opportunité de les utiliser.|
+Pendant un instant, vous êtes soulagé, certain d'avoir enfin achevé votre quête dans ZORK. Vous sentez en vous les vastes pouvoirs et le savoir désormais à votre disposition, et brûlez de trouver une occasion de vous en servir.|
 |
 ">
 	       <FINISH>)>>
@@ -1871,7 +1852,11 @@ et des connaissances à votre disposition et une soif d'opportunité de les util
 		<QUIT>)
 	       (T
 		<TELL
-"Vous vous trouvez au fond de la terre dans une cellule de prison stérile. En dehors de la fenêtre de fer barrée, vous pouvez voir une grande fosse ardente. Les flammes sautent et presque s'emboîtent votre chair.Après un certain temps, des pas peuvent être entendus au loin, puis plus près.... La porte s'ouvre, et dans les promenades un vieil homme.| | Il est habillé simplement dans une capuche et un manteau, portant une amulette et une bague, portant un vieux livre sous un bras, et reposant sur un bâton en bois.Une seule clé, comme une cellule de prison massive, s'accroche à sa ceinture.| | Il élève le bâton vers vous et vous l'entendez parler, comme dans un rêve : « Je vous attends, bien que votre voyage soit long et plein de périls." CR>)>
+"Vous vous retrouvez dans les profondeurs de la terre, au fond d'une cellule nue. Par la fenêtre barrée de fer, vous apercevez une immense fosse embrasée. Les flammes jaillissent et manquent de peu de vous brûler vif. Au bout d'un moment, des pas retentissent au loin, puis se rapprochent... La porte pivote, laissant entrer un vieil homme.|
+|
+Il est simplement vêtu d'une capuche et d'une cape. Il porte une amulette et une bague, tient un vieux livre sous un bras et s'appuie sur un bâton de bois. Une unique clé, qui semble ouvrir une immense cellule, pend à sa ceinture.|
+|
+Il lève son bâton vers vous et vous l'entendez parler comme dans un rêve : \"Je vous attends, même si votre voyage sera long et périlleux. Allez, et ne me faites pas attendre trop longtemps !\" Vous sentez une force immense monter en vous et vous tombez au sol. L'instant suivant, vous vous réveillez comme après un profond sommeil." CR>)>
 	 <MOVE ,CURRENT-LAMP ,ZORK2-STAIR>
 	 <COND (<AND <IN? ,KEY ,WINNER>
 		     <OR <EQUAL? ,HERE ,DARK-1 ,DARK-2 ,KEY-ROOM>
@@ -1995,7 +1980,7 @@ et des connaissances à votre disposition et une soif d'opportunité de les util
 
 <OBJECT CLEFT
 	(IN LOCAL-GLOBALS)
-	(DESC "fente")
+	(DESC "crevasse")
 	(SYNONYM CLEFT)
 	(ACTION CLEFT-F)
 	(FLAGS DOORBIT OPENBIT INVISIBLE)>
@@ -2117,7 +2102,7 @@ et des connaissances à votre disposition et une soif d'opportunité de les util
 
 <OBJECT SPINNER
 	(IN TECH-MUSEUM)
-	(DESC "noir machine")
+	(DESC "machine noire")
 	(SYNONYM MACHINE PIPES WIRES MOTORS)
 	(ADJECTIVE BLACK)
 	(DESCFCN MUSEUM-PIECES)
@@ -2289,7 +2274,7 @@ et des connaissances à votre disposition et une soif d'opportunité de les util
 "Il y a une grande secousse à l'intérieur de la terre. Le donjon entier secoue violemment et des débris lâches tombent de dessus vous." CR>)>
 	 <COND (<==? ,HERE ,MUSEUM-ANTE>
 		<TELL
-"A l'est, à côté de la grande porte de fer, une fente s'ouvre, révélant une zone ouverte derrière !" CR>)
+"À l'est, près de la grande porte de fer, une brèche s'ouvre et dévoile un espace au-delà !" CR>)
 	       (<==? ,HERE ,AQ-VIEW>
 		<TELL
 "Un des piliers géants soutenant l'aqueduc s'effondre dans un tas de fumée et de décombres !" CR>)
@@ -2638,7 +2623,7 @@ et des connaissances à votre disposition et une soif d'opportunité de les util
 	 <REALLY-DEAD " ">>
 
 <GLOBAL GUARD-KILLERS <LTABLE 0
-"Vous êtes entourés de gardes lourdement armés qui semblent agacés par votre présence. Un, dont le QI pourrait être 15, vise un étrange instrument de type gaufre dans votre direction et tout va noir."
+"Vous êtes entouré de gardes lourdement armés, apparemment impressionnés par votre présence. L'un d'eux, dont le QI doit avoisiner 15, pointe vers vous un étrange instrument en forme de gaufrier, puis tout devient noir."
 "vous êtes confronté à beaucoup de gens particulièrement stupides, vêtus d'uniformes particuliers et pointant des objets ressemblant à des gaufres dans votre direction."
 "vous voyez une rangée de militaires qui, si les apparences ne trompent pas, ont l'intelligence cumulative d'un pamplemousse non mûr. L'un d'eux vise un instrument en forme de gaufre dans votre direction et vous devenez engourdi puis paralysé et puis mort.">>
 
@@ -2785,7 +2770,16 @@ et des connaissances à votre disposition et une soif d'opportunité de les util
 		       <RTRUE>)>
 		<FIXED-FONT-ON>
 		<TELL
-"| Crown Jewels| | Présenté au Musée Royal| Par Son Seigneur Gracieuse| | DIMWIT FLATHEAD| | Dedicated| * 777 GUE *">
+"|
+         Joyaux de la Couronne|
+|
+  Offerts au Musée royal|
+  Par Sa Gracieuse Seigneurie|
+|
+        NIGAUD TÊTE-PLATE|
+|
+          Inauguré|
+         * 777 GUE *">
 		<FIXED-FONT-OFF>
 		<COND (,CLUMSY-ROBBERY
 		       <TELL CR CR
@@ -3325,7 +3319,7 @@ et des connaissances à votre disposition et une soif d'opportunité de les util
       (IN ROOMS)
       (DESC "Jonction")
       (LDESC
-"Nous sommes à la jonction d'un passage nord-sud et d'un passage est-ouest. Au nord, nous pouvons faire le fond d'un escalier. Les chemins vers l'est et le sud sont relativement serrés, mais un sentier plus large mène à l'ouest.")
+"Vous êtes à la jonction d'un passage nord-sud et d'un passage est-ouest. Au nord, vous distinguez le bas d'un escalier. Les passages vers l'est et le sud sont assez étroits, tandis qu'un sentier plus large mène à l'ouest.")
       (FLAGS RLANDBIT)
       (WEST TO CLEARING)
       (NORTH TO ZORK2-STAIR)
@@ -3989,7 +3983,7 @@ et des connaissances à votre disposition et une soif d'opportunité de les util
 		<V-CLIMB-UP ,P?DOWN T>)
 	       (<VERB? BURN>
 		<TELL
-"La corde n'accroche pas feu." CR>)
+"La corde refuse de prendre feu." CR>)
 	       (<VERB? UNTIE>
 		<TELL
 "La corde est très solidement attachée et ne peut pas être défaite." CR>)
@@ -4230,7 +4224,7 @@ et des connaissances à votre disposition et une soif d'opportunité de les util
 <ROUTINE VIEW-ROOM-F (RARG)
 	 <COND (<==? .RARG ,M-LOOK>
 		<TELL
-"Vous êtes dans une petite chambre sculptée dans la roche, avec la seule sortie au nord. Monté sur un mur est une table intitulée \"Scenic Vista,\" dont la surface sans caractéristiques est inclinée vers vous. On pourrait croire que la table a été utilisé pour indiquer des points d'intérêt dans la vue de cet endroit, comme ceux trouvés dans de nombreux parcs. D'autre part, votre environnement est loin d'être spacieux et par aucun tronçon de l'imagination pourrait être considéré comme pittoresque. Un indicateur au-dessus de la table dit \"">
+"Vous êtes dans une petite chambre taillée dans la roche, dont l'unique sortie se trouve au nord. Une table portant l'inscription \"Panorama\" est fixée à un mur ; sa surface lisse est inclinée vers vous. On pourrait croire qu'elle servait à signaler les points remarquables visibles depuis cet endroit, comme dans de nombreux parcs. Pourtant, les lieux sont exigus et, même avec beaucoup d'imagination, on ne saurait les qualifier de pittoresques. Un indicateur placé au-dessus de la table affiche \"">
 		<TELL <GET ,VIEW-ROMANS ,ACTIVE-VIEW> "\"." CR>)>>
 		
 <GLOBAL VIEW-ROMANS <TABLE 0 "I" "II" "III" "IV">>
@@ -4401,13 +4395,17 @@ et des connaissances à votre disposition et une soif d'opportunité de les util
 	(IN ROOM-8)
 	(SYNONYM REPELLENT CAN)
 	(ADJECTIVE GRUE MAGIC)
-	(DESC "Frobozz Magic Grue Répulsif")
+	(DESC "Répulsif magique Frobozz contre les grues")
 	(FLAGS TAKEBIT READBIT)
 	(ACTION REPELLENT-FCN)
 	(FDESC
-"Une boîte de pulvérisation est dans le coin. Dans le grand type est la légende \"Frobozz Magic Grue Repellent.\"")
+"Une bombe aérosol se trouve dans un coin. Elle porte en gros caractères l'inscription \"Répulsif magique Frobozz contre les grues\".")
 	(TEXT
-"!!! FROBAZZ MAGIC GRUE REPELLENT !!!| | Instructions d'utilisation: Appliquer libéralement à la créature pour être protégée. La durée de l'effet est imprévisible. Utiliser seulement au lieu de la mort!| | (Aucune garantie exprimée ou implicite)")>
+"!!! RÉPULSIF MAGIQUE FROBOZZ CONTRE LES GRUES !!!|
+|
+Mode d'emploi : appliquez généreusement sur la créature à protéger. La durée de l'effet est imprévisible. À n'utiliser qu'en cas de danger mortel !|
+|
+(Aucune garantie, expresse ou implicite)")>
 
 <ROUTINE REPELLENT-FCN ()
 	 <COND (<VERB? SHAKE>
@@ -4533,7 +4531,7 @@ l'approbation de la foule vous coupe soigneusement l'abdomen.">)>>
       (DESC "Toboggan aquatique")
       (NORTH TO DAMP-PASSAGE)
       (DOWN TO DAMP-PASSAGE)
-      (SOUTH TO AQ-2 IF AQ-FLAG ELSE "L'arche au sud est cassé.")
+      (SOUTH TO AQ-2 IF AQ-FLAG ELSE "L'arche au sud est brisée.")
       (FLAGS RLANDBIT ONBIT)
       (ACTION AQ-3-F)
       (GLOBAL AQUEDUCT WATER-CHANNEL MOSS)
@@ -4623,7 +4621,7 @@ l'approbation de la foule vous coupe soigneusement l'abdomen.">)>>
 <ROUTINE KEY-ROOM-F (RARG)
 	 <COND (<==? .RARG ,M-LOOK>
 		<TELL
-"Vous êtes entre un rocher et un endroit sombre. La pièce est illuminé d'en haut, révélant un chemin solitaire et sombre qui descend vers l'ouest." CR>
+"Vous vous trouvez entre le roc et un lieu obscur. Une faible lumière venue d'en haut révèle un unique sentier sombre qui descend vers l'ouest." CR>
 		<COND (,COVER-MOVED
 		       <TELL
 "Un lourd couvercle de trou d'homme a été déplacé pour révéler un passage sombre en dessous." CR>)
@@ -4827,9 +4825,9 @@ l'approbation de la foule vous coupe soigneusement l'abdomen.">)>>
 
 <ROUTINE STONE-DESC (FOO)
 	 <TELL
-"Debout devant vous se trouve un grand rocher.">
+"Un imposant rocher se dresse devant vous.">
 	 <COND (,SWORD-IN-STONE?
-		<TELL " En son sein se trouve un elfe. épée.">)>
+		<TELL " Une épée elfique y est enchâssée.">)>
 	 <CRLF>>
 
 <ROUTINE STONE-F ()

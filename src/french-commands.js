@@ -39,6 +39,59 @@ const PHRASES = {
   'poser tout': 'drop all',
   'lacher tout': 'drop all',
   'faire l inventaire': 'inventory',
+  'mettre a l eau': 'launch',
+  'mettre le bateau a l eau': 'launch boat',
+};
+
+// Certains noms français désignent des objets différents selon le volume
+// (par exemple « carte » : planche dans Zork I, carte dans Zork II). Les
+// correspondances propres à un jeu doivent donc précéder le lexique commun.
+const GAME_PHRASES = {
+  zork1: {
+    'cle a molette': 'wrench',
+    'clef a molette': 'wrench',
+    'mur avec gravures': 'engravings',
+    'mur couvert de gravures': 'engravings',
+  },
+  zork2: {
+    'brochure bancaire': 'brochure',
+    'mur avec gravures': 'etchings',
+    'mur couvert de gravures': 'etchings',
+  },
+  zork3: {},
+};
+
+const GAME_WORDS = {
+  zork1: {
+    planche: 'board',
+    planches: 'board',
+    squelette: 'skeleton',
+    miroir: 'mirror',
+    gravures: 'engravings',
+    falaise: 'cliff',
+  },
+  zork2: {
+    carte: 'card',
+    fente: 'slot',
+    trou: 'hole',
+    rubis: 'ruby',
+    gravures: 'etchings',
+    brochure: 'brochure',
+    boussole: 'compass',
+  },
+  zork3: {
+    crevasse: 'cleft',
+    fente: 'cleft',
+    siege: 'seat',
+    capuche: 'hood',
+    falaise: 'cliff',
+    coffre: 'chest',
+    flacon: 'vial',
+    fiole: 'vial',
+    miroir: 'mirror',
+    panneau: 'panel',
+    trou: 'hole',
+  },
 };
 
 const WORDS = {
@@ -147,6 +200,8 @@ const WORDS = {
   verrouiller: 'lock',
   deverrouiller: 'unlock',
   reparer: 'fix',
+  accoster: 'land',
+  atterrir: 'land',
 
   // Prépositions et mots-outils
   avec: 'with',
@@ -264,20 +319,24 @@ export function normalizeFrenchCommand(command) {
     .trim();
 }
 
-export function translateFrenchCommand(command) {
+export function translateFrenchCommand(command, gameId = null) {
   const normalized = normalizeFrenchCommand(command);
   if (!normalized) return '';
 
   let translated = ` ${normalized} `;
-  for (const [french, english] of ORDERED_PHRASES) {
+  const gamePhrases = Object.entries(GAME_PHRASES[gameId] ?? {}).sort(
+    (left, right) => right[0].length - left[0].length,
+  );
+  for (const [french, english] of [...gamePhrases, ...ORDERED_PHRASES]) {
     translated = translated.replaceAll(` ${french} `, ` ${english} `);
   }
 
+  const gameWords = GAME_WORDS[gameId] ?? {};
   const tokens = translated
     .trim()
     .split(/\s+/)
     .filter((token) => !ARTICLES.has(token))
-    .map((token) => WORDS[token] ?? GENERATED_WORDS[token] ?? token);
+    .map((token) => gameWords[token] ?? WORDS[token] ?? GENERATED_WORDS[token] ?? token);
 
   return tokens.join(' ').trim();
 }

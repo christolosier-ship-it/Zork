@@ -4170,7 +4170,7 @@ here is too friendly anyhow. Gulp!" CR>)>>
 	       (<VERB? RAISE LOWER>
 		<TELL "Perhaps you should do that to the basket." CR>)
 	       (<VERB? EXAMINE>
-		<TELL "The chain secures a basket within the shaft." CR>)>> 
+		<TELL "The chain secures a basket within the shaft." CR>)>>
 
 <ROUTINE TROLL-ROOM-F (RARG)
 	 <COND (<AND <EQUAL? .RARG ,M-ENTER>

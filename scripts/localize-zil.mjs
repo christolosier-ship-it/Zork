@@ -8,6 +8,11 @@ const SOURCE_ROOT = path.join(ROOT, 'translations', 'zil', 'en');
 const OUTPUT_ROOT = path.join(ROOT, 'translations', 'zil', 'fr');
 const CATALOG_PATH = path.join(ROOT, 'translations', 'catalog.fr.json');
 const OVERRIDES_PATH = path.join(ROOT, 'translations', 'manual-overrides.fr.json');
+const STRUCTURAL_OVERRIDES_PATH = path.join(
+  ROOT,
+  'translations',
+  'structural-overrides.fr.json',
+);
 const FORCE_TRANSLATION = process.argv.includes('--force');
 const ALLOW_REMOTE_TRANSLATION = FORCE_TRANSLATION || process.argv.includes('--translate-missing');
 const TRANSLATION_CONCURRENCY = Number.parseInt(
@@ -298,6 +303,15 @@ async function loadOverrides() {
   }
 }
 
+async function loadStructuralOverrides() {
+  try {
+    return JSON.parse(await readFile(STRUCTURAL_OVERRIDES_PATH, 'utf8'));
+  } catch (error) {
+    if (error.code === 'ENOENT') return {};
+    throw error;
+  }
+}
+
 async function loadExistingCatalog() {
   if (FORCE_TRANSLATION) return { meta: {}, translations: {} };
   try {
@@ -369,6 +383,8 @@ async function buildCatalog(sources) {
       generatedAt: new Date().toISOString(),
       sourceCount: sources.size,
       translatedThisRun: records.length,
+      manualOverrideCount: Object.keys(overrides).length,
+      editorialReview: 'LanguageTool fr-FR + WordReference/Collins',
       note:
         existingCatalog.meta.note ??
         'Première passe automatique, avec glossaire et surcharges éditoriales manuelles.',
@@ -379,7 +395,21 @@ async function buildCatalog(sources) {
   return translations;
 }
 
+function localizeContent(content, spans, translations) {
+  let localized = content;
+  for (const span of [...spans].reverse()) {
+    if (!span.translatable) continue;
+    if (!Object.hasOwn(translations, span.value)) {
+      throw new Error(`Traduction absente : ${span.value.slice(0, 80)}`);
+    }
+    const translation = normalizeFrench(translations[span.value]);
+    localized = `${localized.slice(0, span.start)}${encodeZilString(translation)}${localized.slice(span.end)}`;
+  }
+  return localized;
+}
+
 async function writeLocalizedSources(files, translations) {
+  const structuralOverrides = await loadStructuralOverrides();
   await rm(OUTPUT_ROOT, { recursive: true, force: true });
   await mkdir(OUTPUT_ROOT, { recursive: true });
 
@@ -388,14 +418,23 @@ async function writeLocalizedSources(files, translations) {
   }
 
   for (const file of files) {
-    let localized = file.content;
-    for (const span of [...file.spans].reverse()) {
-      if (!span.translatable) continue;
-      if (!Object.hasOwn(translations, span.value)) {
-        throw new Error(`Traduction absente : ${span.value.slice(0, 80)}`);
+    let localized = localizeContent(file.content, file.spans, translations);
+    const patches = [
+      ...(structuralOverrides['*'] ?? []),
+      ...(structuralOverrides[file.name] ?? []),
+      ...(structuralOverrides[`${file.game}/${file.name}`] ?? []),
+    ];
+
+    for (const patch of patches) {
+      const expected = localizeContent(patch.source, findStringSpans(patch.source), translations);
+      const occurrences = localized.split(expected).length - 1;
+      const minimumOccurrences = patch.minimumOccurrences ?? 1;
+      if (occurrences < minimumOccurrences) {
+        throw new Error(
+          `${file.game}/${file.name} : surcharge structurelle introuvable (${patch.source})`,
+        );
       }
-      const translation = normalizeFrench(translations[span.value]);
-      localized = `${localized.slice(0, span.start)}${encodeZilString(translation)}${localized.slice(span.end)}`;
+      localized = localized.replaceAll(expected, patch.replacement);
     }
     await writeFile(path.join(OUTPUT_ROOT, file.game, file.name), localized);
   }

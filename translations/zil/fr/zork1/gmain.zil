@@ -84,7 +84,7 @@
 			 (<NOT ,LIT>
 			  <TELL "Il fait trop sombre pour voir." CR>)
 			 (T
-			  <TELL "Ce à quoi vous faites référence n'est pas clair à." CR>
+			  <TELL "Je ne vois pas clairement à quoi vous faites référence." CR>
 			  <SET V <>>)>)
 		  (T
 		   <SETG P-NOT-HERE 0>
