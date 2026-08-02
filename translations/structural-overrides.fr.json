@@ -20,5 +20,39 @@
       "source": "<TELL \"Opening the \" D ,PRSO \" reveals \">",
       "replacement": "<TELL \"En l'ouvrant, vous découvrez \">"
     }
+  ],
+  "zork1/gmain.zil": [
+    {
+      "source": "\t\t\t\t\t <TELL \"The \">\n\t\t\t\t\t <COND (<NOT <EQUAL? ,P-NOT-HERE .NUM>>\n\t\t\t\t\t\t<TELL \"other \">)>\n\t\t\t\t\t <TELL \"object\">\n\t\t\t\t\t <COND (<NOT <EQUAL? ,P-NOT-HERE 1>>\n\t\t\t\t\t\t<TELL \"s\">)>\n\t\t\t\t\t <TELL \" that you mentioned \">\n\t\t\t\t\t <COND (<NOT <EQUAL? ,P-NOT-HERE 1>>\n\t\t\t\t\t\t<TELL \"are\">)\n\t\t\t\t\t       (T <TELL \"is\">)>\n\t\t\t\t\t <TELL \"n't here.\" CR>)",
+      "replacement": "\t\t\t\t\t <COND (<EQUAL? ,P-NOT-HERE 1>\n\t\t\t\t\t\t<TELL \"L'objet que vous avez mentionné n'est pas ici.\" CR>)\n\t\t\t\t\t       (<EQUAL? ,P-NOT-HERE .NUM>\n\t\t\t\t\t\t<TELL \"Les objets que vous avez mentionnés ne sont pas ici.\" CR>)\n\t\t\t\t\t       (T\n\t\t\t\t\t\t<TELL \"Les autres objets que vous avez mentionnés ne sont pas ici.\" CR>)>)"
+    }
+  ],
+  "zork1/gverbs.zil": [
+    {
+      "source": "<TELL \"Sitting on the \" D .OBJ \" is: \" CR>",
+      "replacement": "<TELL \"Sur \" D .OBJ \", vous voyez :\" CR>"
+    },
+    {
+      "source": "<TELL \"The \" D .OBJ \" is holding: \" CR>",
+      "replacement": "<TELL D .OBJ \" porte :\" CR>"
+    },
+    {
+      "source": "<TELL \"The \" D .OBJ \" contains:\" CR>",
+      "replacement": "<TELL \"Contenu (\" D .OBJ \") :\" CR>"
+    }
+  ],
+  "zork1/1actions.zil": [
+    {
+      "source": "<COND (<FSET? ,KITCHEN-WINDOW ,OPENBIT>\n\t\t       <TELL \"open.\">)\n\t\t      (T <TELL \"slightly ajar.\">)>",
+      "replacement": "<COND (<FSET? ,KITCHEN-WINDOW ,OPENBIT>\n\t\t       <TELL \"ouverte.\">)\n\t\t      (T <TELL \"légèrement entrouverte.\">)>"
+    },
+    {
+      "source": "<COND (<FSET? ,KITCHEN-WINDOW ,OPENBIT>\n\t\t      <TELL \"open.\" CR>)\n\t\t     (T\n\t\t      <TELL \"slightly ajar.\" CR>)>",
+      "replacement": "<COND (<FSET? ,KITCHEN-WINDOW ,OPENBIT>\n\t\t      <TELL \"ouverte.\" CR>)\n\t\t     (T\n\t\t      <TELL \"légèrement entrouverte.\" CR>)>"
+    },
+    {
+      "source": "<COND (<FSET? ,MACHINE ,OPENBIT>\n\t\t       <TELL \"open.\">)\n\t\t      (T <TELL \"closed.\">)>",
+      "replacement": "<COND (<FSET? ,MACHINE ,OPENBIT>\n\t\t       <TELL \"ouvert.\">)\n\t\t      (T <TELL \"fermé.\">)>"
+    }
   ]
 }

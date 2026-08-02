@@ -82,7 +82,7 @@
 			  <SET V <PERFORM ,PRSA>>
 			  <SETG PRSO <>>)
 			 (<NOT ,LIT>
-			  <TELL "Il fait trop sombre pour voir." CR>)
+			  <TELL "Il fait trop sombre pour y voir." CR>)
 			 (T
 			  <TELL "Je ne vois pas clairement à quoi vous faites référence." CR>
 			  <SET V <>>)>)
@@ -94,17 +94,12 @@
 		   <REPEAT ()
 			   <COND (<G? <SET CNT <+ .CNT 1>> .NUM>
 				  <COND (<G? ,P-NOT-HERE 0>
-					 <TELL "Le ">
-					 <COND (<NOT <EQUAL? ,P-NOT-HERE .NUM>>
-						<TELL "autre ">)>
-					 <TELL "objet">
-					 <COND (<NOT <EQUAL? ,P-NOT-HERE 1>>
-						<TELL "s">)>
-					 <TELL " que vous avez mentionné ">
-					 <COND (<NOT <EQUAL? ,P-NOT-HERE 1>>
-						<TELL "sont">)
-					       (T <TELL "n'est">)>
-					 <TELL "ne ici." CR>)
+					 <COND (<EQUAL? ,P-NOT-HERE 1>
+						<TELL "L'objet que vous avez mentionné n'est pas ici." CR>)
+					       (<EQUAL? ,P-NOT-HERE .NUM>
+						<TELL "Les objets que vous avez mentionnés ne sont pas ici." CR>)
+					       (T
+						<TELL "Les autres objets que vous avez mentionnés ne sont pas ici." CR>)>)
 					(<NOT .TMP>
 					 <TELL
 "Il n'y a rien ici que vous puissiez prendre." CR>)>
@@ -191,7 +186,7 @@
 	<SET OI ,PRSI>
 	<COND (<AND <EQUAL? ,IT .I .O>
 		    <NOT <ACCESSIBLE? ,P-IT-OBJECT>>>
-	       <TELL "Je ne vois pas à quoi vous faites référence à." CR>
+	       <TELL "Je ne vois pas à quoi vous faites référence." CR>
 	       <RFATAL>)>
 	<COND (<==? .O ,IT> <SET O ,P-IT-OBJECT>)>
 	<COND (<==? .I ,IT> <SET I ,P-IT-OBJECT>)>
@@ -243,7 +238,7 @@
 	<SET OI ,PRSI>
 	<COND (<AND <EQUAL? ,IT .I .O>
 		    <NOT <ACCESSIBLE? ,P-IT-OBJECT>>>
-	       <TELL "Je ne vois pas à quoi vous faites référence à." CR>
+	       <TELL "Je ne vois pas à quoi vous faites référence." CR>
 	       <RFATAL>)>
 	<COND (<==? .O ,IT> <SET O ,P-IT-OBJECT>)>
 	<COND (<==? .I ,IT> <SET I ,P-IT-OBJECT>)>

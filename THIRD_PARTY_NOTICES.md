@@ -64,6 +64,6 @@ Le moteur d’exécution est [zmachine](https://www.npmjs.com/package/zmachine),
 
 | Fichier | SHA-256 |
 |---|---|
-| `zork1.z3` | `c66c0f576dc4013c2e88f4de678c0fec8b9ead1185b7230468a89cdc48ce323a` |
+| `zork1.z3` | `a7b849070ffa1bd4c09e07ba611506d66cc3d8265505d52267c98b27ac3c57e3` |
 | `zork2.z3` | `7325871f1313b5092191104356e5a9d4f27ce6038365833759059869703d8f98` |
 | `zork3.z3` | `a894f5cb4d2d9722e63accdba78e4c1b2599fa1df4340d16471c733b4ea6920e` |

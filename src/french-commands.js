@@ -41,6 +41,7 @@ const PHRASES = {
   'faire l inventaire': 'inventory',
   'mettre a l eau': 'launch',
   'mettre le bateau a l eau': 'launch boat',
+  'grimper a': 'climb',
 };
 
 // Certains noms français désignent des objets différents selon le volume
@@ -219,6 +220,8 @@ const WORDS = {
   depuis: 'from',
   par: 'through',
   travers: 'through',
+  et: 'and',
+  ou: 'or',
   tout: 'all',
   tous: 'all',
   toutes: 'all',
@@ -309,6 +312,10 @@ const ORDERED_PHRASES = Object.entries({ ...GENERATED_PHRASES, ...PHRASES }).sor
 
 export function normalizeFrenchCommand(command) {
   return command
+    .replaceAll('œ', 'oe')
+    .replaceAll('Œ', 'OE')
+    .replaceAll('æ', 'ae')
+    .replaceAll('Æ', 'AE')
     .normalize('NFD')
     .replace(/\p{M}/gu, '')
     .toLowerCase()

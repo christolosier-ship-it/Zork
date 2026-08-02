@@ -6,9 +6,29 @@ const SCENARIOS = {
   zork1: {
     commands: [
       'observer',
+      'prendre la lanterne et l’épée',
       'ouvrir la boîte aux lettres',
       'prendre le dépliant',
       'lire le dépliant',
+      'nord',
+      'nord',
+      'observer',
+      'grimper à l’arbre',
+      'observer',
+      'prendre l’œuf',
+      'descendre',
+      'sud',
+      'est',
+      'ouvrir la fenêtre',
+      'entrer',
+      'ouest',
+      'prendre la lanterne',
+      'prendre l’épée',
+      'déplacer le tapis',
+      'ouvrir la trappe',
+      'allumer la lanterne',
+      'descendre',
+      'observer',
       'inventaire',
       'score',
       'quitter',
@@ -16,9 +36,17 @@ const SCENARIOS = {
     ],
     expected: [
       /Grand Empire Souterrain/i,
+      /Les objets que vous avez mentionnés ne sont pas ici/i,
       /boîte aux lettres/i,
       /BIENVENUE DANS ZORK/i,
+      /Sentier forestier/i,
+      /oeuf serti de pierres précieuses/i,
+      /fenêtre qui est ouverte/i,
+      /Contenu \(bouteille en verre\)/i,
+      /vitrine à trophées/i,
+      /Cave/i,
       /Vous avez sur vous/i,
+      /Votre rang : Aventurier amateur/i,
     ],
   },
   zork2: {
@@ -81,7 +109,7 @@ for (const [gameId, scenario] of Object.entries(SCENARIOS)) {
     throw new Error(`${gameId} : une commande française du scénario n'est pas comprise.`);
   }
   if (
-    /WELCOME TO ZORK|Vous êtes portant|Le lampe|Nous sommes à la jonction|elfe\. épée|non kempt|\bward\./i.test(
+    /WELCOME TO ZORK|Vous êtes portant|Le lampe|Nous sommes à la jonction|elfe\. épée|non kempt|\bward\.|contrecŒur|votre nu mains|Dans bouteille|qui est ouvert\./i.test(
       output,
     )
   ) {

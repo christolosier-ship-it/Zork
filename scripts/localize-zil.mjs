@@ -13,6 +13,7 @@ const STRUCTURAL_OVERRIDES_PATH = path.join(
   'translations',
   'structural-overrides.fr.json',
 );
+const GAME_REVIEWS_ROOT = path.join(ROOT, 'translations', 'game-reviews');
 const FORCE_TRANSLATION = process.argv.includes('--force');
 const ALLOW_REMOTE_TRANSLATION = FORCE_TRANSLATION || process.argv.includes('--translate-missing');
 const TRANSLATION_CONCURRENCY = Number.parseInt(
@@ -101,6 +102,14 @@ function operatorBefore(text, index) {
   return window.slice(lastOpen + 1).match(/^\s*([A-Z0-9?!&-]+)/i)?.[1]?.toUpperCase() ?? null;
 }
 
+function propertyBefore(text, index) {
+  const window = text.slice(Math.max(0, index - 240), index);
+  const lastOpen = window.lastIndexOf('(');
+  const lastClose = window.lastIndexOf(')');
+  if (lastOpen < 0 || lastClose > lastOpen) return null;
+  return window.slice(lastOpen + 1).match(/^\s*([A-Z0-9?!&-]+)/i)?.[1]?.toUpperCase() ?? null;
+}
+
 function isCommentedString(text, index) {
   let cursor = index - 1;
   while (cursor >= 0 && /\s/.test(text[cursor])) cursor -= 1;
@@ -138,6 +147,7 @@ function findStringSpans(text) {
     const raw = text.slice(index + 1, end);
     const value = decodeZilString(raw);
     const operator = operatorBefore(text, index);
+    const property = propertyBefore(text, index);
     const translatable =
       !isCommentedString(text, index) &&
       !SKIPPED_OPERATORS.has(operator) &&
@@ -145,7 +155,14 @@ function findStringSpans(text) {
       /[A-Za-z]/.test(value) &&
       value.trim().length > 0;
 
-    spans.push({ start: index + 1, end, value, translatable });
+    spans.push({
+      start: index + 1,
+      end,
+      value,
+      translatable,
+      operator,
+      parserVocabulary: property === 'PSEUDO',
+    });
     index = end;
   }
   return spans;
@@ -312,6 +329,18 @@ async function loadStructuralOverrides() {
   }
 }
 
+async function loadGameReview(game) {
+  try {
+    const review = JSON.parse(
+      await readFile(path.join(GAME_REVIEWS_ROOT, `${game}.fr.json`), 'utf8'),
+    );
+    return review.translations ?? {};
+  } catch (error) {
+    if (error.code === 'ENOENT') return {};
+    throw error;
+  }
+}
+
 async function loadExistingCatalog() {
   if (FORCE_TRANSLATION) return { meta: {}, translations: {} };
   try {
@@ -395,14 +424,24 @@ async function buildCatalog(sources) {
   return translations;
 }
 
-function localizeContent(content, spans, translations) {
+function localizeContent(
+  content,
+  spans,
+  translations,
+  preservePseudoVocabulary = false,
+  useZmachineV3Ligatures = false,
+) {
   let localized = content;
   for (const span of [...spans].reverse()) {
     if (!span.translatable) continue;
+    if (preservePseudoVocabulary && span.parserVocabulary) continue;
     if (!Object.hasOwn(translations, span.value)) {
       throw new Error(`Traduction absente : ${span.value.slice(0, 80)}`);
     }
-    const translation = normalizeFrench(translations[span.value]);
+    let translation = normalizeFrench(translations[span.value]);
+    if (useZmachineV3Ligatures) {
+      translation = translation.replaceAll('œ', 'oe').replaceAll('Œ', 'Oe');
+    }
     localized = `${localized.slice(0, span.start)}${encodeZilString(translation)}${localized.slice(span.end)}`;
   }
   return localized;
@@ -418,7 +457,17 @@ async function writeLocalizedSources(files, translations) {
   }
 
   for (const file of files) {
-    let localized = localizeContent(file.content, file.spans, translations);
+    const gameTranslations = {
+      ...translations,
+      ...(await loadGameReview(file.game)),
+    };
+    let localized = localizeContent(
+      file.content,
+      file.spans,
+      gameTranslations,
+      file.game === 'zork1',
+      file.game === 'zork1',
+    );
     const patches = [
       ...(structuralOverrides['*'] ?? []),
       ...(structuralOverrides[file.name] ?? []),
@@ -426,7 +475,11 @@ async function writeLocalizedSources(files, translations) {
     ];
 
     for (const patch of patches) {
-      const expected = localizeContent(patch.source, findStringSpans(patch.source), translations);
+      const expected = localizeContent(
+        patch.source,
+        findStringSpans(patch.source),
+        gameTranslations,
+      );
       const occurrences = localized.split(expected).length - 1;
       const minimumOccurrences = patch.minimumOccurrences ?? 1;
       if (occurrences < minimumOccurrences) {
