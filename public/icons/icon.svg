@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Porte du Grand Empire souterrain</title>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="44%" r="55%">
+      <stop offset="0" stop-color="#d8b66a" stop-opacity=".24"/>
+      <stop offset=".58" stop-color="#274735" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#09110e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="door" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#1f392a"/>
+      <stop offset=".72" stop-color="#0a130f"/>
+    </linearGradient>
+    <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#09110e"/>
+  <circle cx="256" cy="245" r="205" fill="url(#glow)"/>
+  <circle cx="256" cy="244" r="177" fill="none" stroke="#d8b66a" stroke-opacity=".12" stroke-width="2"/>
+  <circle cx="256" cy="244" r="144" fill="none" stroke="#d8b66a" stroke-opacity=".2" stroke-width="2" stroke-dasharray="5 14"/>
+  <path d="M156 416V239c0-68 44-123 100-123s100 55 100 123v177H156Z" fill="url(#door)" stroke="#d8b66a" stroke-width="5"/>
+  <path d="M185 416V242c0-49 32-88 71-88s71 39 71 88v174" fill="none" stroke="#d8b66a" stroke-opacity=".32" stroke-width="3"/>
+  <path d="M216 416V246c0-28 18-51 40-51s40 23 40 51v170" fill="none" stroke="#d8b66a" stroke-opacity=".16" stroke-width="2"/>
+  <circle cx="319" cy="292" r="17" fill="#d8b66a" opacity=".2" filter="url(#softGlow)"/>
+  <circle cx="319" cy="292" r="6" fill="#f1d48d"/>
+  <path d="M123 416h266l33 38H90l33-38Z" fill="#15261d" stroke="#d8b66a" stroke-opacity=".38" stroke-width="3"/>
+  <path d="M172 454h168l20 24H152l20-24Z" fill="#101d17" stroke="#d8b66a" stroke-opacity=".18" stroke-width="2"/>
+  <circle cx="92" cy="156" r="4" fill="#d8b66a" opacity=".7"/>
+  <circle cx="416" cy="201" r="3" fill="#d8b66a" opacity=".45"/>
+</svg>

@@ -1,0 +1,56 @@
+{
+  "id": "./",
+  "name": "Zork — La trilogie interactive",
+  "short_name": "Zork",
+  "description": "La trilogie originale Zork dans une interface moderne, installable et disponible hors ligne.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#09110e",
+  "theme_color": "#0c1512",
+  "categories": ["games", "entertainment", "books"],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Jouer à Zork I",
+      "short_name": "Zork I",
+      "url": "./?game=zork1",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Jouer à Zork II",
+      "short_name": "Zork II",
+      "url": "./?game=zork2",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Jouer à Zork III",
+      "short_name": "Zork III",
+      "url": "./?game=zork3",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

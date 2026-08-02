@@ -1,0 +1,23 @@
+{
+  "name": "zork-trilogy-pwa",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Une PWA moderne pour jouer à la trilogie originale Zork dans le navigateur.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "check": "node scripts/verify.mjs && node scripts/smoke-games.mjs",
+    "test": "npm run check"
+  },
+  "dependencies": {
+    "zmachine": "0.3.0"
+  },
+  "devDependencies": {
+    "vite": "8.2.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
