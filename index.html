@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="fr" data-theme="archive" data-font-size="medium">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta
+      name="description"
+      content="Explorez la trilogie originale Zork dans une PWA moderne, installable et disponible hors ligne."
+    />
+    <meta name="theme-color" content="#0c1512" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Zork" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+    <title>Zork — La trilogie interactive</title>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <svg class="svg-symbols" aria-hidden="true">
+      <symbol id="icon-arch" viewBox="0 0 32 32">
+        <path d="M7 28V14a9 9 0 0 1 18 0v14H7Z" fill="none" stroke="currentColor" stroke-width="2" />
+        <path d="M12 28V14a4 4 0 0 1 8 0v14" fill="none" stroke="currentColor" stroke-width="2" />
+        <circle cx="17.5" cy="20" r="1" fill="currentColor" />
+      </symbol>
+      <symbol id="icon-settings" viewBox="0 0 24 24">
+        <path d="M12 8.25A3.75 3.75 0 1 0 12 15.75 3.75 3.75 0 0 0 12 8.25Z" fill="none" stroke="currentColor" stroke-width="1.7" />
+        <path d="m19.3 13.5 1.1 1.9-2.2 2.2-1.9-1.1c-.7.4-1.4.7-2.2.9l-.6 2.1h-3l-.6-2.1c-.8-.2-1.5-.5-2.2-.9l-1.9 1.1-2.2-2.2 1.1-1.9a8.5 8.5 0 0 1 0-3L2.6 8.6l2.2-2.2 1.9 1.1c.7-.4 1.4-.7 2.2-.9l.6-2.1h3l.6 2.1c.8.2 1.5.5 2.2.9l1.9-1.1 2.2 2.2-1.1 1.9a8.5 8.5 0 0 1 0 3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-install" viewBox="0 0 24 24">
+        <path d="M12 3v11m0 0 4-4m-4 4-4-4M5 16v4h14v-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-back" viewBox="0 0 24 24">
+        <path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-save" viewBox="0 0 24 24">
+        <path d="M5 3h12l2 2v16H5V3Zm3 0v6h8V3M8 21v-8h8v8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-restore" viewBox="0 0 24 24">
+        <path d="M4 7v5h5M5.5 10a8 8 0 1 1 .3 5.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-restart" viewBox="0 0 24 24">
+        <path d="M18.5 8.5V4m0 0H14m4.5 0-3.1 3.1A7 7 0 1 0 18 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-file" viewBox="0 0 24 24">
+        <path d="M6 3h8l4 4v14H6V3Zm8 0v5h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-terminal" viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.6" />
+        <path d="m7 9 3 3-3 3m6 0h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-trash" viewBox="0 0 24 24">
+        <path d="M5 7h14M9 7V4h6v3m2 0-1 14H8L7 7m4 4v6m3-6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+    </svg>
+
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <div class="app-shell">
+      <header class="app-header">
+        <button class="brand" type="button" data-action="home" aria-label="Revenir à la trilogie">
+          <span class="brand-mark"><svg aria-hidden="true"><use href="#icon-arch"></use></svg></span>
+          <span class="brand-copy">
+            <strong>Zork</strong>
+            <small>Interactive archive</small>
+          </span>
+        </button>
+
+        <div class="volume-switcher" id="volume-switcher" hidden>
+          <label for="game-switch">Volume</label>
+          <select id="game-switch" aria-label="Changer de volume Zork"></select>
+        </div>
+
+        <div class="header-actions">
+          <span class="network-pill" id="network-status" role="status">
+            <span class="network-dot"></span>
+            <span class="network-label">En ligne</span>
+          </span>
+          <button class="icon-button install-button" type="button" data-action="install" aria-label="Installer l’application" title="Installer">
+            <svg aria-hidden="true"><use href="#icon-install"></use></svg>
+          </button>
+          <button class="icon-button" type="button" data-action="settings" aria-label="Ouvrir les réglages" title="Réglages">
+            <svg aria-hidden="true"><use href="#icon-settings"></use></svg>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="library-view" id="library-view" aria-labelledby="library-title">
+          <div class="library-hero">
+            <div class="hero-copy">
+              <p class="kicker"><span></span> Collection interactive · 1980–1982</p>
+              <h1 id="library-title">Trois portes.<br /><em>Un empire sous terre.</em></h1>
+              <p class="hero-intro">
+                Retrouvez la trilogie fondatrice d’Infocom dans son moteur original, habillée d’un écrin moderne. Ici, chaque mot est une action.
+              </p>
+              <div class="hero-facts" aria-label="Fonctionnalités principales">
+                <span>3 jeux complets</span>
+                <span>Hors ligne</span>
+                <span>Sauvegardes locales</span>
+              </div>
+            </div>
+
+            <div class="hero-art" aria-hidden="true">
+              <div class="hero-orbit orbit-one"></div>
+              <div class="hero-orbit orbit-two"></div>
+              <div class="hero-door">
+                <span class="hero-door-light"></span>
+                <span class="hero-door-step"></span>
+              </div>
+              <span class="hero-rune rune-one">Z</span>
+              <span class="hero-rune rune-two">ork</span>
+            </div>
+          </div>
+
+          <div class="section-heading">
+            <div>
+              <p class="kicker"><span></span> La trilogie</p>
+              <h2>Choisissez votre descente</h2>
+            </div>
+            <p>Interface en français · aventure originale en anglais</p>
+          </div>
+
+          <div class="game-grid" id="game-grid"></div>
+
+          <section class="first-steps" aria-labelledby="first-steps-title">
+            <div class="first-steps-number">01</div>
+            <div>
+              <p class="kicker"><span></span> Pour commencer</p>
+              <h2 id="first-steps-title">Parlez au monde, simplement.</h2>
+            </div>
+            <div class="command-examples" aria-label="Exemples de commandes">
+              <code><span>&gt;</span> look</code>
+              <code><span>&gt;</span> open mailbox</code>
+              <code><span>&gt;</span> take lamp</code>
+            </div>
+            <p>
+              Zork comprend des ordres en anglais sous la forme <strong>verbe + objet</strong>. Des raccourcis tactiles restent disponibles pendant toute la partie.
+            </p>
+          </section>
+
+          <footer class="library-footer">
+            <p>Une adaptation web non officielle consacrée à la préservation du jeu.</p>
+            <button type="button" class="text-button" data-action="about">Crédits & licences</button>
+          </footer>
+        </section>
+
+        <section class="player-view" id="player-view" hidden aria-label="Lecteur Zork">
+          <aside class="game-dossier" id="game-dossier">
+            <button class="back-button" type="button" data-action="home">
+              <svg aria-hidden="true"><use href="#icon-back"></use></svg>
+              La trilogie
+            </button>
+
+            <div class="dossier-volume">
+              <span class="volume-number" id="dossier-number">I</span>
+              <p class="kicker"><span></span> Volume en cours</p>
+              <h1 id="dossier-title">Zork I</h1>
+              <p class="dossier-subtitle" id="dossier-subtitle">The Great Underground Empire</p>
+              <p class="dossier-description" id="dossier-description"></p>
+            </div>
+
+            <div class="save-card" id="save-card">
+              <div class="save-icon"><svg aria-hidden="true"><use href="#icon-save"></use></svg></div>
+              <div>
+                <span>Progression locale</span>
+                <strong id="save-status">Aucune sauvegarde</strong>
+              </div>
+            </div>
+
+            <div class="dossier-actions">
+              <button type="button" data-command="save">
+                <svg aria-hidden="true"><use href="#icon-save"></use></svg>
+                Sauvegarder
+              </button>
+              <button type="button" data-command="restore" id="restore-button">
+                <svg aria-hidden="true"><use href="#icon-restore"></use></svg>
+                Reprendre
+              </button>
+              <button type="button" data-action="restart">
+                <svg aria-hidden="true"><use href="#icon-restart"></use></svg>
+                Recommencer
+              </button>
+              <button type="button" data-action="transcript">
+                <svg aria-hidden="true"><use href="#icon-file"></use></svg>
+                Exporter le récit
+              </button>
+            </div>
+
+            <details class="field-guide" open>
+              <summary>Guide de terrain</summary>
+              <ul>
+                <li><kbd>↑</kbd><kbd>↓</kbd> rappellent vos commandes.</li>
+                <li><strong>LOOK</strong> décrit à nouveau le lieu.</li>
+                <li><strong>INVENTORY</strong> liste vos objets.</li>
+                <li><strong>SAVE</strong> conserve cette partie sur l’appareil.</li>
+              </ul>
+            </details>
+
+            <p class="edition-note" id="edition-note"></p>
+          </aside>
+
+          <div class="terminal-column">
+            <section class="terminal-panel" aria-labelledby="terminal-title">
+              <div class="terminal-toolbar">
+                <div class="terminal-title" id="terminal-title">
+                  <svg aria-hidden="true"><use href="#icon-terminal"></use></svg>
+                  <span>Z-Machine</span>
+                  <small id="engine-version">v3</small>
+                </div>
+                <div class="terminal-state">
+                  <span class="state-light"></span>
+                  <span id="terminal-state-label">Initialisation</span>
+                </div>
+              </div>
+
+              <div class="status-line" id="status-line" aria-live="polite">
+                <span class="location">Grand Empire souterrain</span>
+                <span class="score">Score: — &nbsp; Moves: —</span>
+              </div>
+
+              <div
+                class="game-output"
+                id="game-output"
+                role="log"
+                aria-live="polite"
+                aria-relevant="additions"
+                tabindex="0"
+              >
+                <span class="loading-line">Ouverture des archives…</span>
+              </div>
+
+              <form class="command-form" id="command-form" autocomplete="off">
+                <label class="sr-only" for="command-input">Votre commande en anglais</label>
+                <span class="prompt" aria-hidden="true">›</span>
+                <input
+                  id="command-input"
+                  name="command"
+                  type="text"
+                  inputmode="text"
+                  enterkeyhint="send"
+                  autocapitalize="none"
+                  autocorrect="off"
+                  spellcheck="false"
+                  placeholder="Écrivez une commande…"
+                  disabled
+                />
+                <button type="submit">Envoyer <span aria-hidden="true">↵</span></button>
+              </form>
+            </section>
+
+            <div class="play-assist" id="play-assist">
+              <div class="quick-commands" id="quick-commands" aria-label="Commandes rapides"></div>
+              <div class="compass-wrap">
+                <span class="assist-label">Déplacements</span>
+                <div class="compass" id="compass" aria-label="Rose des déplacements"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="app-dialog settings-dialog" id="settings-dialog">
+      <div class="dialog-header">
+        <div>
+          <p class="kicker"><span></span> Préférences</p>
+          <h2>Votre terminal</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-dialog aria-label="Fermer">
+          <svg aria-hidden="true"><use href="#icon-close"></use></svg>
+        </button>
+      </div>
+
+      <form id="settings-form">
+        <fieldset>
+          <legend>Ambiance</legend>
+          <div class="theme-options">
+            <label class="theme-option archive-option">
+              <input type="radio" name="theme" value="archive" />
+              <span class="theme-preview"><i></i></span>
+              <span>Archive</span>
+            </label>
+            <label class="theme-option phosphor-option">
+              <input type="radio" name="theme" value="phosphor" />
+              <span class="theme-preview"><i></i></span>
+              <span>Phosphore</span>
+            </label>
+            <label class="theme-option midnight-option">
+              <input type="radio" name="theme" value="midnight" />
+              <span class="theme-preview"><i></i></span>
+              <span>Minuit</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Taille du récit</legend>
+          <div class="segment-control">
+            <label><input type="radio" name="fontSize" value="small" /><span>Petite</span></label>
+            <label><input type="radio" name="fontSize" value="medium" /><span>Moyenne</span></label>
+            <label><input type="radio" name="fontSize" value="large" /><span>Grande</span></label>
+          </div>
+        </fieldset>
+
+        <div class="toggle-list">
+          <label>
+            <span><strong>Réduire les animations</strong><small>Limite les transitions et effets d’ambiance.</small></span>
+            <input type="checkbox" name="reducedMotion" role="switch" />
+          </label>
+          <label>
+            <span><strong>Afficher les raccourcis</strong><small>Conserve les commandes tactiles sous le terminal.</small></span>
+            <input type="checkbox" name="showHints" role="switch" />
+          </label>
+        </div>
+      </form>
+
+      <div class="save-management">
+        <h3>Sauvegardes sur cet appareil</h3>
+        <div id="save-management-list"></div>
+      </div>
+
+      <button class="dialog-about-link" type="button" data-action="about">
+        Crédits, code source et licences <span aria-hidden="true">→</span>
+      </button>
+    </dialog>
+
+    <dialog class="app-dialog about-dialog" id="about-dialog">
+      <div class="dialog-header">
+        <div>
+          <p class="kicker"><span></span> À propos</p>
+          <h2>Une archive vivante</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-dialog aria-label="Fermer">
+          <svg aria-hidden="true"><use href="#icon-close"></use></svg>
+        </button>
+      </div>
+      <div class="about-copy">
+        <p>
+          Cette application non officielle restitue <strong>Zork I, II et III</strong> au moyen de leurs programmes Z‑Machine historiques. L’interface est nouvelle ; le texte, les énigmes et le comportement des jeux restent ceux d’Infocom.
+        </p>
+        <p>
+          Les sources des trois jeux ont été publiées sous licence MIT par Microsoft en 2025. Les marques Zork et Infocom demeurent la propriété de leurs ayants droit. L’interpréteur <strong>zmachine</strong> de Daniel Lockard est également distribué sous licence MIT.
+        </p>
+        <div class="source-links">
+          <a href="https://github.com/historicalsource/zork1" target="_blank" rel="noreferrer">Source Zork I <span>↗</span></a>
+          <a href="https://github.com/historicalsource/zork2" target="_blank" rel="noreferrer">Source Zork II <span>↗</span></a>
+          <a href="https://github.com/historicalsource/zork3" target="_blank" rel="noreferrer">Source Zork III <span>↗</span></a>
+        </div>
+        <p class="legal-note">Aucun visuel commercial historique n’est reproduit dans cette application.</p>
+      </div>
+    </dialog>
+
+    <dialog class="app-dialog install-dialog" id="install-dialog">
+      <div class="dialog-header">
+        <div>
+          <p class="kicker"><span></span> Application PWA</p>
+          <h2>Emportez l’Empire</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-dialog aria-label="Fermer">
+          <svg aria-hidden="true"><use href="#icon-close"></use></svg>
+        </button>
+      </div>
+      <p>Pour installer Zork sur iPhone ou iPad :</p>
+      <ol>
+        <li>Ouvrez cette page dans Safari.</li>
+        <li>Touchez le bouton <strong>Partager</strong>.</li>
+        <li>Choisissez <strong>Sur l’écran d’accueil</strong>.</li>
+      </ol>
+    </dialog>
+
+    <dialog class="app-dialog confirm-dialog" id="confirm-dialog">
+      <p class="kicker"><span></span> Confirmation</p>
+      <h2 id="confirm-title">Quitter la partie ?</h2>
+      <p id="confirm-message"></p>
+      <div class="confirm-actions">
+        <button type="button" class="secondary-button" data-confirm="cancel">Annuler</button>
+        <button type="button" class="primary-button" data-confirm="accept">Continuer</button>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <noscript>
+      <div class="noscript-message">Zork a besoin de JavaScript pour faire fonctionner sa Z‑Machine.</div>
+    </noscript>
+  </body>
+</html>
