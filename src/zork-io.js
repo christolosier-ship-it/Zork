@@ -1,4 +1,5 @@
 import { WebIOAdapter } from 'zmachine/web';
+import { translateFrenchCommand } from './french-commands.js';
 import { readSave, storeSave } from './storage.js';
 
 export class ZorkIOAdapter extends WebIOAdapter {
@@ -38,11 +39,18 @@ export class ZorkIOAdapter extends WebIOAdapter {
 
     this.onReady?.(false);
     this.onCommand?.(result.text);
-    return result;
+    return { ...result, text: translateFrenchCommand(result.text) };
   }
 
   showStatusLine(location, scoreOrHours, turnsOrMinutes, isTime) {
-    super.showStatusLine(location, scoreOrHours, turnsOrMinutes, isTime);
+    if (!this.status) return;
+    const rightSide = isTime
+      ? `Heure : ${scoreOrHours}:${turnsOrMinutes.toString().padStart(2, '0')}`
+      : `Score : ${scoreOrHours}  Coups : ${turnsOrMinutes}`;
+    this.status.innerHTML = `
+      <span class="location">${this.escapeHtml(location)}</span>
+      <span class="score">${rightSide}</span>
+    `;
     this.onStatus?.({ location, scoreOrHours, turnsOrMinutes, isTime });
   }
 

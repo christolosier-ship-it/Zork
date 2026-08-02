@@ -306,7 +306,7 @@ class ZorkApp {
     this.elements.dossierTitle.textContent = game.title;
     this.elements.dossierSubtitle.textContent = game.subtitle;
     this.elements.dossierDescription.textContent = game.description;
-    this.elements.editionNote.textContent = `${game.release} · Programme historique en anglais`;
+    this.elements.editionNote.textContent = `${game.release} · Traduction des sources MIT`;
     this.elements.player.style.setProperty('--game-accent', game.accent);
     this.elements.player.style.setProperty('--game-accent-rgb', game.accentRgb);
     document.title = `${game.title} — ${game.subtitle}`;
@@ -386,7 +386,7 @@ class ZorkApp {
 
       if (this.shouldAutoResume && !this.didAutoResume && hasSave(this.currentGame.id)) {
         this.didAutoResume = true;
-        window.setTimeout(() => this.submitCommand('restore'), 120);
+        window.setTimeout(() => this.submitCommand('reprendre'), 120);
       }
     }
   }
@@ -396,7 +396,7 @@ class ZorkApp {
 
     try {
       const locationObject = this.machine.variables.load(16);
-      const location = locationObject ? this.machine.getObjectName(locationObject) : 'Unknown';
+      const location = locationObject ? this.machine.getObjectName(locationObject) : 'Lieu inconnu';
       const rawScore = this.machine.variables.load(17);
       const scoreOrHours = rawScore & 0x8000 ? rawScore - 0x10000 : rawScore;
       const turnsOrMinutes = this.machine.variables.load(18);
@@ -485,7 +485,7 @@ class ZorkApp {
 
   updateCommandButtons() {
     for (const button of document.querySelectorAll('[data-command]')) {
-      const needsSave = button.dataset.command === 'restore';
+      const needsSave = button.dataset.command === 'reprendre';
       button.disabled = !this.readyForCommand || (needsSave && !hasSave(this.currentGame?.id));
     }
   }
