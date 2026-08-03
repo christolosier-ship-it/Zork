@@ -1,4 +1,4 @@
-.zork-map-dialog {
+.app-dialog.zork-map-dialog {
   width: min(calc(100% - 28px), 1440px);
   max-height: min(94dvh, 1040px);
   overflow: hidden;
@@ -15,7 +15,9 @@
 
 .zork-map-body {
   display: grid;
+  max-height: min(calc(94dvh - 74px), 966px);
   gap: 14px;
+  overflow: auto;
   padding: 18px 22px 22px;
 }
 
@@ -408,7 +410,7 @@
 }
 
 @media (max-width: 680px) {
-  .zork-map-dialog {
+  .app-dialog.zork-map-dialog {
     width: calc(100% - 10px);
     max-height: calc(100dvh - 10px);
   }
