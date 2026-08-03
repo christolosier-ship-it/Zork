@@ -1,0 +1,462 @@
+.zork-map-dialog {
+  width: min(calc(100% - 28px), 1440px);
+  max-height: min(94dvh, 1040px);
+  overflow: hidden;
+}
+
+.zork-map-header {
+  position: relative;
+}
+
+.zork-map-header .icon-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.zork-map-body {
+  display: grid;
+  gap: 14px;
+  padding: 18px 22px 22px;
+}
+
+.zork-map-tabs {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: thin;
+}
+
+.zork-map-tabs button,
+.zork-map-controls button {
+  min-height: 38px;
+  padding: 0 13px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.025);
+  font-size: 0.65rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.zork-map-tabs button:hover,
+.zork-map-controls button:hover {
+  border-color: rgba(var(--game-accent-rgb, var(--accent-rgb)), 0.42);
+  color: var(--text);
+  background: rgba(var(--game-accent-rgb, var(--accent-rgb)), 0.08);
+}
+
+.zork-map-tabs button.is-active {
+  border-color: var(--game-accent, var(--accent));
+  color: var(--accent-ink);
+  background: var(--game-accent, var(--accent));
+}
+
+.zork-map-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.zork-map-location {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 7px;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+}
+
+.zork-map-location strong {
+  overflow: hidden;
+  color: var(--text);
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.zork-map-location-dot {
+  width: 11px;
+  height: 11px;
+  flex: 0 0 auto;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  background: #ef3434;
+  box-shadow: 0 0 0 5px rgba(239, 52, 52, 0.18);
+}
+
+.zork-map-controls {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 6px;
+}
+
+.zork-map-controls button:first-child,
+.zork-map-controls button:nth-child(2) {
+  width: 40px;
+  padding: 0;
+  font-size: 1.05rem;
+}
+
+.zork-map-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: 14px;
+  min-height: 0;
+}
+
+.zork-map-viewport {
+  position: relative;
+  min-width: 0;
+  min-height: 590px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background:
+    linear-gradient(rgba(var(--game-accent-rgb, var(--accent-rgb)), 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--game-accent-rgb, var(--accent-rgb)), 0.035) 1px, transparent 1px),
+    radial-gradient(circle at 50% 45%, rgba(var(--game-accent-rgb, var(--accent-rgb)), 0.065), transparent 55%),
+    rgba(0, 0, 0, 0.15);
+  background-size: 34px 34px, 34px 34px, auto, auto;
+}
+
+#zork-map-svg {
+  width: 100%;
+  height: 100%;
+  min-height: 590px;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+#zork-map-svg.is-dragging {
+  cursor: grabbing;
+}
+
+#zork-map-arrow path {
+  fill: var(--game-accent, var(--accent));
+}
+
+.zork-map-edge line,
+.zork-map-edge path {
+  fill: none;
+  stroke: var(--line-strong);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.zork-map-edge.is-one-way line,
+.zork-map-edge.is-one-way path {
+  stroke: var(--game-accent, var(--accent));
+}
+
+.zork-map-edge.is-conditional line,
+.zork-map-edge.is-conditional path {
+  stroke-dasharray: 7 6;
+}
+
+.zork-map-edge.is-portal line,
+.zork-map-edge.is-portal path {
+  opacity: 0.68;
+}
+
+.zork-map-edge-label rect {
+  fill: color-mix(in srgb, var(--surface) 92%, transparent);
+  stroke: var(--line);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.zork-map-edge-label text {
+  fill: var(--text-muted);
+  font-family: var(--mono-font);
+  font-size: 9px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.zork-map-node {
+  cursor: pointer;
+  outline: none;
+}
+
+.zork-map-node rect {
+  fill: color-mix(in srgb, var(--surface-raised) 90%, transparent);
+  stroke: var(--line-strong);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  transition: 140ms ease;
+}
+
+.zork-map-node text {
+  fill: var(--text-soft);
+  font-family: var(--ui-font);
+  font-size: 11px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.zork-map-node:hover rect,
+.zork-map-node:focus-visible rect,
+.zork-map-node.is-selected rect {
+  fill: color-mix(in srgb, var(--surface-raised) 78%, var(--game-accent, var(--accent)) 22%);
+  stroke: var(--game-accent, var(--accent));
+  stroke-width: 2.5;
+}
+
+.zork-map-node.is-current rect {
+  stroke: #ef3434;
+  stroke-width: 3;
+}
+
+.zork-map-node.is-conditional rect {
+  stroke-dasharray: 6 4;
+}
+
+.zork-map-node.is-portal rect {
+  fill: rgba(var(--game-accent-rgb, var(--accent-rgb)), 0.07);
+  stroke: rgba(var(--game-accent-rgb, var(--accent-rgb)), 0.55);
+  stroke-dasharray: 4 4;
+}
+
+.zork-map-node.is-portal text {
+  fill: var(--game-accent, var(--accent));
+  font-size: 10px;
+}
+
+.zork-map-portal-arrow {
+  font-size: 13px !important;
+}
+
+.zork-map-player-halo {
+  fill: rgba(239, 52, 52, 0.28);
+  stroke: rgba(255, 255, 255, 0.45);
+  stroke-width: 1;
+  animation: zork-map-pulse 1.8s ease-out infinite;
+}
+
+.zork-map-player-dot {
+  fill: #ef3434;
+  stroke: #fff;
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.65));
+}
+
+@keyframes zork-map-pulse {
+  0% {
+    opacity: 0.85;
+    transform: scale(0.72);
+  }
+  75%,
+  100% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+.zork-map-drag-hint {
+  position: absolute;
+  right: 10px;
+  bottom: 9px;
+  padding: 5px 8px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: var(--text-muted);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  font-size: 0.55rem;
+  pointer-events: none;
+}
+
+.zork-map-details {
+  min-width: 0;
+  padding: 18px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.zork-map-details h3 {
+  margin-top: 11px;
+  font-family: var(--display-font);
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+.zork-map-details > p:not(.kicker):not(.zork-map-legend) {
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  line-height: 1.55;
+}
+
+.zork-map-exit-list {
+  display: grid;
+  gap: 7px;
+  margin-top: 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.zork-map-exit-list li {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  padding: 9px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.zork-map-exit-list strong {
+  color: var(--game-accent, var(--accent));
+  font-family: var(--mono-font);
+  font-size: 0.62rem;
+}
+
+.zork-map-exit-list span {
+  color: var(--text-soft);
+  font-size: 0.64rem;
+}
+
+.zork-map-exit-list small {
+  grid-column: 2;
+  color: var(--text-muted);
+  font-size: 0.52rem;
+  font-style: italic;
+}
+
+.zork-map-no-exits {
+  margin-top: 18px;
+  color: var(--text-muted);
+  font-size: 0.65rem;
+}
+
+.zork-map-legend {
+  display: grid;
+  gap: 7px;
+  margin-top: 24px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--text-muted);
+  font-size: 0.58rem;
+}
+
+.zork-map-legend span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.zork-map-legend i {
+  display: inline-block;
+  width: 18px;
+  height: 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+}
+
+.zork-map-legend .legend-current {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #ef3434;
+}
+
+.zork-map-legend .legend-secret {
+  border-style: dashed;
+  border-color: var(--game-accent, var(--accent));
+}
+
+.zork-map-legend .legend-one-way {
+  border: 0;
+  border-radius: 0;
+  background: linear-gradient(90deg, var(--game-accent, var(--accent)) 0 70%, transparent 70%);
+  clip-path: polygon(0 35%, 72% 35%, 72% 0, 100% 50%, 72% 100%, 72% 65%, 0 65%);
+}
+
+.zork-map-spoiler {
+  color: var(--text-muted);
+  font-size: 0.59rem;
+  font-style: italic;
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  .zork-map-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .zork-map-details {
+    max-height: 230px;
+  }
+
+  .zork-map-exit-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .zork-map-viewport,
+  #zork-map-svg {
+    min-height: 520px;
+  }
+}
+
+@media (max-width: 680px) {
+  .zork-map-dialog {
+    width: calc(100% - 10px);
+    max-height: calc(100dvh - 10px);
+  }
+
+  .zork-map-body {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .zork-map-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .zork-map-location {
+    padding: 4px 2px;
+  }
+
+  .zork-map-controls {
+    display: grid;
+    grid-template-columns: 40px 40px 1fr 1fr;
+  }
+
+  .zork-map-controls button {
+    padding: 0 8px;
+    font-size: 0.59rem;
+  }
+
+  .zork-map-viewport,
+  #zork-map-svg {
+    min-height: 460px;
+  }
+
+  .zork-map-details {
+    max-height: 250px;
+    padding: 14px;
+  }
+
+  .zork-map-exit-list {
+    grid-template-columns: 1fr;
+  }
+
+  .zork-map-drag-hint {
+    display: none;
+  }
+}
+
+:root.reduce-motion .zork-map-player-halo {
+  animation: none;
+  opacity: 0.5;
+}
