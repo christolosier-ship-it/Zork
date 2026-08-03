@@ -20,7 +20,34 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci
+      - name: Install ZILF
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/zilf"
+          curl -fsSL https://api.github.com/repos/taradinoc/zilf/releases/latest > "$RUNNER_TEMP/zilf-release.json"
+          asset_url="$(jq -r '[.assets[] | select(.name | test("linux-x64\\.(zip|tar\\.gz)$"))] | first | .browser_download_url // empty' "$RUNNER_TEMP/zilf-release.json")"
+          test -n "$asset_url"
+          archive="$RUNNER_TEMP/${asset_url##*/}"
+          curl -fsSL "$asset_url" -o "$archive"
+          case "$archive" in
+            *.zip) unzip -q "$archive" -d "$RUNNER_TEMP/zilf" ;;
+            *.tar.gz) tar -xzf "$archive" -C "$RUNNER_TEMP/zilf" ;;
+            *) exit 1 ;;
+          esac
+          zilf_bin="$(find "$RUNNER_TEMP/zilf" -type f -iname zilf -print -quit)"
+          test -n "$zilf_bin"
+          chmod +x "$zilf_bin"
+          echo "ZILF_BIN=$zilf_bin" >> "$GITHUB_ENV"
+      - name: Compile reviewed Zork II story
+        run: npm run build:story:zork2
+      - name: Upload compiled Zork II story
+        uses: actions/upload-artifact@v4
+        with:
+          name: zork2-story
+          path: public/games/zork2.z3
       - name: Verify PWA assets
         run: npm test
+      - name: Verify tracked Zork II story
+        run: git diff --exit-code -- public/games/zork2.z3
       - name: Build production bundle
         run: npm run build

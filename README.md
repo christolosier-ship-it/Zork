@@ -95,6 +95,29 @@ npm test
 
 L'audit LanguageTool interroge son API publique et n'est donc pas exécuté dans l'intégration continue. La compilation Z‑Machine v3 remplace seulement dans le programme final les ligatures `œ` par `oe`, car cet ancien format les restitue incorrectement ; les sources de traduction conservent la typographie française normale.
 
+### Relecture du volume II
+
+Zork II possède à son tour une revue isolée dans `translations/game-reviews/zork2.fr.json`. Elle couvre les **1 679 chaînes uniques** des dix fichiers ZIL, réemploie avec contrôle contextuel **591 chaînes déjà relues** du volume I et impose les **245 entrées** de `translations/glossaries/zork2.fr.json`. La seconde passe réunit **328 corrections littéraires** de scènes complètes et **339 corrections de fragments**, notamment pour les phrases que ZIL assemble pendant la partie.
+
+Le glossaire fixe les noms de lieux, personnages et objets ainsi que le vocabulaire du parseur. Les douze sorts du Magicien conservent en français leur initiale commune en `F`, qui constitue un indice du jeu. Un contrôle LanguageTool portant sur les 1 679 chaînes a produit 530 signalements bruts ; ils ont été triés dans leur contexte afin de distinguer les corrections réelles des noms propres, fragments dynamiques et mises en page fixes.
+
+La relecture est reproductible avec les commandes suivantes :
+
+```bash
+node scripts/apply-zork2-shared-review.mjs
+node scripts/apply-zork2-glossary.mjs
+node scripts/apply-zork2-literary-pass.mjs
+node scripts/build-zork2-structural-review.mjs
+npm run localize
+node scripts/audit-zork2-review.mjs
+node scripts/audit-zork2-parser-vocabulary.mjs
+node scripts/audit-zork2-languagetool.mjs
+npm run build:story:zork2
+npm test
+```
+
+Comme pour le volume I, l’appel LanguageTool reste volontairement extérieur à l’intégration continue. Celle-ci recompile en revanche Zork II avec ZILF, vérifie que le programme suivi par Git correspond exactement aux sources relues et joue un scénario français dans ce programme.
+
 Le script optionnel `scripts/translate-catalog-offline.py` permet de refaire la passe hors ligne après installation d’Argos Translate et de son modèle anglais → français. Le modèle n’est pas inclus dans ce dépôt. `npm test` contrôle également l’application des surcharges, les résidus anglais déjà corrigés, 423 descriptions d’objets et des scénarios joués dans chacun des trois volumes.
 
 ## Déploiement

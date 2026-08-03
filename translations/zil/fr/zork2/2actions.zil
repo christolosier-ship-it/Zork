@@ -1,4 +1,5 @@
-"ACTIONS2 pour Zork II: Le Magicien de Frobozz (c) Copyright 1981, 1983 Infocom, Inc. Tous droits réservés."
+"ACTIONS2 pour Zork II : Le Magicien de Frobozz
+(c) Copyright 1981, 1983 Infocom, Inc. Tous droits réservés."
 
 <ROUTINE SWORD-FCN ()
 	 <COND (<AND <VERB? TAKE>
@@ -30,7 +31,7 @@
 		      (<EQUAL? .NG 2>
 		       <TELL "Votre épée s'est mise à briller d'un éclat intense." CR>)
 		      (<1? .NG>
-		       <TELL "Votre épée brille d'un bleu pâle brille."
+		       <TELL "Votre épée émet une faible lueur bleue."
 			     CR>)
 		      (<0? .NG>
 		       <TELL "Votre épée ne brille plus." CR>)>
@@ -52,10 +53,10 @@
 <ROUTINE CAROUSEL-ROOM-FCN (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Vous êtes dans une grande pièce circulaire dont le haut plafond est perdu dans l'obscurité. Huit passages identiques quittent la pièce." CR>
+"Vous êtes dans une vaste salle circulaire dont la haute voûte se perd dans l'obscurité. Huit passages identiques en partent." CR>
 		<COND (<NOT ,CAROUSEL-FLIP-FLAG>
 		       <TELL
-"Un bruit fort et flippant vient de partout, et vous vous sentez un peu désorienté ici." CR>)>
+"Un puissant vrombissement vous entoure et vous éprouvez ici une étrange désorientation." CR>)>
 		<RTRUE>)
 	       (<AND <NOT ,CAROUSEL-FLIP-FLAG>
 		     <EQUAL? .RARG ,M-BEG>
@@ -64,11 +65,11 @@
 		       <RFALSE>)>
 		<COND (<EQUAL? ,PRSO ,P?OUT>
 		       <TELL
-"Vous vous sentez étourdi, vous choisissez une direction au hasard." CR CR>
+"Étourdi, vous choisissez une direction au hasard." CR CR>
 		       <SETG PRSO ,P?EAST>)
 		      (T
 		       <TELL
-"Vous n'êtes pas sûr de la direction que c'est." CR CR>)>
+"Vous ne parvenez plus à distinguer les directions ; cette salle est profondément désorientante." CR CR>)>
 		<COND (<OR <EQUAL? ,PRSO ,P?WEST> <PROB 80>>
 		       <SETG PRSO <GET ,EIGHT-DIRECTIONS <- <RANDOM 7> 1>>>)>
 		<V-WALK>
@@ -78,7 +79,7 @@
 	 <COND (<AND <VERB? PLAY>
 		     <EQUAL? ,PRSO ,VIOLIN>>
 	        <TELL
-"Un bruit incroyablement offensant provient du violon." CR>)>>
+"Le violon produit un son d'une effroyable laideur." CR>)>>
 
 <GLOBAL EIGHT-DIRECTIONS
 	<TABLE P?NORTH P?EAST P?SOUTH P?NE P?SE P?SW P?NW>>
@@ -113,7 +114,7 @@
 	 #DECL ((RARG) <OR FIX FALSE> (M) <OR FALSE TABLE> (R) OBJECT)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<COND (,BINF-FLAG
-		       <TELL "Le sac en tissu est gonflé et ">
+		       <TELL "Le sac de toile est gonflé et ">
 		       <COND (<FSET? ,RECEPTACLE ,OPENBIT>
 			      <TELL
 "il y a un " D ,BINF-FLAG " brûle dans le récipient.">)
@@ -121,7 +122,7 @@
 			      <TELL
 "de la fumée s'échappe du récipient fermé.">)>)
 		      (T
-		       <TELL "Le sac en tissu est drapé sur le côté du panier.">
+		       <TELL "Le sac de toile pend par-dessus le bord de la nacelle. En son centre est fixé un réceptacle métallique qui est ">
 		       <COND (<FSET? ,RECEPTACLE ,OPENBIT>
 			      <TELL "ouvert">
 			      <SET RC <FIRST? ,RECEPTACLE>>
@@ -138,36 +139,36 @@
 		       <TELL ".">)>
 		<COND (,BTIE-FLAG
 		       <TELL
-" Le ballon est attaché à un crochet par le fil tressé." CR>)
+" Le ballon est amarré à un crochet par le fil métallique tressé." CR>)
 		      (T
 		       <TELL
-" Un fil tressé pend sur le côté du panier." CR>)>
+" Un fil métallique tressé pend par-dessus le bord de la nacelle." CR>)>
 		<RTRUE>)
 	       (<EQUAL? .RARG ,M-OBJDESC>
 		<TELL
-"Il y a un grand panier en osier extrêmement lourd ici.">
+"Une vaste nacelle d'osier, extrêmement lourde, se trouve ici. Un immense sac de toile ">
 		<COND (,BINF-FLAG
 		       <TELL
-"Un récipient en métal est fixé au centre du panier.">
+"fixé à la nacelle est gonflé. Un réceptacle métallique est arrimé au centre de la nacelle. ">
 		       <COND (<FSET? ,RECEPTACLE ,OPENBIT>
-			      <TELL "À l'intérieur se trouve une combustion " D ,BINF-FLAG>)
+			      <TELL "À l'intérieur brûle l'objet suivant : " D ,BINF-FLAG>)
 			     (T
 			      <TELL
 "De la fumée s'échappe autour du couvercle fermé">)>)
 		      (T
 		       <TELL
-"est drapé sur le côté et est fermement attaché au panier. Un récipient en métal est fixé au centre du panier">)>
+"pend par-dessus le bord et reste solidement attaché à la nacelle. Un réceptacle métallique est fixé en son centre">)>
 		<COND (,BTIE-FLAG
 		       <TELL
 ". Un morceau de fil attaché à un crochet maintient le ballon en place." CR>)
 		      (T
 		       <TELL
-". Un morceau de fil tressé pend au panier." CR>)>)
+". Un morceau de fil métallique tressé pend de la nacelle." CR>)>)
 	       (<EQUAL? .RARG ,M-BEG>
 		<COND (<VERB? WALK>
 		       <COND (<SET M <GETPT ,HERE ,PRSO>>
 			      <COND (,BTIE-FLAG
-				     <TELL "Vous êtes attaché au rebord." CR>
+				     <TELL "Vous êtes amarré à la corniche." CR>
 				     <RTRUE>)
 				    (T
 				     <AND <EQUAL? <PTSIZE .M> 1>
@@ -178,19 +179,19 @@
 				     <RFALSE>)>)
 			     (T
 			      <TELL
-"Vous ne pouvez pas contrôler le ballon ici façon." CR>
+"Vous ne pouvez pas diriger le ballon de cette manière." CR>
 			      <RTRUE>)>)
 		      (<AND <VERB? OPEN>
 			    ,BINF-FLAG
 			    <EQUAL? ,PRSO ,RECEPTACLE>
 			    <FIRST? ,RECEPTACLE>>
-		       <TELL "L'ouverture révèle une combustion "
+		       <TELL "En l'ouvrant, vous découvrez l'objet en feu suivant : "
 			     D ,BINF-FLAG "." CR>
 		       <FSET ,RECEPTACLE ,OPENBIT>
 		       <RTRUE>)
 		      (<AND <VERB? TAKE>
 			    <EQUAL? ,BINF-FLAG ,PRSO>>
-		       <TELL "Vous n'avez pas vraiment envie de maintenir une combustion "
+		       <TELL "Vous ne souhaitez tout de même pas prendre cet objet en feu : "
 			     D ,PRSO "." CR>
 		       <RTRUE>)
 		      (<AND <VERB? PUT>
@@ -224,10 +225,10 @@
 	<COND (,BINF-FLAG <RTRUE>)
 	      (T
 	       <TELL
-		"Le sac en tissu se gonfle au fur et à mesure. se remplit d'air chaud." CR>
+		"Le sac de toile se gonfle à mesure qu'il se remplit d'air chaud." CR>
 	       <COND (<NOT ,BLAB-FLAG>
 		      <TELL
-"Une petite étiquette tombe du sac dans le panier." CR>
+"Une petite étiquette tombe du sac dans la nacelle." CR>
 		      <MOVE ,BALLOON-LABEL ,BALLOON>)>
 	       <SETG BLAB-FLAG T>
 	       <SETG BINF-FLAG ,PRSO>
@@ -236,7 +237,7 @@
 <ROUTINE PUT-BALLOON (THERE STR)
 	#DECL ((THERE) OBJECT (STR) STRING)
 	<COND (<EQUAL? ,HERE ,LEDGE-1 ,LEDGE-2 ,VOLCANO-BOTTOM>
-	       <TELL "Vous regardez le ballon lentement " .STR CR>)>
+	       <TELL "Sous vos yeux, le ballon " .STR CR>)>
 	<MOVE ,BALLOON .THERE>
 	<SETG BLOC .THERE>>
 
@@ -258,10 +259,10 @@
 	       <REMOVE ,BALLOON>
 	       <COND (.IN
 		      <JIGS-UP
-"Le ballon flotte majestueusement hors du volcan, révélant une vue à couper le souffle sur une vallée boisée entourée de montagnes impraticables. Dans une clairière se dresse une maison blanche. Vous dérivez dans des vents élevés, qui vous conduisent vers les sommets enneigés. Oh, non! Vous vous écrasez dans les falaises déchiquetées des montagnes Tête-Plate!">)
+"Le ballon s'élève majestueusement hors du volcan, révélant une vallée boisée d'une beauté à couper le souffle, traversée par une rivière et cernée de montagnes infranchissables. Une maison blanche se dresse dans une clairière. Des vents violents vous emportent alors vers les sommets enneigés. Oh non ! Vous vous écrasez contre les falaises acérées des monts Tête-Plate !">)
 		     (<EQUAL? ,HERE ,LEDGE-1 ,LEDGE-2 ,VOLCANO-BOTTOM>
 		      <TELL
-"Vous regardez le ballon dériver par-dessus le bord et s'éloigner au gré du vent." CR>)>
+"Vous regardez le ballon franchir le rebord du cratère et s'éloigner au gré du vent." CR>)>
 	       <SETG BLOC ,VOLCANO-BOTTOM>)
 	      (<SET R <LKP ,BLOC ,BALLOON-UPS>>
 	       <COND (.IN
@@ -269,16 +270,16 @@
 		      <SETG BLOC .R>
 		      <GOTO .R>)
 		     (T
-		      <PUT-BALLOON .R "monte.">)>)
+		      <PUT-BALLOON .R "monte lentement.">)>)
 	      (<SET R <LKP ,BLOC ,BALLOON-FLOATS>>
 	       <COND (.IN
-		      <TELL "Le ballon quitte le rebord." CR CR>
+		      <TELL "Le ballon quitte la corniche." CR CR>
 		      <SETG BLOC .R>
 		      <GOTO .R>)
 		     (T
 		      <ENABLE <QUEUE I-GNOME 10>>
 		      <PUT-BALLOON .R
-"s'envole. Il semble monter, en raison de sa faible charge.">
+"dérive au loin. Délesté, il semble continuer à monter.">
 		      <FSET ,RECEPTACLE ,OPENBIT>)>)
 	      (.IN
 	       <SETG BLOC ,VAIR-1>
@@ -294,7 +295,7 @@
 	   <COND (.IN
 		  <SETG BLOC ,VOLCANO-BOTTOM>
 		  <COND (,BINF-FLAG
-			 <TELL "Le ballon a a atterri." CR CR>
+			 <TELL "Le ballon a atterri." CR CR>
 			 <GOTO ,VOLCANO-BOTTOM>
 			 ;<QUEUE I-BALLOON 0>)
 			(T
@@ -306,20 +307,20 @@
 			  "Vous avez atterri, mais le ballon n'a pas survécu."
 			  CR CR>
 			 <GOTO ,VOLCANO-BOTTOM>)>)
-		 (T <PUT-BALLOON ,VOLCANO-BOTTOM "atterrit.">)>)
+		 (T <PUT-BALLOON ,VOLCANO-BOTTOM "se pose lentement.">)>)
 	   (<SET R <LKP ,BLOC ,BALLOON-DOWNS>>
 	    <COND (.IN
 		   <TELL "Le ballon descend." CR CR>
 		   <SETG BLOC .R>
 		   <GOTO .R>)
-		  (T <PUT-BALLOON .R "descend.">)>)>>
+		  (T <PUT-BALLOON .R "descend lentement.">)>)>>
 
 <ROUTINE BCONTENTS ()
 	 <COND (<VERB? TAKE>
 		<TELL
-"Le " D ,PRSO "fait partie intégrante du panier et ne peut être enlevé.">
+"Le " D ,PRSO " fait partie intégrante de la nacelle et ne peut en être retiré.">
 		<COND (<EQUAL? ,PRSO ,BRAIDED-WIRE>
-		       <TELL " Le fil pourrait cependant être attaché.">)>
+		       <TELL " Le fil pourrait toutefois servir à amarrer la nacelle.">)>
 		<CRLF>)
 	       (<AND <EQUAL? ,PRSO ,CLOTH-BAG>
 		     <VERB? LOOK-INSIDE OPEN>>
@@ -335,7 +336,7 @@
 		      (T <TELL "fermé." CR>)>)
 	       (<VERB? FIND EXAMINE>
 	        <TELL
-"Le " D ,PRSO "peut être manipulé dans le panier mais ne peut pas être enlevé." CR>)>>
+"Le " D ,PRSO " fait partie de la nacelle. Vous pouvez le manipuler à l'intérieur, mais pas le retirer." CR>)>>
 
 <ROUTINE WIRE-FCN ()
         <COND (<VERB? TAKE FIND EXAMINE>
@@ -354,13 +355,13 @@
 	       	      <FCLEAR ,BTIE-FLAG ,NDESCBIT>
 		      <SETG BTIE-FLAG <>>
 	              <TELL "Le fil tombe du crochet." CR>)
-		     (T <TELL "Le fil n'est pas attaché. à quoi que ce soit." CR>)>)>>
+		     (T <TELL "Le fil n'est attaché à rien." CR>)>)>>
 
 <ROUTINE I-BURNUP ("AUX" (OBJ <FIRST? ,RECEPTACLE>))
     #DECL ((OBJ) OBJECT)
     <COND (<EQUAL? ,HERE ,BLOC>
 	   <TELL
-"Le " D .OBJ " a maintenant brûlé et le sac en tissu commence à se dégonfler." CR>)>
+"Le " D .OBJ " s'est consumé, et le sac de toile commence à se dégonfler." CR>)>
     <REMOVE .OBJ>
     <SETG BINF-FLAG <>>
     T>
@@ -368,23 +369,23 @@
 <ROUTINE SAFE-ROOM-FCN (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Vous êtes dans une vieille pièce poussiéreuse sans caractéristiques, à l'exception d'une sortie du côté nord." CR>
+"Vous êtes dans une vieille salle poussiéreuse, sans rien de remarquable hormis une sortie au nord." CR>
 		<COND (<NOT ,SAFE-FLAG>
 		       <TELL
-"Imbécile dans le mur lointain est une boîte rouillée. Il semble être quelque peu endommagé, car un trou oblong a été écaillé hors de l'avant." CR>)
+"Un coffre rouillé est encastré dans le mur opposé. Il paraît endommagé : un trou oblong a été taillé dans sa façade." CR>)
 		      (T
 		       <TELL
-"Sur le mur du fond se trouve une boîte rouillée dont la porte a été arrachée." CR>)>)>>
+"Un coffre rouillé, dont la porte a été arrachée, est encastré dans le mur opposé." CR>)>)>>
 
 <ROUTINE SAFE-FCN ()
 	<COND (<AND <VERB? TAKE> <EQUAL? ,PRSO ,SAFE>>
-	       <TELL "La boîte est encastrée dans le " CR>)
+	       <TELL "Le coffre est encastré dans le mur." CR>)
 	      (<VERB? OPEN>
-	       <COND (,SAFE-FLAG <TELL "La boîte n'a pas de porte !" CR>)
-		     (T <TELL "La boîte est rouillée et ne s'ouvre pas." CR>)>)
+	       <COND (,SAFE-FLAG <TELL "Le coffre n'a plus de porte !" CR>)
+		     (T <TELL "Le coffre est rouillé et refuse de s'ouvrir." CR>)>)
 	      (<VERB? CLOSE>
-	       <COND (,SAFE-FLAG <TELL "La boîte n'a pas de porte !" CR>)
-		     (T <TELL "La boîte n'est pas ouvrez !" CR>)>)>>
+	       <COND (,SAFE-FLAG <TELL "Le coffre n'a plus de porte !" CR>)
+		     (T <TELL "Le coffre n'est pas ouvert !" CR>)>)>>
 
 <ROUTINE BRICK-FCN ()
 	 <COND (<VERB? BURN>
@@ -392,14 +393,14 @@
 		<JIGS-UP ,OTHER-PROPERTIES>)>>
 
 <GLOBAL OTHER-PROPERTIES
-"Maintenant vous l'avez fait. Il semble que la brique a d'autres propriétés que le poids, à savoir la capacité de vous souffler à smithereens.">
+"Cette fois, vous l'avez bien cherché. La brique ne se distingue pas seulement par son poids : elle possède aussi la faculté de vous pulvériser.">
 
 <ROUTINE FUSE-FCN ()
 	<COND (<OR <VERB? BURN>
 		   <AND <VERB? LAMP-ON>
 			<IN? ,MATCH ,WINNER>
 			<FSET? ,MATCH ,ONBIT>>>
-	       <TELL "La ficelle commence à brûler." CR>
+	       <TELL "Le cordon commence à brûler." CR>
 	       <ENABLE <QUEUE I-FUSE 2>>)>>
 
 <ROUTINE I-FUSE ("AUX" (BRICK-ROOM <LOC ,BRICK>) F)
@@ -414,7 +415,7 @@
 		<FCLEAR .BRICK-ROOM ,TOUCHBIT>
 		<COND (<EQUAL? .BRICK-ROOM ,HERE>
 		       <MUNG-ROOM .BRICK-ROOM
-			  "Le chemin est bloqué par les débris d'un explosion.">
+			  "Le chemin est obstrué par les débris d'une explosion.">
 		       <JIGS-UP ,OTHER-PROPERTIES>)
 		      (<EQUAL? .BRICK-ROOM ,SAFE-ROOM>
 		       <ENABLE <QUEUE I-SAFE 5>>
@@ -437,20 +438,20 @@
 					     <RETURN>)>>)>)>
 		<REMOVE ,BRICK>)
 	       (<EQUAL? <LOC ,FUSE> ,WINNER ,HERE>
-		<TELL "La chaîne brûle rapidement dans le néant." CR>)>
+		<TELL "Le cordon se consume rapidement jusqu'à disparaître." CR>)>
 	 <REMOVE ,FUSE>>
 
 <ROUTINE I-SAFE ()
 	<COND (<EQUAL? ,HERE ,MUNGED-ROOM>
 	       <JIGS-UP
-"La chambre tremble et 5000 tonnes de rocher tombent sur toi, te transformant en crêpe.">)
+"La salle tremble et cinq mille tonnes de roche s'abattent sur vous, vous réduisant à l'épaisseur d'une crêpe.">)
 	      (<NOT ,DEAD>
 	       <TELL
-"Vous vous souvenez peut-être de cette explosion récente. Probablement à la suite de cela, vous entendez un grondement odieux, comme si une pièce voisine s'était effondrée." CR>
+"Vous vous souvenez sans doute de la récente explosion. Elle est probablement à l'origine du grondement de mauvais augure que vous entendez, comme si une salle voisine venait de s'effondrer." CR>
 	       <COND (<EQUAL? ,MUNGED-ROOM ,SAFE-ROOM>
 		      <ENABLE <QUEUE I-LEDGE 8>>)>)>
 	<MUNG-ROOM ,MUNGED-ROOM
-		   "Le chemin est bloqué par les débris d'un explosion.">>
+		   "Le chemin est obstrué par les débris d'une explosion.">>
 
 <ROUTINE I-LEDGE ("AUX" (RM ,LEDGE-2))
     <COND (<EQUAL? ,HERE ,LEDGE-2>
@@ -464,40 +465,40 @@
 			 <DISABLE <INT I-BALLOON>>
 			 <DISABLE <INT I-BURNUP>>
 			 <JIGS-UP
-"Le rebord s'effondre, probablement à la suite de l'explosion, et chute au sol bien au-dessous. Malheureusement, vous étiez toujours attaché au rebord.">)
+"Sans doute fragilisée par l'explosion, la corniche s'effondre et chute très loin en contrebas. Hélas, vous y étiez encore attaché.">)
 			(T
 			 <TELL
-"Le rebord s'effondre, vous laissant sans endroit où atterrir." CR>)>)
+"La corniche s'effondre, ne vous laissant aucun endroit où atterrir." CR>)>)
 		 (T
 		  <JIGS-UP
-"La force de la récente explosion a provoqué l'effondrement du rebord.">)>)
+"La récente explosion a provoqué l'effondrement de la corniche.">)>)
 	  (<NOT ,DEAD>
-	   <TELL "Le rebord s'effondre. (C'était une échappée belle !)" CR>)>
-    <MUNG-ROOM .RM "Le rebord s'est effondré et il est impossible d'atterrir dessus.">>
+	   <TELL "La corniche s'effondre. (Vous l'avez échappé belle !)" CR>)>
+    <MUNG-ROOM .RM "La corniche s'est effondrée : impossible d'y atterrir.">>
 
 <ROUTINE LEDGE-FCN (RARG)
     <COND (<EQUAL? .RARG ,M-LOOK>
 	   <TELL
-"Vous êtes sur un large rebord haut dans le volcan. La bordure du volcan est à environ 200 pieds au-dessus et il ya une goutte précipitée au fond.">
+"Vous êtes sur une large corniche, très haut dans le volcan. Le rebord du cratère se trouve environ deux cents pieds au-dessus ; en dessous, la paroi plonge à pic jusqu'au fond.">
 	   <COND (<FSET? ,SAFE-ROOM ,RMUNGBIT>
-		  <TELL " Le chemin vers le sud est bloqué par des décombres." CR>)
+		  <TELL " Des décombres obstruent le passage vers le sud." CR>)
 		 (T <TELL " Une petite porte s'ouvre au sud." CR>)>)>>
 
 ;<ROUTINE BLAST () ;"APPARENTLY UNUSED?"
     <COND (<EQUAL? ,HERE ,SAFE-ROOM>)
 	  (T
-	   <TELL "Vous devez expliquer comment faire cela." CR>)>>
+	   <TELL "Vous devez préciser comment procéder." CR>)>>
 
 <ROUTINE I-GNOME ()
     <COND (<EQUAL? ,HERE ,LEDGE-1 ,LEDGE-2>
 	   <TELL
-"Un gnome de volcan semble sortir tout droit du mur et ">
+"Un Gnome du volcan semble surgir tout droit du mur et ">
 	   <COND (<IN? ,WAND ,WINNER>
 		  <TELL
-"remarquant la baguette, tout droit. de retour." CR>)
+" puis, apercevant la baguette, y retourne aussitôt." CR>)
 		 (T
 		  <TELL
-"\"J'ai un rendez-vous chargé et peu de temps à perdre sur les intrus, mais pour un petit prix je vais vous montrer la sortie.\" Vous remarquez le gnome nerveusement regardant à sa montre." CR>
+"déclare : « Mon emploi du temps est chargé et je n'ai guère de temps à perdre avec les intrus. Moyennant une petite rétribution, je vous montrerai toutefois la sortie. » Le gnome jette des regards nerveux à sa montre." CR>
 		  <MOVE ,GNOME ,HERE>)>)
 	  (T
 	   <ENABLE <QUEUE I-GNOME 1>>
@@ -517,7 +518,7 @@
 	  (<AND <VERB? GIVE THROW> <EQUAL? ,PRSI ,GNOME>>
 	   <COND (<GETPT ,PRSO ,P?VALUE>
 		  <TELL
-"\"Merci beaucoup pour le " D ,PRSO ". Je ne crois pas avoir jamais vu une aussi belle. Suivez-moi, dit-il, et une porte apparaît à l'extrémité ouest du rebord. Par la porte, vous pouvez voir une cheminée étroite en pente raide vers le bas." CR>
+"« Merci infiniment pour le " D ,PRSO ". Je crois n'en avoir jamais vu d'aussi belle. Suivez-moi. » Une porte apparaît alors à l'extrémité ouest de la corniche. Au-delà, une étroite cheminée plonge selon une pente abrupte. Le gnome s'y engage rapidement et disparaît de votre vue." CR>
 		  <REMOVE ,PRSO>
 		  <REMOVE ,GNOME>
 		  <SETG GNOME-DOOR-FLAG T>)
@@ -527,11 +528,11 @@
 		  <DISABLE <INT I-GNOME>>
 		  <DISABLE <INT I-NERVOUS>>
 		  <TELL
-"\"Ce n'était certainement pas ce que j'avais en tête\", dit-il, et il disparaît." CR>)
+"« Ce n'est vraiment pas ce que j'avais en tête », dit-il avant de disparaître." CR>)
 		 (T
 		  <REMOVE-CAREFULLY ,PRSO>
 		  <TELL
-"\"Ce n'était pas tout à fait ce que j'avais en tête\", dit-il," D ,PRSO " dans ses mains dures comme le roc." CR>)>)
+"« Ce n'est pas exactement ce que j'avais en tête », dit-il en broyant le " D ,PRSO " dans ses mains dures comme le roc." CR>)>)
 	  (T
 	   <TELL
 "Le gnome semble de plus en plus nerveux." CR>
@@ -542,7 +543,7 @@
 <ROUTINE I-NERVOUS ()
 	 <COND (<IN? ,GNOME ,HERE>
 		<TELL
-"Le gnome regarde sa montre. \"Oups. Je suis en retard pour un rendez-vous!\" Il disparaît, vous laissant seul sur le rebord." CR>)>
+"Le gnome consulte sa montre. « Oups ! Je suis en retard à un rendez-vous ! » Il disparaît, vous laissant seul sur la corniche." CR>)>
 	 <REMOVE ,GNOME>>
 
 <ROUTINE PURPLE-BOOK-FCN ()
@@ -569,32 +570,31 @@
 	 <TELL "Les Tête-Plate sont morts ; ils ne répondent donc pas." CR>)
 	(<VERB? KICK ATTACK RUB OPEN TAKE BURN>
 	 <JIGS-UP
-"Bien que les Tête-Plate soient morts, ils ont prévu qu'un certain crétin pourrait manipuler leurs restes. Par conséquent, ils ont pris des mesures pour punir de telles actions.">)>>
+"Bien que morts, les Tête-Plate avaient prévu qu'un crétin tenterait un jour de profaner leurs restes. Ils ont donc pris leurs dispositions pour châtier pareil outrage.">)>>
 
 <ROUTINE CRYPT-ANTEROOM-FCN (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"L'antichambre est grande et vide. Les bas reliefs en marbre représentent les temps agitants et l'au-delà des Tête-Plates (ce dernier un peu optimiste). La sortie est à l'ouest.">
-		<TELL "La porte est ">
+"L'antichambre est vaste et vide. Des bas-reliefs de marbre retracent les heures glorieuses des Tête-Plate et leur vie après la mort -- cette dernière avec un certain optimisme. La sortie mène à l'ouest. Une immense porte de marbre se dresse au sud. ">
 		<COND (<FSET? ,CRYPT-DOOR ,OPENBIT>
-		       <TELL "ouvert.">)
-		      (T <TELL "fermé.">)>
+		       <TELL "La porte est ouverte.">)
+		      (T <TELL "La porte est fermée.">)>
 		<TELL
-" Au-dessus de la porte figure cette inscription énigmatique : \"N'hésitez pas à toucher\"." CR>)>>
+" Au-dessus de la porte figure cette inscription énigmatique : « Touchez sans crainte »." CR>)>>
 
 <ROUTINE CRYPT-ROOM-FCN (RARG "AUX" CLIT?)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<FCLEAR ,HERE ,ONBIT>
 		<COND (<LIT? ,HERE>
 		       <TELL
-"La pièce contient les restes terrestres des puissants Tête-Plates, douze têtes quelque peu plates montées en toute sécurité sur des poteaux. Bien que la pièce puisse être censée contenir des urnes funéraires ou d'autres preuves des pratiques rituelles des anciens Zorkers, elle est vide de tous ces objets. Il y a des écrits gravés sur la crypte. La seule sortie apparente est au nord par la porte de l'antichambre.">
+"Cette salle contient les dépouilles terrestres des puissants Tête-Plate : douze têtes -- assez plates, il faut l'avouer -- solidement fichées sur des piques. On pourrait s'attendre à y trouver des urnes funéraires ou d'autres témoignages des rites des anciens Zorkiens, mais rien de tel ne subsiste. Une inscription est gravée sur la crypte. L'unique sortie apparente mène au nord, par la porte de l'antichambre. Cette porte est ">
 		       <COND (<FSET? ,CRYPT-DOOR ,OPENBIT>
-			      <TELL "ouvert.">)
-			     (T <TELL "fermé.">)>
+			      <TELL "ouverte.">)
+			     (T <TELL "fermée.">)>
 		       <CRLF>
 		       <COND (<NOT <FSET? ,DIM-DOOR ,INVISIBLE>>
 			      <TELL
-"En regardant de près le mur sud, vous pouvez voir le contour sombre d'une porte secrète étiquetée avec la lettre \"F\"." CR>)>)
+"En examinant attentivement le mur sud, vous distinguez le faible contour d'une porte secrète marquée de la lettre « F »." CR>)>)
 		      (T
 		       <DIM-DOOR-APPEARS>)>
 		<FSET ,HERE ,ONBIT>
@@ -612,17 +612,17 @@
 
 <ROUTINE DIM-DOOR-APPEARS ()
 	 <TELL
-"Il est sombre, mais sur le mur sud est un léger contour d'un rectangle, comme si la lumière brillait autour d'une porte. Vous pouvez également faire une lettre peu brillante au centre de cette zone." CR>
+"Il fait sombre, mais un faible rectangle se dessine sur le mur sud, comme si une lumière filtrait autour d'une porte. En son centre luit vaguement une lettre qui pourrait être un « F »." CR>
 	 <FCLEAR ,DIM-DOOR ,INVISIBLE>>
 
 <ROUTINE CRYPT-OBJECT ()
 	 <COND (<VERB? OPEN> <TELL "La crypte est scellée pour toujours." CR>)
-	       (<VERB? RUB> <TELL "Le marbre est cool." CR>)>>
+	       (<VERB? RUB> <TELL "Le marbre est froid." CR>)>>
 
 <ROUTINE CRYPT-DOOR-FCN ()
 	 <COND (<VERB? OPEN CLOSE>
 		<OPEN-CLOSE ,PRSO
-			    "La porte de la crypte grince. ouverte."
+			    "La porte de la crypte s'ouvre en grinçant."
 			    "La porte de la crypte se ferme en grinçant.">)>>
 
 <ROUTINE TOMB-PSEUDO ()
@@ -633,33 +633,33 @@
 <GLOBAL DIM-DOOR-FLAG <>>
 
 <ROUTINE DIM-DOOR-FCN ()
-	 <COND (<VERB? KNOCK> <TELL "Un écho creux répond." CR>)
+	 <COND (<VERB? KNOCK> <TELL "Seul un écho caverneux vous répond." CR>)
 	       (<VERB? OPEN CLOSE>
 		<COND (<VERB? OPEN> <SETG DIM-DOOR-FLAG T>)
 		      (T <SETG DIM-DOOR-FLAG <>>)>
 		<OPEN-CLOSE ,PRSO
-			    "La porte secrète s'ouvre. sans bruit."
+			    "La porte secrète s'ouvre sans bruit."
 			    "La porte secrète se ferme sans bruit.">)>>
 
 <ROUTINE REPELLENT-FCN ()
 	 <COND (<VERB? SHAKE>
-		<COND (,SPRAY-USED? <TELL "La boîte semble vide." CR>)
-		      (T <TELL "Il y a un bruit de clapotis provenant de à l'intérieur." CR>)>)
+		<COND (,SPRAY-USED? <TELL "La bombe aérosol semble vide." CR>)
+		      (T <TELL "Un clapotis provient de l'intérieur." CR>)>)
 	       (<AND <VERB? SPRAY PUT> <EQUAL? ,PRSO ,REPELLENT>>
 		<COND (,SPRAY-USED?
 		       <TELL
-"Le répulsif a entièrement disparu." CR>)
+"Il ne reste plus de répulsif." CR>)
 		      (<NOT ,PRSI>
 		       <SETG SPRAY-USED? T>
 		       <TELL
-"Le spray pue incroyablement pendant quelques instants, puis s'éloigne." CR>)
+"Le produit dégage quelques instants une puanteur stupéfiante, puis se dissipe." CR>)
 		      (T
 		       <COND (<EQUAL? ,PRSI ,ME>
 			      <ENABLE <QUEUE I-SPRAY 8>>
 			      <SETG SPRAYED? T>)>
 		       <SETG SPRAY-USED? T>
 		       <TELL
-"Le spray sent comme un mélange de vieilles chaussettes et de caoutchouc brûlant." CR>)>)>>
+"L'aérosol sent le mélange de vieilles chaussettes et de caoutchouc brûlé. Si j'étais une grue, je m'en tiendrais assurément éloignée !" CR>)>)>>
 
 <GLOBAL SPRAY-USED? <>>
 
@@ -670,27 +670,15 @@
 <ROUTINE ZORK3-FCN (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Au-delà de la porte se trouve un escalier grossièrement dressé qui descend dans l'obscurité. L'atterrissage sur lequel vous vous tenez est couvert de runes magiques soigneusement dessinées comme celles esquissés sur le banc de travail du Magicien de Frobozz. Ceux-ci ont été recouverts de lignes vertes balayantes d'énormes puissances, qui ondulent en allers et retours à travers l'atterrissage.">
+"Au-delà de la porte, un escalier grossièrement taillé descend dans les ténèbres. Le palier sur lequel vous vous tenez est couvert de runes magiques soigneusement tracées, semblables à celles griffonnées sur l'établi du Magicien de Frobozz. De puissantes lignes vertes les recouvrent et ondulent d'un côté à l'autre du palier.">
 		<COND (<IN? ,WAND ,WINNER>
 		       <TELL
-"La baguette commence à vibrer en harmonie avec le mouvement des lignes.
-Vous vous sentez poussé vers le bas et vous cédez en marchant sur le
-escalier. Lorsque vous dépassez les lignes vertes, elles s'éclairent et disparaissent avec un
-éclat de lumière, et vous dévalez l'escalier !|
-|
-Au fond, une vaste salle éclairée en rouge s'étend au loin.
-De sinistres statues gardent l'entrée d'une pièce faiblement visible loin devant.
-Avec courage et ruse, vous avez conquis le Magicien de Frobozz et
-devenir le maître de son domaine, mais le défi final vous attend !|
-|
-(L'aventure ultime se termine dans \"Zork III : Le Maître du Donjon\".)|
-|
-" CR>
+"La baguette se met à vibrer au rythme des lignes mouvantes. Une force irrésistible vous attire vers le bas ; vous cédez et posez le pied sur l'escalier. À votre passage, les lignes vertes s'embrasent puis disparaissent dans un éclair, et vous dévalez les marches !| |Tout en bas s'étend une immense galerie baignée de lumière rouge. De sinistres statues gardent l'entrée d'une salle à peine visible au loin. Par votre courage et votre ruse, vous avez vaincu le Magicien de Frobozz et êtes devenu maître de son domaine. Mais l'ultime épreuve vous attend !| |(L'aventure s'achève dans « Zork III : Le Maître du Donjon ».)| |" CR>
 		<SETG WON-FLAG T>
 		<FINISH>)
 		      (T
 		       <JIGS-UP
-"Les courbes vertes commencent à vibrer vers vous, comme si vous cherchiez quelque chose. Un par un vos biens brillent vert vif. Enfin, vous êtes attaqués par ces gardiens magiques, et détruits!">)>)>>
+"Les lignes vertes se mettent à vibrer dans votre direction, comme si elles cherchaient quelque chose. L'une après l'autre, vos possessions brillent d'un vert éclatant. Puis ces gardiennes magiques se ruent sur vous et vous anéantissent !">)>)>>
 
 \
 
@@ -738,7 +726,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 		       <PUDDLE .AV>)
 		      (<AND ,PRSI <NOT <EQUAL? ,PRSI ,TEAPOT>>>
 		       <TELL "L'eau s'échappe du " D ,PRSI
-			     " et s'évapore. immédiatement." CR>
+			     " et s'évapore aussitôt." CR>
 		       <REMOVE .W>)
 		      (<IN? ,TEAPOT ,WINNER>
 		       <COND (<NOT <FIRST? ,TEAPOT>>
@@ -757,8 +745,8 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 		       <ITAKE>
 		       <SETG PRSO .W>)
 		      (T
-		       <TELL "L'eau glisse à travers votre doigts." CR>)>)
-	       (.PI? <TELL "Joli essayez." CR>)
+		       <TELL "L'eau vous glisse entre les doigts." CR>)>)
+	       (.PI? <TELL "Bien essayé." CR>)
 	       (<VERB? DROP GIVE>
 		<COND (<AND <EQUAL? ,PRSO ,WATER>
 			    <NOT <HELD? ,WATER>>>
@@ -802,7 +790,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	      (<EQUAL? .RARG ,M-END>
 	       <COND (<AND <IN? ,WATER ,BUCKET>
 			   <NOT ,BUCKET-TOP-FLAG>>
-		      <TELL "Le seau se lève et arrive à un s'arrête." CR CR>
+		      <TELL "Le seau remonte, puis s'immobilise." CR CR>
 		      <SETG BUCKET-TOP-FLAG T>
 		      <SETG EVAPORATED <>>
 		      <PASS-THE-BUCKET ,WELL-TOP>
@@ -836,14 +824,14 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	 <COND (<EQUAL? .RARG ,M-BEG>
 		<COND (<AND <VERB? TAKE> <FSET? ,PRSO ,NONLANDBIT>>
 		       <TELL
-"Le " D ,PRSO "Vous n'avez plus d'espoir de le prendre." CR>)>)>>
+"Le " D ,PRSO " est désormais bien plus grand que vous. Impossible de l'emporter." CR>)>)>>
 
 <ROUTINE EATME-FCN ("AUX" F N)
     <COND (<AND <VERB? EAT>
 		<EQUAL? ,PRSO ,EAT-ME-CAKE>
 		<EQUAL? ,HERE ,TEA-ROOM>>
 	   <TELL
-"Soudain, la pièce semble être devenue très grande (bien que tout ce que vous portez semble être sa taille normale)." CR CR>
+"Soudain, la salle paraît devenue gigantesque -- bien que tout ce que vous transportez ait conservé sa taille normale." CR CR>
 	   <REMOVE ,EAT-ME-CAKE>
 	   <FSET ,ROBOT ,INVISIBLE>
 	   <FSET ,ALICE-TABLE ,INVISIBLE>
@@ -877,22 +865,22 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	<COND (<VERB? READ>
 	       <COND (<FSET? ,PRSO ,NONLANDBIT>
 		      <TELL
-"Le gâteau est beaucoup trop haut maintenant pour que vous puissiez lire le lettrage." CR>)
+"Le gâteau est maintenant bien trop grand pour que vous puissiez lire l'inscription." CR>)
 		     (,PRSI
 		      <COND (<EQUAL? ,PRSI ,PALANTIR-1 ,PALANTIR-2 ,PALANTIR-3>
 			     <PERFORM ,V?LOOK-INSIDE ,PRSI>)
 			    (<EQUAL? ,PRSI ,FLASK>
-			     <TELL "Les lettres, maintenant visibles, disent \"">
+			     <TELL "Les lettres, désormais visibles, indiquent \"">
 			     <COND (<EQUAL? ,PRSO ,RED-ICING>
 				    <TELL "Évaporer">)
 				   (<EQUAL? ,PRSO ,ORANGE-ICING>
-				    <TELL "Exp filon">)
-				   (T <TELL "Agrandir">)>
+				    <TELL "Exploser">)
+				   (T <TELL "Élargir">)>
 			     <TELL "\"." CR>)
-			    (T <TELL "Vous Je ne peux pas voir à travers ça !" CR>)>)
+			    (T <TELL "Vous ne pouvez pas voir au travers !" CR>)>)
 		     (T
 		      <TELL
-"La première lettre est un E majuscule. Le reste est trop petit pour être lu." CR>)>)
+"La première lettre est un E majuscule. Les autres caractères sont trop petits pour être lus." CR>)>)
 	      (<AND <VERB? EAT>
 		    <EQUAL? ,HERE ,TEA-ROOM ,POSTS-ROOM ,POOL-ROOM>>
 	       <COND (<EQUAL? ,PRSO ,ORANGE-ICING>
@@ -901,7 +889,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 		     (<EQUAL? ,PRSO ,RED-ICING>
 		      <REMOVE ,PRSO>
 		      <JIGS-UP
-"C'était délicieux, mais votre mémoire mourante est de se sentir horriblement déshydraté et soif.">)
+"C'était délicieux. Votre dernier souvenir est toutefois celui d'une soif atroce et d'une déshydratation mortelle.">)
 		     (<EQUAL? ,PRSO ,BLUE-ICING>
 		      <REMOVE ,PRSO>
 		      <TELL "La pièce autour de vous semble devenir de plus en plus petite."
@@ -923,7 +911,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 				<SET F .N>>
 			     <GOTO ,TEA-ROOM>)
 			    (T <JIGS-UP
-"La pièce semble être devenue trop petite pour vous tenir. Les murs ne sont pas aussi compressibles que votre corps, qui est démoli." >)>)>)
+"La salle semble soudain trop petite pour vous contenir. Ses murs étant moins compressibles que votre corps, c'est ce dernier qui cède." >)>)>)
 	      (<AND <VERB? THROW PUT>
 		    <EQUAL? ,PRSO ,ORANGE-ICING>
 		    <EQUAL? ,HERE ,TEA-ROOM ,POSTS-ROOM ,POOL-ROOM>>
@@ -933,13 +921,13 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 		    <EQUAL? ,PRSO ,RED-ICING ,BLUE-ICING ,ORANGE-ICING>
 		    <EQUAL? ,PRSI ,POOL>>
 	       <COND (<EQUAL? ,PRSO ,BLUE-ICING ,ORANGE-ICING>
-		      <TELL "Le gâteau s'enfonce majestueusement dans la piscine." CR>
+		      <TELL "Le gâteau s'enfonce majestueusement dans le bassin." CR>
 		      <REMOVE ,PRSO>
 		      <RTRUE>)>
 	       <MOVE ,PRSO ,HERE>
 	       <REMOVE ,PRSI>
 	       <TELL
-"La plupart de la piscine s'évapore, révélant un paquet (légèrement humide mais toujours précieux) de bonbons rares. Le gâteau rouge doit être assez fort, car il reste intact!" CR>
+"La majeure partie de la mare s'évapore, révélant un paquet de friandises rares -- légèrement humide, mais toujours précieux. Le gâteau rouge doit être particulièrement coriace : il est resté intact !" CR>
 	       <FCLEAR ,CANDY ,INVISIBLE>)
 	      (T <CAKE-CRUMBLE>)>>
 
@@ -964,7 +952,13 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	<COND (<VERB? EXAMINE READ>
 	       <FIXED-FONT-ON>
 	       <TELL
-"o o| r z| f M A G I C z| c W E L y| o n| m p a|">
+"       o  b  o|
+   r                 z|
+f    M A G I Q U E      z|
+c       P U I T S      y|
+   o                 n|
+       m  p  a|
+">
 	       <FIXED-FONT-OFF>
 	       <RTRUE>)>>
 
@@ -972,7 +966,13 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	<COND (<VERB? EXAMINE READ>
 	       <FIXED-FONT-ON>
 	       <TELL
-"o b o| | A G I| E L| | m p a|">
+"       o  b  o|
+|
+       A G I Q|
+        U I T|
+|
+       m  p  a|
+">
 	       <FIXED-FONT-OFF>
 	       <RTRUE>)>>
 
@@ -980,7 +980,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	<COND (<VERB? EXAMINE READ>
 	       <FIXED-FONT-ON>
 	       <TELL	
-"Banque de Zork| VAULT| *722 GUE*| Frobozz Société de la vaillance magique|">
+"              Banque de Zork|                   CHAMBRE FORTE|                    *722 GES*|       Compagnie des chambres fortes|              magiques Frobozz|">
 	       <FIXED-FONT-OFF>
 	       <RTRUE>)>>
 
@@ -994,21 +994,21 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 "L'eau est extrêmement salée." CR>)
 	       (<VERB? LOOK-UNDER>
 		<TELL
-"Vous devrez probablement entrer dans la piscine pour voir ce qu'il y a sous la surface." CR>)
+"Vous devrez probablement entrer dans le bassin pour voir ce qui se cache sous la surface." CR>)
 	       (<VERB? THROUGH>
 		<JIGS-UP
-"Tu entres dans la piscine, tu t'écrases un bon moment, puis tu te noies.">)>>
+"Vous entrez dans le bassin, vous débattez un bon moment, puis vous vous noyez. Triste, mais vrai.">)>>
 
 <ROUTINE FLASK-FCN ()
 	 <COND (<VERB? LOOK-INSIDE>
 		<TELL
-"Vous remarquez que les objets derrière la fiole semblent grossir. Vous pourriez essayer de regarder quelque chose à travers la fiole." CR>)
+"Vous remarquez que les objets placés derrière le flacon paraissent grossis. Vous pourriez essayer de regarder quelque chose à travers lui." CR>)
 	       (<AND <VERB? READ> <EQUAL? ,PRSI ,FLASK>>
 		<TELL
-"Le flacon déforme et agrandit le " D ,PRSO ", montrant des détails non remarqués plus tôt." CR>
+"Le flacon déforme et agrandit le " D ,PRSO ", révélant des détails qui vous avaient échappé." CR>
 		<RFALSE>)
 	       (<VERB? OPEN>
-		<MUNG-ROOM ,HERE "Des vapeurs nocives empêchent votre entrée.">
+		<MUNG-ROOM ,HERE "Des vapeurs nocives vous empêchent d'entrer.">
 		<JIGS-UP ,FATAL-VAPORS>)
 	       (<VERB? MUNG THROW>
 		<TELL "Le flacon se brise en morceaux." CR>
@@ -1016,37 +1016,37 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 		<JIGS-UP ,FATAL-VAPORS>)>>
 
 <GLOBAL FATAL-VAPORS
-"Pendant que vous vous évanouissez, vous réalisez que les vapeurs du contenu de la fiole sont mortelles.">
+"En perdant connaissance, vous comprenez que les vapeurs du flacon sont mortelles.">
 
 <ROUTINE PLEAK ()
     <COND (<VERB? TAKE>
 	   <TELL <PICK-ONE ,YUKS> CR>)
 	  (<VERB? PLUG>
-	   <TELL "La fuite est trop haute au-dessus de vous pour être atteinte." CR>)>>
+	   <TELL "La fuite est trop haute pour que vous puissiez l'atteindre." CR>)>>
 
 <ROUTINE ICEBOOM ()
     <MUNG-ROOM ,HERE
-"L'entrée est bloquée par des gravats orange collants. Probablement un aventurier insouciant jouait avec des gâteaux à sauter.">
+"L'entrée est obstruée par des décombres orange et collants. Sans doute un aventurier imprudent s'est-il amusé avec des gâteaux explosifs.">
     <JIGS-UP
-"Vous avez été réduit en miettes (où qu'ils se trouvent).">>
+"Vous avez été réduit en miettes -- où qu'elles puissent bien se trouver.">>
 
 <ROUTINE MAGNET-ROOM-FCN (RARG)
 	<COND (<EQUAL? .RARG ,M-LOOK>
 	       <TELL
-"Vous êtes dans une pièce circulaire avec un plafond bas. Il y a des sorties à l'est et au sud-est." CR>)
+"Vous êtes dans une salle circulaire au plafond bas. Des sorties mènent à l'est et au sud-est." CR>)
 	      (<AND <EQUAL? .RARG ,M-ENTER>
 		    ,CAROUSEL-FLIP-FLAG>
 	       <COND (,CAROUSEL-ZOOM-FLAG
 		      <JIGS-UP <COND (<EQUAL? ,ADVENTURER ,WINNER>
-"Selon le Prof. TAA de GUE Tech, les champs magnétiques en évolution rapide dans la pièce sont assez intenses pour vous électrocuter. Je ne sais vraiment pas, mais en tout cas, quelque chose vient de vous tuer." )
+"D'après le professeur TAA de l'Institut technologique du GES, les rapides variations du champ magnétique de cette salle suffisent à vous électrocuter. Je ne saurais le confirmer, mais quoi qu'il en soit, quelque chose vient de vous tuer." )
 				     (T
-"Selon le Prof. TAA de GUE Tech, les champs magnétiques dans la pièce sont assez intenses pour faire frire les délicats entrailles du robot. Je ne sais vraiment pas, mais en tout cas, la fumée s'écoule de ses oreilles et elle a cessé de bouger.")>>)
+"D'après le professeur TAA de l'Institut technologique du GES, les champs magnétiques de cette salle sont assez intenses pour griller les délicats circuits internes du robot. Je n'en sais rien, mais de la fumée s'échappe de ses oreilles et il ne bouge plus.")>>)
 		     (<EQUAL? ,WINNER ,ADVENTURER>
 		      <TELL
 "Lorsque vous entrez, votre boussole se met à tourner à toute allure." CR>
 		      <COND (<NOT ,COMPASS-KLUDGE>
 			     <TELL
-"Quelle boussole, vous demandez ? Celle qui vous permet de spécifier les directions de la boussole pour le mouvement.">
+"Quelle boussole ? Celle qui vous permet d'indiquer les points cardinaux pour vous déplacer.">
 			     <SETG COMPASS-KLUDGE T>)>
 		      <CRLF>)>)>>
 
@@ -1065,7 +1065,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 		   <EQUAL? ,PRSO ,P?OUT>>
 	       ,TEA-ROOM)
 	      (T
-	       <TELL "Vous ne pouvez pas aller jusque là. chemin." CR>
+	       <TELL "Vous ne pouvez pas aller par là." CR>
 	       <RFALSE>)>>
 
 <GLOBAL CAROUSEL-ZOOM-FLAG <>>
@@ -1076,24 +1076,24 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	<COND (<VERB? PUSH>
 	       <COND (<EQUAL? ,WINNER ,ADVENTURER>
 		      <JIGS-UP
-"Il y a une étincelle géante et vous êtes grillé.">)
+"Une gigantesque étincelle jaillit et vous carbonise.">)
 		     (<EQUAL? ,PRSO ,SQUARE-BUTTON>
 		      <COND (,CAROUSEL-ZOOM-FLAG
-			     <TELL "Rien ne semble " CR>)
+			     <TELL "Rien ne semble se produire." CR>)
 			    (ELSE
 			     <SETG CAROUSEL-ZOOM-FLAG T>
-		      	     <TELL "Le vrombissement augmente en intensité." CR>)>)
+			     <TELL "Le vrombissement s'intensifie." CR>)>)
 		     (<EQUAL? ,PRSO ,ROUND-BUTTON>
 		      <COND (,CAROUSEL-ZOOM-FLAG
 			     <SETG CAROUSEL-ZOOM-FLAG <>>
-		      	     <TELL "Le vrombissement diminue en intensité." CR>)
+			     <TELL "Le vrombissement faiblit." CR>)
 			    (T
-			     <TELL "Rien ne semble " CR>)>)
+			     <TELL "Rien ne semble se produire." CR>)>)
 		     (<EQUAL? ,PRSO ,TRIANGULAR-BUTTON>
 		      <SETG CAROUSEL-FLIP-FLAG <NOT ,CAROUSEL-FLIP-FLAG>>
 		      <COND (<IN? ,IRON-BOX ,CAROUSEL-ROOM>
 			     <TELL
-"Un bruit sourd se fait entendre dans le distance." CR>
+"Un bruit sourd retentit au loin." CR>
 			     <COND (<FSET? ,IRON-BOX ,INVISIBLE>
 				    <FCLEAR ,IRON-BOX ,INVISIBLE>)
 				   (T
@@ -1112,7 +1112,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	      (T <SET FL <>>)>
 	<COND (<AND .FL <EQUAL? ,ADVENTURER ,WINNER>>
 	       <TELL
-"À mesure que vous atteignez la sphère, une cage en acier solide tombe du plafond pour vous piéger." CR CR>
+"Au moment où vous tendez la main vers la sphère, une cage en acier massif tombe du plafond et vous emprisonne. Comme si cela ne suffisait pas, un gaz toxique commence à envahir la salle." CR CR>
 	       <COND (<IN? ,ROBOT ,HERE>
 		      <MOVE ,ROBOT ,IN-CAGE>
 		      <FSET ,ROBOT ,NDESCBIT>)>
@@ -1129,7 +1129,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	       <MOVE ,CAGE ,CAGE-ROOM>
 	       <FCLEAR ,CAGE ,INVISIBLE>
 	       <JIGS-UP
-"Comme le robot atteint pour la sphère, une cage en acier solide tombe du plafond, le piégeant. Vous pouvez peu entendre ses derniers mots: \"Whirr, buzz, click!\" Un nuage de fumée montant de dessous la cage confirme vos craintes sur le sort de votre brave ami mécanique.">
+"Au moment où le robot tend la main vers la sphère, une cage en acier massif tombe du plafond et l'emprisonne. Vous percevez à peine ses dernières paroles : « Vrrr, bzzz, clic ! » Un nuage de fumée s'élevant sous la cage confirme vos craintes quant au sort de votre courageux compagnon mécanique.">
 	       T)
 	      (<VERB? LOOK-INSIDE EXAMINE>
 	       <PALANTIR>)>>
@@ -1138,9 +1138,9 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	 <COND (<EQUAL? ,HERE ,CAGE-ROOM ,IN-CAGE>
 		<FSET ,PALANTIR-1 ,INVISIBLE>
 		<MUNG-ROOM ,CAGE-ROOM
-"Vous êtes arrêté par un nuage de gaz toxique.">
+"Un nuage de gaz toxique vous barre le passage.">
 		<JIGS-UP
-"Le temps passe... et vous mourez d'un obscur empoisonnement.">)>>
+"Le temps passe... puis vous succombez à un mystérieux empoisonnement.">)>>
 
 <ROUTINE IN-CAGE-FCN (RARG)
     <COND (,CAGE-SOLVE-FLAG <SETG HERE ,CAGE-ROOM>)>>
@@ -1150,10 +1150,10 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	       <COND (<VERB? SGIVE> <RFALSE>)
 		     (<VERB? FOLLOW>
 		      <TELL
-"\"Mes circuits de mémoire ne sont pas aussi avancés. Je peux bouger comme dirigé, cependant.\"" CR>)
+"« Mes circuits mémoriels ne sont pas si perfectionnés. Je peux néanmoins me déplacer sur ordre. »" CR>)
 		     (<AND <VERB? RAISE TAKE MOVE> <EQUAL? ,PRSO ,CAGE>>
 		      <TELL
-"La cage tremble et est jetée à travers la pièce. C'est difficile à dire, mais le robot semble sourire." CR CR>
+"La cage tremble, puis traverse la salle en volant. Difficile d'en être certain, mais le robot paraît sourire." CR CR>
 		      <DISABLE <INT I-SPHERE>>
 		      <SETG WINNER ,ADVENTURER>
 		      <GOTO ,CAGE-ROOM>
@@ -1165,52 +1165,52 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 		     (<VERB? EAT DRINK>
 		      <COND (<IN? ,ADVENTURER ,HERE>
 			     <TELL
-"\"Je suis désolé mais c'est difficile pour un être sans bouche.\"" CR>)>
+"« Je regrette, mais cela s'avère difficile pour un être dépourvu de bouche. »" CR>)>
 		      <RTRUE>)
 		     (<AND <PROB 2>
 			   <EQUAL? <META-LOC ,ADVENTURER> ,HERE>>
 		      <TELL
-"\"Buzz ! Buzz ! Buzz ! Mes circuits commencent à rouiller. Essayez encore.\"" CR>)
+"« Bzzz ! Bzzz ! Bzzz ! Mes circuits commencent à rouiller. Réessayez. »" CR>)
 		     (<VERB? READ EXAMINE>
 		      <COND (<EQUAL? <META-LOC ,ADVENTURER> ,HERE>
 			     <TELL
-"\"Ma vision n'est pas suffisamment aiguë pour faire ça.\"" CR>)>
+"« Mon acuité visuelle est insuffisante pour cela. »" CR>)>
 		      <RTRUE>)
 		     (<VERB? DROP PUT THROW>
 		      <COND (<NOT <EQUAL? <META-LOC ,ADVENTURER> ,HERE>>
 			     <RFALSE>)
 			    (<IN? ,PRSO ,ROBOT>
-			     <TELL "\"Whirr, buzz, click!\"" CR>
+			     <TELL "« Vrrr, bzzz, clic ! »" CR>
 			     <RFALSE>)
 			    (T
 			     <TELL
-"\"Cliquez ! ça. Buzz ! Whirr!\"" CR>)>)
+"« Clic ! Je ne possède pas cet objet. Bzzz ! Vrrr ! »" CR>)>)
 		     (<OR <VERB? WALK>
 			  <AND <VERB? TAKE PUSH TURN>
 			       <NOT <FSET? ,PRSO ,ACTORBIT>>>>
 		      <COND (<NOT <EQUAL? <META-LOC ,ADVENTURER> ,HERE>>
 			     <RFALSE>)
 			    (<PROB 80>
-			     <TELL "\"Whirr, buzz, click!\"" CR>)
+			     <TELL "« Vrrr, bzzz, clic ! »" CR>)
 			    (T
-			     <TELL "\"Buzz, clic, whirr!\"" CR>)>
+			     <TELL "« Bzzz, clic, vrrr ! »" CR>)>
 		      <RFALSE>)
 		     (T
 		      <COND (<EQUAL? <META-LOC ,ADVENTURER> ,HERE>
 			     <TELL
-"\"Ma programmation est insuffisante pour me permettre d'effectuer cela. tâche.\"" CR>)>
+"« Ma programmation ne me permet pas d'accomplir cette tâche. »" CR>)>
 		      <RTRUE>)>)
 	      (<VERB? OPEN LOOK-INSIDE CLOSE>
 	       <TELL "Il n'y a pas de panneau d'accès ni de porte sur le robot." CR>)
 	      (<AND <VERB? GIVE>
 		    <EQUAL? ,PRSI ,ROBOT>>
 	       <MOVE ,PRSO ,ROBOT>
-	       <TELL "Le robot prend volontiers le "
+	       <TELL "Le robot accepte volontiers l'objet nommé « "
 		     D ,PRSO
-		     " et hoche la tête avec son appendice en forme de tête en remerciement." CR>)
+		     " » et incline en remerciement son appendice en forme de tête." CR>)
 	      (<VERB? THROW MUNG>
 	       <TELL
-"Le robot tombe au sol et se désintègre sous vos yeux." CR>
+"Le robot tombe au sol et, sa fabrication laissant à désirer, se désintègre sous vos yeux." CR>
 	       <REMOVE <COND (<VERB? THROW> ,PRSI) (,PRSO)>>)>>
 
 \
@@ -1222,16 +1222,16 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 <ROUTINE BILLS-OBJECT ()
 	<SETG BANK-SOLVE-FLAG T>
 	<COND (<VERB? BURN>
-	       <TELL "Rien de tel que d'avoir de l'argent à dépenser !" CR>
+	       <TELL "Rien de tel que d'avoir de l'argent à brûler !" CR>
 	       <RFALSE>)
 	      (<VERB? EAT>
-	       <TELL "Parlez de manger des aliments riches !" CR>)>>
+	       <TELL "Voilà ce qui s'appelle manger riche !" CR>)>>
 	
 <ROUTINE BKLEAVEE ("OPTIONAL" (RM ,TELLER-EAST))
     #DECL ((RM) OBJECT)
     <COND (<OR <HELD? ,BILLS> <HELD? ,PORTRAIT>>
 	   <TELL
-"Une alarme sonne brièvement et un signal invisible forcez les barreaux sur votre chemin." CR>
+"Une alarme retentit brièvement, puis une force invisible vous barre le passage." CR>
 	   <RFALSE>)
 	  (T .RM)>>
 
@@ -1270,17 +1270,20 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 
 <ROUTINE TELLER-ROOM (RARG)
     <COND (<EQUAL? .RARG ,M-LOOK>
-	   <TELL
-"Vous êtes dans une petite salle, qui a été utilisée par un agent de banque qui a récupéré des coffres de sécurité pour le client. Du côté nord de la salle est un panneau qui se lit \"Salle de vue\".">
+	   <TELL "Vous êtes dans une petite salle autrefois utilisée par le préposé chargé d'apporter les coffres de dépôt aux clients. Sur le mur nord, un panneau indique \"Salle de consultation\". Du côté ">
 	   <COND (<EQUAL? ,HERE ,TELLER-WEST> <TELL "ouest">)
 		 (T <TELL "est">)>
-	   <TELL "côté de la pièce, au-dessus d'une porte ouverte, est un panneau de lecture:| | BANQUE PERSONNEL SEULEMENT|" CR>)>>
+	   <TELL " de la salle, au-dessus d'une porte ouverte, un panneau indique :|
+|
+          RÉSERVÉ AU PERSONNEL|
+          DE LA BANQUE|
+" CR>)>>
 
 <ROUTINE SCOL-OBJECT ("OPTIONAL" (OBJ <>))
     <COND (<VERB? PUSH MOVE TAKE RUB>
-	   <TELL "Lorsque vous essayez, votre main semble le traverser." CR>)
+	   <TELL "Lorsque vous essayez, votre main semble passer au travers." CR>)
 	  (<AND <VERB? ATTACK> ,PRSI>
-	   <TELL "Le " D ,PRSI " le traverse." CR>)
+	   <TELL "Le " D ,PRSI " passe au travers." CR>)
 	  (<AND <VERB? THROW OVERBOARD> <EQUAL? ,PRSI ,CURTAIN .OBJ>>
 	   <COND (<IN? ,PRSO ,WINNER>
 		  <V-THROUGH ,PRSO>)
@@ -1314,15 +1317,15 @@ devenir le maître de son domaine, mais le défi final vous attend !|
     <COND (<EQUAL? .RM ,DEPOSITORY>
 	   <TELL "Le " D .OBJ " traverse le mur et disparaît." CR>)
 	  (T
-	   <TELL "Le rideau s'assombrit légèrement au passage du "
-		 D .OBJ "." CR>
+	   <TELL "Le rideau pâlit légèrement tandis que l'objet désigné -- "
+		 D .OBJ " -- le traverse." CR>
 	   <SETG SCOL-ROOM <>>
 	   T)>>
 
 <ROUTINE SCOL-THROUGH (CINT RM)
     #DECL ((CINT) FIX (RM) OBJECT)
     <ENABLE <QUEUE I-CURTAIN .CINT>>
-    <TELL "Vous vous sentez quelque peu désorienté en passant. à travers..." CR CR>
+    <TELL "Vous vous sentez quelque peu désorienté en passant au travers..." CR CR>
     <GOTO .RM>>
 
 <GLOBAL SCOL-ACTIVE <>>
@@ -1331,9 +1334,9 @@ devenir le maître de son domaine, mais le défi final vous attend !|
     <SETG SCOL-ACTIVE <>>
     <COND (<EQUAL? ,HERE ,VAULT>
 	   <JIGS-UP
-"Une voix métallique annonce : \"Bonjour, intrus ! Votre présence non autorisée dans la chambre forte de la Banque de Zork a déclenché toutes sortes de mauvaises surprises, dont la plupart sont mortelles. Ce message vous est offert par la Compagnie des chambres fortes magiques Frobozz.\"">)
+"Une voix métallique annonce : « Bonjour, intrus ! Votre présence non autorisée dans la chambre forte de la Banque de Zork a déclenché toutes sortes de mauvaises surprises, dont la plupart sont mortelles. Ce message vous est offert par la Compagnie des chambres fortes magiques Frobozz. »">)
 	  (<EQUAL? ,HERE ,VIEWING-EAST ,VIEWING-WEST ,SMALL-ROOM>
-	   <TELL "Vous entendez une voix faible dire \"Porte du rideau fermée.\"" CR>
+	   <TELL "Une voix lointaine annonce : « Porte-rideau fermée. »" CR>
 	   <COND (<EQUAL? ,HERE ,SMALL-ROOM>
 	          <COND (,ZGNOME-FLAG <RTRUE>)
 		        (T
@@ -1346,27 +1349,27 @@ devenir le maître de son domaine, mais le défi final vous attend !|
          <COND (<EQUAL? ,HERE ,SMALL-ROOM>
 		<ENABLE <QUEUE I-ZGNOME-OUT 12>>
 		<TELL
-"Un gnome épique de Zurich portant un costume en trois pièces et portant un coffre se matérialise dans la pièce.">
+"Un Gnome de Zurich au sexe indéterminé, vêtu d'un costume trois-pièces et portant un coffre de dépôt, se matérialise dans la salle.">
 		<COND (<IN? ,WAND ,WINNER>
 		       <TELL
 " Il remarque la baguette et se dématérialise rapidement." CR>)
 		      (T
-		       <TELL "\"Vous semblez avoir oublié de déposer vos objets de valeur,\" dit-il en tapant le couvercle de la boîte avec impatience. \"Nous n'autorisons généralement pas les clients à utiliser les boîtes ici, mais nous pouvons faire cette exception, je suppose...\" Il vous regarde à la question sur ses bifocals filaires." CR>
+		       <TELL " « Vous semblez avoir oublié de déposer vos objets de valeur », dit-il en tapotant nerveusement le couvercle du coffre. « Nous n'autorisons normalement pas nos clients à utiliser les coffres ici, mais j'imagine que nous pouvons faire UNE exception... » Il vous dévisage par-dessus ses petites lunettes cerclées de métal." CR>
 		       <MOVE ,GNOME-OF-ZURICH ,HERE>)>)>>
 
 <ROUTINE BOX-F ()
-	 <TELL "Le gnome le serre de manière possessive." CR>>
+	 <TELL "Le gnome le serre jalousement contre lui." CR>>
 
 <ROUTINE ZGNOME-FCN ()
     <COND (<VERB? TELL>
 	   <SETG P-CONT <>>
 	   <SETG QUOTE-FLAG <>>
 	   <TELL
-"Le gnome apparaît de plus en plus impatient." CR>)
+"Le gnome semble de plus en plus impatient." CR>)
 	  (<AND <VERB? GIVE THROW> <EQUAL? ,PRSI ,GNOME-OF-ZURICH>>
 	   <COND (<GETPT ,PRSO ,P?VALUE>
 		  <TELL
-"Le gnome place soigneusement le " D ,PRSO  "\"Laissez-moi vous montrer la sortie,\" dit-il, en indiquant clairement qu'il sera heureux de voir le dernier d'entre vous. Ensuite, vous êtes momentanément désorienté, et quand vous récupérer vous êtes de retour à l'entrée de la banque." CR>
+"Le gnome dépose soigneusement l'objet suivant -- " D ,PRSO  " -- dans le coffre de dépôt. « Laissez-moi vous raccompagner », dit-il, faisant clairement comprendre qu'il sera ravi de vous voir partir. Vous perdez un instant vos repères et, lorsque vos esprits vous reviennent, vous êtes de nouveau à l'entrée de la banque." CR>
 		  <REMOVE ,GNOME-OF-ZURICH>
 		  <REMOVE ,PRSO>
 		  <DISABLE <INT I-ZGNOME-OUT>>
@@ -1378,26 +1381,26 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 		  <DISABLE <INT I-ZGNOME>>
 		  <DISABLE <INT I-ZGNOME-OUT>>
 		  <TELL
-"« Tu es si gracieuse. Je ne peux vraiment pas accepter. » dit-il. Il disparaît, un sourire crié sur ses lèvres." CR>)
+"« Vous êtes beaucoup trop généreux. Je ne peux vraiment pas accepter. » Il disparaît, un sourire ironique aux lèvres." CR>)
 		 (T
 		  <TELL
-"\"Je ne mettrais pas ça dans un coffre\", remarque le gnome avec dédain, le jetant sur son épaule, où il disparaît avec une \"pop\" sous-estimée." CR>
+"« Je ne mettrais certainement pas ÇA dans un coffre de dépôt », remarque le gnome avec dédain. Il le lance par-dessus son épaule, où l'objet disparaît dans un discret « pop »." CR>
 		  <REMOVE-CAREFULLY ,PRSO>
 		  <RTRUE>)>)
 	  (<VERB? ATTACK>
 	   <TELL
-"Le gnome dit \"Eh bien, je n'ai jamais...\" et disparaît avec un coup de doigts, vous laissant seul." CR>
+"« Eh bien, je n'ai jamais... » s'offusque le gnome avant de disparaître d'un claquement de doigts, vous laissant seul." CR>
 	   <REMOVE ,GNOME-OF-ZURICH>
 	   <DISABLE <INT I-ZGNOME-OUT>>)
 	  (T
 	   <TELL
-"Le gnome apparaît de plus en plus impatient." CR>)>>
+"Le gnome semble de plus en plus impatient." CR>)>>
 
 <ROUTINE I-ZGNOME-OUT ()
          <REMOVE ,GNOME-OF-ZURICH>
 	 <COND (<EQUAL? ,HERE ,SMALL-ROOM>
 		<TELL
-"Le gnome a l'air impatient : « J'ai peut-être un autre client à attendre ; il va falloir se débrouiller, j'ai peur. » Il disparaît, vous laissant seul." CR>)>>
+"Le gnome s'impatiente. « Un autre client m'attend peut-être ; vous devrez vous débrouiller seul, j'en ai peur. » Il disparaît et vous laisse livré à vous-même." CR>)>>
 
 <ROUTINE BOMB? (O)
 	<COND (<AND <EQUAL? .O ,BRICK>
@@ -1428,7 +1431,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
     #DECL ((RARG) <OR FIX FALSE>)
     <COND (<EQUAL? .RARG ,M-LOOK>
 	   <TELL
-"Il s'agit d'une petite pièce taillée sur le mur du ravin. Il y a une sortie en bas d'une montée précaire.">
+"Cette minuscule salle a été creusée dans la paroi du ravin. Une escalade périlleuse permet d'en descendre. ">
 	   <P-DOOR "nord" ,LID-1 ,KEYHOLE-1>
 	   <RTRUE>)
 	  (<NOT <VERB? LOOK>> <PCHECK> <RFALSE>)>>
@@ -1437,7 +1440,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
     #DECL ((RARG) <OR FIX FALSE>)
     <COND (<EQUAL? .RARG ,M-LOOK>
 	   <TELL
-"Il s'agit d'une petite pièce plutôt sinistre, illuminé par une lueur rouge émanant d'une fissure dans un mur. La lumière tombe sur une table en bois poussiéreuse au centre de la pièce.">
+"C'est une petite salle plutôt morne, éclairée de façon inquiétante par une lueur rouge qui s'échappe d'une fissure. La lumière tombe sur une table de bois poussiéreuse au centre de la pièce. ">
 	   <P-DOOR "sud" ,LID-2 ,KEYHOLE-2>
 		   <RTRUE>)
 		          (T <PCHECK> <RFALSE>)>>
@@ -1461,9 +1464,9 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 <ROUTINE P-DOOR (STR LID KEYHOLE "AUX" F)
 	#DECL ((STR) STRING (LID KEYHOLE) OBJECT)
 	<COND (,PLOOK-FLAG <SETG PLOOK-FLAG <>> <RFALSE>)>
-	<TELL "Sur le côté "
+	<TELL "Du côté "
 	      .STR
-	      "côté de la pièce est une porte massive en bois, qui a une petite fenêtre barrée de fer. Un verrou formidable est mis dans le cadre de la porte.">
+	      " de la salle se dresse une porte massive en bois, percée d'une petite fenêtre à barreaux. Un redoutable verrou est encastré dans le chambranle. Un trou de serrure ">
 	<COND (<NOT <FSET? .LID ,OPENBIT>>
 	       <TELL "recouvert par un mince couvercle métallique ">)>
 	<TELL "se trouve à l'intérieur de la serrure.">
@@ -1473,7 +1476,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	<COND (,MUD-FLAG
 	       <TELL " Le bord d'un set de table est visible sous la porte.">
 	       <COND (,MATOBJ
-		      <TELL " Allongé sur le set de table se trouve un " D ,MATOBJ ".">)>)>
+		      <TELL " Sur le set de table repose un " D ,MATOBJ ".">)>)>
 	<CRLF>>
 
 <ROUTINE PLID ("OPTIONAL" (OBJ1 ,LID-1) (OBJ2 ,LID-2))
@@ -1512,7 +1515,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 			(<EQUAL? ,PRSO ,LETTER-OPENER ,KEY>
 			 <COND (<FIRST? <SET KH <PKH ,PRSI>>>
 				<TELL
-"Il y a un léger bruit de derrière la porte et un petit nuage de poussière s'élève de dessous." CR>
+"Un faible bruit provient de derrière la porte, tandis qu'un petit nuage de poussière s'élève sous celle-ci." CR>
 				<SET OBJ <FIRST? .KH>>
 				<REMOVE .OBJ>
 				<COND (,MUD-FLAG
@@ -1565,7 +1568,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 				     (T ,PALANTIR-4)>>)
 	       (<VERB? EXAMINE>
 		<TELL
-"Il y a quelque chose de brumeux dans la sphère." CR>)
+"Une forme brumeuse flotte dans la sphère. Peut-être devriez-vous regarder à l'intérieur..." CR>)
 	       (<AND <VERB? TAKE> <==? ,PRSO ,PALANTIR-3>>
 		<PUTP ,PRSO ,P?LDESC <>>
 		<RFALSE>)>>
@@ -1573,31 +1576,31 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 <ROUTINE DEAD-PALANTIR (RARG "AUX" P)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Vous êtes à l'intérieur d'une immense sphère cristalline remplie de fines particules "
+"Vous êtes dans une immense sphère cristalline emplie d'une fine brume "
 		<COND (<EQUAL? ,HERE ,DEAD-PALANTIR-1>
 		       <SET P ,PALANTIR-1>
 		       "rouge")
 		      (<EQUAL? ,HERE ,DEAD-PALANTIR-2>
 		       <SET P ,PALANTIR-2>
-		       "bleu")
-		      (T <SET P ,PALANTIR-3> "blanc")>
-" brume. La brume devient "
-		<COND (<EQUAL? ,HERE ,DEAD-PALANTIR-1> "bleu")
-		      (<EQUAL? ,HERE ,DEAD-PALANTIR-2> "blanc")
+		       "bleue")
+		      (T <SET P ,PALANTIR-3> "blanche")>
+". La brume devient "
+		<COND (<EQUAL? ,HERE ,DEAD-PALANTIR-1> "bleue")
+		      (<EQUAL? ,HERE ,DEAD-PALANTIR-2> "blanche")
 		      (T "noire")>
-" à l'ouest." CR>
+" vers l'ouest." CR>
 		<TELL "Vous vous efforcez de regarder à travers la brume... " CR>
 		<COND (<FSET? .P ,TOUCHBIT>
 		       <PALANTIR-LOOK .P T>)
 		      (<EQUAL? .P ,PALANTIR-1>
 		       <TELL
-"Vous voyez une petite pièce avec un panneau sur le mur, mais il est trop flou à lire." CR>)
+"Vous apercevez une petite salle et un panneau au mur, mais l'image est trop floue pour le lire." CR>)
 		      (<EQUAL? .P ,PALANTIR-2>
 		       <TELL
-"Vous regardez dehors dans une grande pièce triste avec une grande porte et une grande table. Il y a une lueur étrange à la brume." CR>)
+"Vous contemplez une vaste salle morne, occupée par une porte monumentale et une table gigantesque. Une étrange lueur baigne la brume." CR>)
 		      (<EQUAL? .P ,PALANTIR-3>
 		       <TELL
-"Une étrange pièce floue est à peine visible.">
+"On distingue à peine une étrange salle aux contours flous.">
 		       <COND (<AND <IN? ,SERPENT ,AQUARIUM> <PROB 25>>
 			      <TELL
 " Une étrange ombre sinueuse traverse la brume alors que vous regardez.">)>
@@ -1605,21 +1608,21 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 		<RTRUE>)
 	       (<AND <EQUAL? .RARG ,M-ENTER> <EQUAL? ,HERE ,DEAD-PALANTIR-4>>
 		<TELL
-"Nous suivons un couloir de brouillard noir dans une pièce sphérique à murs noirs.">
+"Vous suivez un couloir de brume noire jusqu'à une salle sphérique aux parois noires.">
 		<COND (<IN? ,GENIE ,PENTAGRAM-ROOM>
 		       <TELL
-"La chambre est vide. Un visage énorme vous regarde de l'extérieur et rit sardoniquement." CR>
+" La salle est vide. De l'extérieur, un visage immense vous contemple et éclate d'un rire sardonique. Vous ne semblez pas près de vous tirer de ce mauvais pas !" CR>
 		       <FINISH>)>
 		<TELL
-"Alors que vous entrez, un visage énorme et horrible se matérialise hors de la brume.| | \"Qu'est-ce qui vous amène ici à troubler mon emprisonnement, vagabond?\" il demande." CR>
+" À votre arrivée, un visage immense et terrifiant se matérialise dans la brume.| |« Qu'est-ce qui vous amène troubler ma captivité, voyageur ? » demande-t-il. Faute de réponse immédiate, il vous examine un instant." CR>
 
 		<COND (<NOT <L? ,DEATHS 3>>
 		       <TELL
-"\"Pas toi encore ! Ça devient fastidieux. Tu ne me seras évidemment jamais beaucoup d'aide. Plus de chance la prochaine fois, oh merveilleux aventurier.\" Le visage disparaît et tout devient noir." CR>
+"« Encore vous ! Cela devient lassant. De toute évidence, vous ne me serez jamais d'une grande aide. Bonne chance pour la prochaine fois, ô merveilleux aventurier. » Le visage disparaît et tout devient noir." CR>
 		       <FINISH>)
 		      (T
 		       <TELL
-"\"Peut-être que tu me seras utile pour gagner ma liberté de ce lieu. Retourne à ta quête insensée! Je ne te détruirai pas cette fois-ci. Puisses-tu rendre cette faveur en bonté un jour.\" Le visage disparaît et la brume commence à tourner. Quand elle éclaircit, tu es rendu au monde de la vie." CR>
+"« Peut-être pourrez-vous m'aider à recouvrer ma liberté. Retournez donc à votre quête insensée ! Cette fois, je vous épargne. Puissiez-vous un jour me rendre la pareille. » Le visage disparaît et la brume se met à tourbillonner. Lorsqu'elle se dissipe, vous êtes revenu dans le monde des vivants." CR>
 		<SETG DEAD <>>
 		<GOTO ,INSIDE-BARROW>
 		;<GOTO ,INSIDE-BARROW <>>
@@ -1634,7 +1637,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 <ROUTINE PALANTIR-LOOK (OBJ "OPTIONAL" (INSIDE? <>) "AUX" RM OHERE)
 	 <COND (<EQUAL? .OBJ ,PALANTIR-4>
 		<TELL
-"Quand vous regardez dans la sphère, une vision étrange prend forme... un visage énorme et redoutable avec des yeux jaunes." CR>
+"Tandis que vous contemplez la sphère, une étrange vision prend forme : un visage immense et terrifiant, aux yeux jaunes, vous observe dans l'attente." CR>
 		<RTRUE>)>
 	 <SET RM <ROOM? .OBJ>>
 	 <COND (<OR <NOT .RM> <NOT <LIT? .RM>>>
@@ -1643,19 +1646,19 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 		<SET OHERE ,HERE>
 		<COND (.INSIDE?
 		       <TELL
-"Alors que vous regardez à travers la brume, une vision étrangement colorée d'une grande pièce prend forme..." CR CR>)
+"À travers la brume se dessine une vision aux couleurs étranges : une salle immense..." CR CR>)
 		      (T
 		       <TELL
-"Tandis que vous entrez dans la sphère, une vision étrange prend forme d'une pièce lointaine, qui peut être décrite clairement..." CR CR>)>
+"Tandis que vous contemplez la sphère, la vision d'une salle lointaine se précise peu à peu..." CR CR>)>
 		<FSET .OBJ ,INVISIBLE>
 		<GO&LOOK .RM>
 		<COND (<EQUAL? .OHERE .RM>
 		       <TELL
-"Un aventurier étonné regarde dans une sphère de cristal." CR>)>
+"Un aventurier éberlué contemple une sphère de cristal." CR>)>
 		<FCLEAR .OBJ ,INVISIBLE>
 		<COND (<NOT .INSIDE?>
 		       <TELL
-"La vision s'efface, révélant seulement un cristal ordinaire. " CR>)>)
+"La vision s'efface, ne laissant voir qu'une banale sphère de cristal." CR>)>)
 	       (T
 		<TELL "Vous ne voyez que l'obscurité." CR>)>
 	 T>
@@ -1664,12 +1667,12 @@ devenir le maître de son domaine, mais le défi final vous attend !|
     <COND (<VERB? LOOK-INSIDE>
 	   <SETG PLOOK-FLAG T>
 	   <COND (<FSET? ,PDOOR ,OPENBIT>
-		  <TELL "La porte est ouverte, mannequin." CR>)
+		  <TELL "La porte est ouverte, imbécile." CR>)
 		 (<EQUAL? ,HERE ,DREARY-ROOM>
 		  <GO&LOOK ,TINY-ROOM>)
 		 (T <GO&LOOK ,DREARY-ROOM>)>)
 	  (<VERB? THROUGH>
-	   <TELL "Peut-être que si tu étais coupé en dés...." CR>)>>
+	   <TELL "Peut-être si vous étiez découpé en dés..." CR>)>>
 
 <ROUTINE PDOOR-FCN ("AUX" K)
     <COND (<AND <VERB? LOOK-UNDER> ,MUD-FLAG>
@@ -1696,7 +1699,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	  (<VERB? PUT-UNDER>
 	   <COND (<EQUAL? ,PRSO ,ROBOT-LABEL>
 		  <TELL
-"Le papier est très petit et disparaît sous le porte." CR>
+"Le papier est minuscule et disparaît sous la porte." CR>
 		  <MOVE ,PRSO <COND (<EQUAL? ,HERE ,TINY-ROOM> ,DREARY-ROOM)
 				    (T ,TINY-ROOM)>>)
 		 (<EQUAL? ,PRSO ,NEWSPAPER>
@@ -1706,7 +1709,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	   <COND (,PUNLOCK-FLAG
 		  <OPEN-CLOSE ,PRSO
 		       "La porte est maintenant ouverte."
-		       "La porte est maintenant ouverte. fermé.">)
+		       "La porte est maintenant fermée.">)
 		 (T <TELL "La porte est verrouillée." CR>)>)>>
 	
 <ROUTINE PKEY-FCN ()
@@ -1729,7 +1732,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	   <TELL "Lorsque le set de table est déplacé, un "
 		 D
 		 ,MATOBJ
-		 " en tombe et tombe sur le sol." CR>
+		 " s'en détache et tombe au sol." CR>
 	   <SETG MATOBJ <>>
 	   <SETG MUD-FLAG <>>
 	   <RTRUE>)>>
@@ -1739,7 +1742,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	        <COND (<AND <EQUAL? ,HERE ,WELL-BOTTOM>
 			    <IN? ,COIN ,HERE>>
 		       <TELL
-"Une voix chuchotante répond: \"L'eau fait partir le seau.\" Malheureusement, le désir fait partir la pièce..." CR>
+"Une voix chuchote : « L'eau fait monter le seau. » Malheureusement, votre voeu fait disparaître la pièce..." CR>
 		      <REMOVE ,COIN>)
 		      (T
 		       <TELL "Personne n'écoute." CR>)>)>>
@@ -1747,10 +1750,10 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 <ROUTINE WELL-FCN ()
     	<COND (<AND <FSET? ,PRSO ,TAKEBIT> <VERB? THROW PUT DROP>>
 	       <TELL "Le " D ,PRSO
-		     " est maintenant assis au fond du puits." CR>
+		     " repose désormais au fond du puits." CR>
 	       <MOVE ,PRSO ,WELL-BOTTOM>)
 	      (<VERB? CLIMB-UP CLIMB-DOWN CLIMB-FOO>
-	       <TELL "Vous ne pouvez pas grimper le puits." CR>)>>
+	       <TELL "Vous ne pouvez pas escalader les parois du puits." CR>)>>
 
 <GLOBAL MATCH-COUNT 6>
 
@@ -1767,7 +1770,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 		       <ENABLE <QUEUE I-MATCH 2>>
 		       <TELL "L'un des matchs commence à brûler." CR>)>)
 	       (<AND <VERB? LAMP-OFF> <FSET? ,MATCH ,FLAMEBIT>>
-		<TELL "Le match est terminé." CR>
+		<TELL "L'allumette est éteinte." CR>
 		<FCLEAR ,MATCH ,FLAMEBIT>
 		<FCLEAR ,MATCH ,ONBIT>
 		<QUEUE I-MATCH 0>
@@ -1782,7 +1785,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 		<COND (<FSET? ,MATCH ,ONBIT>
 		       <TELL "Une allumette brûle.">)
 		      (T
-		       <TELL "Aucune allumette n'est disponible. brûle.">)>
+		       <TELL "Aucune allumette ne brûle.">)>
 		<CRLF>)>>
 
 <ROUTINE I-MATCH ()
@@ -1821,11 +1824,11 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 		       <>)>)
 	       (<VERB? EXAMINE>
 		<COND (<FSET? ,LAMP ,RMUNGBIT>
-		       <TELL "La lampe est grillée.">)
+		       <TELL "La lampe s'est consumée.">)
 		      (<FSET? ,LAMP ,ONBIT>
 		       <TELL "La lampe est allumée.">)
 		      (T
-		       <TELL "La lampe est allumée. éteint.">)>
+		       <TELL "La lampe est maintenant éteinte.">)>
 		<CRLF>)>>
 
 <ROUTINE I-LANTERN ("AUX" TICK (TBL <VALUE LAMP-TABLE>))
@@ -1841,7 +1844,7 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	 <COND (<OR <HELD? .OBJ> <IN? .OBJ ,HERE>>
 		<COND (<0? .TICK>
 		       <TELL
-"Tu ferais mieux d'avoir plus de lumière que celle du " D .OBJ "." CR>)
+"Il vous faudrait une meilleure lumière que celle du " D .OBJ "." CR>)
 		      (T
 		       <TELL <GET .TBL 1> CR>)>)>>
 
@@ -1866,13 +1869,17 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 
 <ROUTINE RIDDLE-ROOM-FCN (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
-		<TELL
-"C'est une pièce qui est nue de tous les côtés. Il y a une sortie en bas dans l'angle nord-ouest de la pièce.">
+		<TELL "Cette salle est entièrement nue. Dans l'angle nord-ouest, une issue descend vers le bas. À l'est se dresse une grande porte de pierre ">
 		<COND (<FSET? ,RIDDLE-DOOR ,OPENBIT>
-		       <TELL "ouvert">)
-		      (T
-		       <TELL "fermé">)>
-		<TELL "porte en pierre. Au-dessus de la pierre, les mots suivants sont écrits : « Personne ne passera cette porte sans résoudre cette énigme :| | Qu'est-ce qui est grand comme une maison,| rond comme une tasse,| et tous les chevaux du roi| ne peut pas le dessiner ? »|">)
+		       <TELL "ouverte">)
+		      (T <TELL "fermée">)>
+		<TELL ". Au-dessus sont gravés ces mots : \"Nul ne franchira cette porte sans résoudre l'énigme :|
+|
+    Qu'est-ce qui est haut comme une maison,|
+      rond comme une coupe,|
+        et que tous les chevaux du roi|
+          ne sauraient faire remonter ?\"|
+">)
 	       (<EQUAL? .RARG ,M-BEG>
 		<COND (<VERB? ANSWER SAY>
 		       <COND (<FSET? ,RIDDLE-DOOR ,OPENBIT>
@@ -1880,12 +1887,12 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 			     (<OR <EQUAL? <GET ,P-LEXV ,P-CONT> ,W?WELL>
 				  <EQUAL? <GET ,P-LEXV <+ ,P-CONT 2>> ,W?WELL>>
 			      <TELL
-"Il y a un coup de tonnerre assourdissant et la porte en pierre s'ouvre tranquillement pour révéler un passage au-delà." CR>
+"Un coup de tonnerre assourdissant retentit ; la porte de pierre pivote silencieusement et découvre un passage." CR>
 			      <SCORE-UPD 5>
 			      <FSET ,RIDDLE-DOOR ,OPENBIT>)
 			     (T
 			      <TELL
-"Un rire creux semble sortir de la porte en pierre." CR>)>
+"Un rire caverneux semble provenir de la porte de pierre." CR>)>
 		      <SETG P-CONT <>>
 		      <SETG QUOTE-FLAG <>>
 		      <RTRUE>)>)>>
@@ -1896,21 +1903,21 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 		       <TELL "Elle est ouverte !" CR>)
 		      (T
 		       <TELL
-"La porte peut ne peut être ouvert qu'en répondant à l'énigme." CR>)>)
+"La porte ne peut s'ouvrir qu'en résolvant l'énigme." CR>)>)
 	       (<VERB? CLOSE>
 		<COND (<FSET? ,RIDDLE-DOOR ,OPENBIT>
-		       <TELL "Pas une chance. La porte pèse plusieurs tonnes." CR>)
+		       <TELL "Impossible : la porte pèse plusieurs tonnes." CR>)
 		      (T
 		       <TELL "Elle est fermée !" CR>)>)>>
 
 <GLOBAL DUMMY
-	<LTABLE "Regardez autour."
+	<LTABLE "Regardez autour de vous."
 	       "Vous pensez que non ?"
-	       "Je pense que vous l'avez déjà fait cela.">>
+	       "Il me semble que vous l'avez déjà fait.">>
 
 <ROUTINE RIDDLE-PSEUDO ()
 	 <COND (<VERB? EXAMINE>
-		<TELL "Utilisez la commande « Regarder »." CR>)>>
+		<TELL "Utilisez la commande « OBSERVER »." CR>)>>
 
 <ROUTINE MAGIC-ACTOR ("AUX" V)
 	 <COND (,SPELL?
@@ -1921,16 +1928,16 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 			      <SET V <GETPT ,HERE ,P?GLOBAL>>
 			      <COND (<ZMEMQB ,BRIDGE .V <PTSIZE .V>>
 				     <JIGS-UP
-"Vous vous trouvez attiré vers le bord du pont. Vous regardez sur le côté. Oups, c'était maladroit de vous! Vous avez trébuché sur quelque chose et vous êtes tombé dedans.">)
+"Vous vous sentez attiré vers le bord du pont et vous penchez pour regarder en contrebas. Oups, quelle maladresse ! Vous trébuchez sur quelque chose et basculez dans le vide. Dommage.">)
 				    (<PROB 25>
 				     <JIGS-UP
-"Pour une raison étrange, vous avez trébuché sur vos propres pieds, ou peut-être un cordon invisible étiré sur le chemin. La chute résultante semble vous avoir fait entrer.">)
+"Pour une raison mystérieuse, vous avez trébuché sur vos propres pieds -- ou peut-être sur un cordon invisible tendu en travers du chemin. La chute vous est fatale.">)
 				   (T
 				    <TELL
-"Vous avez juste trébuché sur un cordon invisible, ou peut-être vos propres pieds. Mais ce doit être votre jour de chance, car vous avez réussi à retrouver votre équilibre avant ce qui aurait pu être une chute fatale." CR>)>)
+"Vous venez de trébucher sur un cordon invisible -- ou peut-être sur vos propres pieds. Ce doit être votre jour de chance : vous retrouvez l'équilibre avant qu'une chute potentiellement mortelle ne vous emporte." CR>)>)
 			     (<VERB? BOARD>
 			      <TELL
-"Vous entrez dans le " D ,PRSO "mais tu tombes encore, presque comme si une main invisible l'avait renversé." CR>)>)
+"Vous entrez dans le " D ,PRSO " mais vous en retombez aussitôt, comme si une main invisible l'avait renversé." CR>)>)
 		      (<EQUAL? ,SPELL? ,S-FLOAT>
 		       <COND (<VERB? DIAGNOSE WAIT> <RFALSE>)
 			     (<VERB? WALK>
@@ -1941,12 +1948,12 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 "Le " D ,PRSO " tombe au sol." CR>)
 			     (<AND <VERB? TAKE> <IN? ,PRSO ,HERE>>
 			      <TELL
-"Vous je ne peux pas atteindre ça ! Il est au sol." CR>)>)
+"Vous ne pouvez pas l'atteindre : cet objet est au sol." CR>)>)
 		      (<EQUAL? ,SPELL? ,S-FREEZE>
 		       <COND (<VERB? DIAGNOSE WAIT> <RFALSE>)
 			     (T
 			      <TELL
-"Vous êtes gelé solide, autant attendre, parce que vous ne pouvez rien faire d'autre dans cet état." CR>)>)
+"Vous êtes entièrement gelé. Autant attendre que cela passe : dans cet état, vous ne pouvez rien faire d'autre." CR>)>)
 		      (<AND <EQUAL? ,SPELL? ,S-FENCE>
 			    <VERB? WALK>>
 		       <TELL
@@ -1962,18 +1969,19 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 			    <VERB? WALK>
 			    <IN? ,WINNER ,HERE>>
 		       <TELL
-"Oups, tu sembles un peu instable... je ne suis pas sûr que tu aies trouvé où tu voulais aller." CR CR>
+"Oups, vous semblez quelque peu chancelant... Je ne suis pas certain que vous soyez arrivé là où vous le souhaitiez." CR CR>
 		       <RANDOM-WALK>)
 		      (<AND <EQUAL? ,SPELL? ,S-FEAR>
 			    <SET V <INFESTED? ,HERE>>>
 		       <TELL
-"Tout à coup, vous êtes envahi par la peur ! Il y a un " D .V "C'est peut-être après toi !">
+"Soudain, la peur vous submerge ! Un " D .V " est ici !
+Cette créature est peut-être à vos trousses ! ">
 		       <COND (<FSET? <LOC ,WINNER> ,VEHBIT>
 			      <TELL
 "Vous vous blottissez dans un coin, terrifié." CR>)
 			     (T
 			      <TELL
-"Vous fuyez la pièce en courant en hurlant de terreur !" CR CR>
+"Vous fuyez la salle en hurlant de terreur !" CR CR>
 			      <RANDOM-WALK>)>)>)>>
 
 <ROUTINE RANDOM-WALK ("AUX" P TX L S (D <>))
@@ -2003,13 +2011,13 @@ devenir le maître de son domaine, mais le défi final vous attend !|
 	 <COND (<NOT <SET W <FIND-IN ,ADVENTURER ,WEAPONBIT>>>
 		<SET W ,HANDS>)>
 	 <TELL
-"Vous êtes rendu fou par une férocité écrasante et attaquez le "
+"Une fureur irrésistible vous pousse à attaquer le "
 D .V " à la place." CR>
 	 <PERFORM ,V?ATTACK .V .W>>
 
 \
 
-"SUBTITLE DIAMOND MAZE"
+"SOUS-TITRE : LABYRINTHE DE DIAMANT"
 
 <GLOBAL DIAMOND-SOLVE <>> ;"T if solved"
 
@@ -2019,15 +2027,15 @@ D .V " à la place." CR>
 
 <GLOBAL DWDESCS
 	<TABLE "sombre"
-	       "scintille faiblement"
-	       "faiblement brillant"
-	       "brillant"
-	       "brillant de mille feux">>
+	       "vacillant faiblement"
+	       "faiblement lumineux"
+	       "lumineux"
+	       "rayonnant vivement">>
 
 <ROUTINE DWINDOW-DESC ()
 	 <TELL
 "Au sol se trouve une très petite fenêtre en forme de losange qui est ">
-	 <COND (,DIAMOND-SOLVE <TELL "brillant sereinement">)
+	 <COND (,DIAMOND-SOLVE <TELL "rayonnant paisiblement">)
 	       (T <TELL <GET ,DWDESCS ,DIAMOND-COUNT>>)>
 	 <TELL "." CR>>
 
@@ -2037,20 +2045,20 @@ D .V " à la place." CR>
 "La fenêtre fait partie intégrante du sol." CR>)
 	       (<VERB? MUNG>
 		<TELL
-"La fenêtre est dure comme du diamant et ne peut pas être cassé." CR>)
+"La fenêtre, dure comme le diamant, est incassable." CR>)
 	       (<VERB? EXAMINE LOOK-INSIDE>
 		<DWINDOW-DESC>)>>
 
 <ROUTINE DIAMOND-MOTION (RARG "AUX" DC DIR RM)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"C'est une pièce avec des murs et des passages étrangement inclinés dans toutes les directions. Les murs sont faits d'une substance vitreuse." CR>
+"Cette salle aux murs étrangement inclinés est percée de passages dans toutes les directions. Les parois sont faites d'une matière vitreuse." CR>
 		<COND (<EQUAL? ,HERE ,DIAMOND-5>
 		       <TELL
-"Un escalier en marbre mène vers le haut.">
+"Un escalier de marbre monte vers les hauteurs.">
 		       <COND (,DIAMOND-SOLVE
 			      <TELL
-"Le sol s'est effondré au bout de l'escalier pour révéler un passage secret qui descend dans l'obscurité.">)>
+" Le sol a basculé au pied de l'escalier, révélant un passage secret qui plonge dans des ténèbres absolues.">)>
 		       <CRLF>)
 		      (T <DWINDOW-DESC>)>
 		<RTRUE>)
@@ -2068,7 +2076,7 @@ D .V " à la place." CR>
 				     <SETG DIAMOND-MOVES 0>)>
 			      <COND (<EQUAL? ,DIAMOND-COUNT 5>
 				     <TELL
-"Vous entendez un étrange cri rouillé résonnant au loin." CR>
+"Un étrange grincement rouillé résonne au loin." CR>
 				     <FCLEAR ,DIAMOND-5 ,TOUCHBIT>
 				     <SCORE-UPD 5>
 				     <SETG DIAMOND-SOLVE T>)>
@@ -2091,7 +2099,7 @@ D .V " à la place." CR>
 		       <SETG DIAMOND-COUNT 0>
 		       <COND (<PROB 33>
 			      <TELL
-"Il n'y a aucun moyen d'y entrer. direction." CR>
+"Vous ne pouvez pas aller dans cette direction." CR>
 			      <RTRUE>)
 			     (<PROB 25>
 			      <DIAMOND-LOSS>
@@ -2113,12 +2121,12 @@ D .V " à la place." CR>
 	 <SETG DIAMOND-MOVES <+ ,DIAMOND-MOVES 1>>
 	 <COND (<EQUAL? ,DIAMOND-MOVES 20>
 		<TELL
-"Tandis que vous vous battez dans le labyrinthe, la voix miraculeuse du Magicien vous met à l'aise : « Fou ! Vous ne passerez jamais">
+"Tandis que vous vous débattez dans le labyrinthe, la voix réjouie du Magicien vous nargue : « Imbécile ! Vous ne franchirez jamais ">
 		<TELL <GET ,BASES ,DIAMOND-BASE>>
-		<TELL " à ce moment-là. taux!\"" CR>)>
+		<TELL " base à ce rythme ! »" CR>)>
 	 <GOTO <GET ,DIAMOND-ROOMS <+ 3 <RANDOM 5>>>>>
 
-<GLOBAL BASES <TABLE "premier" "premier" "premier" "seconde" "troisième" "domicile">>
+<GLOBAL BASES <TABLE "première" "première" "première" "deuxième" "troisième" "dernière">>
 
 <GLOBAL DIAMOND-ROOMS
 	<TABLE DIAMOND-2 DIAMOND-4 DIAMOND-6 DIAMOND-8
@@ -2128,7 +2136,7 @@ D .V " à la place." CR>
 
 \
 
-"SOUS-TITRE CERBERUS"
+"SOUS-TITRE : CERBÈRE"
 
 <GLOBAL CERBERUS-LEASHED <>>
 
@@ -2138,83 +2146,83 @@ D .V " à la place." CR>
 		<RFALSE>)
 	       (<AND ,WAND-ON <VERB? SAY INCANT>> <RFALSE>)
 	       (<HELLO? ,CERBERUS>
-		<COND (,CERBERUS-LEASHED <TELL "\"Arf ! Arf ! Arf!\"" CR>)
-		      (T <TELL "\"Grrrr!\"" CR>)>)
+		<COND (,CERBERUS-LEASHED <TELL "« Ouaf ! Ouaf ! Ouaf ! »" CR>)
+		      (T <TELL "« Grrrr ! »" CR>)>)
 	       (<VERB? ATTACK MUNG STAB>
 		<COND (,CERBERUS-LEASHED
 		       <REMOVE ,CERBERUS>
 		       <TELL
-"Avec une écorce tranquille de déception, la créature expire. Ses six yeux vous regardent avec reproche. Comme elle meurt, elle s'effondre dans un petit tas de poussière qui souffle dans rien." CR>)
+"La créature pousse un faible aboiement de déception et expire. Ses six yeux vous adressent un dernier regard de reproche. Son corps s'effondre alors en un petit tas de poussière que le vent disperse jusqu'à ce qu'il n'en reste rien." CR>)
 		      (<PROB 50>
 		       <JIGS-UP
-"Votre tête, semble-t-il, n'est qu'une petite bouche pour le pauvre animal, qui a tout aussi faim par la suite.">)
+"La créature canine referme sauvagement ses mâchoires sur vous. Votre tête ne représente apparemment qu'une petite bouchée pour la pauvre bête, qui demeure tout aussi affamée après coup.">)
 		      (T
 		       <TELL
-"Le truc de chien enragé se jette violemment sur vous." CR>)>)
+"La créature canine enragée claque férocement des mâchoires dans votre direction." CR>)>)
 	       (<AND <VERB? PUT PUT-ON> <EQUAL? ,PRSO ,COLLAR>>
 		<MOVE ,COLLAR ,CERBERUS>
 		<FSET ,COLLAR ,NDESCBIT>
 		<FSET ,COLLAR ,TRYTAKEBIT>
 		<PUTP ,CERBERUS ,P?LDESC
-"Un chien à trois têtes qui sourit insipidement se branle la queue ici. Il porte un énorme collier de chien.">
+"Un chien à trois têtes, arborant un sourire béat, remue la queue. Il porte un gigantesque collier.">
 		<SETG CERBERUS-LEASHED T>
 		<TELL
-"La créature gémit heureux, puis la tête centrale lèche votre visage (qui est à peu près comme l'expérience d'un lavoir de papier de sable). Les deux autres têtes regardent, comme si le monstre ressentit un besoin soudain de trouver une paire de pantoufles quelque part. Sa queue énorme se remue avec enthousiasme, frappant de petits rochers autour et presque vous soufflant de la brise qu'il crée." CR>)
+"La créature gémit de bonheur, puis sa tête centrale vous lèche le visage -- sensation assez proche d'une toilette au papier de verre. Les deux autres regardent autour d'elles, comme si le monstre éprouvait soudain le besoin de retrouver une paire de pantoufles. Son énorme queue bat l'air avec enthousiasme, projetant de petits cailloux et manquant de vous renverser par le vent qu'elle soulève." CR>)
 	       (<VERB? ENCHANT>
 		<COND (<EQUAL? ,SPELL-USED ,W?FLOAT>
 		       <SETG SPELL-HANDLED? T>
 		       <TELL
-"L'énorme chien s'élève à environ un pouce du sol, pendant un instant." CR>)
+"L'énorme chien s'élève un instant à quelques centimètres du sol." CR>)
 		      (<EQUAL? ,SPELL-USED ,W?FIERCE>
 		       <SETG SPELL-HANDLED? T>
 		       <JIGS-UP
 "Cerbère vous déchire membre par membre ! Quelle férocité !">)
 		      (<EQUAL? ,SPELL-USED ,W?FEEBLE>
 		       <TELL
-"Il a maintenant la force d'un seul éléphant, plutôt que de dix !" CR>)>)
+"Quel effet ! Il n'a plus que la force d'un seul éléphant, au lieu de dix !" CR>)>)
 	       (<NOT ,CERBERUS-LEASHED>
-		<TELL "Le chien à trois têtes se moque vicieusement de vous !" CR>)
+		<TELL "Le chien à trois têtes claque férocement des mâchoires dans votre direction !" CR>)
 	       (<AND ,CERBERUS-LEASHED <VERB? RUB>>
 		<TELL
-"Le chien est maintenant follement heureux, slobbing partout dans l'endroit et pleurnicher avec une joie doggish non contenue." CR>)>>
+"Le chien est désormais fou de joie : il bave partout et gémit, incapable de contenir son enthousiasme canin." CR>)>>
 
 <ROUTINE COLLAR-FCN ()
 	 <COND (<AND <VERB? TAKE> ,CERBERUS-LEASHED>
 		<JIGS-UP
-"Ce n'était pas une bonne idée. La créature aimait être votre animal de compagnie. Quand vous décrochez le collier, le chien monstre déçu commence à gronder, et puis ses trois bouches à camouflage vous plongent dans des petits biscuits en levrette.">)
+"Ce n'était guère judicieux. La créature appréciait son rôle d'animal de compagnie. Lorsque vous détachez le collier, le monstre déçu se met à grogner, puis ses trois gueules hérissées de crocs vous réduisent en biscuits pour chien.">)
 	       (<AND <VERB? ENCHANT> <EQUAL? ,SPELL-USED ,W?FLOAT>>
 		<PERFORM ,V?ENCHANT ,CERBERUS>
 		<RTRUE>)>>
 
 \
 
-"SOUS-TITRE DRAGON ET GLACIER"
+"SOUS-TITRE : DRAGON ET GLACIER"
 
 <GLOBAL ICE-MELTED <>>
 
 <ROUTINE GLACIER-FCN ()
 	 <COND (<VERB? MELT>
 		<TELL
-"C'est un grand glacier ; vous aurez besoin de beaucoup de chaleur." CR>)>>
+"Ce glacier est immense ; il vous faudra une source de chaleur considérable." CR>)>>
 
 <ROUTINE GLACIER-ROOM-FCN (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"C'est un grand hall de lave ancienne, depuis porté lisse par le mouvement d'un glacier. Un grand passage sort à l'est et un tube de lave vers le haut est au sommet d'un jumble de roches tombées." CR>
+"Cette vaste galerie de lave ancienne a été polie par le lent passage d'un glacier. Un large couloir mène à l'est ; au sommet d'un amas de rochers effondrés, un tunnel de lave monte vers les hauteurs." CR>
 		<COND (,ICE-MELTED
 		       <TELL
-"Un passage humide et brûlé mène à l'ouest. Il est encore en partie plein de vapeur." CR>)>
+"Un passage humide et calciné mène à l'ouest. De la vapeur l'emplit encore en partie." CR>)>
 		<RTRUE>)>>
 
 <ROUTINE DRAGON-FCN ()
 	 <ENABLE <QUEUE I-DRAGON -1>>
 	 <COND (<HELLO? ,DRAGON>
 		<TELL
-"Le dragon semble amusé. Il parle d'une voix si profonde que vous le sentez plutôt que de l'entendre, mais la langue vous est inconnue. Vous vous trouvez presque hypnotisée." CR>
+"Le dragon paraît amusé. Il parle d'une voix si grave que vous la ressentez plus que vous ne l'entendez, dans une langue qui vous est inconnue. Vous vous sentez presque hypnotisé." CR>
 		<SETG DRAGON-ANGER <+ ,DRAGON-ANGER 2>>)
 	       (<VERB? EXAMINE>
 		<TELL
-"Il se retourne et te regarde, les yeux de son chat sont jaunes dans l'obscurité." CR>
+"Il se retourne vers vous ; ses yeux de chat luisent d'un jaune inquiétant dans la pénombre. Vos forces vous abandonnent ; vous détournez vivement le regard." CR>
 		<SETG DRAGON-ANGER <+ ,DRAGON-ANGER 1>>)
 	       (<VERB? ATTACK MUNG KICK LAMP-ON>
 		<COND (<OR <VERB? LAMP-ON>
@@ -2229,12 +2237,12 @@ D .V " à la place." CR>
 		<COND (<GETPT ,PRSO ,P?VALUE>
 		       <MOVE ,PRSO ,CHEST>
 		       <TELL
-"Le dragon est satisfait de votre don, s'excuse un instant, et revient sans lui." CR>)
+"Le dragon apprécie votre présent, s'absente un instant et revient sans lui." CR>)
 		      (<BOMB? ,PRSO>
 		       <SETG DRAGON-ANGER <+ ,DRAGON-ANGER 2>>
 		       <REMOVE ,BRICK>
 		       <TELL
-"Le dragon serpente sa longue langue rouge autour de la bombe et l'avale poliment. Quelques instants plus tard, il souffle et fume des boucles de ses narines." CR>)
+"Le dragon enroule sa longue langue rouge autour de la bombe et l'avale poliment. Quelques instants plus tard, il rote ; des volutes de fumée s'échappent de ses narines." CR>)
 		      (T
 		       <TELL "Le dragon refuse votre cadeau." CR>)>)
 	       (<AND <VERB? WALK>
@@ -2242,17 +2250,17 @@ D .V " à la place." CR>
 		     <EQUAL? ,PRSO ,P?NORTH>>
 		<SETG DRAGON-ANGER <+ ,DRAGON-ANGER 3>>
 		<TELL
-"Le dragon met une griffe, des grimaces (toutes ses dents sabres qui brillent dans la lumière), et bloque votre chemin." CR>)>>
+"Le dragon tend une griffe, découvre dans un rictus toutes ses dents acérées comme des épées, et vous barre le passage." CR>)>>
 
 <GLOBAL DRAGON-ANGER 0>
 
 <GLOBAL DRAGON-ATTACKS
         <LTABLE
-"La peau de Dragon est dure comme de l'acier, mais vous avez réussi à l'ennuyer un peu."
+"La peau du dragon est dure comme l'acier, mais vous avez tout de même réussi à l'agacer. Il vous dévisage, comme s'il hésitait encore à vous manger."
 "Cela a suscité son intérêt. Il vous regarde d'un air sinistre."
 "Le dragon est surpris et intéressé (pour le moment)."
 "Vous l'avez plutôt mis en colère. Vous feriez mieux d'être très prudent maintenant."
-"Ça n'a pas endommagé, mais il tourne ses yeux jaunes fumés dans votre direction et soupirs.">>
+"Cela ne lui fait aucun mal. Il tourne toutefois vers vous ses yeux jaunes et fumeux, puis soupire.">>
 
 <ROUTINE HELLO? (WHO)
 	 <COND (<OR <EQUAL? ,WINNER .WHO>
@@ -2282,25 +2290,25 @@ D .V " à la place." CR>
 <ROUTINE I-DRAGON ("AUX" ROOM)
 	 <COND (<G? ,DRAGON-ANGER 6>
 		<TELL
-"Les pneus de dragon de ce jeu. Avec un bâillement presque ennuyeux, il ouvre sa bouche et">
+"Le dragon se lasse de ce petit jeu. Avec un bâillement presque ennuyé, il ouvre la gueule et ">
 		<COND (<EQUAL? ,SPELL? ,S-FIREPROOF>
 		       <TELL
-"Ça vous explose d'une grande goutte de feu, mais ça vous lave inoffensifment." CR>)
+" vous crache un formidable torrent de flammes, qui vous enveloppe sans vous blesser." CR>)
 		      (T
 		       <DRAGON-LEAVES>
 		       <JIGS-UP
-"vous incinère dans une explosion de feu de dragon chauffé à blanc.">)>)
+" vous incinère dans un torrent de flammes de dragon chauffées à blanc.">)>)
 	       (<AND <IN? ,WINNER ,DRAGON-ROOM>
 		     <NOT <IN? ,DRAGON ,DRAGON-ROOM>>>
 		<MOVE ,DRAGON ,DRAGON-ROOM>
 		<TELL
-"Le dragon double et charge dans la pièce, en colère par votre tentative de se faufiler devant lui. Ses yeux brillent d'une chaleur blanche de colère." CR>
+"Fou de rage devant votre tentative de lui fausser compagnie, le dragon fait demi-tour et charge dans la salle. Ses yeux brillent d'une colère chauffée à blanc." CR>
 		<COND (<EQUAL? ,SPELL? ,S-FIREPROOF>
 		       <JIGS-UP
-"Une énorme boule de flamme vous enveloppe, mais vous ne sentez même pas la chaleur. Le dragon est perplexe, mais pas trop perplexe pour vous écraser dans ses mâchoires.">)
+"Une énorme boule de feu vous enveloppe, mais vous n'en ressentez même pas la chaleur. Le dragon est perplexe -- pas assez, toutefois, pour oublier de vous broyer entre ses mâchoires.">)
 		      (T
 		       <JIGS-UP
-"Pire pour vous, sa bouche s'ouvre et une grande goutte de flamme souffle et vous consume sur place.">)>)
+"Pour votre malheur, il ouvre la gueule et crache un formidable jet de flammes qui vous consume sur place.">)>)
 	       (<NOT <G? ,DRAGON-ANGER 0>>
 		<COND (<AND <PROB 50>
 			    <IN? ,DRAGON ,HERE>>
@@ -2309,7 +2317,7 @@ D .V " à la place." CR>
 		       <DRAGON-LEAVES>
 		       <COND (<EQUAL? ,HERE ,GLACIER-ROOM>
 			      <TELL
-"Le dragon n'est plus là. Il a dû s'ennuyer de vous." CR>)
+"Le dragon n'est plus là. Il a dû se lasser de vous." CR>)
 			     (<EQUAL? ,HERE ,OLD-HERE>
 			      <TELL
 "Le dragon semble s'être désintéressé de vous.">
@@ -2322,10 +2330,10 @@ D .V " à la place." CR>
 		      (<OR <EQUAL? .ROOM ,CAROUSEL-ROOM ,TINY-ROOM>
 			   <EQUAL? .ROOM ,RAVINE-LEDGE ,FRESCO-ROOM>>
 		       <COND (<PROB 25> <DRAGON-LEAVES>)>
-		       <TELL "Le dragon ne vous suivra pas. plus loin." CR>)
+		       <TELL "Le dragon refuse de vous suivre plus loin." CR>)
 		      (<EQUAL? .ROOM ,GLACIER-ROOM>
 		       <TELL CR
-"Alors que le dragon entre, il voit sa réflexion sur la surface glaciale du glacier à son extrémité ouest. Il devient enragé: Il y a un autre dragon ici, derrière ce verre, il pense! Les dragons sont intelligents, mais parfois naïfs, et celui-ci n'a jamais vu de glace auparavant. Il s'élève jusqu'à sa pleine hauteur pour défier cet intrus dans son territoire. Il rugit un défi! L'intrus répond! Le dragon respire profondément, et sort de sa bouche verse une énorme goutte de flamme. Il se lave sur la glace, qui fond rapidement, envoyant des torrents d'eau et un énorme nuage de vapeur! Vous arrivez à palpiter jusqu'à une petite étagère, mais le dragon est terrifié! Une énorme éclaboussée descend dans sa gorge! Il y a une explosion étouffée et le dragon, une expression perplexe sur son visage, meurt. Il est emporté par l'eau.| | Quand l'inondation recule gentiment vers le bas." CR>
+"En entrant, le dragon aperçoit son reflet sur la surface glacée du glacier, à l'extrémité ouest. Il entre en fureur : un autre dragon se cache derrière cette paroi de verre ! Les dragons sont intelligents, mais parfois naïfs, et celui-ci n'a jamais vu de glace. Il se dresse de toute sa hauteur pour défier l'intrus qui ose empiéter sur son territoire. Il rugit ; son adversaire lui répond ! Le dragon prend une profonde inspiration et crache un formidable torrent de flammes. La glace fond à toute vitesse, libérant des flots d'eau et un immense nuage de vapeur. Vous parvenez à vous hisser sur une petite saillie, mais le dragon, lui, est pris de panique. Une énorme gerbe d'eau s'engouffre dans sa gorge. Une explosion sourde retentit ; l'air perplexe, le dragon meurt et le courant emporte son corps.| |Lorsque les eaux se retirent, vous redescendez avec précaution. Le dragon a disparu sans laisser de trace, mais la fonte du glacier a révélé un passage vers l'ouest." CR>
 		       <REMOVE ,DRAGON>
 		       <REMOVE ,ICE>
 		       <MOVE ,DEAD-DRAGON ,DEEP-FORD>
@@ -2361,7 +2369,7 @@ D .V " à la place." CR>
 			    <PROB 33>>
 		       <REMOVE ,UNICORN>
 		       <COND (<NOT <EQUAL? ,HERE ,TOPIARY-ROOM>>
-			      <TELL "La licorne bondit légèrement loin." CR>)>)
+			      <TELL "La licorne s'éloigne d'un bond léger." CR>)>)
 		      (<AND <IN? ,PRINCESS ,DRAGON-LAIR>
 			    <NOT <IN? ,UNICORN ,GARDEN-NORTH>>
 			    <PROB 25>
@@ -2373,23 +2381,23 @@ D .V " à la place." CR>
 		       <COND (<EQUAL? ,HERE ,GARDEN-NORTH>
 			      <TELL <RANDOM-ELEMENT ,UNICORN-MSGS> CR>)
 			     (T <TELL
-"Une licorne cultive paisiblement de l'herbe à l'extrémité nord du jardin. Il y a quelque chose autour de son cou." CR>)>)
+"Une licorne broute paisiblement à l'extrémité nord du jardin. Quelque chose pend autour de son cou." CR>)>)
 		      (<EQUAL? ,HERE ,TOPIARY-ROOM>
 		       <COND (<AND <NOT ,TOPIARY-MOVED> <PROB 12>>
 			      <SETG TOPIARY-MOVED T>
 			      <TELL
-"Vous regardez autour, et étrangement, les animaux topiaires semblent avoir légèrement changé de position." CR>)
+"Vous regardez autour de vous. Étrangement, les animaux de verdure semblent avoir légèrement changé de position." CR>)
 			     (<AND ,TOPIARY-MOVED
 				   <NOT ,TOPIARY-NEAR>
 				   <PROB 8>>
 			      <SETG TOPIARY-NEAR T>
 			      <TELL
-"Les animaux topiaires semblent se refermer sur vous. Vous vous retournez et ils sont très proches." CR>)
+"Les animaux de verdure semblent se rapprocher. Vous vous retournez : ils sont désormais tout près." CR>)
 			     (<AND ,TOPIARY-NEAR <PROB 4>>
 			      <SETG TOPIARY-MOVED <>>
 			      <SETG TOPIARY-NEAR <>>
 			      <JIGS-UP
-"Vous êtes écrasés par leurs branches et griffés par leurs épines.">)>)>)
+"Les animaux de verdure attaquent ! Leurs branches vous écrasent et leurs épines vous lacèrent.">)>)>)
 	       (T
 		<REMOVE ,UNICORN>
 		<DISABLE <INT I-GARDEN>>
@@ -2402,8 +2410,8 @@ D .V " à la place." CR>
 	<LTABLE
 	 "Il y a un grand animal blanc en partie caché derrière des arbres."
 	 "Vous apercevez quelque chose de blanc entre deux haies."
-	 "Une licorne cultive de l'herbe de l'autre côté de la pièce. Une clé en or est accrochée à un ruban autour de son cou."
-	 "Il y a une belle licorne mangeant des roses ici. Autour de son cou est un ruban de satin rouge sur lequel est attaché une petite clé.">>
+	 "Une licorne broute de l'autre côté de la salle. Une clé d'or pend à un ruban noué autour de son cou."
+	 "Une magnifique licorne mange des roses. Autour de son cou, un ruban de satin rouge retient une minuscule clé.">>
 
 <ROUTINE GARDEN-ROOM-FCN (RARG)
 	 <COND (<EQUAL? .RARG ,M-ENTER>
@@ -2412,12 +2420,12 @@ D .V " à la place." CR>
 <ROUTINE GLOBAL-UNICORN-FCN ()
 	 <COND (<IN? ,UNICORN ,GARDEN-NORTH>
 		<TELL
-"La licorne est tout en haut, à l'extrémité nord du jardin." CR>)
+"La licorne se trouve tout au nord du jardin." CR>)
 	       (<VERB? FIND FOLLOW>
 		<COND (<FSET? ,UNICORN ,TOUCHBIT>
-		       <TELL "Je ne sais pas où elle est maintenant." CR>)
+		       <TELL "Je ne sais plus où cela se trouve." CR>)
 		      (T <TELL
-"La licorne est une bête mythique." CR>)>)
+"La licorne est une créature légendaire." CR>)>)
 	       (T
 		<TELL
 "Licorne ? Quelle licorne ?" CR>)>>
@@ -2425,20 +2433,20 @@ D .V " à la place." CR>
 <ROUTINE UNICORN-FCN ()
 	 <COND (<HELLO? ,UNICORN>
 		<TELL
-"La licorne écoute distraitement, puis retourne couper l'herbe." CR>)
+"La licorne écoute distraitement, puis recommence à brouter." CR>)
 	       (<VERB? FOLLOW>
 		<TELL
-"La licorne s'éloigne lorsque vous approchez." CR>)
+"La licorne se dérobe à votre approche." CR>)
 	       (<AND <VERB? EXAMINE> <EQUAL? ,PRSO ,UNICORN>>
 		<TELL
-"La licorne s'éloigne lorsque vous approchez pour un regard plus proche, mais vous remarquez une minuscule clé d'or accrochée à un ruban de satin rouge enroulé autour du cou de l'animal." CR>)
+"La licorne recule à votre approche. Vous remarquez toutefois une minuscule clé d'or suspendue à un ruban de satin rouge noué autour de son cou." CR>)
 	       (<VERB? EXAMINE>
-		<TELL "La licorne s'éloigne lorsque vous approchez." CR>)
+		<TELL "La licorne se dérobe à votre approche." CR>)
 	       (<VERB? TAKE PUT RUB MUNG ATTACK>
 		<REMOVE ,UNICORN>
 		<SETG UNICORN-FRIGHTENED T>
 		<TELL
-"La licorne, surprise par cette preuve que vous êtes en effet la sorte de vagabond incoudée qu'elle soupçonnait, fond dans les haies et est partie." CR>)>>
+"Cette preuve confirme à la licorne que vous êtes bien le rustre vagabond qu'elle soupçonnait. Sans surprise, elle se fond dans les haies et disparaît." CR>)>>
 
 <GLOBAL UNICORN-FRIGHTENED <>>
 
@@ -2461,11 +2469,11 @@ D .V " à la place." CR>
 "L'ouverture du couvercle qui grince fait sursauter la jeune femme." CR>)>)
 		      (T
 		       <TELL
-"Les charnières sont très rouillées, mais elles semblent commencer à donner. Vous pouvez probablement l'ouvrir si vous essayez à nouveau. Il y a quelque chose qui gronde à l'intérieur.">
+"Les charnières sont très rouillées, mais elles commencent à céder. Vous pourrez probablement l'ouvrir en essayant encore une fois. Quelque chose remue à l'intérieur.">
 		       <COND (<AND <IN? ,PRINCESS ,HERE>
 				   <NOT ,PRINCESS-AWAKE>>
 			      <TELL
-"Toute cette rumeur a surpris la jeune femme.">)>
+" Tout ce remue-ménage a fait sursauter la jeune femme.">)>
 		       <CRLF>)>
 		<PUTP ,CHEST ,P?ACTION 0>
 		<COND (<AND <IN? ,PRINCESS ,HERE>
@@ -2479,7 +2487,7 @@ D .V " à la place." CR>
 	 <COND (<VERB? FOLLOW>
 		<COND (<IN? ,PRINCESS ,HERE>
 		       <TELL
-"Vous ne pouvez pas la suivre jusqu'à ce qu'elle parte..." CR>)
+"Vous ne pouvez pas la suivre avant qu'elle ne parte..." CR>)
 		      (,PRFOLLOW
 		       <DO-WALK ,PRFOLLOW>)
 		      (T
@@ -2490,38 +2498,38 @@ D .V " à la place." CR>
 	       (<VERB? ATTACK MUNG RAPE>
 		<REMOVE ,PRINCESS>
 		<TELL
-"La princesse crie à l'approche. \"N'est-ce pas quelqu'un qui me délivrera de ce terrible destin ?\" elle pleure.">
+"La princesse pousse un cri à votre approche. « Personne ne me délivrera donc de cet affreux destin ? » se lamente-t-elle. ">
 		<COND (<IN? ,WIZARD ,HERE>
 		       <TELL
 "Choqué, le Magicien de Frobozz se tourne vers vous.">)
 		      (ELSE
-		       <TELL "Juste à temps, le Magicien de Frobozz apparaît, semblant se détacher de rien comme une ombre de fenêtre.">)>
+		       <TELL "Juste à temps, le Magicien de Frobozz surgit du néant, comme un store que l'on déroulerait.">)>
 		<TELL
-"\"Fais-le!\" il s'insinue, et un énorme éclair te réduit à un tas de cendres fumantes.">
+" « Foudroiement ! » déclame-t-il. Un éclair colossal vous réduit aussitôt en un tas de cendres fumantes. (À mon avis, vous l'avez bien cherché.)">
 		<JIGS-UP>)
 	       (<OR <HELLO? ,PRINCESS> <VERB? ALARM KISS EXAMINE RUB>>
 		<COND (<AND <IN? ,PRINCESS ,DRAGON-LAIR>
 			    <EQUAL? <GET .DEM ,C-ENABLED?> 0>>
 		       <PUTP ,PRINCESS ,P?LDESC
-"Il y a ici une princesse échevelée et légèrement négligée.">
+"Une princesse échevelée et quelque peu négligée se tient ici.">
 		       <ENABLE <QUEUE I-PRINCESS 2>>
 		       <SETG PRINCESS-AWAKE T>
 		       <TELL
-"La princesse (car elle est évidemment une) se réveille, puis vous remarque pour la première fois. Elle sourit. « Merci de m'avoir sauvé de ce ver horrible », dit-elle. « Je dois partir. Mes parents seront inquiets pour moi. » Avec cela, elle se lève, regardant délibérément hors de la tanière." CR>)
+"La princesse -- car c'en est manifestement une -- sort de sa torpeur et vous remarque enfin. Elle sourit. « Merci de m'avoir délivrée de cet affreux ver. Je dois partir ; mes parents doivent s'inquiéter. » Sur ces mots, elle se lève et regarde résolument vers la sortie de l'antre." CR>)
 		      (T
 		       <TELL
-"La princesse t'ignore, elle regarde la pièce, mais ses yeux s'arrangent sur la">
+"La princesse ne vous prête aucune attention. Elle regarde autour d'elle, mais son regard se fixe sur ">
 		       <COND (<EQUAL? ,HERE ,GAZEBO-ROOM>
-			      <TELL "jardin extérieur">)
+			      <TELL "jardin, à l'extérieur">)
 			     (<EQUAL? ,HERE ,GARDEN-NORTH>
-			      <TELL "belvédère">)
+			      <TELL "pavillon">)
 			     (<EQUAL? ,HERE ,RAVINE-LEDGE>
-			      <TELL "rebord">)
+			      <TELL "corniche">)
 			     (T
 			      <TELL <GET ,PRDIRS <* ,PRCOUNT 4>>>)>
 		       <TELL "." CR>)>)
 	       (<NOT ,PRINCESS-AWAKE>
-		<TELL "Elle est dans un transe !" CR>)>>
+		<TELL "Elle est en transe !" CR>)>>
 
 <GLOBAL PRCOUNT 0>
 
@@ -2536,7 +2544,7 @@ D .V " à la place." CR>
 	       "est" STREAM-PATH "ouest" P?EAST
 	       "est" FORMAL-GARDEN "ouest" P?EAST
 	       "nord" GARDEN-NORTH "sud" P?NORTH
-	       "dans" GAZEBO-ROOM "sortie" P?IN>>
+	       "dans" GAZEBO-ROOM "dehors" P?IN>>
 
 <ROUTINE I-PRINCESS ("AUX" (DEM <INT I-PRINCESS>) (OLDP <LOC ,PRINCESS>)
 		     (PC <* ,PRCOUNT 4>))
@@ -2545,7 +2553,7 @@ D .V " à la place." CR>
 	 <COND (<AND <IN? ,PRINCESS ,STREAM-PATH>
 		     <IN? ,WINNER ,MARBLE-HALL>>
 		<TELL
-"La princesse presse un morceau de marbre dans le mur et une grande partie du mur glisse, révélant un passage à l'est. Elle entre." CR>
+"La princesse appuie sur une plaque de marbre descellée. Une large portion du mur coulisse, révélant un passage vers l'est, dans lequel elle s'engage." CR>
 		<COND (<IN? ,WINNER .OLDP>
 		       <SETG PRFOLLOW <GET ,PRDIRS <+ .PC 3>>>)>
 		<SETG SECRET-DOOR T>)
@@ -2553,26 +2561,26 @@ D .V " à la place." CR>
 		     <IN? ,WINNER ,STREAM-PATH>>
 		<SETG SECRET-DOOR T>
 		<TELL
-"La princesse apparaît derrière des rochers, comme si elle avait traversé un mur." CR>)
+"La princesse surgit de derrière des rochers, comme si elle avait traversé la paroi." CR>)
 	       (<IN? ,WINNER .OLDP>
 		<SETG PRFOLLOW <GET ,PRDIRS <+ .PC 3>>>
 	        <COND (<EQUAL? .OLDP ,GARDEN-NORTH>
-		       <TELL "La princesse entre dans le belvédère">
+		       <TELL "La princesse entre dans le pavillon.">
 		       <COND (<FSET? ,GAZEBO-ROOM ,RMUNGBIT>
-			      <TELL "Elle doit être protégée par magie.">)>
+			      <TELL ", même si les décombres vous empêcheraient de passer. Elle doit bénéficier d'une protection magique.">)>
 		       <TELL "." CR>)
 		      (<EQUAL? .OLDP ,RAVINE-LEDGE>
 		       <TELL
-"La princesse grimpe délicatement le long de la paroi rocheuse." CR>)
+"La princesse descend gracieusement la paroi rocheuse." CR>)
 		      (T
 		       <TELL "La princesse marche ">
 		       <TELL <GET ,PRDIRS .PC>>
-		       <TELL ". Elle vous regarde pendant qu'elle avance." CR>)>)
+		       <TELL ". Elle vous lance un regard par-dessus son épaule en s'éloignant." CR>)>)
 	       (<IN? ,PRINCESS ,HERE>
 		<COND (<EQUAL? ,HERE ,GAZEBO-ROOM>
-		       <TELL "La princesse vous rejoint dans le belvédère." CR>)
+		       <TELL "La princesse vous rejoint dans le pavillon." CR>)
 		      (<EQUAL? ,HERE ,DEEP-FORD>
-		       <TELL "La princesse descend la paroi rocheuse jusqu'au plage." CR>)
+		       <TELL "La princesse descend la paroi rocheuse jusqu'à la plage." CR>)
 		      (T
 		       <TELL "La princesse entre par le ">
 		       <TELL <GET ,PRDIRS <+ 2 .PC>>>
@@ -2594,7 +2602,7 @@ D .V " à la place." CR>
 		<SCORE-OBJ ,GOLD-KEY>
 		<PUTP ,GOLD-KEY ,P?ACTION 0>
 		<TELL
-"Elle s'approche d'elle et s'incline la tête comme si elle était courbée. Autour de son cou est un ruban de satin rouge sur lequel est portée une délicate clé d'or. La princesse prend le ruban et l'utilise pour attacher ses cheveux. Elle vous regarde et puis, souriant, vous donne la clé et une rose fraîche qu'elle arrache de l'arboreau. \"Vous avez peut-être utilisé une telle chose,\" dit-elle. \"C'est le moins que je puisse faire pour celui qui m'a sauvé d'un destin que je n'ose pas contempler.\"" CR>
+"Timidement, une licorne passe la tête hors des haies. Elle remarque la princesse et paraît aussitôt fascinée. Elle s'approche, puis incline la tête comme pour lui faire la révérence. Autour de son cou, un ruban de satin rouge retient une délicate clé d'or. La princesse retire le ruban et s'en sert pour nouer ses cheveux. Puis elle vous sourit, vous tend la clé et cueille une rose fraîche sous la tonnelle.| |« Ceci pourrait vous être utile, dit-elle. C'est bien peu pour celui qui m'a sauvée d'un destin que je n'ose imaginer. » Sur ces mots, elle monte la licorne -- en amazone, naturellement -- et s'éloigne dans la pénombre." CR>
 		<REMOVE ,PRINCESS>)
 	       (T
 		<REMOVE ,PRINCESS>
@@ -2603,14 +2611,14 @@ D .V " à la place." CR>
 
 \
 
-"ATELIER DE SOUS-TITRE ET ENVIRONS"
+"SOUS-TITRE : ATELIER DU MAGICIEN ET ENVIRONS"
 
 <ROUTINE MENHIR-ROOM-FCN (RARG)
 	 <COND (<AND <EQUAL? .RARG ,M-FLASH> ,MENHIR-POSITION>
 		<DESCRIBE-MENHIR>)
 	       (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Il s'agit d'une grande pièce qui a été manifestement utilisée une fois comme carrière. Beaucoup de grands morceaux de calcaire se trouvent héliter-skelter autour de la pièce. Certains sont rugueux et non travaillés, d'autres lisses et bien finis. Un côté de la pièce semble avoir été utilisé pour les blocs de construction de carrière, l'autre pour produire des menhirs (pierres debout)." CR>
+"Cette vaste salle servait manifestement autrefois de carrière. D'énormes blocs de calcaire y sont éparpillés sans ordre : certains encore bruts, d'autres soigneusement taillés et polis. Une moitié de la carrière paraît avoir produit des pierres de construction, l'autre des menhirs. Des passages bien visibles mènent au nord et au sud." CR>
 		<COND (<IN? ,MENHIR ,LOCAL-GLOBALS>
 		       <DESCRIBE-MENHIR>)>
 		T)>>
@@ -2619,23 +2627,23 @@ D .V " à la place." CR>
 	 <COND (<EQUAL? ,HERE ,MENHIR-ROOM>
 		<COND (<EQUAL? ,MENHIR-POSITION <>>
 		       <TELL
-"Un menhir particulièrement grand, d'au moins vingt pieds de haut et huit pieds d'épaisseur, est penché contre le mur bloquant une ouverture sombre menant au sud-ouest. De ce côté du menhir est sculpté une lettre ornée \"F\"." CR>)
+"Un menhir particulièrement imposant -- au moins vingt pieds de haut pour huit d'épaisseur -- est appuyé contre le mur et bloque une ouverture obscure vers le sud-ouest. Une lettre « F » richement ouvragée est gravée sur sa face visible." CR>)
 		      (<EQUAL? ,MENHIR-POSITION 1>
 		       <TELL
-"Il y a un énorme menhir posé sur le sol près d'un passage sud-ouest." CR>)
+"Un énorme menhir gît au sol, près d'un passage menant au sud-ouest." CR>)
 		      (<EQUAL? ,MENHIR-POSITION 2>
 		       <TELL
-"Une ouverture sombre mène sud-ouest." CR>)
+"Une ouverture obscure mène au sud-ouest." CR>)
 		      (<EQUAL? ,MENHIR-POSITION 3>
-		       <TELL "Il y a un énorme menhir ici." CR>)
+		       <TELL "Un énorme menhir se dresse ici." CR>)
 		      (T
 		       <TELL
-"Il y a ici un énorme menhir flottant comme une plume au milieu de l'air." CR>)>
+"Un énorme menhir flotte ici dans les airs, léger comme une plume. Un passage vers le sud-ouest s'ouvre sous lui." CR>)>
 		<COND (<EQUAL? ,HERE ,MUNGED-ROOM>
 		       <TELL
 "L'explosion semble n'avoir eu aucun effet sur le menhir." CR>)>
 		<RTRUE>)
-	       (T <TELL "Une ouverture sombre mène sud-ouest." CR>)>>
+	       (T <TELL "Une ouverture obscure mène au sud-ouest." CR>)>>
 
 <GLOBAL MENHIR-POSITION <>>
 
@@ -2643,33 +2651,33 @@ D .V " à la place." CR>
 	 <COND (<VERB? LOOK-UNDER LOOK-BEHIND>
 		<COND (,MENHIR-POSITION
 		       <TELL
-"Derrière le menhir se trouvent un peu d'air puis un mur." CR>)
+"Derrière le menhir, il n'y a qu'un mince espace, puis une paroi." CR>)
 		      (T
 		       <TELL
-"L'écart entre le menhir et le mur est très étroit, mais il est clair qu'il y a une grande pièce là-dedans. Votre lumière ne révèle qu'une partie du mur lointain." CR>)>)
+"L'espace entre le menhir et la paroi est très étroit, mais une salle assez vaste se trouve manifestement derrière. Votre lumière n'en révèle qu'une partie du mur opposé." CR>)>)
 	       (<VERB? TAKE MOVE TURN>
 		<TELL
-"Le menhir pèse beaucoup de tonnes et mesure huit pieds de large. Vous ne pouvez même pas obtenir une prise sur elle, beaucoup moins le déplacer." CR>)
+"Le menhir pèse plusieurs tonnes et mesure huit pieds de large. Vous ne parvenez même pas à le saisir, encore moins à le déplacer." CR>)
 	       (<VERB? READ> <TELL "\"F\"" CR>)
 	       (<VERB? EXAMINE>
 		<TELL
-"Il est bien fini, et la lettre « F » sur elle est particulièrement bien sculptée." CR>)
+"La finition est soignée, et la lettre « F » qui y figure est particulièrement bien sculptée." CR>)
 	       (<AND <VERB? ENCHANT> <EQUAL? ,SPELL-USED ,W?FLOAT>>
 		<TELL
-"Le menhir flotte majestueusement dans l'air, s'élevant à environ dix pieds. Le passage au-dessous s'annonce accueillant." CR>
+"Le menhir s'élève majestueusement à une dizaine de pieds dans les airs. Le passage ainsi dégagé vous invite à vous y engager." CR>
 		<SETG MENHIR-POSITION 3>)
 	       (<AND <VERB? DISENCHANT>
 		     <EQUAL? ,SPELL-USED ,W?FLOAT>>
 		<SETG MENHIR-POSITION <>>
 		<COND (<EQUAL? ,HERE ,MENHIR-ROOM ,KENNEL>
 		       <TELL
-"Le menhir s'enfonce jusqu'au sol." CR>)>)>>
+"Le menhir redescend jusqu'au sol." CR>)>)>>
 
 <GLOBAL GUARDIAN-FED <>>
 
 <ROUTINE DOOR-KEEPER-FCN ()
 	 <COND (<AND <VERB? ALARM> ,GUARDIAN-FED>
-		<TELL "Essayez comme vous le pouvez, vous ne pouvez pas vous réveiller. " CR>)
+		<TELL "Vous aurez beau essayer, vous ne le réveillerez pas." CR>)
 	       (<AND <VERB? GIVE> <EQUAL? ,PRSI ,DOOR-KEEPER>>
 		<COND (,GUARDIAN-FED
 		       <TELL
@@ -2678,17 +2686,17 @@ D .V " à la place." CR>
 		       <SETG GUARDIAN-FED T>
 		       <REMOVE ,CANDY>
 		       <TELL
-"Le gardien loupe avidement les bonbons, y compris le paquet. (Il semblait apprécier les sauterelles particulièrement.) Il devient alors calme et ses yeux proches. (Les lézards sont connus pour dormir longtemps tout en digérant leurs repas.)" CR>)
+"Le gardien engloutit avidement les friandises, emballage compris -- il semble particulièrement apprécier les sauterelles. Puis il s'apaise et ferme les yeux. (Les lézards sont connus pour dormir longtemps pendant leur digestion.)" CR>)
 		      (<EQUAL? ,PRSO ,FLASK>
 		       <TELL
-"Le lézard le renifle expérimentalement, puis vous regarde en colère, sifflant et se cassant." CR>)
+"Le lézard le renifle avec précaution, puis vous dévisage avec colère en sifflant et en claquant des mâchoires." CR>)
 		      (<BOMB? ,PRSO>
 		       <REMOVE ,PRSO>
 		       <TELL
-"Au bout d'un moment, vous entendez une petite pop et les yeux du gardien s'évanouissent. Il siffle sur vous." CR>)
+"Le gardien l'engloutit avidement. Un moment plus tard, un minuscule « pop » retentit et ses yeux lui sortent de la tête. Il siffle méchamment dans votre direction." CR>)
 		      (<EQUAL? ,PRSO ,PALANTIR-1 ,PALANTIR-2 ,PALANTIR-3>
 		       <TELL
-"Le gardien agite avidement la sphère, mais la trouve intransigeante. Il essaie ensuite à plusieurs reprises de l'avaler, avec des résultats décevants. Enfin, il la crache sur le sol." CR>
+"Le gardien engloutit avidement la sphère, mais ne parvient pas à la mâcher. Il essaie encore et encore de l'avaler tout entière, sans plus de succès, puis finit par la recracher au sol." CR>
 		       <MOVE ,PRSO ,HERE>)
 		      (T
 		       <REMOVE ,PRSO>
@@ -2696,7 +2704,7 @@ D .V " à la place." CR>
 "Le lézard engloutit le " D ,PRSO " en croquant goulûment." CR>)>)
 	       (<VERB? ATTACK MUNG>
 		<TELL
-"Le gardien semble imperméable à votre attaque." CR>)>>
+"Le gardien paraît insensible à votre attaque. À vrai dire, vos coups ne semblent même pas l'atteindre." CR>)>>
 
 <GLOBAL WIZ-DOOR-FLAG <>>
 
@@ -2704,13 +2712,13 @@ D .V " à la place." CR>
 	 <COND (<NOT ,GUARDIAN-FED>
 		<COND (<VERB? OPEN>
 		       <TELL
-"Le lézard prend vie et s'en prend à vous quand vous atteignez la poignée." CR>)
+"Le lézard s'anime et tente de vous mordre lorsque vous approchez la main de la poignée." CR>)
 		      (<VERB? UNLOCK>
 		       <TELL
-"Le gardien de porte de lézard vient éveillé et mord à la main.">
+"Le lézard gardien s'éveille et tente de vous mordre la main. Vous la retirez juste à temps.">
 		       <COND (<AND <EQUAL? ,PRSI ,GOLD-KEY> <PROB 5>>
 			      <REMOVE ,GOLD-KEY>
-			      <TELL "Le gardien a la clé, mais ça grince maniaque." CR>)
+			      <TELL " Le gardien prend bien la clé, cependant. Il affiche un sourire dément." CR>)
 			     (<PROB 20>
 			      <MOVE ,GOLD-KEY ,HERE>
 			      <TELL " Mais vous laissez tomber la clé." CR>)
@@ -2721,7 +2729,7 @@ D .V " à la place." CR>
 		      (<EQUAL? ,PRSI ,GOLD-KEY>
 		       <SETG WIZ-DOOR-FLAG T>
 		       <TELL
-"La clé tourne et le pêne clique. La porte est déverrouillée." CR>)
+"La clé tourne et le pêne se rétracte avec un déclic. La porte est déverrouillée." CR>)
 		      (T
 		       <SETG WIZ-DOOR-FLAG <>>
 		       <TELL "Cela ne la déverrouillera pas." CR>)>)
@@ -2737,32 +2745,32 @@ D .V " à la place." CR>
 		<COND (,WIZ-DOOR-FLAG
 		       <OPEN-CLOSE ,PRSO
 				   "La porte s'ouvre en grinçant."
-				   "La porte s'ouvre à contrecœur. ferme.">)
+				   "La porte se referme à contrecoeur.">)
 		      (<VERB? OPEN>
 		       <TELL "La porte est verrouillée !" CR>)>)>>
 
 <ROUTINE GUARDIAN-ROOM-FCN (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Cette pièce est cobwebby et musty, mais les traces dans la poussière montrent qu'elle a vu des visiteurs récemment. À l'extrémité sud de la pièce est une porte tachée et battue (mais très forte) . Au nord, un couloir sort." CR>
+"Cette salle sent le renfermé et les toiles d'araignée l'envahissent, mais les traces dans la poussière révèlent des visites récentes. Au sud se dresse une porte tachée et malmenée, quoique d'apparence très solide. Un couloir part vers le nord." CR>
 		<COND (<FSET? ,WIZ-DOOR ,OPENBIT>
 		       <TELL "La porte est ouverte." CR>)>
 		<COND (<NOT ,GUARDIAN-FED>
 		       <TELL
-"Imbécile dans la porte est une sale tête de lézard, avec des dents pointues et des yeux perlés.">
+"Une tête de lézard repoussante, aux dents acérées et aux petits yeux brillants, est enchâssée dans la porte. ">
 		       <COND (<IN? ,CANDY ,WINNER>
 			      <TELL "Le lézard vous renifle." CR>)
 			     (T
 			      <TELL
-"Les yeux bougent pour vous regarder approcher." CR>)>)
+"Les yeux suivent votre approche." CR>)>)
 		      (T
 		       <TELL
-"Une tête de lézard à l'air endormi est montée sur le porte." CR>)>)>>
+"Une tête de lézard ensommeillée est fixée à la porte." CR>)>)>>
 
 <ROUTINE WORKSHOP-FCN (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Vous êtes debout dans le hall d'entrée de l'atelier du Magicien. Des couloirs sombres mènent à l'ouest et au sud d'ici. Le couloir à l'ouest sent légèrement de l'encens ou de la fumée de bougie.">
+"Vous êtes dans le vestibule de l'atelier du Magicien. Des couloirs obscurs mènent à l'ouest et au sud. Celui de l'ouest exhale une légère odeur d'encens ou de fumée de bougie.">
 		<COND (<FSET? ,WIZ-DOOR ,OPENBIT>
 		       <TELL " La porte de l'atelier est ouverte.">)>
 		<CRLF>
@@ -2771,17 +2779,17 @@ D .V " à la place." CR>
 <ROUTINE ARCANA-PSEUDO ()
 	 <COND (<VERB? TAKE>
 		<TELL
-"Les trucs sur le banc semblent être tellement de merde, et vous décidez qu'il ne serait sur votre chemin que si vous l'avez pris." CR>)>>
+"Tout ce qui encombre l'établi ressemble à un amas de camelote. Vous décidez que l'emporter ne ferait que vous gêner." CR>)>>
 
 <ROUTINE TROPHY-PSEUDO ()
 	 <COND (<VERB? READ> <RFALSE>)
 	       (<VERB? TAKE RUB>
 		<TELL
-"Comme vos doigts s'approchent, vous obtenez un choc méchant (mais heureusement pas fatal)." CR>)>>
+"Lorsque vos doigts s'en approchent, vous recevez une violente décharge -- heureusement pas mortelle." CR>)>>
 
 <ROUTINE STAND-FCN ()
 	 <COND (<VERB? TAKE>
-		<TELL "Le " D ,PRSO " est fermement fixé au banc." CR>)
+		<TELL "Le " D ,PRSO " est solidement fixé à l'établi." CR>)
 	       (<AND <VERB? PUT PUT-ON>
 		     <EQUAL? ,PRSO ,PALANTIR-1 ,PALANTIR-2 ,PALANTIR-3>
 		     <EQUAL? ,PRSI ,STAND-1 ,STAND-2 ,STAND-3>>
@@ -2794,34 +2802,34 @@ D .V " à la place." CR>
 		       <REMOVE ,PALANTIR-3>
 		       <MOVE ,STAND-4 ,WORKBENCH>
 		       <TELL
-"Lorsque vous placez le " D ,PRSO " dans le " D ,PRSI "Les trois sphères commencent à vibrer, de plus en plus vite, lorsque le bruit devient de plus en plus aiguisé. Trois bouffées de fumée, un rouge, un bleu, un blanc, s'élèvent des peuplements vides. Les sphères sont parties! Mais au centre du triangle formé par les peuplements est maintenant un peuplement noir d'obsidienne dans lequel repose une étrange sphère noire." CR>)>
+"Lorsque vous placez le " D ,PRSO " dans le " D ,PRSI ", un faible bourdonnement s'élève et les poils de votre nuque se hérissent. Les trois sphères vibrent de plus en plus vite, tandis que le son devient toujours plus aigu. Trois volutes de fumée -- l'une rouge, l'autre bleue, la dernière blanche -- montent des socles désormais vides. Les sphères ont disparu ! Au centre du triangle formé par les socles se dresse à présent un socle d'obsidienne noire, sur lequel repose une étrange sphère sombre." CR>)>
 		T)>>
 
 <ROUTINE IN-AQUARIUM-FCN (RARG)
 	 <COND (<EQUAL? .RARG ,M-LOOK>
 		<TELL
-"Il y a un sol sablonneux ici, et votre vision semble floue et floue. Le mur que vous regardez est joliment habillé en pierre." CR>
+"Le sol est couvert de sable et votre vue demeure trouble. La paroi que vous examinez est faite de blocs de pierre soigneusement taillés." CR>
 		<COND (<IN? ,SERPENT ,AQUARIUM>
 		       <COND (<PROB 25>
 			      <TELL
 "Pendant que vous regardez, une ombre semble passer au-dessus de votre tête." CR>)
 			     (<PROB 5>
 			      <TELL
-"La tête d'un serpent horrible se jette en vue, ses yeux verts perlés semblaient presque vous voir." CR>)>)>
+"La tête d'un horrible serpent entre dans votre champ de vision ; ses petits yeux verts semblent presque vous apercevoir." CR>)>)>
 		<RTRUE>)
 	       (<EQUAL? .RARG ,M-ENTER>
 		<COND (<IN? ,SERPENT ,AQUARIUM>
 		       <JIGS-UP
-"Vous tombez dans l'aquarium avec une éclaboussure (qui attire le serpent). Il vous mange avidement. Il n'est qu'un bébé, après tout, et a besoin de toute la nourriture qu'il peut avoir.">)
+"Vous tombez dans l'aquarium avec une grande éclaboussure, attirant aussitôt le serpent. Il vous dévore avec avidité. Après tout, ce n'est qu'un bébé : il lui faut toute la nourriture possible.">)
 		      (T <JIGS-UP
-"Tu t'es sérieusement coupé sur le verre cassé.">)>)>>
+"Oh là là... Vous vous êtes profondément entaillé avec le verre brisé. J'ai bien peur que vous ne soyez mort vidé de votre sang.">)>)>>
 
 <ROUTINE AQUARIUM-FCN ("AUX" OBJ)
 	 <COND (<VERB? BOARD THROUGH> <DO-WALK ,P?IN> <RTRUE>)
 	       (<AND <VERB? LOOK-INSIDE>
 		     <IN? ,SERPENT ,AQUARIUM>>
 		<TELL
-"Dans l'aquarium est un bébé serpent de mer qui vous regarde suspectement. Son corps écailleux s'agite dans l'énorme réservoir." CR>)
+"Un bébé serpent de mer nage dans l'aquarium et vous observe avec méfiance. Son corps écailleux ondule dans l'immense bassin." CR>)
 	       (<OR <AND <VERB? MUNG ATTACK> <EQUAL? ,PRSO ,AQUARIUM>>
 		    <AND <VERB? THROW> <EQUAL? ,PRSI ,AQUARIUM>>>
 		<COND (<EQUAL? ,PRSO ,AQUARIUM>
@@ -2831,11 +2839,11 @@ D .V " à la place." CR>
 		<MOVE .OBJ ,HERE>
 		<COND (<IN? ,DEAD-SERPENT ,HERE>
 		       <TELL
-"L'aquarium est déjà cassé !" CR>
+"L'aquarium est déjà brisé !" CR>
 		       <RTRUE>)
 		      (<EQUAL? .OBJ ,FLASK>
 		       <JIGS-UP
-"Le flacon se brise et un gaz toxique remplit le réservoir. pièce !">
+"Le flacon se brise et un gaz toxique envahit la salle !">
 		       <RTRUE>)
 		      (<BOMB? .OBJ>
 		       <DISABLE <INT I-FUSE>>)
@@ -2845,17 +2853,17 @@ D .V " à la place." CR>
 		<MOVE ,PALANTIR-3 ,AQUARIUM>
 		<FCLEAR ,PALANTIR-3 ,NDESCBIT>
 		<PUTP ,AQUARIUM ,P?LDESC
-"Un aquarium brisé remplit la moitié nord de la pièce.">
+"Les débris d'un aquarium occupent la moitié nord de la salle.">
 		<MOVE ,DEAD-SERPENT ,HERE>
 		<TELL
-"Le " D .OBJ "brise le mur de verre de l'aquarium, déversant une quantité impressionnante d'eau salée et de sable humide. Il déverse également un serpent de mer extrêmement ennuyé qui mord en colère au" D .OBJ "Il a du mal à respirer, et il semble vous tenir responsable de son problème actuel.">
+"Le " D .OBJ " fracasse la paroi de verre de l'aquarium, libérant une quantité impressionnante d'eau salée et de sable détrempé. Un serpent de mer extrêmement contrarié s'en échappe également et mord avec rage " D .OBJ ", puis vers vous. Il respire avec difficulté et paraît vous tenir responsable de son état.">
 		<COND (<VERB? MUNG>
 		       <TELL
-"Il parvient à vous rabattre avant qu'il ne se noie dans l'air." CR>
-		       <JIGS-UP "Je suppose que vous avez été trop négligent.">)
+" Il parvient à vous arracher les membres avant de suffoquer dans l'air." CR>
+		       <JIGS-UP "Vous avez sans doute été trop imprudent.">)
 		      (T
 		       <TELL
-"Il essaie de glisser sur le sol de pierre vers vous. Heureusement, il expire à quelques centimètres de votre pied. Une sphère cristalline claire se trouve au milieu du sable et du verre cassé sur le fond de l'aquarium." CR>)>)
+" Il tente de ramper vers vous sur le sol de pierre. Heureusement, il expire à quelques pouces seulement de votre pied. Une sphère de cristal transparente repose parmi le sable et les débris de verre au fond de l'aquarium." CR>)>)
 		      (T
 		       <TELL
 "Le " D .OBJ " rebondit sans danger sur le verre." CR>)>)>>
@@ -2866,13 +2874,13 @@ D .V " à la place." CR>
 "Le serpent ne fait que vous regarder avec avidité." CR>)
 	       (<VERB? ATTACK MUNG>
 		<TELL
-"Il nage vers vous avec un coup puissant de ses palmes, des dents comme un poignard qui coule. Heureusement, il ne veut pas s'écraser dans le mur de l'aquarium, et se contente de vous éclabousser avec de l'eau." CR>)
+"Il fonce vers vous d'un puissant coup de nageoires, ses dents acérées comme des poignards dégoulinant d'eau. Ne souhaitant heureusement pas percuter la paroi de l'aquarium, il se contente de vous éclabousser." CR>)
 	       (<AND <VERB? PUT>
 		     <EQUAL? ,PRSO ,SERPENT>>
 		<TELL "Impossible pour de nombreuses raisons." CR>)
 	       (<VERB? TAKE GIVE>
 		<JIGS-UP
-"Il vous emmène à la place. *Uurrp !*">)>>
+"Il vous dévore à sa place. *Beurp !*">)>>
 
 <ROUTINE DEAD-SERPENT-FCN ()
 	 <COND (<VERB? TAKE>
@@ -2882,47 +2890,47 @@ D .V " à la place." CR>
 <ROUTINE GENIE-FCN ("OPTIONAL" (RARG ,M-OBJECT) "AUX" V HOARD)
 	<COND (<VERB? HELLO>
 	       <TELL
-"Le génie sourit démoniaquement, mais ne dit rien." CR>)
+"Le démon affiche un sourire diabolique, mais ne dit rien." CR>)
 	      (<EQUAL? ,WINNER ,GENIE>
 	       <COND (<NOT ,GENIE-READY?>
 		      <TELL
-"« Mes honoraires ne sont pas payés ! Je n'accomplis aucune tâche gratuitement ! Nous, les démons, avons une forte union de nos jours. »" CR>
+"« Mes honoraires n'ont pas été réglés ! Je ne travaille pas gratuitement. Les démons ont aujourd'hui un syndicat très puissant. »" CR>
 		      <RFATAL>)
 		     (<VERB? SGIVE> <RFALSE>)
 		     (<OR <G? <GET ,P-PRSO 0> 1>
 			  <G? <GET ,P-PRSI 0> 1>>
 		      <TELL
-"\"Je ne ferai qu'une chose, oh gracieux maître !\"" CR>
+"« Je n'accomplirai qu'une seule tâche, ô gracieux maître ! »" CR>
 		      <RFATAL>)
 		     (<AND <VERB? MOVE> <EQUAL? ,PRSO ,GLOBAL-MENHIR>>
 		      <SETG MENHIR-POSITION 1>
 		      <TELL
-"Le démon est parti pour un moment. \"Un petit doigt suffit.\"" CR>
+"Le démon disparaît un instant. « Une broutille... Mon petit doigt a suffi. »" CR>
 		      <GENIE-LEAVES>)
 		     (<VERB? TAKE>
 		      <COND (<EQUAL? ,PRSO ,GLOBAL-MENHIR>
 			     <REMOVE ,MENHIR>
 			     <SETG MENHIR-POSITION 2>
 			     <TELL
-"\"J'ai peu d'utilité pour une telle chose, mais peut-être comme une porte d'arrêt...\"" CR>
+"Le démon disparaît l'espace d'un instant. « Je n'ai guère l'usage de pareille chose, mais elle pourrait servir de cale-porte... »" CR>
 			     <GENIE-LEAVES>)
 			    (<EQUAL? ,PRSO ,WAND>
 			     <TELL
-"«Ceci je le fais volontiers, oh idiot!» frappe le démon avec joie. Il étend une main énorme vers la baguette et le prend comme un cure-dent (ceci est un grand démon), le pointe à lui-même. «libre!» il commande, et le démon et sa baguette disparaissent pour toujours." CR>
+"« Avec plaisir, ô imbécile ! » ricane joyeusement le démon. Il tend une main gigantesque vers la baguette, la saisit comme un cure-dent -- c'est un très grand démon -- et la pointe sur lui-même. « Libre ! » ordonne-t-il. Le démon et sa baguette disparaissent à jamais." CR>
 			     <GENIE-LEAVES <>>
 			     <REMOVE ,WAND>)
 			    (<FSET? ,PRSO ,TAKEBIT>
 			     <GENIE-LEAVES <>>
 			     <REMOVE ,PRSO>
 			     <TELL
-"Le démon claque des doigts, le " D ,PRSO "tourne sauvagement dans l'air devant lui, puis lui et lui partent." CR>)
+"Le démon claque des doigts ; l'objet désigné -- " D ,PRSO " -- se met à tournoyer follement devant lui ; tous deux disparaissent alors." CR>)
 			    (T
 			     <TELL
-"\"Je crains de ne pas pouvoir prendre une telle chose.\"" CR>)>)
+"« Je crains de ne pouvoir prendre pareille chose. »" CR>)>)
 		     (<AND <VERB? GIVE> <EQUAL? ,PRSI ,ME>>
 		      <COND (<EQUAL? ,PRSO ,WAND>
 			     <TELL
-"«J'entends et j'obéis!» dit le démon. Il étend une main énorme vers la baguette. Le Magicien n'est pas sûr de ce qu'il doit faire, le pointant menaçant sur le démon, puis sur vous. «Fudge!» il pleure, mais, à part une forte odeur de chocolat dans l'air, il n'y a pas d'effet." CR>
+"« J'entends et j'obéis ! » répond le démon. Il tend une main gigantesque vers la baguette. Le Magicien hésite, la braquant tour à tour sur le démon et sur vous. « Fondant ! » s'écrie-t-il ; mais hormis une forte odeur de chocolat, rien ne se produit. Le démon lui arrache la baguette -- à peine un cure-dent entre ses doigts -- et la dépose délicatement devant vous. Puis il se fond dans un nuage de fumée qui se dissipe. Le Magicien s'enfuit, terrorisé." CR>
 			     <REMOVE ,WIZARD>
 			     <GENIE-LEAVES <>>
 			     <FCLEAR ,WAND ,NDESCBIT>
@@ -2933,23 +2941,23 @@ D .V " à la place." CR>
 			     <FCLEAR ,MENHIR ,TAKEBIT>
 			     <SETG MENHIR-POSITION 3>
 			     <TELL
-"Il agite ses mains et le menhir tombe doucement à vos pieds." CR>
+"D'un geste des mains, il dépose doucement le menhir à vos pieds." CR>
 			     <GENIE-LEAVES>)
 			    (<FSET? ,PRSO ,TAKEBIT>
 			     <MOVE ,PRSO ,PENTAGRAM-ROOM>
 			     <TELL
-"Le " D ,PRSO " apparaît devant vous et s'installe devant vous. sol." CR>
+"Le " D ,PRSO " apparaît devant vous et se pose au sol." CR>
 			     <GENIE-LEAVES>)
 			    (T
 			     <TELL
-"\"Si c'était possible, ce serait mon souhait le plus cher, mais hélas...\"" CR>)>)
+"« Si seulement c'était possible : tel serait mon voeu le plus cher. Hélas... »" CR>)>)
 		     (<VERB? ATTACK>
 		      <COND (<EQUAL? ,PRSO ,GLOBAL-CERBERUS>
 			     <TELL
-"Le démon disparaît un instant, puis réapparaît. Il a l'air plutôt griffé et griffé. Il treuils. \" Trop pour moi. Chien chiot, en effet. Vous êtes le bienvenu pour lui. Jamais aimé les chiens de toute façon... aucun autre ordre, oh beneficent un?\"" CR>)
+"« La tâche s'annonce ardue, mais voyons cela. Peut-être pourrai-je le dompter et en faire un petit chien. » Le démon disparaît un instant, puis revient couvert de morsures et de griffures. Il grimace. « Trop coriace, même pour moi. Un petit chien, vraiment ! Je vous le laisse. Je n'ai jamais aimé les chiens, de toute façon... D'autres ordres, ô bienfaiteur ? »" CR>)
 			    (<EQUAL? ,PRSO ,WIZARD>
 			     <TELL
-"\"C'est mon désir depuis que ce charlatan m'a plié à son service. J'accomplis cet acte avec plaisir!\" Le démon se forme de nouveau dans un nuage de fumée grasse. Le nuage enveloppe le Magicien, qui agite sans succès sa baguette, murmurant diverses phrases qui commencent par \"F\". Un cri horrible est entendu, et la fumée commence à s'éclaircir." CR>
+"Le démon affiche un sourire hideux. « Je désire cela depuis que ce charlatan m'a asservi. C'est avec joie que j'accomplirai cette tâche ! » Il se change en un nuage de fumée grasse qui enveloppe le Magicien. Celui-ci agite vainement sa baguette en marmonnant diverses formules commençant par la lettre F. Un hurlement atroce retentit, puis la fumée se dissipe. Du Magicien, il ne reste que sa baguette." CR>
 			     <REMOVE ,WIZARD>
 			     <FCLEAR ,WAND ,NDESCBIT>
 			     <MOVE ,WAND ,HERE>
@@ -2958,20 +2966,20 @@ D .V " à la place." CR>
 			     <GENIE-LEAVES <>>
 			     <SETG WINNER ,ADVENTURER>
 			     <JIGS-UP
-"Le démon vous écrase d'un coup de sa main énorme.">)
+"« Insensé mortel, puisque vous insistez... » Le démon vous écrase d'un seul coup de son énorme main.">)
 			    (T
 			     <TELL 
-"\"Je ne connais aucun moyen de tuer un " D ,PRSO ".\"" CR>)>)
+"« Je ne connais aucun moyen de tuer un " D ,PRSO ".\"" CR>)>)
 		     (<VERB? FIND EXAMINE>
 		      <TELL
-"\"Je n'ai pas le droit de ">
+"« Je ne suis pas autorisé à ">
 		      <COND (<VERB? FIND>
-			     <TELL "réponse questions">)
+			     <TELL "répondre à des questions">)
 			    (T <TELL "effectuer de telles tâches subalternes">)>
-		      <TELL ". Les termes de mon contrat sont explicites sur cette question, apprise. Certainement vous ne voudriez pas violer mon contrat?\" Il lèche ses lèvres avec une langue fourchue comme un serpent. \"Les clauses de pénalité sont ... hmm ... diable.\"" CR>)
+		      <TELL ". Les clauses de mon contrat sont formelles sur ce point, ô savant maître. Vous ne songeriez tout de même pas à les enfreindre ? » Il passe sur ses lèvres une langue fourchue de serpent. « Les pénalités sont... hum... diaboliques. »" CR>)
 		     (T
 		      <TELL
-"-- Excuses, oh maître, mais même pour une telle chose que je ne suis pas possible." CR>
+"« Pardonnez-moi, ô maître, mais cela demeure impossible, même pour un être tel que moi. » Il paraît quelque peu mortifié de devoir l'admettre." CR>
 		      <RTRUE>)>)
 	      (<VERB? EXORCISE ATTACK MUNG>
 	       <TELL
@@ -2980,10 +2988,10 @@ D .V " à la place." CR>
 	       <COND (<AND <EQUAL? ,PRSO ,IRON-BOX>
 			   <IN? ,VIOLIN ,PRSO>>
 		      <TELL
-"Le génie fronce brièvement les sourcils, puis ">
+"Le démon fronce brièvement les sourcils, puis ">
 		      <COND (<FSET? ,PRSO ,OPENBIT> <TELL "regarde à l'intérieur">)
 			    (ELSE <TELL "ouvre">)>
-		      <TELL " la boîte. Il sourit horriblement." CR>
+		      <TELL " le coffre. Il affiche un sourire effroyable." CR>
 		      <REMOVE-CAREFULLY ,IRON-BOX>
 		      <SETG PRSO ,VIOLIN>)>
 	       <COND (<AND <GETPT ,PRSO ,P?VALUE>
@@ -2995,29 +3003,29 @@ D .V " à la place." CR>
 		      <COND (<NOT <L? .HOARD ,TREASURES-MAX>>
 			     <SETG GENIE-READY? T>
 			     <PUTP ,WIZARD ,P?LDESC
-"Un sorcier abattu et craintif regarde depuis le coin.">
+"Le Magicien, abattu et craintif, vous observe depuis un coin.">
 			     <TELL
-"\"C'est un petit service, mais comme tu m'as rendu un petit service en me perdant de ce magicien, ça suffira.\"" CR>)
+"« Ceci couvrira mes honoraires. Le butin est maigre, mais puisque vous m'avez rendu le modeste service de me libérer de ce sorcier, je m'en contenterai. »" CR>)
 			    (T
 			     <TELL
 "\"" <GET ,GENIE-THANKS .HOARD> "\"" CR>
 			     <COND (<EQUAL? .HOARD 8>
 				    <TELL
-"Le Magicien te regarde comme un fou, il déchire sa barbe et te regarde avec peur." CR>)>
+"Le Magicien vous regarde comme si vous étiez fou. Il s'arrache la barbe et vous dévisage avec effroi." CR>)>
 			     <RTRUE>)>)
 		     (<BOMB? ,PRSO>
 		      <GENIE-LEAVES <>>
 		      <TELL
-"\"Je crains que cela viole mon contrat, oh stupide. Ainsi, je suis libre de partir.\"" CR>)
+"« Je crains que cela ne rompe notre contrat, ô insensé. Je suis donc libre de partir. »" CR>)
 		     (T
 		      <REMOVE-CAREFULLY ,PRSO>
 		      <TELL
-"Le démon prend volontiers le " D ,PRSO "et sourit avec audace, révélant d'énormes crocs." CR>)>)>>
+"Le démon accepte volontiers l'objet nommé « " D ,PRSO " » et affiche un sourire sinistre, dévoilant d'énormes crocs." CR>)>)>>
 
 <ROUTINE GENIE-LEAVES ("OPTIONAL" (NOISY? T))
 	 <FSET ,GENIE ,INVISIBLE>
 	 <COND (.NOISY?
-		<TELL "Le génie s'en va, son accord rempli." CR>)>
+		<TELL "Le démon s'en va : son engagement est rempli." CR>)>
 	 <SETG P-CONT <>>
 	 <RFATAL>>
 
@@ -3027,15 +3035,15 @@ D .V " à la place." CR>
 				  candy, collar, wand."
 
 <GLOBAL GENIE-THANKS <LTABLE
-"Mais ce n'est pas assez. Je vais faire un grand service, et ne sont pas de grands services achetés à grand prix?"
-"Très sympa, mais pas assez !"
-"Ah, vraiment magnifique ! Continuez à les faire venir."
-"Presque à mi-chemin, oh digne !"
-"Oh, quelle beauté ! Votre générosité m'accable presque !"
-"En vérité, je te rendrai un merveilleux service quand tu auras fini !"
-"Vraiment tu es très généreux ! Mais cela ne suffit pas encore."
-"Un beau cadeau, puissant, vous avez presque atteint mes honoraires."
-"Merveilleux bien, maître ! Mais un trésor reste encore à donner !">>
+"Fort bien, maître ! Mais cela ne suffit pas. Je vais rendre un grand service, et les grands services ne se paient-ils pas au prix fort ?"
+"Très joli, mais cela ne suffit pas !"
+"Ah, c'est absolument magnifique ! Continuez ainsi."
+"Vous voici presque à mi-chemin, ô digne maître !"
+"Oh, quelle merveille ! Votre générosité me bouleverse presque !"
+"En vérité, je vous rendrai un merveilleux service lorsque vous aurez terminé !"
+"Vous êtes vraiment fort généreux ! Pourtant, cela ne suffit pas encore."
+"Un magnifique présent, ô puissant maître ! Mes honoraires sont presque acquittés."
+"Merveilleux, maître ! Il reste cependant un trésor à offrir !">>
 
 <ROUTINE CASE-WORTH ("AUX" F (W 0))
 	 <SET F <FIRST? ,WIZARD-CASE>>
@@ -3049,21 +3057,21 @@ D .V " à la place." CR>
 	 <COND (<EQUAL? .RARG ,M-BEG>
 		<COND (<VERB? THROUGH BOARD>
 		       <TELL
-"Vous essayez d'entrer dans le pentagramme, mais sont contraints de revenir par une puissance invisible." CR>)
+"Vous tentez de pénétrer dans le pentagramme, mais une force invisible vous repousse." CR>)
 	              (<AND <VERB? PUT PUT-ON> <EQUAL? ,PRSO ,PALANTIR-4>>
 		       <REMOVE ,PALANTIR-4>
 		       <FCLEAR ,GENIE ,INVISIBLE>
 		       <MOVE ,GENIE ,PENTAGRAM-ROOM>
 		       <TELL
-"Un vent froid souffle vers l'extérieur de la sphère. Les bougies scintillent, et un gémissement bas, presque inaudible, est entendu. Il se lève en volume et pitch jusqu'à ce qu'il devienne un aiguillage élevé. Une forme sombre devient visible dans l'air au-dessus de la sphère. La forme se résout en un grand démon regardant quelque peu redoutable. Il regarde autour, teste les murs du pentagramme expérimentalement, puis vous voit! \"Hmm, un nouveau maître...\" dit-il sous son souffle. \"Greetings, oh maître! Voudrait-il un service, comme notre état contractuel? Pour une certaine pitance de richesse, un peu de trifle, je vais gratifier vos désirs à la plus grande limite de mes pouvoirs, et ils ne sont pas inconsidérés.\" Il fait un passage avec ses bras massifs et les murs commencent à secouer un peu. Un autre passage et les secousses s'arrêtent." CR>)>)>>
+"Un vent glacé jaillit de la sphère. Les bougies vacillent et un gémissement presque inaudible s'élève. Il gagne en force et en hauteur jusqu'à devenir une plainte perçante. Une forme indistincte apparaît dans les airs au-dessus de la sphère, puis prend les traits d'un démon immense et passablement redoutable. Il inspecte les lieux, éprouve les parois du pentagramme, puis vous aperçoit.| |« Hum... un nouveau maître », murmure-t-il. « Salutations, ô maître ! Désirez-vous quelque service, ainsi que le stipule notre contrat ? Pour une modeste offrande, une broutille, je comblerai vos souhaits jusqu'aux dernières limites de mes pouvoirs -- qui ne sont pas négligeables. » D'un geste de ses bras massifs, il fait trembler les murs ; d'un second, il les immobilise. « Bel effet, n'est-ce pas ? Une démonstration précoce favorise toujours de bonnes relations. » Il affiche un sourire abominable." CR>)>)>>
 
 <ROUTINE WIZARD-FCN ("OPTIONAL" (RARG ,M-OBJECT) "AUX" OLIT)
 	 <COND (<EQUAL? ,WINNER ,WIZARD>
 		<COND (<VERB? GIVE> <TELL
-"Le sorcier répond « Folishment ! »" CR>)
+"Le Magicien répond : « Sottises ! »" CR>)
 		      (T
 		       <TELL
-"Le Magicien considère votre déclaration avec soin." CR>)>)
+"Le Magicien réfléchit attentivement à vos paroles. Son expression indique qu'il les juge fantaisistes." CR>)>)
 	       (<AND <VERB? GIVE> <EQUAL? ,PRSI ,WIZARD>>
 		<SET OLIT ,LIT>
 		<REMOVE-CAREFULLY ,PRSO>
@@ -3071,33 +3079,35 @@ D .V " à la place." CR>
 		       <COND (<IN? ,GENIE ,PENTAGRAM-ROOM>
 			      <MOVE ,PRSO ,HERE>
 			      <TELL
-"Le sorcier accepte cette dernière folie avec résignation." CR>)
+"Le Magicien accepte cette ultime folie avec résignation." CR>)
 			     (T
 			      <REMOVE ,WIZARD>
 			      <TELL
-"\"Hmm...\" Le Magicien mutte quelque chose, puis fait passer sa baguette sur la bombe. Il se transforme en bouquet de fleurs. Le Magicien et les fleurs disparaissent." CR>)>)
+"« Hum... » Le Magicien marmonne quelques mots, puis agite sa baguette au-dessus de la bombe. Celle-ci se change en bouquet de fleurs. Le Magicien et le bouquet disparaissent ensemble." CR>)>)
 		      (<AND .OLIT <NOT ,LIT>>
 		       <TELL
-"\"Merci.\" Lorsque l'assistant place le " D ,PRSO "sous sa robe, la pièce devient sombre." CR>)
+"« Merci. » Tandis que le Magicien glisse le " D ,PRSO " sous sa robe, la salle plonge dans l'obscurité." CR>)
 		      (T
-		       <TELL "\"Merci.\"" CR>)>)
+		       <TELL "« Merci. »" CR>)>)
 	       (<HELLO? ,WIZARD>
 		<TELL
-"Le sorcier semble surpris, tout comme vous pourriez l'être si un chien parlait." CR>)
+"Le Magicien paraît aussi surpris que vous le seriez si un chien se mettait à parler." CR>)
 	       (<VERB? ATTACK MUNG>
 		<REMOVE ,WIZARD>
 		<COND (<IN? ,WAND ,WIZARD>
 		       <TELL
-"Le magicien se retire, agitant sa baguette et chantant. Il dit «Peur!»">)
+"Le Magicien recule en agitant sa baguette et en psalmodiant : « Peur ! »
+">)
 		      (T
 		       <TELL
-"Le Magicien essaie de jeter le sort \"Peur!\", mais sans sa baguette !">)>
+"Le Magicien essaie de lancer le sort « Peur ! », mais il n'a plus sa baguette !
+">)>
 		<COND (<NOT <FSET? ,GENIE ,INVISIBLE>>
 		       <TELL
-"Avec un regard terrifié sur le démon, le magicien passe devant vous et sort de la pièce." CR>)
+"Rien ne se produit ! Après un regard terrifié vers le démon, le Magicien vous dépasse en courant et s'enfuit de la salle." CR>)
 		      (T
 		       <TELL
-"Vous êtes soudainement terrifié. Le Magicien semble énorme et terrible, se profilant sur vous." CR CR>
+"Une terreur soudaine vous saisit. Le Magicien paraît immense et effroyable, dressé au-dessus de vous. Vous prenez la fuite. Il glousse, claque des doigts et disparaît." CR CR>
 		       <SETG SPELL? ,S-FEAR>
 		       <PUTP ,ADVENTURER ,P?ACTION MAGIC-ACTOR>
 		       <ENABLE <QUEUE I-WIZARD 10>>
@@ -3110,13 +3120,13 @@ D .V " à la place." CR>
 		<COND (<EQUAL? ,SPELL? ,S-FLOAT>
 		       <COND (<EQUAL? ,HERE ,WELL-TOP>
 			      <JIGS-UP
-"Vous plongez au fond du puits alors que le sort se dissipe.">
+"Lorsque le sort se dissipe, vous plongez jusqu'au fond du conduit.">
 			      <RTRUE>)
 			     (<AND <FSET? ,HERE ,NONLANDBIT>
 				   <NOT <EQUAL? ,HERE ,WELL-BOTTOM
 						,VOLCANO-BOTTOM>>>
 			      <JIGS-UP
-"Au fur et à mesure que le sort s'éteint, on se retrouve en train de faire un demi-gainer vers le fond du volcan.">
+"Lorsque le sort se dissipe, vous vous retrouvez lancé dans un demi-salto vers le fond du volcan.">
 			      <RTRUE>)>)
 		      (<EQUAL? ,SPELL? ,S-FEEBLE>
 		       <SETG LOAD-ALLOWED ,LOAD-MAX>)
@@ -3137,7 +3147,7 @@ D .V " à la place." CR>
 		       <COND (<IN? ,WINNER ,PENTAGRAM-ROOM>
 			      <TELL
 
-"Soudain le Magicien se matérialise dans la pièce. Il est étonné de ce qu'il voit : son serviteur en conversation profonde avec un aventurier commun ! Il tire sa baguette, la fait flotter frénétiquement, et incante « Frobizz ! Frobozzle ! Frobnoid ! » Le démon rit de bon cœur. « Vous ne contrôlez plus le cristal noir, le bizard de haie ! Votre baguette est impuissante ! Votre doom est scellé ! » Le démon se tourne vers vous, attendument." CR>)>)>
+"Soudain, le Magicien se matérialise dans la pièce. Il n'en croit pas ses yeux : son serviteur converse tranquillement avec un vulgaire aventurier ! Il brandit sa baguette, l'agite frénétiquement et incante : « Frobizz ! Frobozzle ! Frobnoid ! » Le démon éclate de rire. « Tu ne contrôles plus le Cristal noir, sorcier de pacotille ! Ta baguette est impuissante et ton destin scellé ! » Puis le démon se tourne vers vous, dans l'attente de vos ordres." CR>)>)>
 		<RTRUE>)>
 	 <COND (<AND <NOT ,LIT>
 		     <FSET? ,LAMP ,RMUNGBIT>
@@ -3145,11 +3155,11 @@ D .V " à la place." CR>
 		<SETG ALWAYS-LIT T>
 		<SETG LIT T>
 		<TELL
-"Dans l'obscurité, vous entendez la voix du Magicien. \"Cher moi, vous semblez être entré dans un sacré cornichon.\"" CR>
+"Dans les ténèbres, vous entendez la voix du Magicien. « Eh bien, vous voilà dans de beaux draps. » Il glousse. « Fluorescence ! » incante-t-il. L'obscurité se dissipe." CR>
 		<RTRUE>)>
 	 <COND (<AND <LOC ,WIZARD> <PROB 80>>
 		<COND (<AND ,LIT <IN? ,WIZARD ,HERE>>
-		       <TELL "Le sorcier disparaît." CR>)>
+		       <TELL "Le Magicien disparaît." CR>)>
 		<REMOVE ,WIZARD>
 		<RTRUE>)>
 	 <COND (<PROB 10>
@@ -3158,17 +3168,17 @@ D .V " à la place." CR>
 "Vous ressentez un léger souffle d'air alors que quelque chose bouge à proximité." CR>)
 		      (<EQUAL? ,HERE ,POSTS-ROOM ,POOL-ROOM>
 		       <TELL
-"Un sorcier énorme et terrible apparaît devant vous, aussi grand que le plus grand arbre! Il vous regarde comme vous regarderiez un gneau!" CR>)
+"Un Magicien immense et terrifiant apparaît devant vous, aussi haut que le plus grand des arbres ! Il vous contemple comme vous regarderiez un moucheron." CR>)
 		      (<FSET? ,HERE ,NONLANDBIT>
 		       <TELL
-"Le Magicien apparaît, flottant inconsidérément dans l'air à côté de vous." CR>)
+"Le Magicien apparaît, flottant nonchalamment dans les airs à vos côtés. Il vous adresse un sourire en coin." CR>)
 		      (T
 		       <TELL
-"Un étrange petit homme vêtu d'une longue cape apparaît soudain dans la pièce. Il porte un haut chapeau pointu brodé de signes astrologiques. Sa barbe est longue, filasse et négligée." CR>)>
+"Un étrange petit homme vêtu d'une longue cape apparaît soudain dans la pièce. Il porte un haut chapeau pointu brodé de signes astrologiques et une longue barbe filasse, fort mal entretenue." CR>)>
 		<COND (<IN? ,PALANTIR-4 ,ADVENTURER>
 		       <COND (,LIT
 			      <TELL
-"Le Magicien remarque que vous portez le cristal noir, et avec une hâte insoupçonnée, il disparaît." CR>)
+"Le Magicien remarque que vous portez le Cristal noir et disparaît avec une hâte peu digne de son rang." CR>)
 			     (ELSE
 			      <TELL
 "Vous ressentez un soudain afflux d'air comme si quelque chose avait disparu." CR>)>
@@ -3177,7 +3187,7 @@ D .V " à la place." CR>
 		      (<PROB 20>
 		       <COND (,LIT
 			      <TELL
-"Il mute quelque chose (soufflé par sa barbe) et disparaît aussi soudainement qu'il est venu." CR>)
+"Il marmonne quelques mots, étouffés par sa barbe, puis disparaît aussi brusquement qu'il était venu." CR>)
 			     (ELSE
 			      <TELL
 "Vous entendez des murmures sourds et confus." CR>)>
@@ -3205,36 +3215,36 @@ D .V " à la place." CR>
 					 <RANDOM <- 30 <* 5 .PCNT>>>>>>
 		       <COND (<PROB 75>
 			      <TELL
-"Le Sorcier, d'une voix grave et résonante, prononce le mot \""
-<GET ,SPELL-NAMES ,SPELL?> " !\" Il disparaît ensuite en ricanant joyeusement." CR>)
+"D'une voix grave et résonnante, le Magicien prononce \""
+<GET ,SPELL-NAMES ,SPELL?> " ! » Puis il disparaît en gloussant de joie." CR>)
 			     (T
 			      <TELL
-"Le Magicien, presque inaudiblement, murmure un mot commençant par \"F\", puis disparaît, gloussant nastily." CR>)>
+"Le Magicien murmure presque imperceptiblement un mot commençant par « F », puis disparaît avec un gloussement malveillant." CR>)>
 		       <REMOVE ,WIZARD>
 		       <COND (<GET ,SPELL-HINTS ,SPELL?>
 			      <TELL <GET ,SPELL-HINTS ,SPELL?> CR>)>
 		       <COND (<EQUAL? ,SPELL? ,S-FALL>
 			      <COND (<FSET? .WLOC ,VEHBIT>
 				     <TELL
-"Vous tombez soudainement hors du " D .WLOC "Comme si quelqu'un l'avait retourné." CR>
+"Vous tombez soudainement hors du " D .WLOC " comme si quelqu'un l'avait retourné." CR>
 				     <COND (<EQUAL? ,HERE ,WELL-TOP>
 					    <JIGS-UP
-"Vous plongez jusqu'au fond du puits.">)
+"Vous chutez jusqu'au fond du conduit.">)
 					   (<AND <FSET? ,HERE ,NONLANDBIT>
 						 <NOT <EQUAL? ,HERE
 							      ,VOLCANO-BOTTOM
 							      ,WELL-BOTTOM>>>
 					    <JIGS-UP
-"Vous faites un plongeon du cygne plutôt désordonné au fond du puits.<<<ZX002695E>>><<<ZX002696S>>> volcan.">)
+"Vous exécutez un plongeon en cygne plutôt désordonné jusqu'au fond du volcan.">)
 					   (ELSE <MOVE ,WINNER ,HERE>)>)>)
 			     (<EQUAL? ,SPELL? ,S-FLOAT>
 			      <COND (<FSET? .WLOC ,VEHBIT>
 				     <TELL
-" Vous vous élevez majestueusement du " D .WLOC ", s'arrêtant à environ cinq pieds au-dessus et d'un côté." CR>
+" Vous vous élevez majestueusement hors du " D .WLOC ", puis vous vous immobilisez à environ cinq pieds au-dessus, légèrement sur le côté." CR>
 				     <MOVE ,WINNER ,HERE>)
 				    (T
 				     <TELL
-"Lentement, vous et tous vos effets s'élèvent dans l'air, s'arrêtant après environ cinq pieds." CR>)>)
+"Lentement, vous vous élevez dans les airs avec toutes vos possessions et vous immobilisez à environ cinq pieds du sol." CR>)>)
 			     (<EQUAL? ,SPELL? ,S-FEEBLE>
 			      <SETG LOAD-ALLOWED 50>
 			      <COND (<SET F <FIRST? ,WINNER>>
@@ -3244,7 +3254,7 @@ D .V " à la place." CR>
 			     (<EQUAL? ,SPELL? ,S-FEAR>
 			      <COND (<FSET? .WLOC ,VEHBIT>
 				     <TELL
-"Vous vous recroquevillez dans le coin du " D .WLOC "J'espère que le magicien ne te verra pas." CR>)
+"Vous vous recroquevillez dans le coin du " D .WLOC ", en espérant que le Magicien ne vous voie pas." CR>)
 				    (T
 				     <CRLF>
 				     <RANDOM-WALK>)>)
@@ -3261,16 +3271,16 @@ D .V " à la place." CR>
 "Quelque chose que vous transportiez a disparu !" CR>)>)
 			     (<EQUAL? ,SPELL? ,S-FIERCE>
 			      <TELL
-"Le Magicien murmure quelque chose sous son souffle, et juste avant de l'atteindre, il disparaît." CR>)>
+"Le Magicien marmonne dans sa barbe et disparaît juste avant que vous ne l'atteigniez." CR>)>
 		       <RTRUE>)
 		      (<PROB 50>
 		       <REMOVE ,WIZARD>
 		       <TELL
-"Il y a un fort bruit crépitant. La fumée bleue sort de la manche du Magicien. Il soupire et disparaît." CR>)
+"Un fort crépitement retentit. De la fumée bleue s'échappe de la manche du Magicien. Il soupire et disparaît." CR>)
 		      (<PROB 50>
 		       <REMOVE ,WIZARD>
 		       <TELL
-"Le Sorcier incante \"" <RANDOM-ELEMENT ,SPELL-NAMES> "Mais rien ne se passe. Il secoue la baguette. Rien ne se passe." CR>)
+"Le Magicien prononce \"" <RANDOM-ELEMENT ,SPELL-NAMES> " ! » Mais rien ne se produit. Il secoue la baguette. Toujours rien. Après un regard légèrement embarrassé dans votre direction, il disparaît." CR>)
 		      (T
 		       <MOVE ,WIZARD ,HERE>
 		       <TELL
@@ -3293,20 +3303,20 @@ D .V " à la place." CR>
 <CONSTANT S-FANTASIZE 12>
 
 <GLOBAL SPELL-NAMES
-	<LTABLE "Faible" "Fumble" "Peur" "Rusard" "Gel"
-		"Fal l" "Ferment" "Féroce" "Flotteur" "Ignifuge"
-		"Clôture" "Fantastique">>
+	<LTABLE "Faiblesse" "Fébrilité" "Frayeur" "Fauche" "Figer"
+		"Faire choir" "Fermentation" "Fureur" "Flottaison" "Feu-froid"
+		"Fortification" "Fantasme">>
 
 <GLOBAL SPELL-HINTS
 	<LTABLE
 "Tout d'un coup, vous vous sentez très fatigué."
 <>
-"Tu regardes le Magicien dans la terreur, tu t'éloignes, tu essayes de t'éloigner de lui."
+"Vous contemplez le Magicien avec terreur, puis détalez pour mettre le plus de distance possible entre lui et vous."
 <>
-"Vos membres ont soudain l'impression qu'ils se sont tournés vers la pierre."
+"Vos membres semblent soudain changés en pierre. Vous ne pouvez plus bouger un seul muscle."
 <>
 "Vous commencez à vous sentir étourdi."
-"Vous vous précipitez sur le sorcier, avec l'intention de le déchirer membre par membre."
+"Vous vous ruez sur le Magicien avec l'intention de le démembrer."
 <>
 <>
 <>
@@ -3316,13 +3326,13 @@ D .V " à la place." CR>
 	<LTABLE
 "Vous vous sentez plus énergique maintenant."
 <>
-"Vous décidez soudainement que le sorcier n'est pas si terrifiant..."
+"Soudain, le Magicien ne vous paraît plus si terrifiant..."
 <>
-"Votre petit doigt commence à tordre, puis tout votre corps est à nouveau libre."
+"Votre petit doigt se met à frémir, puis votre corps tout entier retrouve sa liberté de mouvement."
 <>
-"Votre tête est plus claire maintenant."
-"Vous vous sentez plus frais et moins en colère maintenant."
-"Vous vous enfoncez tranquillement. encore une fois."
+"Vous avez désormais les idées plus claires."
+"Vous vous sentez moins échauffé et moins en colère."
+"Vous redescendez doucement."
 <>
 <>
 <>>>
@@ -3353,15 +3363,15 @@ D .V " à la place." CR>
 		       <REMOVE ,WIZARD-CASE>
 		       <MOVE ,BROKEN-CASE ,TROPHY-ROOM>
 		       <TELL
-"Le démon écrase l'affaire en smithereens." CR>)>)
+"Le démon pulvérise la vitrine ; tout son contenu subit le même sort." CR>)>)
 	       (<AND <VERB? ENCHANT> <EQUAL? ,SPELL-USED ,W?FILCH>>
 		<ROB ,WIZARD-CASE ,HERE>
 		<SETG SPELL-HANDLED? T>
 		<TELL
-"Le contenu de la mallette est disposé à vos pieds." CR>)
+"Le contenu de la vitrine est disposé à vos pieds." CR>)
 	       (<VERB? OPEN MUNG CLOSE TAKE>
 		<TELL
-"L'affaire est protégée par un sort effrayant." CR>)>>
+"Un redoutable sortilège protège la vitrine. Impossible de la toucher." CR>)>>
 
 <GLOBAL SPELL-HANDLED? <>>	;"T if handled before I-SPELL runs"
 <GLOBAL WAND-ON <>>
@@ -3371,14 +3381,14 @@ D .V " à la place." CR>
 <ROUTINE WAND-FCN ()
 	 <COND (<AND <VERB? TAKE PUT GIVE> <IN? ,WAND ,WIZARD>>
 		<COND (<EQUAL? ,WINNER ,ADVENTURER>
-		       <TELL "Le magicien l'enlève." CR>)
+		       <TELL "Le Magicien s'en empare vivement." CR>)
 		      (<EQUAL? ,WINNER ,ROBOT>
 		       <JIGS-UP
-"Le Magicien arrache la baguette, murmurant le mot \"Float\" au robot. Malheureusement, il n'a pas de processeur flottant et meurt dans une tentative vaine de diviser 4,85 par 3,62.">)>)
+"Le Magicien arrache la baguette et marmonne « Flottant » en direction du robot. Hélas, celui-ci ne possède pas d'unité de calcul en virgule flottante et succombe en tentant vainement de diviser 4,85 par 3,62.">)>)
 	       (<AND <VERB? WAVE>
 		     <EQUAL? ,PRSI ,GRUE>>
 	        <TELL
-"Il n'y a pas de bruit en vue, mais un bruit sifflant sort des ténèbres." CR>)
+"Aucune grue n'est visible, mais un sifflement monte des ténèbres." CR>)
 	       (<VERB? WAVE RUB RAISE>
 		<COND (<AND <EQUAL? ,PRSO ,WAND>
 			    <NOT <IN? ,WAND ,WINNER>>>
@@ -3387,10 +3397,10 @@ D .V " à la place." CR>
 		      (<OR ,WAND-ON ,SPELL-USED ,SPELL-VICTIM>
 		       <COND (<PROB 5>
 			      <JIGS-UP
-"La baguette était encore en train de se recharger de sa dernière utilisation. Elle décharge la magie sur tout. Tu te transformes en crapaud, la pièce se remplit d'une odeur fétide, et toutes sortes d'autres choses affreuses se produisent.">)
+"La baguette n'avait pas fini de se recharger depuis sa dernière utilisation. Elle répand sa magie dans toutes les directions : vous êtes changé en crapaud, la pièce s'emplit d'une odeur fétide et quantité d'autres choses répugnantes se produisent. Puis la baguette explose !">)
 			     (T
 			      <TELL
-"Beaucoup de choses que vous connaissez sur la magie ! Une baguette magique prend un certain temps pour se recharger après l'utilisation !" CR>)>
+"Vos connaissances en magie laissent à désirer ! Une baguette magique doit se recharger après chaque utilisation. Vous risqueriez de provoquer un court-circuit !" CR>)>
 		       <RTRUE>)
 		      (<VERB? WAVE>
 		       <COND (<AND <EQUAL? ,PRSO ,WAND> ,PRSI>
@@ -3400,7 +3410,7 @@ D .V " à la place." CR>
 		      (<VERB? RUB>
 		       <COND (<AND <EQUAL? ,PRSI ,WAND> ,PRSO>
 			      <SETG WAND-ON ,PRSO>)
-			     (T <TELL "Toucher quoi ?" CR> <RTRUE>)>)
+			     (T <TELL "Que voulez-vous toucher ?" CR> <RTRUE>)>)
 		      (<VERB? RAISE>
 		       <TELL "La baguette devient chaude et semble vibrer." CR>
 		       <RTRUE>)>
@@ -3413,7 +3423,7 @@ D .V " à la place." CR>
 "Heureusement, un verrouillage de sécurité empêche la boucle de rétroaction fatale que cela provoquerait." CR>)
 			     (T
 			      <TELL
-"La baguette devient chaude, le " D ,WAND-ON "semble briller avec des essences magiques, et vous vous sentez étouffé de pouvoir." CR>)>
+"La baguette se réchauffe ; l'objet désigné -- " D ,WAND-ON " -- semble luire faiblement d'essences magiques, tandis qu'une puissance nouvelle vous envahit." CR>)>
 		       <ENABLE <QUEUE I-WAND 2>>)>
 		T)>>
 
@@ -3450,20 +3460,20 @@ D .V " à la place." CR>
 <GLOBAL WIZQDESCS
 	<LTABLE
 "peu meublée et presque monacale dans son austérité."
-"un sérail opulentement meublé sorti d'un style arabe. conte populaire."
+"un sérail somptueusement meublé, tout droit sorti d'un conte arabe."
 "décoré dans le style Louis XIV."
 "surplombé de palmiers et de lianes. Le seul meuble est un hamac."
-"construit à partir de nuages délicats et vaporeux."
-"meublé en plastique et en métal et ressemble au pont de commande d'un vaisseau spatial."
+"faite de nuées délicates et vaporeuses."
+"meublée de plastique et de métal, à la manière de la passerelle d'un vaisseau spatial."
 "une chambre de banlieue datant des années 1950, dotée de lits superposés."
-"une grotte sombre et faiblement éclairée, au sol rempli de fourrures et de vieilles os.">>
+"une grotte humide et faiblement éclairée, dont le sol est couvert de fourrures et de vieux os.">>
 
 <ROUTINE BRIDGE-FCN ()
 	 <COND (<VERB? CROSS>
 		<DO-WALK ,P?CROSS>)
 	       (<VERB? LEAP>
 		<JIGS-UP
-"Vous exécutez un plongeon du cygne parfait dans les profondeurs en contrebas.">)>>
+"Vous exécutez un plongeon en cygne parfait dans les profondeurs.">)>>
 
 ;"misc. routines"
 
@@ -3477,7 +3487,7 @@ D .V " à la place." CR>
 	 <COND (<OR <VERB? LEAP>
 		    <AND <VERB? PUT> <EQUAL? ,PRSO ,ME>>>
 		<TELL
-"Pour changer, vous regardez avant de sauter." CR>)
+"Pour une fois, vous regardez avant de sauter et comprenez que vous n'y survivriez pas." CR>)
 	       (<VERB? CROSS>
 		<TELL "Vous devrez trouver un pont." CR>)
 	       (<AND <VERB? PUT> <EQUAL? ,PRSI ,PSEUDO-OBJECT>>
@@ -3493,17 +3503,17 @@ D .V " à la place." CR>
 <ROUTINE STALA-PSEUDO ()
 	 <COND (<VERB? TAKE MUNG>
 		<TELL
-"Les seuls que vous pouvez atteindre sont trop grands pour réussir à les rompre." CR>)>>
+"Les seuls que vous puissiez atteindre sont trop gros pour être détachés." CR>)>>
 
 <ROUTINE MOSS-FCN ()
 	 <COND (<VERB? TAKE RUB>
 		<TELL
-"Une partie de la mousse se frotte sur vous, mais elle cesse de briller très rapidement une fois arraché de son environnement." CR>)>>
+"Un peu de mousse reste sur vous, mais elle cesse très vite de luire une fois arrachée à son milieu." CR>)>>
 
 <ROUTINE ROSE-BUSH-FCN ()
 	 <COND (<VERB? TAKE>
 		<TELL
-"Tu piques ton doigt en essayant de prendre une rose, et tu sautes en colère." CR>)>>
+"En tentant de cueillir une rose, vous vous piquez le doigt et reculez, contrarié. La fleur a presque semblé placer ses épines sur votre chemin." CR>)>>
 
 <ROUTINE I-SPELL ()
 	 <COND (<AND <NOT ,SPELL-HANDLED?> ,SPELL-VICTIM>
@@ -3514,9 +3524,9 @@ D .V " à la place." CR>
 	 <SETG SPELL-VICTIM <>>>
 
 <GLOBAL FANTASIES
-	<LTABLE "tas de bijoux" "or lingot" "basilic"
-		"poitrine bombée" "sphère jaune" "grue"
-		"convention des sorciers" "copie de ZORK Je">>
+	<LTABLE "tas de bijoux" "lingot d'or" "basilic"
+		"coffre débordant" "sphère jaune" "grue"
+		"congrès de magiciens" "exemplaire de ZORK I">>
 
 ^/L
 
@@ -3529,37 +3539,37 @@ D .V " à la place." CR>
 	       (<EQUAL? ,SPELL? ,S-FEEBLE>
 		<TELL "Vous semblez inhabituellement faible en ce moment.">)
 	       (<EQUAL? ,SPELL? ,S-FLOAT>
-		<TELL "Vous semblez quelque peu lumière.">)
+		<TELL "Vous vous sentez étrangement léger.">)
 	       (<EQUAL? ,SPELL? ,S-FREEZE>
-		<TELL "Vous êtes gelé raide.">)
-	       (ELSE <TELL "Vous êtes en parfait santé.">)>
+		<TELL "Vous êtes raide comme un glaçon.">)
+	       (ELSE <TELL "Vous êtes en parfaite santé.">)>
 	 <CRLF>
 	 <COND (<NOT <0? ,DEATHS>>
 		<TELL "Vous avez été tué ">
 		<COND (<1? ,DEATHS> <TELL "une fois.">)
 		      (<EQUAL? ,DEATHS 2> <TELL "deux fois.">)
-		      (T <TELL "un horrible lot.">)>
+		      (T <TELL "un nombre incalculable de fois.">)>
 		<CRLF>)>>
 
 <ROUTINE V-SCORE ("OPTIONAL" (ASK? T))
 	 #DECL ((ASK?) <OR ATOM FALSE>)
-	 <TELL "Score ">
-	 <COND (.ASK? <TELL ": ">) (ELSE <TELL ": ">)>
+	 <TELL "Votre score ">
+	 <COND (.ASK? <TELL "serait ">) (ELSE <TELL "est ">)>
 	 <TELL N ,SCORE>
 	 <TELL " sur 400, après ">
 	 <TELL N ,MOVES>
-	 <COND (<1? ,MOVES> <TELL " coup.">) (ELSE <TELL " coups.">)>
+	 <COND (<1? ,MOVES> <TELL " tour.">) (ELSE <TELL " tours.">)>
 	 <CRLF>
 	 <TELL "Ce score vous donne le rang de ">
-	 <COND (<EQUAL? ,SCORE 400> <TELL "Maître Aventurier">
+	 <COND (<EQUAL? ,SCORE 400> <TELL "Maître aventurier">
 		<COND (<NOT ,WON-FLAG>
-		       <TELL ", mais d'une manière ou d'une autre, vous ne vous sentez pas terminé">)>)
-	       (<G? ,SCORE 360> <TELL "Assistant">)
-	       (<G? ,SCORE 320> <TELL "Mas ter">)
+		       <TELL ", mais vous sentez confusément que ce n'est pas terminé">)>)
+	       (<G? ,SCORE 360> <TELL "Magicien">)
+	       (<G? ,SCORE 320> <TELL "Maître">)
 	       (<G? ,SCORE 240> <TELL "Aventurier">)
-	       (<G? ,SCORE 160> <TELL "Junior Aventurier">)
+	       (<G? ,SCORE 160> <TELL "Aventurier junior">)
 	       (<G? ,SCORE 80> <TELL "Aventurier novice">)
-	       (<G? ,SCORE 40> <TELL "Amateur Aventurier">)
+	       (<G? ,SCORE 40> <TELL "Aventurier amateur">)
 	       (T <TELL "Débutant">)>
 	 <TELL "." CR>
 	 ,SCORE>
@@ -3569,7 +3579,9 @@ D .V " à la place." CR>
  	 <COND (.DESC <TELL .DESC CR>)>
 	 <COND (<NOT <EQUAL? ,ADVENTURER ,WINNER>>
 		<TELL "
-| **** Le " D ,WINNER "est mort **** | |">
+| **** Le " D ,WINNER " est mort ****
+|
+|">
 		<REMOVE ,WINNER>
 		<SETG WINNER ,ADVENTURER>
 		<SETG HERE <LOC ,WINNER>>
@@ -3583,7 +3595,7 @@ D .V " à la place." CR>
 		 <SETG DEATHS <+ ,DEATHS 1>>
 		 <MOVE ,WINNER ,HERE>
 		 <TELL
-"Je vais jeter un coup d'œil... vous méritez probablement une autre chance." CR CR>
+"Voyons un peu...|Eh bien, vous méritez probablement une nouvelle chance. Je ne peux pas vous remettre entièrement d'aplomb, mais on ne peut pas tout avoir." CR CR>
 		 <FCLEAR ,DEAD-PALANTIR-1 ,TOUCHBIT>
 		 <FCLEAR ,DEAD-PALANTIR-2 ,TOUCHBIT>
 		 <FCLEAR ,DEAD-PALANTIR-3 ,TOUCHBIT>

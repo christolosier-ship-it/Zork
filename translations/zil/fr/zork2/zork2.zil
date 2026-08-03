@@ -1,4 +1,6 @@
-"ZORK2 pour Zork II: Le Magicien de Frobozz (c) Copyright 1983 Infocom, Inc. Tous droits réservés."
+"ZORK2 pour
+Zork II : Le Magicien de Frobozz
+(c) Copyright 1983 Infocom, Inc. Tous droits réservés."
 
 ON!-INITIAL
 OFF!-INITIAL
@@ -10,7 +12,8 @@ OFF!-INITIAL
 <OR <GASSIGNED? ZILCH>
     <SETG WBREAKS <STRING !\" !,WBREAKS>>>
 
-<PRINC "ZORK II: Le Magicien de Frobozz">
+<PRINC "ZORK II rénové : Le Magicien de Frobozz
+">
 
 <COND (<GASSIGNED? PREDGEN>
        <ID 0>)>

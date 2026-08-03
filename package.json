@@ -12,7 +12,8 @@
     "localize:vocabulary": "node scripts/generate-french-vocabulary.mjs",
     "build:stories": "node scripts/build-stories.mjs",
     "build:story:zork1": "node scripts/build-stories.mjs zork1",
-    "check": "node scripts/verify.mjs && node scripts/audit-french-catalog.mjs && node scripts/audit-zork1-review.mjs && node scripts/audit-zork1-parser-vocabulary.mjs && node scripts/test-french-commands.mjs && node scripts/test-french-object-vocabulary.mjs && node scripts/smoke-games.mjs && node scripts/smoke-french-scenarios.mjs",
+    "build:story:zork2": "node scripts/build-stories.mjs zork2",
+    "check": "node scripts/verify.mjs && node scripts/audit-french-catalog.mjs && node scripts/audit-zork1-review.mjs && node scripts/audit-zork1-parser-vocabulary.mjs && node scripts/audit-zork2-review.mjs && node scripts/audit-zork2-parser-vocabulary.mjs && node scripts/test-french-commands.mjs && node scripts/test-french-object-vocabulary.mjs && node scripts/smoke-games.mjs && node scripts/smoke-french-scenarios.mjs",
     "test": "npm run check"
   },
   "dependencies": {

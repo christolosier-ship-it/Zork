@@ -465,8 +465,8 @@ async function writeLocalizedSources(files, translations) {
       file.content,
       file.spans,
       gameTranslations,
-      file.game === 'zork1',
-      file.game === 'zork1',
+      file.game === 'zork1' || file.game === 'zork2',
+      file.game === 'zork1' || file.game === 'zork2',
     );
     const patches = [
       ...(structuralOverrides['*'] ?? []),
