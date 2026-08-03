@@ -1,6 +1,7 @@
 import { WebIOAdapter } from 'zmachine/web';
 import { translateFrenchCommand } from './french-commands.js';
 import { readSave, storeSave } from './storage.js';
+import './zork1-map.js';
 
 export class ZorkIOAdapter extends WebIOAdapter {
   constructor({ gameId, onCommand, onReady, onSave, onRestore, onStatus, ...config }) {
