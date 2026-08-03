@@ -18,8 +18,22 @@ for (const path of requiredFiles) {
 
 const manifest = JSON.parse(await readFile('public/manifest.webmanifest', 'utf8'));
 const thirdPartyNotices = await readFile('THIRD_PARTY_NOTICES.md', 'utf8');
+const serviceWorker = await readFile('public/sw.js', 'utf8');
+const zorkIO = await readFile('src/zork-io.js', 'utf8');
+
 if (manifest.display !== 'standalone' || manifest.icons?.length < 3) {
   throw new Error('Le manifeste PWA est incomplet.');
+}
+
+if (!zorkIO.includes("import './zork1-map.js';")) {
+  throw new Error('La carte de Zork I n’est pas chargée par le bundle principal.');
+}
+
+if (
+  !serviceWorker.includes("url.pathname.endsWith('/assets/app.js')") ||
+  !serviceWorker.includes("url.pathname.endsWith('/assets/app.css')")
+) {
+  throw new Error('Les assets applicatifs doivent être rafraîchis depuis le réseau avant le cache.');
 }
 
 for (const game of GAMES) {

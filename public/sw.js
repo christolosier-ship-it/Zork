@@ -1,4 +1,4 @@
-const CACHE_NAME = 'zork-trilogy-fr-v1.1.0';
+const CACHE_NAME = 'zork-trilogy-fr-v1.2.0';
 const APP_SHELL = [
   './',
   './index.html',
@@ -44,6 +44,24 @@ self.addEventListener('fetch', (event) => {
           return response;
         })
         .catch(async () => (await caches.match(request, { ignoreSearch: true })) ?? caches.match('./index.html')),
+    );
+    return;
+  }
+
+  const isApplicationAsset =
+    url.pathname.endsWith('/assets/app.js') || url.pathname.endsWith('/assets/app.css');
+
+  if (isApplicationAsset) {
+    event.respondWith(
+      fetch(request)
+        .then(async (response) => {
+          if (response.ok) {
+            const cache = await caches.open(CACHE_NAME);
+            await cache.put(request, response.clone());
+          }
+          return response;
+        })
+        .catch(() => caches.match(request)),
     );
     return;
   }
